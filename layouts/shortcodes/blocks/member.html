@@ -1,0 +1,24 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $type   := .Get "type" | default "" }} 
+
+{{ $contribution   := .Get "contribution" | default "" }} 
+{{ $name   := .Get "name" | default "" }} 
+{{ $mail   := .Get "mail" | default "info@rosenpass.eu" }} 
+{{ $key   := .Get "key" }} 
+{{ $web   := .Get "web" }} 
+{{ $github   := .Get "github" | default "" }} 
+
+<section class="row member td-box td-box--gradient">
+	<div class="col">
+		<div class="row {{ $type }}">
+			<div class="contribution">{{ $contribution }}</div>
+			<img class="github-pic" src="https://github.com/{{ $github }}.png" alt="Github profile picture of {{ $github }}">
+			<div class="infoblock">
+				<p>{{ $name }}</p>
+				<p><a href="mailto:{{ $mail }}">{{ $mail }}</a></p>
+				{{ with .Get "key"  }}<p>PGP: {{ $key }}</p>{{ end }}
+				{{ with .Get "web" }}<p><a href="https://www.{{ $web }}" target="_blank">{{ $web }}</a></p>{{ end }}
+			</div>
+		</div>
+	</div>
+</section>
