@@ -7,8 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    concurrency:
-        group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
@@ -43,14 +41,13 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           personal_token: ${{ secrets.TOKEN_FOR_HUGO }}
           #external_repository: <username>/<username>.github.io
           publish_dir: ./public
-          #keep_files: true  <-- usually, all files in the deployment folder are replaced
+          #  keep_files: true  <-- usually, all files in the deployment folder are replaced
           #user_name: Mullana
           #user_email: lisaschmidt@mullana.de
           #publish_branch: main
-        #   cname: example.com  <-- necessary when a custom domain is used
-           cname: rosenpass.mullana.de
+          #  cname: example.com  <-- necessary when a custom domain is used
+
