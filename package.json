@@ -1,0 +1,25 @@
+{
+  "name": "rosenpass-website",
+  "version": "0.0.1",
+  "description": "Website for project Rosenpass",
+  "main": "none.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosenpass/rosenpass-website"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rosenpass/rosenpass-website/issues"
+  },
+  "homepage": "https://github.com/rosenpass/rosenpass-website/",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
+  }
+  
+}
