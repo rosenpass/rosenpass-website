@@ -103,11 +103,11 @@ padding-bottom:20px;
 #main-contributors section.member {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: var(--white);
+  background-color: var(--bs-white);
 }
 
 #main-contributors section.member:nth-child(even) {
-  background-color: var(--light);
+  background-color: var(--bs-light);
 }
 
 #main-contributors .contribution {text-align:center; width:100%; font-weight:bold;}
@@ -125,6 +125,7 @@ padding-bottom:20px;
 	width:120px;
 	height:120px;
 	margin:25px;
+	padding: 0;
 	border-radius:50%;
 }
 
