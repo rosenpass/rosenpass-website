@@ -29,6 +29,9 @@
 	 font-family: 'Bluenesia';
 	 font-weight: normal;
 }
+.td-navbar .nav-item {
+	padding: 0 10px;
+}
 .td-navbar .nav-link {
      text-shadow: none;
         }
@@ -134,3 +137,11 @@ padding-bottom:20px;
 	justify-content: center;
 }
 
+pre {
+	padding:10px;
+	line-height:1.8
+}
+
+code {
+font-size-adjust: 0.6;
+}

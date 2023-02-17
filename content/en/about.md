@@ -19,7 +19,24 @@ type: community
 
 {{< blocks/section color="white" >}}
 
+
+Today, Virtual Private Networks (VPNs) are a cornerstone of the modern internet. Whenever you connect to your workplace from your "home office", you would most probably, consciously or not, use a VPN software to ensure that all data flowing from your computer at home to your employer's office are safe from being tangled with.
+
+There are many more common, daily usecases, from online research to circumventing location-based (and -regulated) online services.
+
+For people in countries that do "regulate" their citizens internet usage in a more aggressive way, VPNs have become a ubiquous source of online "mobility" through different regulatory environments, enabling access to uncensored information and communication. Some evil governments even make using them a criminal offence.
+
+As VPNs became a common internet standard, certain "protocols", ways to do it in technical terms, became also standards. Today's most important VPN standard is the free and open source software WireGuard(c).
+
+In recent years, "Quantum Computers" became visible at the horizon of the future; computers so powerful they could break any standard cryptography that today ensures the safety of our online banking or simply the authenticity of a website pretending to be the BBC, the Reuters news bureau, your favorite low-cost airline etc.
+
+**Rosenpass** is an important precaution against what is about to come: A safeguard, a computer programme installed and run in parallel to WireGuard, making it immune against Quantum Computer attacks. **Rosenpass** doesn't change the way WireGuard works (in fact WireGuard continues working properly in any case), but adds encryption that cannot be broken by the Quantum Computers that are about to enter our online living space.
+
+**Rosenpass** is free and open source software, developed independently by cryptographers and scientists with the help of a grant by the Dutch philanthropic foundation Stichtig NLnet.
+
+
 **It's complicated. We know.**
+
 
 That's why we thought we'd allow you to choose your own battle:
 
@@ -35,29 +52,13 @@ That's why we thought we'd allow you to choose your own battle:
 
 {{< blocks/section color="white">}}
 
-Welcome to Project **Rosenpass**.
+Cryptographers are people who work on making your phone, tablet, or laptop more secure. They create calculations that are so complicated to undo that they can be used to create envelopes for messages that cannot be opened unless you have the key. These envelopes can be created by any computer; your phone, tabled, or laptop is creating many of these right now.
 
-The building ground of today's internet is under attack. "Quantum Computers" and their precursors are threatening almost every element of trust and security that keeps our current internet going.
+This technology has been working very well for years, but when somebody manages to build a quantum computer they may be able to open up these envelopes without the key. Quantum computers use properties of the smallest things that exist – atoms – to perform calculations. These new computers are difficult to use and good at few things, but they happen to be very good at opening most of the envelopes created by cryptographers.
 
-Quantum Computers are vastly improved machines compared to today's technology. They will predictably be able to break one of the cornerstones of our internet, asymmetric key cryptography. That is of relevance for the everyday user and usage of the internet; for our bank accounts, our online purchases, for knowing if a website we surf to is the original or a fake.
+There are many ways to create envelopes that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose envelopes are the best. Some winners where found, and now cryptographers are working hard to allow all computers – including yours – to create these envelopes that cannot be opened by quantum computers.
 
-Project **Rosenpass** is ultimately about protecting the internet in its social trust structure, preserving trustworthyness, identifiability and anonymity, whatever is desired by the participants.
-
-The science of "Quantum Hardened" cryptography is already there, with mathematically provable software solutions at hand since many years ago. However, it is today's computers' capacities, bandwidths and energy comsumption ratio, that make practible implementations possible. **Rosenpass** is a groundbreaking step forward in that direction.
-
-**Rosenpass** will not change the internet, but help keeping it going when big Quantum Computers become real.
-
-It is a relatively cheap, but very significant improvement to internet security. The sooner it gets spread and widely used, the better.
-
-**Rosenpass** starts out with an addition to the well-established VPN standard WireGuard, providing for quantum hardened VPN connections, a key feature of today's secure internet, especially in times of remote work.
-
-It is easily installable side-by-side with existing WireGuard VPN installations.
-
-**Rosenpass** is not just a plugin or add-on to the WireGuard VPN software, which is an internet standard of today. It is a cryptographic coprocessing system that does not intervene into WireGuards code execution, but providing it with Quantum secure cryptographic keys at one specific point.
-
-**Rosenpass** is Free and Open Software, verifiable and reviewable by the scientific community. It uses mathematic software technology formally proven to be resistant against future Quantum Computer attacks.
-
-Project **Rosenpass** is run by a German-based team of cryptographers, researchers, open source developers, hackers and design artists; with focus on verifiable security improvement, usability and user advantage. It is an independent scientific Free and Open Software Project, financially supported by a grant from the Dutch Stichting NLnet.
+**Rosenpass** is a part of this effort. We want to allow a program called WireGuard to create these envelopes. Our program called **Rosenpass** joins WireGuard; they work together to protect network messages better than either could on their own.
 
 {{< /blocks/section >}}
 
@@ -74,18 +75,32 @@ Project **Rosenpass** is run by a German-based team of cryptographers, researche
 
 **Rosenpass** is Free and Open Source Software, publically reviewable and adaptable, published under the Apache 2.0 and MIT Licenses. See the Download section for detailed License information.
 
-**Rosenpass** is formally verifiable state-of-the-art Post Quantum Cryptography, groundbreakingly improving the security of a cornerstone to the internet. 
+**Rosenpass** is formally verifiable state-of-the-art Post Quantum Cryptography, groundbreakingly improving the security of a cornerstone to the internet.
 
 Project **Rosenpass** is run by a team of cryptographers, researchers, open source developers, hackers and design artists; with focus on verifiable security improvement, usability and user advantage.
 
 It comes as a small package at a Github-repository, easy to install and maintain with your WireGuard installation. At present, a new repository installation/addition is required, as the software is not packaged by standard yet.
 
-**Rosenpass** is written in Rust, the philosophy behind its approach being to provide for code that is readable and legitimable in retrospect with implementations and improvements to come, thereby keeping the non-specified part of the system's behaviour explicable in the future.
+**Rosenpass** is written in Rust, the philosophy behind its approach being to provide for code that is readable and legitimable in retrospect with implementations and improvements to come, thereby keeping the non-specified part of the system’s behaviour explicable in the future.
 
-**Rosenpass** is a technology project, too. In the future, it may very well be adapted to other key elements of today's internet security, preserving trust and safety in the coming Quantum era.
+**Rosenpass** is a technology project, too. In the future, it may very well be adapted to other key elements of today’s internet security, preserving trust and safety in the coming Quantum era.
 
-In short, **Rosenpass** will not just improve today's internet, it will help keeping it going in the future.
+In short, **Rosenpass** will not just improve today’s internet, it will help keeping it going in the future.
 
+
+##Investi Journo Alternativtext
+
+**Rosenpass** is an application of state-of-the-art quantum secure key encryption to the well-established WireGuard protocol. WireGuard, by design, provides for an interface to add improved future cryptography.
+
+**Rosenpass** is Free and Open Software.
+
+The prominent advantage as of today is the provision of a “Quantum Hardened WireGuard” VPN solution, increasing the trust level of critical data communication by a very significant factor.
+
+That said, it is important to notice that while **Rosenpass** cannot work without a coexistant WireGuard installation, it is not a usual plugin or add-on, but rather a cryptographic coprocessing system that does not intervene into WireGuards code processing, thereby leaving WireGuards well-established security fully functioning, even in the unlikely event that the **Rosenpass** system should fail. It’s a fail-safe approach.
+
+**Rosenpass** adds a layer of Post Quantum Security (PQS) by using WireGuards interface for cryptographic key submission.
+
+Check the Developer and Cryptographer sections and the whitepaper for further information.
 
 {{< /blocks/section >}}
 
@@ -98,18 +113,14 @@ In short, **Rosenpass** will not just improve today's internet, it will help kee
 
 {{< blocks/section  color="white" >}}
 
-Rosenpass works as an addition to WireGuard, implementing post quantum secure encryption whilst keeping WireGuards untangled with as a fallback level, should Rosenpass fail for any reason in the future.
+**Rosenpass** implements a post-quantum-secure key exchange in the spirit of a Noise protocol. The motivating use case is integrating with the WireGuard VPN: In this mode, the key generated by **Rosenpass** is supplied to WireGuard as its pre-shared symmetric key (PSK). This results in a WireGuard VPN connection with hybrid post-quantum security.
 
-Therefore, Rosenpass is to be installed conjointly with an active WireGuard installation.
+> [blipp: I changed “the Noise protocol” to “a Noise protocol”, because Noise is a whole framework of protocols, there is no single protocol called Noise.]
+> [blipp: If we mention Noise here, we should probably link to the Noise spec.]
 
-What Rosenpass does is essentially adding an advanced key exchange process and improved cryptography that is concurrently deemed quantum secure, i.e. reasonably hardened against attacks by quantum computers of different kinds.
+While **Rosenpass** is designed with WireGuard in mind, it can be used as a stand-alone tool to exchange keys. Using this mode, it can be used to secure other protocols against attacks from quantum computers, given that they offer using a PSK, and that a secure PSK is sufficient for security of the protocol. To use this mode, the `rosenpass` binary must be used together with the `outfile <FILE>` parameter. Then, **Rosenpass** will write a key to the given file every two minutes, and print a message on standard out to notify the user or the calling script that the key has changed.
 
-**Rosenpass** is Free and Open Source Software under the Apache 2.0 and MIT licenses.
-
-#### **Rosenpass** is written in Rust
-
-**Rosenpass** is made in Rust, while being conscious about its many advandtages, but also its limitations. We have chosen a rather "low-level" manner of usage, the philosophy behind it being to write a cryptosystem that keeps being readable and legitimable in retrospect with future improvements to come, aiming at keeping the non-specified part of the system's behaviour explicable.
-
+The implementation is written in Rust but uses libsodium and liboqs -- both of which are C libraries. This does not result in pretty code everywhere, but enables some advanced security features such as using libsodium’s `sodium_malloc`. We use a couple of techniques to make sure the code is secure: We use variable colouring (gating use of a secret value through a `.secret()` method), and the code zeroizes all key material.
 
 #### Repo
 
@@ -131,28 +142,86 @@ Check the download section for further information.
 
 {{< blocks/section color="light" >}}
 
-**Rosenpass** works as a complement to WireGuard, implementing post-quantum secure encryption whilst keeping WireGuards processing untangled with as a fallback level, should **Rosenpass** fail for any reason in the future. It's about additional, post-quantum safety, not alternative safety.
+**Rosenpass** protocol provides a post-quantum-secure authenticated key exchange, based on the work “Post-quantum WireGuard” (PQWG) by Hülsing, Ning, Schwabe, Weber, and Zimmermann [^pqwg]. Apart from some tweaks to the protocol internals, we provide security against what we call _state disruption attacks_ as a major contribution.
 
-Therefore, **Rosenpass** is to be installed conjointly with an active WireGuard installation.
+Both the classic WireGuard protocol (WG) and PQWG rely on a timestamp to protect against replay of the first protocol message. By setting the system time to a future date, an attacker can trick the initiator into generating a kill-packet that can be used to inhibit future handshakes without special access; this renders the initiator’s static key pair practically useless. Requiring the ability to modify the system time is a realistic assumption due to the use of the insecure NTP protocol on many systems, as described in [WireGuard CVE-2021-46873](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46873).
 
-**Rosenpass** does coprocessing rather than code intervention.
+Instead of attempting to protect against replay of the first protocol message, **Rosenpass** uses a stateless responder, so replay of the first message leads to no attack. To achieve this, we move the responder state into an encrypted cookie and have the responder include it with their message. The initiator returns this cookie in their reply so the responder can restore it before processing the reply.
 
-**Rosenpass** solely intervenes into the WireGuard processing at the point of preshared key generation. It generates symmetric preshared keys, based on the classical McEliese cryptosystem, and does a few number of key exchanges, among other advantages handling the problem of sizeable McEliese public keys. 
+In practice, **Rosenpass** is meant to be used together with WireGuard to achieve hybrid post-quantum security. In this scenario, WireGuard is still used as the main VPN protocol for transporting data while **Rosenpass** runs on the side and supplies the WireGuard implementation with keys to be used as the pre-shared key (PSK) during its handshake. Just like WireGuard, Rosenpass executes a new handshake every two minutes.
 
-Our calculations indicate that, by using **Rosenpass**, even embedded applications and systems using WireGuard can comfortably add Post Quantum security with reasonable additional computing power; with **Rosenpass**, cryptographic difficulty growth comes with over-linear, yet less-than-exponential computing power growth. See our whitepaper for calculations.
+A cryptographic proof of security is work in progress. At this time, we provide a symbolic analysis of the protocol using ProVerif and a practical implementation of the protocol in the Rust programming language. The implementation uses cryptographic primitives from liboqs [^liboqs] and libsodium [^libsodium].
 
-**Rosenpass** can be described as a post-quantum-secure key exchange protocol. It makes formal proof at the compiler backend possible, and it provides for symbolic verification, mechanized proof of security; a low-level, fast, formally verifiable piece of open source cryptography.
+## References
 
-**Rosenpass**’s keys are used for the pre-shared keys in WireGuard. The Rosenpass protocol runs in parallel to the WireGuard protocol. Rosenpass is solely used for key agreement to compute the PSK, WireGuard is used for transport data, nothings changes here.
+[^wg]: Jason A. Donenfeld. WireGuard: Next Generation Kernel Network Tunnel. NDSS 2017
+```md
+@inproceedings{DBLP:conf/ndss/Donenfeld17,
+  author    = {Jason A. Donenfeld},
+  title     = {WireGuard: Next Generation Kernel Network Tunnel},
+  booktitle = {24th Annual Network and Distributed System Security Symposium, {NDSS}
+               2017, San Diego, California, USA, February 26 - March 1, 2017},
+  publisher = {The Internet Society},
+  year      = {2017},
+  url       = {https://www.ndss-symposium.org/ndss2017/ndss-2017-programme/wireguard-next-generation-kernel-network-tunnel/},
+  timestamp = {Mon, 01 Feb 2021 08:42:15 +0100},
+  biburl    = {https://dblp.org/rec/conf/ndss/Donenfeld17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```
 
-This design delivers fully hybrid post/pre-quantum security. **Rosenpass** + WireGuard is as least as secure as WireGuard alone, in any circumstances. 
+[^pqwg]: Andreas Hülsing, Kai-Chun Ning, Peter Schwabe, Florian Weber, and Philip R. Zimmermann. Post-quantum WireGuard. https://eprint.iacr.org/2020/379
+```md
+@inproceedings{DBLP:conf/sp/HulsingNSWZ21,
+  author    = {Andreas H{\"{u}}lsing and
+               Kai{-}Chun Ning and
+               Peter Schwabe and
+               Florian Weber and
+               Philip R. Zimmermann},
+  title     = {Post-quantum WireGuard},
+  booktitle = {42nd {IEEE} Symposium on Security and Privacy, {SP} 2021, San Francisco,
+               CA, USA, 24-27 May 2021},
+  pages     = {304--321},
+  publisher = {{IEEE}},
+  year      = {2021},
+  url       = {https://doi.org/10.1109/SP40001.2021.00030},
+  doi       = {10.1109/SP40001.2021.00030},
+  timestamp = {Mon, 03 Jan 2022 22:27:45 +0100},
+  biburl    = {https://dblp.org/rec/conf/sp/HulsingNSWZ21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```
+
+[^liboqs]: Douglas Stebila, Michele Mosca. Post-quantum key exchange for the Internet and the Open Quantum Safe project. In Roberto Avanzi, Howard Heys, editors, Selected Areas in Cryptography (SAC) 2016, LNCS, vol. 10532, pp. 1–24. Springer, October 2017. https://openquantumsafe.org
+https://eprint.iacr.org/2016/1017
+```md
+@inproceedings{DBLP:conf/sacrypt/StebilaM16,
+  author    = {Douglas Stebila and
+               Michele Mosca},
+  editor    = {Roberto Avanzi and
+               Howard M. Heys},
+  title     = {Post-quantum Key Exchange for the Internet and the Open Quantum Safe
+               Project},
+  booktitle = {Selected Areas in Cryptography - {SAC} 2016 - 23rd International Conference,
+               St. John's, NL, Canada, August 10-12, 2016, Revised Selected Papers},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {10532},
+  pages     = {14--37},
+  publisher = {Springer},
+  year      = {2016},
+  url       = {https://doi.org/10.1007/978-3-319-69453-5\_2},
+  doi       = {10.1007/978-3-319-69453-5\_2},
+  timestamp = {Tue, 14 May 2019 10:00:38 +0200},
+  biburl    = {https://dblp.org/rec/conf/sacrypt/StebilaM16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```
 
 
-####  Reference
 
-We would like to refer to this paper by *Hülsing, Ning, Schwabe, Weber and Zimmermann (2021)*, as an important part of our work and protocol builds on its conclusions: 
+[^libsodium]: https://doc.libsodium.org/
 
-https://eprint.iacr.org/2020/379.pdf 
+
 
 {{< /blocks/section >}}
 
