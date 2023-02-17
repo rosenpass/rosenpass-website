@@ -1,8 +1,14 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{ $type   := .Get "type" | default "" }} 
 
-{{ $contribution   := .Get "contribution" | default "" }} 
-{{ $name   := .Get "name" | default "" }} 
+{{ $contribution    := .Get "contribution" | default "" }} 
+{{ $name            := .Get "name" | default "" }} 
+
+{{ $affiliation     := .Get "affiliation" }} 
+{{ $institute       := .Get "institute" }} 
+{{ $institutetitle  := .Get "institutetitle" | default ""  }} 
+{{ $instituteweb    := .Get "instituteweb" }} 
+
 {{ $mail   := .Get "mail" | default "info@rosenpass.eu" }} 
 {{ $key   := .Get "key" }} 
 {{ $web   := .Get "web" }} 
@@ -15,6 +21,19 @@
 			<img class="github-pic" src="https://github.com/{{ $github }}.png" alt="Github profile picture of {{ $github }}">
 			<div class="infoblock">
 				<p>{{ $name }}</p>
+				
+			{{ if $affiliation }}
+				<p>{{ $affiliation }}, 
+				{{ if $institute }}
+					{{ if $instituteweb }}
+						<a href="https://{{ $instituteweb }}" title="{{ $institutetitle }}">{{ $institute }}</a>
+					{{ else }}
+					{{ $institute }}
+					{{ end }}
+				{{ end }}
+				</p>
+			{{ end }}
+			
 				<p><a href="mailto:{{ $mail }}">{{ $mail }}</a></p>
 				{{ with .Get "key"  }}<p>PGP: {{ $key }}</p>{{ end }}
 				{{ with .Get "web" }}<p><a href="https://www.{{ $web }}" target="_blank">{{ $web }}</a></p>{{ end }}
