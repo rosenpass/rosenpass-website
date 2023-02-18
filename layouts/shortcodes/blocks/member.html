@@ -35,7 +35,7 @@
 			{{ end }}
 			
 				<p><a href="mailto:{{ $mail }}">{{ $mail }}</a></p>
-				{{ with .Get "key"  }}<p>PGP: {{ $key }}</p>{{ end }}
+				{{ with .Get "key"  }}<p><a href="{{ $key }}">PGP-Key</a></p>{{ end }}
 				{{ with .Get "web" }}<p><a href="https://www.{{ $web }}" target="_blank">{{ $web }}</a></p>{{ end }}
 			</div>
 		</div>

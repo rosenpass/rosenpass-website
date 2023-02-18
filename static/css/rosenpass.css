@@ -137,6 +137,9 @@ padding-bottom:20px;
 	justify-content: center;
 }
 
+/* small adjustments */
+
+
 pre {
 	padding:10px;
 	line-height:1.8
@@ -145,3 +148,4 @@ pre {
 code {
 font-size-adjust: 0.6;
 }
+

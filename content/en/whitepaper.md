@@ -11,7 +11,7 @@ type: community
 
 {{< blocks/lead  >}}
 
-# Whitepaper
+Whitepaper
 
 {{< /blocks/lead >}}
 
