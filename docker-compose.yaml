@@ -1,9 +1,7 @@
-version: "3.3"
-
 services:
 
   site:
-    image: docsy/docsy-example
+    image: rosenpass/rosenpass-website
     build:
       context: .
     command: server
