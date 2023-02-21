@@ -52,7 +52,7 @@ section = ["HTML", "print", "RSS"]
 images = ["/img/featured-background.jpg"]
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/rosenpass/rosenpass"
+github_repo = "https://github.com/rosenpass/rosenpass-website"
 
 # User interface configuration
 [params.ui]
