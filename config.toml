@@ -1,4 +1,4 @@
-baseURL = 'https://rosenpass.mullana.de'
+baseURL = 'https://rosenpass.eu'
 languageCode = 'en-us'
 title = 'RosenPass'
 theme = "docsy"
@@ -32,11 +32,17 @@ weight = 1
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     # guessSyntax = "true"
 	
-	
+[menu]
 [[menu.main]]
     name = "Download"
+	pre = "<i class='fas fa-arrow-alt-circle-down '></i>"
     weight = 25
     url = "#download"
+[[menu.main]]
+    name = "Source Code"
+	pre = "<i class='fab fa-github '></i>"
+    weight = 25
+    url = "https://github.com/rosenpass/rosenpass"
 	
 # Everything below this are Site Params
 

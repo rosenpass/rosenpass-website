@@ -16,4 +16,16 @@ Whitepaper
 {{< /blocks/lead >}}
 
 
-To be published here soon. Bookmark this page.
+{{< blocks/section color="white" >}}
+
+
+Our whitepaper: 
+
+<div>
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass/blob/papers-pdf/whitepaper.pdf" "target="_blank" >
+		Rosenpass Whitepaper <i class="fa-sharp fa-solid fa-file-pdf"></i>
+	</a>
+</div>
+
+
+{{< /blocks/section >}}

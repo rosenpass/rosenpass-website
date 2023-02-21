@@ -1,6 +1,6 @@
 ---
-title: "How it works"
-linkTitle: "How it works"
+title: "About Rosenpass"
+linkTitle: "About"
 weight: 20
 menu:
   main:
@@ -11,7 +11,7 @@ type: community
 
 {{< blocks/lead  >}}
 
-So what exactly does **Rosenpass** do again?
+So what exactly does **Rosenpass** do?
  
 {{< /blocks/lead >}}
 
