@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rosenpass – Rosenpass</title>
-    <link>https://rosenpass.mullana.de/</link>
+    <link>https://rosenpass.eu/</link>
     <description>Recent content on Rosenpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	  <atom:link href="https://rosenpass.mullana.de/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://rosenpass.eu/index.xml" rel="self" type="application/rss+xml" />
     
     
       

@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://rosenpass.mullana.de/about/</loc>
+    <loc>https://rosenpass.eu/about/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/whitepaper/</loc>
+    <loc>https://rosenpass.eu/whitepaper/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/contributors/</loc>
+    <loc>https://rosenpass.eu/contributors/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/contact/</loc>
+    <loc>https://rosenpass.eu/press/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/categories/</loc>
+    <loc>https://rosenpass.eu/contact/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/</loc>
+    <loc>https://rosenpass.eu/impressum/</loc>
   </url><url>
-    <loc>https://rosenpass.mullana.de/tags/</loc>
+    <loc>https://rosenpass.eu/categories/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/tags/</loc>
   </url>
 </urlset>
