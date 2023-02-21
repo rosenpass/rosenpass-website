@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Bluenesia';
+  src: url('/fonts/Bluenesia.ttf');
+}
+
+/* NAVIGATION */
+
+.td-navbar {
+	 background: #fff;
+}
+
+.navbar-brand {
+	font-size:1.75rem;
+	
+}
+
+.td-navbar .navbar-logo {
+	
+}
+
+.td-navbar .navbar-brand svg {
+	height: 40px;
+	width: 40px;
+	position: relative;
+	top: -10px;
+	}
+
+.td-navbar .navbar-brand__name {
+	 font-family: 'Bluenesia';
+	 font-weight: normal;
+}
+.td-navbar .nav-item {
+	padding: 0 10px;
+}
+.td-navbar .nav-link {
+     text-shadow: none;
+        }
+
+/* MAIN COVER */
+
+.td-cover-block .td-cover-logo {
+	margin: 0 15%;
+}
+
+@media (min-width: 992px) {
+	.td-cover-block .td-cover-logo {
+		margin: 0 35%;
+	}
+}
+
+.td-cover-block .subtitle {
+	
+	margin-bottom: 3rem;
+	font-weight: bolder;
+	font-style: italic;
+	}
+	
+.td-cover-block .whatis {
+	font-size: 1rem;
+	margin-bottom: 3rem;
+	font-weight: bolder;
+	}
+	
+	
+.td-block-padding, .td-default main section {
+	  padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+	
+.about section .row{
+	display:block;
+	
+}
+
+.link-collection {
+display: flex;
+gap: 10px;
+width: 100%;
+flex-direction: column;
+text-align: center;
+padding-bottom:20px;
+}
+
+.link-block {
+	color:#fff;
+	padding: 20px 10px;
+	border-radius:10px;
+}
+
+.link-block:hover {color:#fff; }
+
+
+@media (min-width: 768px) {
+	.link-collection {
+		display: grid;
+		grid-template-columns: 23% 23% 23% 23%;
+		column-gap: 2%;
+		width: 100%;
+	}
+}
+	
+/* Contributors Page*/
+
+#main-contributors {padding-top:20px;}
+
+#main-contributors section.member {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--bs-white);
+}
+
+#main-contributors section.member:nth-child(even) {
+  background-color: var(--bs-light);
+}
+
+#main-contributors .contribution {text-align:center; width:100%; font-weight:bold;}
+#main-contributors .infoblock p {margin: 5px 0;}
+
+@media (min-width: 768px) {
+	#main-contributors .contribution {text-align:right; width: 30%; padding:20px 0;}
+	#main-contributors .infoblock {width: 30%;}
+	#main-contributors section.member {  padding-top: 0;  padding-bottom: 0;}
+}
+
+
+
+#main-contributors  .github-pic{
+	width:120px;
+	height:120px;
+	margin:25px;
+	padding: 0;
+	border-radius:50%;
+}
+
+#main-contributors  .td-box .row {
+	align-items: center;
+	justify-content: center;
+}
+
+/* small adjustments */
+
+
+pre {
+	padding:10px;
+	line-height:1.8
+}
+
+code {
+font-size-adjust: 0.6;
+}
+
