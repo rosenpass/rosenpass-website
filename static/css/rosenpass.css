@@ -156,9 +156,12 @@ padding-bottom:20px;
 	align-items: center;
 	justify-content: center;
 }
-
 /* small adjustments */
 
+html {
+  /* Quick fix; for some reason there is a white bar on the right */
+  overflow-x: hidden; 
+}
 
 pre {
 	padding:10px;
