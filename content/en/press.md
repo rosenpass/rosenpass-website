@@ -33,12 +33,12 @@ Rosenpass soll in den nächsten Jahren weiterentwickelt werden, um auch in ander
 
 Hintergrund ist, dass verschiedene Firmen in den letzten Jahren Prototypen sogenannter "Quantencomputer" vorgestellt haben, die zukünftig in der Lage sein dürften, die heute üblichen Verschlüsselungsmechanismen, auf denen das Internet beruht, zu überwinden und damit Cybercrime und Cyberwar in neue Dimensionen heben würden. Dabei geht es nicht nur um vertrauliche Kommunikation, sondern um Basisfunktionen, ohne die das Internet nicht mehr funktioniert: Die Überprüfung, ob die Webseite die man besucht auch tatsächlich die echte ist, und nicht eine kriminielle Fälschung zu Betrugszwecken, das Onlinebanking oder die Nameserver, die Internetadressen an die richtige Stelle weiterleiten sind Dinge, die gegen Angriffe mit neuen Technologien abgesichert werden müssen.
 
-Dazu sagt die Projektleiterin Karolin Varner: "Dieses Softwareprojekt ist ein Meilenstein in der Implementierung mathematischer Verschlüsselungsmethoden, die das Internet zukunftssicher machen".
+Dazu sagt die Projektleiterin Karolin Varner: "Dieses Softwareprojekt ist ein Meilenstein in der Entwicklung von Verschlüsselungsmethoden, um das Internet zukunftssicherer zu machen".
 
 Die Forscher stellen ihre Entwicklung jetzt weltweit vor und suchen nach Partnern aus Wirtschaft und Forschungsförderung für die weitere Arbeit an diesem Bereich der Internetsicherheit.
 
 2500 Zeichen
-Lizenz cc0
+Lizenz CC0 (Public Domain)
 Belege und Anfragen gerne an presse@rosenpass.eu
 
 
