@@ -34,10 +34,10 @@ weight = 1
 	
 [menu]
 [[menu.main]]
-    name = "Download"
+    name = "Getting started"
 	pre = "<i class='fas fa-arrow-alt-circle-down '></i>"
     weight = 25
-    url = "#download"
+    url = "#start"
 [[menu.main]]
     name = "Source Code"
 	pre = "<i class='fab fa-github '></i>"
