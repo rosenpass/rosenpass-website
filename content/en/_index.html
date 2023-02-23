@@ -12,7 +12,10 @@ subtitle = "Build post-quantum-secure VPNs with WireGuard!"
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/about" >}}">
 		Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
+		Getting Started <i class="fas fa-power-off ml-2"></i>
+	</a>
+	<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
 		Source Code <i class="fab fa-github ml-2 "></i>
 	</a>
 
@@ -23,27 +26,20 @@ subtitle = "Build post-quantum-secure VPNs with WireGuard!"
 </div>
 {{< /blocks/cover >}}
 
-{{< blocks/lead color="primary" >}}
-	<h3>Welcome to Project <strong>Rosenpass</strong> !</h3>
-
-
-{{< /blocks/lead >}}
-
-
-
 {{< blocks/section color="dark" >}}
-{{< blocks/feature icon="" title="Quantum Secure" >}}
-<strong>Rosenpass</strong> adds quantum security (PQS) to the well-established WireGuard protocol, enabling VPN (Virtual Private Network) appliances that are hardened against quantum computer attacks while preserving the existing cryptographic security as a fail-safe fallback state.
+{{< blocks/feature icon="" title="Post-Quantum Secure" >}}
+<strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
+It achieves the same security guarantees as WireGuard, using  two very strong post-quantum key exchange methods methods – Classic McEliece and Kyber.
 {{< /blocks/feature >}}
 
 
 {{< blocks/feature icon="" title="Works with WireGuard" url="" >}}
-Adding <strong>Rosenpass</strong> to your WireGuard installation lifts your VPNs security to the max. Today and in the future.
+To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security and high-speed data transmission.
 {{< /blocks/feature >}}
 
 
 {{< blocks/feature icon="" title="Free and Open Source" url="" >}}
-<strong>Rosenpass</strong> is Free and Open Source Software under the Apache 2.0 and MIT license.
+<strong>Rosenpass</strong> is Free and Open Source Software under the Apache 2.0 and MIT license and developed by Hackers and researchers.
 {{< /blocks/feature >}}
 
 
@@ -51,7 +47,7 @@ Adding <strong>Rosenpass</strong> to your WireGuard installation lifts your VPNs
 
 
 {{< blocks/lead color="secondary" >}}
-	<h3  id="download">Getting started</h3>
+	<h3  id="start">Getting started</h3>
 
 {{< /blocks/lead >}}
 
