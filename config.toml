@@ -43,6 +43,10 @@ weight = 1
 	pre = "<i class='fab fa-github '></i>"
     weight = 25
     url = "https://github.com/rosenpass/rosenpass"
+[[menu.main]]
+  name = "Whitepaper"
+  weight = 40
+  url = "/whitepaper.pdf"
 	
 # Everything below this are Site Params
 
