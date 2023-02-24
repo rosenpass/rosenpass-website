@@ -3,13 +3,16 @@
 Bootstrap variables overrides for theme.
 See https://github.com/twbs/bootstrap/pull/23260
 */
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.0.1/dist/font-face.css");
+html {
+  overflow-x: hidden; }
+
 /*!
    * Bootstrap  v5.2.3 (https://getbootstrap.com/)
    * Copyright 2011-2022 The Bootstrap Authors
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
-@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v27.0.1/dist/font-face.css");
 :root {
   --bs-blue: #72A1E5;
   --bs-indigo: #6610f2;
