@@ -13,9 +13,9 @@ type: community
 Contact
 {{< /blocks/lead >}}
 
-{{< blocks/section color="white" >}}
+{{< blocks/section color="light" >}}
 We are happy to answer to your inquiries. Note that we are a free and independent group of developers and researchers, with limited administrative resources. Your time-to-reply may therefore vary.
-See the t&c section for legal information.
+See the "Terms and Conditions" link in the footer for legal information.
 
 Please direct your inquiries by e-mail as follows:
 
