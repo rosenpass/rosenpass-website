@@ -25,7 +25,7 @@ info@rosenpass.eu
 
 #### Security issues and bug reports
 
-security@rosenpass.eu
+security@rosenpass.eu [(GPG key)](/keys/security@rosenpass.eu.pub)
 
 #### Report other problems and ask for support
 
@@ -34,10 +34,3 @@ support@rosenpass.eu
 #### Press contact and interview requests
 
 press@rosenpass.eu
-
-
-**PGP Public key upon request.**
-
-bug reports (link)
-business inquiries: ... 
-{{< /blocks/section >}}
