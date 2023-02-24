@@ -8,8 +8,16 @@ type: community
 ---
 
 {{< blocks/lead  >}}
-Impressum/Legal Notice
+## Impressum / Terms and Conditions
 {{< /blocks/lead >}}
+
+
+
+{{< blocks/section  color="light" >}}
+
+Since this website is hosted in Germany, we are legally bound to provide a so-called "Impressum" with legal information for this website. Check the light blue blocks for English content.
+
+{{< /blocks/section >}}
 
 {{< blocks/section  color="white">}}
 
