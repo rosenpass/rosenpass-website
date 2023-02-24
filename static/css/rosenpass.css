@@ -177,6 +177,12 @@ padding-bottom:20px;
 	align-items: center;
 	justify-content: center;
 }
+
+img.rp-supporter {
+	padding:20px;
+	max-width: 300px;
+}
+
 /* small adjustments */
 
 pre {
