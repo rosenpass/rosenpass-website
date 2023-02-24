@@ -38,6 +38,9 @@
 	
 }
 
+.td-navbar .navbar-brand {
+	margin-bottom:-10px
+}
 .td-navbar .navbar-brand svg {
 	height: 40px;
 	width: 40px;
@@ -55,6 +58,12 @@
 .td-navbar .nav-link {
      text-shadow: none;
         }
+		
+.navbar-bg-onscroll {
+  background: #fff !important;
+  opacity: inherit;
+}
+
 
 /* MAIN COVER */
 
@@ -74,6 +83,18 @@
 	font-weight: bolder;
 	font-style: italic;
 	}
+	
+.td-cover-block .rp-buttonrow a.btn {
+	margin: 0 10px;
+	width: 11em;
+	font-size:18px;
+}
+
+
+.td-cover-block .fa-circle-chevron-down {
+	  font-size: 300%!important;
+}
+
 	
 .td-cover-block .whatis {
 	font-size: 1rem;
@@ -157,11 +178,6 @@ padding-bottom:20px;
 	justify-content: center;
 }
 /* small adjustments */
-
-html {
-  /* Quick fix; for some reason there is a white bar on the right */
-  overflow-x: hidden; 
-}
 
 pre {
 	padding:10px;
