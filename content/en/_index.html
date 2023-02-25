@@ -70,7 +70,12 @@ rosenpass keygen \
   public-key  mykey/pqpk
 ```
 
-We provide packages on debian-==TODO==, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt ==[static binaries TODO]().==
+Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages on debian, nix, arch linux, and possibly alpine. You can follow the process in [the readme](https://github.com/rosenpass/rosenpass#getting-rosenpass). We also produce static binaries as part of our [CI process](https://github.com/rosenpass/rosenpass/actions/workflows/nix.yaml?query=is%3Asuccess+branch%3Amain).
+
+<!--
+TODO: @wucke13
+
+We provide packages on debian, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt static binaries.
 
 <div>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
@@ -82,6 +87,13 @@ We provide packages on debian-==TODO==, nix, and arch linux. On other system the
     (debian) $ apt install rosenpass
       (arch) $ pacman -S rosenpass
 (nix-legacy) $ nix-env -iA nixos.rosenpass
+ (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
+     (cargo) $ cargo install rosenpass
+```
+-->
+
+```shell
+  (arch AUR) $ aura -A rosenpass-git
  (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
      (cargo) $ cargo install rosenpass
 ```
