@@ -252,7 +252,7 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 	<div class="col">
 		<div class="row ">
 			
-				<p>Rosenpass is a deamon, that given a private key and a list of peers performs a key exchange with each peer. The resulting keys are given to WireGuard using it’s PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.</p>
+				<p>Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.</p>
 <p>The <code>rp</code> bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the <code>wg</code> WireGuard frontend and the <code>rosenpass</code> tool that implements our cryptography using the <code>explain</code> flag.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rp explain genkey mykey
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#! /bin/bash</span>
@@ -263,15 +263,27 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 </span></span><span style="display:flex;"><span>rosenpass keygen <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  private-key mykey/pqsk <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  public-key  mykey/pqpk
-</span></span></code></pre></div><p>We provide packages on debian-==TODO==, nix, and arch linux. On other system the rust package manager <code>cargo</code> can be used. If none of these methods are suitable, you can download one of our prebuilt ==<a href="">static binaries TODO</a>.==</p>
+</span></span></code></pre></div><p>Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in <a href="https://github.com/rosenpass/rosenpass#getting-rosenpass">the README</a>. We also produce static binaries as part of our <a href="https://github.com/rosenpass/rosenpass/actions/workflows/nix.yaml?query=is%3Asuccess+branch%3Amain">CI process</a>.</p>
+<!--
+TODO: @wucke13
+
+We provide packages on debian, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt static binaries.
+
 <div>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
 </div>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">(</span>debian<span style="color:#ce5c00;font-weight:bold">)</span> $ apt install rosenpass
-</span></span><span style="display:flex;"><span>      <span style="color:#ce5c00;font-weight:bold">(</span>arch<span style="color:#ce5c00;font-weight:bold">)</span> $ pacman -S rosenpass
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>nix-legacy<span style="color:#ce5c00;font-weight:bold">)</span> $ nix-env -iA nixos.rosenpass
+
+```shell
+    (debian) $ apt install rosenpass
+      (arch) $ pacman -S rosenpass
+(nix-legacy) $ nix-env -iA nixos.rosenpass
+ (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
+     (cargo) $ cargo install rosenpass
+```
+-->
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">(</span>arch AUR<span style="color:#ce5c00;font-weight:bold">)</span> $ aura -A rosenpass-git
 </span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">(</span>nix-flake<span style="color:#ce5c00;font-weight:bold">)</span> $ nix profile install github:rosenpass/rosenpass#rosenpass
 </span></span><span style="display:flex;"><span>     <span style="color:#ce5c00;font-weight:bold">(</span>cargo<span style="color:#ce5c00;font-weight:bold">)</span> $ cargo install rosenpass
 </span></span></code></pre></div><p>To get more information about command line parameters used by the tools, you can ask the tools for help:</p>
@@ -358,7 +370,7 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 <footer class="bg-white py-5 row d-print-none">
  
   <p class=" text-center text-xs mb-1"><a href="/impressum/"  >Impressum | Terms and Conditions</a></p>
-   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLNet</a> with financial support for the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
+   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLNet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
   <p class=" text-center text-xs">Website and mail hosting sponsored by <a href="https://servercow.de/">Servercow</a>.</p>
   
   <div class="container-fluid mx-sm-5 text-center text-xs">
