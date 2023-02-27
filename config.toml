@@ -61,7 +61,7 @@ section = ["HTML"]
 #privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
-images = ["/img/featured-background.jpg"]
+images = ["/img/rosenpass-preview.png"]
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
 github_repo = "https://github.com/rosenpass/rosenpass-website"
