@@ -25,6 +25,12 @@
 
 /* NAVIGATION */
 
+@media (min-width: 768px) {
+	
+	
+}
+
+
 .td-navbar {
 	 background: #fff;
 }
@@ -155,11 +161,12 @@ padding-bottom:20px;
 }
 
 #main-contributors .contribution {text-align:center; width:100%; font-weight:bold;}
+#main-contributors .infoblock  { text-align:center;}
 #main-contributors .infoblock p {margin: 5px 0;}
 
 @media (min-width: 768px) {
 	#main-contributors .contribution {text-align:right; width: 30%; padding:20px 0;}
-	#main-contributors .infoblock {width: 30%;}
+	#main-contributors .infoblock {width: 30%; text-align:left;}
 	#main-contributors section.member {  padding-top: 0;  padding-bottom: 0;}
 }
 
