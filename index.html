@@ -295,13 +295,13 @@ We provide packages on debian, nix, and arch linux. On other system the rust pac
 </span></span></code></pre></div><p>Extract the public keys:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp pubkey server.rosenpass-secret server.rosenpass-public
 </span></span><span style="display:flex;"><span>rp pubkey client.rosenpass-secret client.rosenpass-public
-</span></span></code></pre></div><p>Copy the <code>-public</code> directories to the other peers and then start the vpn. On the server:</p>
+</span></span></code></pre></div><p>Copy the <code>-public</code> directories to the other peers and then start the VPN. On the server:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer client.rosenpass-public allowed-ips fe80::/64
 </span></span></code></pre></div><p>On the client:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange server.rosenpass-secret dev rosenpass0 <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer client.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
-</span></span></code></pre></div><p>Assign ip addresses:</p>
+</span></span></code></pre></div><p>Assign IP addresses:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ip a add fe80::1/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Server</span>
 </span></span><span style="display:flex;"><span>sudo ip a add fe80::2/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Client</span>
 </span></span></code></pre></div><p>Test the connection by pinging the server on the client machine:</p>
@@ -370,7 +370,7 @@ We provide packages on debian, nix, and arch linux. On other system the rust pac
 <footer class="bg-white py-5 row d-print-none">
  
   <p class=" text-center text-xs mb-1"><a href="/impressum/"  >Impressum | Terms and Conditions</a></p>
-   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLNet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
+   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLnet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
   <p class=" text-center text-xs">Website and mail hosting sponsored by <a href="https://servercow.de/">Servercow</a>.</p>
   
   <div class="container-fluid mx-sm-5 text-center text-xs">
