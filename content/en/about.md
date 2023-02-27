@@ -20,19 +20,19 @@ type: community
 {{< blocks/section color="white" >}}
 
 
-Today, Virtual Private Networks (VPNs) are a cornerstone of the modern internet. Whenever you connect to your workplace from your "home office", you would most probably, consciously or not, use a VPN software to ensure that all data flowing from your computer at home to your employer's office are safe from being tangled with.
+Today, Virtual Private Networks (VPNs) are a cornerstone of the modern Internet. Whenever you connect to your workplace from your "home office", you would most probably, consciously or not, use a VPN software to ensure that all data flowing from your computer at home to your employer's office are safe from being tangled with.
 
 There are many more common, daily use cases ‒ from online research to circumventing location-based (and -regulated) online services.
 
 For people in countries that do "regulate" their citizens' internet usage in a more aggressive way, VPNs have become a ubiquous source of online "mobility" through different regulatory environments, enabling access to uncensored information and communication. Some malicious governments even make using them a criminal offence.
 
-As VPNs became a common internet standard, certain "protocols" ‒ technical sets of rules on how to communicate ‒ also became standards. Today's most important VPN standard is the free and open source software WireGuard®.
+As VPNs became a common internet standard, certain "protocols" ‒ technical sets of rules on how to communicate ‒ also became standards. Today's most important VPN standard is the Free and Open Source Software WireGuard®.
 
 In recent years, "Quantum Computers" became visible at the horizon of the future ‒ computers so powerful they could break any current cryptographic standard. Standards that ensure the safety of our online banking or the authenticity of a website pretending to be the BBC, the Reuters news bureau or your favorite low-cost airline.
 
-**Rosenpass** is an important precaution against what is about to come: A safeguard, a computer programme installed and run in parallel to WireGuard, making it immune against Quantum Computer attacks. **Rosenpass** doesn't change the way WireGuard works (In fact, WireGuard encryption continue to work as it used to without **Rosenguard**), but adds encryption that cannot be broken by the Quantum Computers that are about to enter our online reality.
+**Rosenpass** is an important precaution against what is about to come: A safeguard, a computer programme installed and run in parallel to WireGuard, making it immune against Quantum Computer attacks. **Rosenpass** doesn't change the way WireGuard works (in fact, WireGuard encryption continue to work as it used to without **Rosenguard**), but adds encryption that cannot be broken by the Quantum Computers that are about to enter our online reality.
 
-**Rosenpass** is free and open source software, developed independently by cryptographers and scientists with the help of a grant by the Dutch philanthropic foundation Stichtig NLnet.
+**Rosenpass** is Free and Open Source Software, developed independently by cryptographers and scientists with the help of a grant by the Dutch philanthropic foundation Stichtig NLnet.
 
 
 **Do you still have questions?**
@@ -72,9 +72,9 @@ There are many ways to create envelopes that cannot be opened by quantum compute
 
 **Rosenpass** provides a complement to the well-recognised WireGuard standard, adding quantum-hardened cryptography and key exchange while keeping the established WireGuard-standard encryption security. Therefore, **Rosenpass** is not just an add-on or a plug-in, but a coprocessing software that interacts with WireGuard at exactly one point, enhancing WireGuards predefined key generation and exchange process with Post Quantum Secure (PQS) cryptography, based on the McEliece cryptosystem.
 
-**Rosenpass** is free and open source software, publically reviewable and adaptable, published under Apache and MIT licenses. See the [License](/#license) section for detailed information.
+**Rosenpass** is Free and Open Source Software, publically reviewable and adaptable, published under Apache and MIT licenses. See the [License](/#license) section for detailed information.
 
-**Rosenpass** is formally verifiable, state-of-the-art Post Quantum Cryptography, groundbreakingly improving the security of a cornerstone to the internet.
+**Rosenpass** is formally verifiable, state-of-the-art Post Quantum Cryptography, groundbreakingly improving the security of a cornerstone to the Internet.
 
 Project **Rosenpass** is run by a team of cryptographers, researchers, open source developers, hackers and designers; with focus on verifiable security improvement, usability and user advantage.
 
@@ -84,7 +84,7 @@ It comes as a small package at a Github repository, easy to install and maintain
 
 **Rosenpass** is a technology project, too. In the future, it may very well be adapted to other key elements of today's internet security, preserving trust and safety in the coming Quantum era.
 
-In short, **Rosenpass** will not just improve today's internet, it will help keeping it going in the future.
+In short, **Rosenpass** will not just improve today's Internet, it will help keeping it going in the future.
 
 
 {{< /blocks/section >}}

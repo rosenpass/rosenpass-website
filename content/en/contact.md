@@ -14,7 +14,7 @@ Contact
 {{< /blocks/lead >}}
 
 {{< blocks/section color="light" >}}
-We are happy to answer to your inquiries. Note that we are a free and independent group of developers and researchers, with limited administrative resources. Your time-to-reply may therefore vary.
+We are happy to answer your inquiries. Note that we are a free and independent group of developers and researchers, with limited administrative resources. Your time-to-reply may therefore vary.
 See the "Terms and Conditions" link in the footer for legal information.
 
 Please direct your inquiries by e-mail as follows:
@@ -25,7 +25,7 @@ info@rosenpass.eu
 
 #### Security issues and bug reports
 
-security@rosenpass.eu [(GPG key)](/keys/security@rosenpass.eu.pub)
+security@rosenpass.eu [(Open PGP key)](/keys/security@rosenpass.eu.pub)
 
 #### Report other problems and ask for support
 

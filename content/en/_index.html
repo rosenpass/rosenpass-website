@@ -119,7 +119,7 @@ rp pubkey server.rosenpass-secret server.rosenpass-public
 rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
 
-Copy the `-public` directories to the other peers and then start the vpn. On the server:
+Copy the `-public` directories to the other peers and then start the VPN. On the server:
 
 ```sh
 sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
@@ -133,7 +133,7 @@ sudo rp exchange server.rosenpass-secret dev rosenpass0 \
 	peer client.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 ```
 
-Assign ip addresses:
+Assign IP addresses:
 
 ```sh
 sudo ip a add fe80::1/64 dev rosenpass0 # Server
