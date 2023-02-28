@@ -20,7 +20,7 @@ type: community
 {{< blocks/section color="white" >}}
 
 
-Today, Virtual Private Networks (VPNs) are a cornerstone of the modern internet. Whenever you connect to your workplace from your home office, you are probably, consciously or not, using VPN software to ensure that all the data flowing from your computer at home to your employer's office is safe from interference.
+Today, Virtual Private Networks (VPNs) are a cornerstone of the modern internet. Whenever you connect to your workplace from your home office, you are probably, consciously or not, using VPN software to ensure that all the data flowing from your computer at home to your employer's office is safe from being tampered with.
 
 There are many more common, everyday use cases ‒ from online research to circumventing location-based (and regulated) online services.
 
