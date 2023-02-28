@@ -82,7 +82,7 @@ It comes as a small package in a Github repository, and is easy to install and m
 
 **Rosenpass** is written in Rust. The rosenpass application should serve as a reference implementation; it should aide developers implementing and adapting the protocol to other systems by providing readable source code and ample comments.
 
-**Rosenpass** is a technology project. In the future, it can be adapted to other elements of modern internet security, preserving trust and safety in future sysnetworkstems.
+**Rosenpass** is a technology project. In the future, it can be adapted to other elements of modern internet security, preserving trust and safety in future networks.
 
 In short, **Rosenpass** will not just improve today's internet, it will help keeping it going in the future.
 
