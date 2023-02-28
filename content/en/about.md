@@ -80,9 +80,9 @@ Project **Rosenpass** is run by a team of cryptographers, researchers, open sour
 
 It comes as a small package in a Github repository, and is easy to install and maintain alongside your WireGuard installation. At present, a new repository installation/addition is required, as the software is not yet packaged as standard.
 
-**Rosenpass** is written in Rust. The philosophy behind its approach is to provide code that is readable and legitimableXXX in retrospectXXXrectroactively with implementations and improvements to come, thereby keeping the non-specified part of the system's behaviour explicable in the future.XXX
+**Rosenpass** is written in Rust. The rosenpass application should serve as a reference implementation; it should aide developers implementing and adapting the protocol to other systems by providing readable source code and ample comments.
 
-**Rosenpass** is a technology project, too. In the future, it may very well be adapted to other key elements of modern internet security, preserving trust and safety in the coming quantum era.
+**Rosenpass** is a technology project. In the future, it can be adapted to other elements of modern internet security, preserving trust and safety in future sysnetworkstems.
 
 In short, **Rosenpass** will not just improve today's internet, it will help keeping it going in the future.
 
