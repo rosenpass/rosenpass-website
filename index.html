@@ -300,8 +300,8 @@ We provide packages on debian, nix, and arch linux. On other system the rust pac
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer client.rosenpass-public allowed-ips fe80::/64
 </span></span></code></pre></div><p>On the client:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange server.rosenpass-secret dev rosenpass0 <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer client.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange client.rosenpass-secret dev rosenpass0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 </span></span></code></pre></div><p>Assign IP addresses:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ip a add fe80::1/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Server</span>
 </span></span><span style="display:flex;"><span>sudo ip a add fe80::2/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Client</span>
