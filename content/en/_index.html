@@ -130,8 +130,8 @@ sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 
 On the client:
 
 ```sh
-sudo rp exchange server.rosenpass-secret dev rosenpass0 \
-	peer client.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+sudo rp exchange client.rosenpass-secret dev rosenpass0 \
+	peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 ```
 
 Assign IP addresses:
