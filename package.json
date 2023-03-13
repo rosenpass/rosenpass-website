@@ -26,6 +26,6 @@
     "bootstrap": "5.2.3"
   },
   "devDependencies": {
-    "hugo-extended": "0.110.0"
+    "hugo-extended": "0.111.3"
   }
 }
