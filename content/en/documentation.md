@@ -10,7 +10,7 @@ type: community
 
 {{< blocks/lead  >}}
 
-## ** Documentation **
+## **Documentation**
 
 {{< /blocks/lead >}}
 
