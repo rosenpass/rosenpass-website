@@ -21,4 +21,3 @@ jobs:
           cd docs
           mandoc -Thtml *.mdoc
           mv *.html ../AliceOrunitia/rosenpass-website/static/docs/
-`
