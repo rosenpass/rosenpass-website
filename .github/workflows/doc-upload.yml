@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          repository: AliceOrunitia/rosenpass/doc
+          repository: AliceOrunitia/rosenpass
           path: doc
       - name: Install dependencies
         run: |
