@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          repository: rosenpass/doc
+          repository: AliceOrunitia/rosenpass/doc
           path: docs
       - name: Install dependencies
         run: |
@@ -20,4 +20,5 @@ jobs:
         run: |
           cd docs
           mandoc -Thtml *.mdoc
-          mv *.html ../rosenpass-website/static/docs/
+          mv *.html ../AliceOrunitia/rosenpass-website/static/docs/
+`
