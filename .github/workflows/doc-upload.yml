@@ -19,5 +19,8 @@ jobs:
       - name: Compile docs
         run: |
           cd doc
-          mandoc -Thtml *.*
+          for file in *.1
+          do
+            mandoc -Thtml "$file" > "${file%.*}.html"
+          done
           mv *.html ../AliceOrunitia/rosenpass-website/static/docs/
