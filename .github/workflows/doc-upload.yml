@@ -1,0 +1,23 @@
+name: Update docs
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: rosenpass/doc
+          path: docs
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mandoc
+      - name: Compile docs
+        run: |
+          cd docs
+          mandoc -Thtml *.mdoc
+          mv *.html ../rosenpass-website/static/docs/
