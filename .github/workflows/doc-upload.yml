@@ -19,7 +19,7 @@ jobs:
       - name: Compile docs
         run: |
           cd doc
-          for file in *.1
+          for file in *.*
           do
             mandoc -Thtml "$file" > "${file%.*}.html"
           done
