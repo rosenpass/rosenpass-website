@@ -39,6 +39,11 @@ weight = 1
     weight = 15
     url = "#start"
 [[menu.main]]
+    identifier = "documentation"
+    name = "Documentation"
+    url = "/documentation/"
+    weight = 20
+[[menu.main]]
     name = "Source Code"
 	pre = "<i class='fab fa-github '></i>"
     weight = 25

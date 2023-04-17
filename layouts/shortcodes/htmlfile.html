@@ -1,0 +1,4 @@
+{{- $filename := .Get "filename" -}}
+{{- $filepath := printf "static/docs/%s" $filename -}}
+{{- $filebytes := readFile $filepath -}}
+{{- printf "%s" $filebytes | safeHTML -}}
