@@ -19,5 +19,5 @@ jobs:
       - name: Compile docs
         run: |
           cd doc
-          mandoc -Thtml *.mdoc
+          mandoc -Thtml *.1
           mv *.html ../AliceOrunitia/rosenpass-website/static/docs/
