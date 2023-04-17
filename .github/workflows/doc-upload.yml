@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: AliceOrunitia/rosenpass/doc
-          path: docs
+          path: doc
       - name: Install dependencies
         run: |
           sudo apt-get update
