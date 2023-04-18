@@ -19,14 +19,14 @@ type: community
 {{% blocks/documentation %}}
 {{< /blocks/section >}}
 
-{{< blocks/lead  >}}
+{{< blocks/lead color="light" >}}
 
 ### **Rosenpass**
 
 {{< /blocks/lead >}}
 {{< htmlfile filename="rosenpass.html" >}}
 
-{{< blocks/lead  >}}
+{{< blocks/lead color="secondary" >}}
 
 ### **RP Utility**
 
