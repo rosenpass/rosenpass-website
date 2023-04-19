@@ -145,13 +145,14 @@ padding-bottom:20px;
 		width: 100%;
 	}
 }
+
 @media (min-width: 768px) {
-	.link-collection, #doc-links {
+	.link-collection, .doc-links-col {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 	}
-	.link-block, #doc-links{
+	.link-block, .doc-links{
 		width: 23vw;
 	}
 }
