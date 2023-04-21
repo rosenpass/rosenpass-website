@@ -30,7 +30,7 @@ Rosenpass is free and open-source software, developed by cryptographers and scie
 
 **Do you still have questions?**
 
-Rosenpass is a complicated project, that's why we provided explanation at different levels:
+To help everyone understand what Rosenpass does, we provided explanation at different levels:
 
 {{% blocks/anchor-nav %}} 
 
