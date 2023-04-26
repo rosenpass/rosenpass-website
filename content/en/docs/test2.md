@@ -1,11 +1,10 @@
 ---
-title: "Documentation"
-linkTitle: "Documentation"
-weight: 20
-menu:
-  main:
-    weight: 20
-type: community
+title: "Test2"
+linkTitle: "Test2"
+weight: 22
+menu: false
+type: docs
+toc: true
 ---
 
 {{< blocks/lead  >}}
@@ -15,6 +14,10 @@ type: community
 {{< /blocks/lead >}}
 
 <div class="about">
+
+<h1>hi</h1>
+<h2>you</h2>
+
 {{< blocks/section color="white" >}}
 {{% blocks/documentation %}}
 {{< /blocks/section >}}

@@ -1,0 +1,16 @@
+{{ $doc_dir := "static/docs" }}
+{{ $files := readDir $doc_dir }}
+{{ $num_files := len $files }}
+{{ if gt $num_files 1 }}
+  {{ $links := "" }}
+  {{ range $i, $file := $files }}
+    {{ $link_class := cond (eq (mod $i 2) 0) "bg-light" "bg-secondary" }}
+    {{ $link_text := $file.Name | replaceRE "\\.html$" "" | title }}
+    {{ $link := printf "<a class=\"link-block doc-links %s\" href=\"#%s\">%s</a>" $link_class $link_text $link_text | safeHTML }}
+    {{ $links = printf "%s\n%s" $links $link }}
+  {{ end }}
+  <div class="link-collection doc-links-col">
+    {{ .Inner | safeHTML }}
+    {{ $links | safeHTML }}
+  </div>
+{{ end }}

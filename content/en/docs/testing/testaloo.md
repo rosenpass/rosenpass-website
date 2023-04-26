@@ -1,13 +1,15 @@
 ---
-title: "Documentation"
-linkTitle: "Documentation"
+title: "Testaloo"
+linkTitle: "Testaloo"
 weight: 20
-menu:
-  main:
-    weight: 20
-type: community
----
+menu: false
+type: docs
+toc:
+  depth: 3
 
+---
+# This is a top-level heading
+## Documentation
 {{< blocks/lead  >}}
 
 ## **Documentation**
@@ -15,6 +17,12 @@ type: community
 {{< /blocks/lead >}}
 
 <div class="about">
+
+## This is a second-level heading
+
+## This is a third-level heading
+
+
 {{< blocks/section color="white" >}}
 {{% blocks/documentation %}}
 {{< /blocks/section >}}

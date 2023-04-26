@@ -1,4 +1,25 @@
-{{- $filename := .Get "filename" -}}
-{{- $filepath := printf "static/docs/%s" $filename -}}
-{{- $filebytes := readFile $filepath -}}
-{{- printf "%s" $filebytes | safeHTML -}}
+{{ $htmlFiles := where (readDir "static/docs") ".IsDir" false }}
+{{ range $htmlFiles }}
+  {{ if eq (path.Ext .Name) ".html" }}
+    <a id="td-block-{{ . }}" class="td-offset-anchor"></a>
+    <section class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto">
+      <div class="container text-center td-arrow-down">
+        <div class="h4 mb-0">
+        {{ $rawDocTitle := strings.TrimSuffix ".html" (path.Base .Name) }}
+        {{ $formattedTitle := replace $rawDocTitle "-" " " | humanize | title }}
+          {{ (printf "## **%s**" $formattedTitle) | markdownify }}
+        </div>
+      </div>
+    </section>
+
+    <section class="row td-box td-box--white">
+      <div class="col">
+        <div class="row">
+          {{ $filename := printf "static/docs/%s" .Name }}
+          {{ $filebytes := readFile $filename }}
+          {{ printf "%s" $filebytes | safeHTML }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

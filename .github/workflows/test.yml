@@ -1,0 +1,48 @@
+name: My Workflow
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - submodule1/**
+      - submodule2/**
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: nixos-21.05
+    environment:
+      NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-21.05.tar.gz
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Install mandoc
+        run: nix-env -iA nixpkgs.mandoc
+      - name: Convert man pages to HTML
+        run: |
+          for file in /path/to/man-pages/*.1; do
+            # mandoc -Thtml -Ostyle=/path/to/style.css -Ios=OpenBSD -Ooutdir=/path/to/output/dir "${file}" && mv /path/to/output/dir/"${file%.1}.html" /path/to/output/dir/"$(basename "${file%.1}").html"
+            mandoc -Thtml -Ios=OpenBSD -Ooutdir=/path/to/output/dir "${file}" && mv /path/to/output/dir/"${file%.1}.html" /path/to/output/dir/"$(basename "${file%.1}").html"
+          done
+      - name: Build texlive
+        run: nix-build -A texlive.combined.scheme-full
+      - name: Convert TeX slides to PDF
+        run: lualatex -output-directory=/path/to/output/dir tex-slides/*.tex
+      - name: Commit changes to website repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: Update docs
+          cwd: /path/to/output/dir
+          github_token: ${{ secrets.PRIVACC }}
+      - name: Deploy HTML and PDF files
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /path/to/output/dir
+          publish_branch: gh-pages

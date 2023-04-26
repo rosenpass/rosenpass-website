@@ -2,3 +2,9 @@
 [submodule "themes/docsy"]
 	path = themes/docsy
 	url = https://github.com/google/docsy
+[submodule "/home/alice/Desktop/Code/rosenpass-website/rosenpass"]
+	path = /home/alice/Desktop/Code/rosenpass-website/rosenpass
+	url = https://github.com/rosenpass/rosenpass
+[submodule "/home/alice/Desktop/Code/rosenpass-website/eh20-slides"]
+	path = /home/alice/Desktop/Code/rosenpass-website/eh20-slides
+	url = https://github.com/rosenpass/eh20-slides

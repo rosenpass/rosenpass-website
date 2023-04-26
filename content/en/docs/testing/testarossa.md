@@ -1,13 +1,13 @@
 ---
-title: "Documentation"
-linkTitle: "Documentation"
+title: "Testarossa"
+linkTitle: "Testarossa"
 weight: 20
-menu:
-  main:
-    weight: 20
-type: community
----
+menu: false
+type: docs
+toc:
+  depth: 3
 
+---
 {{< blocks/lead  >}}
 
 ## **Documentation**
@@ -15,8 +15,8 @@ type: community
 {{< /blocks/lead >}}
 
 <div class="about">
+
 {{< blocks/section color="white" >}}
-{{% blocks/documentation %}}
 {{< /blocks/section >}}
 
 {{< htmlfile directory="static/docs" color="light" >}}

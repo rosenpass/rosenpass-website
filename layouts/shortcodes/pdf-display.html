@@ -1,0 +1,28 @@
+{{ $pdfFiles := readDir "static/presentations" }}
+{{ range $pdfFiles }}
+  {{ if eq (path.Ext .Name) ".pdf" }}
+    {{ $rawPdfTitle := strings.TrimSuffix ".pdf" (path.Base .Name) }}
+    {{ $formattedTitle := replace $rawPdfTitle "-" " " | humanize | title }}
+
+    <a id="td-block-{{ . }}" class="td-offset-anchor"></a>
+    <section class="row td-box td-box--1 position-relative td-box--gradient td-box--height-auto">
+      <div class="container text-center td-arrow-down">
+        <div class="h4 mb-0">
+          {{ (printf "## **%s**" $formattedTitle) | markdownify }}
+        </div>
+      </div>
+    </section>
+
+    <section class="row td-box td-box--white">
+      <div class="col">
+        <div class="row">
+          <p>Here will be some guff about the {{ $formattedTitle }} presentation</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum suscipit consequatur facere error ad quasi ullam distinctio magni. Dolores nesciunt tempore distinctio veritatis ex omnis officiis optio libero voluptates! Esse?</p>
+        </div>
+      </div>
+    </section>
+
+    <embed src="/presentations/{{ .Name }}" width="100%" style="height: 95vh; margin-bottom: 50px;" type="application/pdf" fullscreen="true">
+  {{ end }}
+{{ end }}
+
