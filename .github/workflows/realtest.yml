@@ -8,9 +8,9 @@ jobs:
   build:
     name: Build
     runs-on: nixos-21.05
+    if: ${{ contains(github.event.client_payload.path, 'test-files') && github.event.client_payload.ref == 'refs/heads/alice/doc-build-tests' }}
     environment:
       NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-21.05.tar.gz
-    if: ${{ contains(github.event.client_payload.path, 'test-files') && github.event.client_payload.ref == 'refs/heads/alice/doc-build-tests' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
