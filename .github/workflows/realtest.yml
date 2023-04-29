@@ -1,0 +1,138 @@
+name: Documentation Builder
+
+on:
+  repository_dispatch:
+    types: [subdir_changed]
+
+jobs:
+  process_submodules:
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.event.client_payload.path, 'test-files') && github.event.client_payload.ref == 'refs/heads/alice/doc-build-tests' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+  build:
+    name: Build
+    runs-on: nixos-21.05
+    environment:
+      NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-21.05.tar.gz
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Initialize and update submodules
+        run: |
+          git submodule update --init --recursive                    
+      - name: Delete existing files
+        run: |
+          rm -rf /static/presentations/* /static/docs/* /content/en/docs/* 
+          # Restore the index.html file in content/en/docs
+          git checkout -- /content/en/docs/index.html
+      - name: Install mandoc
+        run: nix-env -iA nixpkgs.mandoc
+      - name: Convert man pages to HTML
+        run: |
+          for file in /rosenpass/docs/man-pages/*.1; do
+            mandoc -Thtml -Ios=OpenBSD -Ooutdir=/static/docs "${file}" && mv /static/docs/"${file%.1}.html" /static/docs/"$(basename "${file%.1}").html"
+          done
+      - name: Build texlive
+        run: nix-build -A texlive.combined.scheme-full
+      - name: Convert TeX slides to PDF
+        run: lualatex -output-directory=/static/presentations /eh20-slides/tex-slides/*.tex
+      - name: Create markdown pages for docs
+        run: |
+          for file in /static/docs/*/*.html; do
+            subdir=$(dirname "${file}")
+            subdir_rel="${subdir#/static/docs/}"
+            md_dir="/content/en/docs/${subdir_rel}"
+            mkdir -p "${md_dir}"
+            filename="$(basename "${file}")"
+            man_file="/rosenpass/docs/man-pages/${subdir_rel}/${filename// /_}.1"
+            title=$(grep -oP '\.TH.*' "${man_file}" | awk '{print $3}' | tr '[:upper:]' '[:lower:]' | sed 's/_/ /g' | awk '{ for(i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2) } 1')
+            weight=$(($(ls -1 "${subdir}"/*.html | wc -l) + 1))
+            cat > "${md_dir}/${filename}.md" <<- EOM
+---
+title: "${title}"
+linkTitle: "${title}"
+weight: ${weight}
+menu: false
+type: docs
+toc:
+  depth: 3
+html_filename: ${filename}
+---
+
+<div class="about">
+
+{{< blocks/section color="white" >}}
+{{< /blocks/section >}}
+
+{{< htmlembed >}}
+
+</div>
+EOM
+    done
+      - name: Create markdown pages for presentations
+        run: |
+          for file in /static/presentations/**/*.pdf; do
+            subdir=$(dirname "${file}")
+            subdir_rel="${subdir#/static/presentations/}"
+            md_dir="/content/en/docs/${subdir_rel}"
+            mkdir -p "${md_dir}"
+            filename="$(basename "${file}")"
+            tex_file="/eh20-slides/tex-files/${subdir_rel}/${filename// /_}.tex"
+            title=$(grep -oP '\\title\{.*?\}' "${tex_file}" | sed 's/\\title{\(.*\)}/\1/')
+            weight=$(($(ls -1 "${subdir}"/*.pdf | wc -l) + 1))
+            cat > "${md_dir}/${filename}.md" <<- EOM
+---
+title: "${title}"
+linkTitle: "${title}"
+weight: ${weight}
+menu: false
+type: docs
+toc:
+  depth: 3
+pdf_filename: ${filename}
+---
+
+{{< blocks/section color="white">}}
+{{< /blocks/section >}}
+
+{{< pdfembed >}}
+EOM
+          done
+      - name: Create index.md files for subdirectories
+        run: |
+          subdirs=( "docs" "presentations" )
+          for subdir in "${subdirs[@]}"; do
+            for sub in /path/to/output/dir/static/${subdir}/*; do
+              [ -d "${sub}" ] || continue
+              subdir_name="$(basename "${sub}")"
+              subdir_name="${subdir_name//_/ }"
+              subdir_name="$(echo "${subdir_name}" | awk '{ for(i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2) } 1')"
+              md_dir="/path/to/output/dir/content/en/docs/${subdir_name}"
+              mkdir -p "${md_dir}"
+              cat > "${md_dir}/index.md" <<- EOM
+---
+title: ${subdir_name}
+type: docs
+weight: 1
+---
+EOM
+            done
+          done
+      - name: Push changes to main branch
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add -A
+          git commit -m "Update docs"
+          git push
+      - name: Commit changes to website repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: Update docs
+          github_token: ${{ secrets.TEST_FILES_SECRET }}
