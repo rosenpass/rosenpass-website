@@ -5,56 +5,48 @@ on:
     types: [subdir_changed]
 
 jobs:
-  process_submodules:
-    runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: nixos-21.05
+    environment:
+      NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-21.05.tar.gz
     if: ${{ contains(github.event.client_payload.path, 'test-files') && github.event.client_payload.ref == 'refs/heads/alice/doc-build-tests' }}
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.client_payload.ref }}
-
-    build:
-      name: Build
-      runs-on: nixos-21.05
-      environment:
-        NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-21.05.tar.gz
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-          with:
-            submodules: recursive
-        - name: Initialize and update submodules
-          run: |
-            git submodule update --init --recursive                    
-        - name: Delete existing files
-          run: |
-            rm -rf /static/presentations/* /static/docs/* /content/en/docs/* 
-            # Restore the index.html file in content/en/docs
-            git checkout -- /content/en/docs/index.html
-        - name: Install mandoc
-          run: nix-env -iA nixpkgs.mandoc
-        - name: Convert man pages to HTML
-          run: |
-            for file in /rosenpass/docs/man-pages/*.1; do
-              mandoc -Thtml -Ios=OpenBSD -Ooutdir=/static/docs "${file}" && mv /static/docs/"${file%.1}.html" /static/docs/"$(basename "${file%.1}").html"
-            done
-        - name: Build texlive
-          run: nix-build -A texlive.combined.scheme-full
-        - name: Convert TeX slides to PDF
-          run: lualatex -output-directory=/static/presentations /eh20-slides/tex-slides/*.tex
-        - name: Create markdown pages for docs
-          run: |
-            for file in /static/docs/*/*.html; do
-              subdir=$(dirname "${file}")
-              subdir_rel="${subdir#/static/docs/}"
-              md_dir="/content/en/docs/${subdir_rel}"
-              mkdir -p "${md_dir}"
-              filename="$(basename "${file}")"
-              man_file="/rosenpass/docs/man-pages/${subdir_rel}/${filename// /_}.1"
-              title=$(grep -oP '\.TH.*' "${man_file}" | awk '{print $3}' | tr '[:upper:]' '[:lower:]' | sed 's/_/ /g' | awk '{ for(i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2) } 1')
-              weight=$(($(ls -1 "${subdir}"/*.html | wc -l) + 1))
-              cat > "${md_dir}/${filename}.md" <<- EOM
+          submodules: recursive
+      - name: Initialize and update submodules
+        run: |
+          git submodule update --init --recursive
+      - name: Delete existing files
+        run: |
+          rm -rf /static/presentations/* /static/docs/* /content/en/docs/*
+          # Restore the index.html file in content/en/docs
+          git checkout -- /content/en/docs/index.html
+      - name: Install mandoc
+        run: nix-env -iA nixpkgs.mandoc
+      - name: Convert man pages to HTML
+        run: |
+          for file in /rosenpass/docs/man-pages/*.1; do
+            mandoc -Thtml -Ios=OpenBSD -Ooutdir=/static/docs "${file}" && mv /static/docs/"${file%.1}.html" /static/docs/"$(basename "${file%.1}").html"
+          done
+      - name: Build texlive
+        run: nix-build -A texlive.combined.scheme-full
+      - name: Convert TeX slides to PDF
+        run: lualatex -output-directory=/static/presentations /eh20-slides/tex-slides/*.tex
+      - name: Create markdown pages for docs
+        run: |
+          for file in /static/docs/*/*.html; do
+            subdir=$(dirname "${file}")
+            subdir_rel="${subdir#/static/docs/}"
+            md_dir="/content/en/docs/${subdir_rel}"
+            mkdir -p "${md_dir}"
+            filename="$(basename "${file}")"
+            man_file="/rosenpass/docs/man-pages/${subdir_rel}/${filename// /_}.1"
+            title=$(grep -oP '\.TH.*' "${man_file}" | awk '{print $3}' | tr '[:upper:]' '[:lower:]' | sed 's/_/ /g' | awk '{ for(i=1; i<=NF; i++) $i=toupper(substr($i,1,1)) substr($i,2) } 1')
+            weight=$(($(ls -1 "${subdir}"/*.html | wc -l) + 1))
+            cat > "${md_dir}/${filename}.md" <<- EOM
 ---
 title: "${title}"
 linkTitle: "${title}"
@@ -64,6 +56,7 @@ type: docs
 toc:
   depth: 3
 html_filename: ${filename}
+
 ---
 
 <div class="about">
