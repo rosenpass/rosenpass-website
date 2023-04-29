@@ -1,0 +1,20 @@
+name: Webhook Receiver
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  receive_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Receive Webhook
+        uses: peter-evans/webhook@v1
+        with:
+          url: https://api.github.com/repos/AliceOrunitia/rosenpass-website/dispatches
+          content-type: json
+        id: webhook
+      - name: Log Payload
+        run: |
+          echo "${{ steps.webhook.outputs.payload }}"
