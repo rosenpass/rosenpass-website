@@ -7,32 +7,29 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: nixos-21.05
+    runs-on: ubuntu-latest
     if: ${{ contains(github.event.client_payload.path, 'test-files') && github.event.client_payload.ref == 'refs/heads/alice/doc-build-tests' }}
-    environment:
-      NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs-channels/tree/nixos-21.05.tar.gz
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Initialize and update submodules
-        run: |
-          git submodule update --init --recursive
+      - name: Install Nix
+        run: sudo curl -L https://nixos.org/nix/install | sh
       - name: Delete existing files
         run: |
           rm -rf /static/presentations/* /static/docs/* /content/en/docs/*
           # Restore the index.html file in content/en/docs
           git checkout -- /content/en/docs/index.html
       - name: Install mandoc
-        run: nix-env -iA nixpkgs.mandoc
+        run: nix-shell -p mandoc --run ""
       - name: Convert man pages to HTML
         run: |
           for file in /rosenpass/docs/*.1; do
             mandoc -Thtml -Ios=OpenBSD -Ooutdir=/static/docs "${file}" && mv /static/docs/"${file%.1}.html" /static/docs/"$(basename "${file%.1}").html"
           done
       - name: Build texlive
-        run: nix-build -A texlive.combined.scheme-full
+        run: nix-shell -p texlive.combined.scheme-full --run ""
       - name: Convert TeX slides to PDF
         run: lualatex -output-directory=/static/presentations /eh20-slides/*.tex
       - name: Create markdown pages for docs
