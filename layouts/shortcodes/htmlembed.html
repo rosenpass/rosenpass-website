@@ -1,0 +1,9 @@
+{{ $filename := printf "static/docs/%s" .Page.Params.html_filename }}
+<section class="row td-box td-box--white">
+  <div class="col">
+    <div class="row">
+      {{ $filebytes := readFile $filename }}
+      {{ printf "%s" $filebytes | safeHTML }}
+    </div>
+  </div>
+</section>
