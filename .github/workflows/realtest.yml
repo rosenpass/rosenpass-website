@@ -3,7 +3,7 @@ name: Documentation Builder
 on:
   repository_dispatch:
     types: [subdir_changed]
-
+#gotta try
 jobs:
   build:
     name: Build
