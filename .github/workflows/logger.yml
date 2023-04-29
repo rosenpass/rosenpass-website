@@ -1,9 +1,8 @@
 name: Webhook Receiver
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [subdir_changed]
 
 jobs:
   receive_webhook:
