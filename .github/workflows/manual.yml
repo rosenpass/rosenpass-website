@@ -1,0 +1,14 @@
+# .github/workflows/test_dispatch.yml
+name: Test Dispatch
+
+on:
+  repository_dispatch:
+    types: [subdir_changed]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Debug Information
+        run: echo "Dispatch event triggered successfully"
