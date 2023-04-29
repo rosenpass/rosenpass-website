@@ -1,19 +1,13 @@
-name: Webhook Receiver
+# .github/workflows/test_dispatch.yml
+name: Test Dispatch
 
 on:
   repository_dispatch:
     types: [subdir_changed]
 
 jobs:
-  receive_webhook:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Receive Webhook
-        uses: peter-evans/webhook@v1
-        with:
-          url: https://api.github.com/repos/AliceOrunitia/rosenpass-website/dispatches?ref=alice/doc-build-tests
-          content-type: json
-        id: webhook
-      - name: Log Payload
-        run: |
-          echo "${{ steps.webhook.outputs.payload }}"
+      - name: Print Debug Information
+        run: echo "Dispatch event triggered successfully"
