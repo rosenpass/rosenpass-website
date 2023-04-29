@@ -11,7 +11,7 @@ jobs:
       - name: Receive Webhook
         uses: peter-evans/webhook@v1
         with:
-          url: https://api.github.com/repos/AliceOrunitia/rosenpass-website/dispatches
+          url: https://api.github.com/repos/AliceOrunitia/rosenpass-website/dispatches?ref=alice/doc-build-tests
           content-type: json
         id: webhook
       - name: Log Payload
