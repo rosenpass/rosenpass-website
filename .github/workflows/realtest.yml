@@ -1,11 +1,15 @@
-from flask import Flask, request
+name: Webhook Receiver
 
-app = Flask(__name__)
+on:
+  push:
+    branches:
+      - main
 
-@app.route('/webhook', methods=['POST'])
-def webhook_receiver():
-    print(request.json)
-    return 'Webhook received!', 200
-
-if __name__ == '__main__':
-    app.run()
+jobs:
+  process_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Receive webhook
+        run: |
+          echo "Webhook received: ${GITHUB_EVENT_NAME}"
+          echo "${GITHUB_EVENT_PAYLOAD}"
