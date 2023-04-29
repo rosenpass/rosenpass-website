@@ -68,7 +68,7 @@ html_filename: ${filename}
 
 </div>
 EOM
-    done
+          done
       - name: Create markdown pages for presentations
         run: |
           for file in /static/presentations/**/*.pdf; do
