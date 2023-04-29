@@ -28,13 +28,13 @@ jobs:
         run: nix-env -iA nixpkgs.mandoc
       - name: Convert man pages to HTML
         run: |
-          for file in /rosenpass/docs/man-pages/*.1; do
+          for file in /rosenpass/docs/*.1; do
             mandoc -Thtml -Ios=OpenBSD -Ooutdir=/static/docs "${file}" && mv /static/docs/"${file%.1}.html" /static/docs/"$(basename "${file%.1}").html"
           done
       - name: Build texlive
         run: nix-build -A texlive.combined.scheme-full
       - name: Convert TeX slides to PDF
-        run: lualatex -output-directory=/static/presentations /eh20-slides/tex-slides/*.tex
+        run: lualatex -output-directory=/static/presentations /eh20-slides/*.tex
       - name: Create markdown pages for docs
         run: |
           for file in /static/docs/*/*.html; do
