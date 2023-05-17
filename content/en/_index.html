@@ -31,6 +31,12 @@ images = ['img/rosenpass-preview.png']
 {{< /blocks/cover >}}
 
 {{< blocks/section color="dark" >}}
+{{< blocks/feature-title icon="fa-lock" title="Rosenpass Daemon" >}}
+<strong>Rosenpass</strong> is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.
+{{< /blocks/feature-title >}}
+{{< /blocks/section >}}
+
+{{< blocks/section color="dark" >}}
 {{< blocks/feature icon="fa-lock" title="Post-Quantum Secure" >}}
 <strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
 It achieves the same security guarantees as WireGuard, using  two strong post-quantum key exchange methods – Classic McEliece and Kyber.
@@ -58,7 +64,6 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 {{% blocks/section color="light" class="no-flex" %}}
 
-Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.
 
 The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
 

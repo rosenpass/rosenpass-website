@@ -6,15 +6,10 @@ menu: false
 type: docs
 toc:
   depth: 3
+pdf_filename: slides.pdf  
 ---
-
-{{< blocks/lead >}}
-
-## **Papers**
-
-{{< /blocks/lead >}}
 
 {{< blocks/section color="white">}}
 {{< /blocks/section >}}
 
-{{< pdf-display >}}
+{{< pdfembed >}}
