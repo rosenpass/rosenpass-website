@@ -34,3 +34,5 @@ support@rosenpass.eu
 #### Press contact and interview requests
 
 press@rosenpass.eu
+
+{{< /blocks/section >}}
