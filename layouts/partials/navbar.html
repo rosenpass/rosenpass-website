@@ -21,12 +21,7 @@
   {{- /**/ -}}
 </a>
 <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
-  <div id="menuToggle">
-    <input type="checkbox" />
-    <span class="burger"></span>
-    <span class="burger"></span>
-    <span class="burger"></span>
-  <ul class="navbar-nav mt-2 mt-lg-0" id="menu">
+  <ul class="navbar-nav mt-2 mt-lg-0">
     {{ $p := . -}}
     {{ range .Site.Menus.main -}}
     <li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -61,7 +56,6 @@
     {{ end -}}
   </ul>
   </div>
-</div>
 <div class="navbar-nav d-none d-lg-block">
   {{ partial "search-input.html" . }}
 </div>

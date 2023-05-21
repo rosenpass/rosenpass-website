@@ -7,12 +7,57 @@
     <header>
       {{ partial "navbar.html" . }}
     </header>
-    <div class="container-fluid td-default td-outer">
+  <div id="menuToggle">
+    <input type="checkbox" id="burgerCheckbox"/>
+    <span id="builtBurger">
+    <span class="burger" id="burgerBun"></span>
+    <span class="burger" id="burgerPatty"></span>
+    <span class="burger" id="burgerBase"></span>
+  </span>
+    <div class="td-navbar-nav-scroll ms-md-auto">
+      <ul class="navbar-nav mt-2 mt-lg-0" id="menu">
+        {{ $p := . -}}
+        {{ range .Site.Menus.main -}}
+        <li class="nav-item mr-4 mb-2 mb-lg-0">
+          {{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+          {{ with .Page }}{{ $active = or $active ( $.IsDescendant .) }}{{ end -}}
+          {{ $pre := .Pre -}}
+          {{ $post := .Post -}}
+          {{ $url := urls.Parse .URL -}}
+          {{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+          <a {{/**/ -}}
+            class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+            href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+            {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
+          >
+              {{- with .Pre }}{{ $pre }}{{ end -}}
+              <span {{- if $active }} class="active" {{- end }}>
+                {{- .Name -}}
+              </span>
+              {{- with .Post }}{{ $post }}{{ end -}}
+          </a>
+        </li>
+        {{ end -}}
+        {{ if .Site.Params.versions -}}
+        <li class="nav-item dropdown mr-4 d-none d-lg-block">
+          {{ partial "navbar-version-selector.html" . -}}
+        </li>
+        {{ end -}}
+        {{ if (gt (len .Site.Home.Translations) 0) -}}
+        <li class="nav-item dropdown mr-4 d-none d-lg-block">
+          {{ partial "navbar-lang-selector.html" . -}}
+        </li>
+        {{ end -}}
+      </ul>
+      </div>
+    <div class="container-fluid td-default td-outer" id="mainPage">
       <main role="main" class="td-main">
         {{ block "main" . }}{{ end }}
       </main>
       {{ partial "footer.html" . }}
     </div>
+  </div>
+
     {{ partialCached "scripts.html" . }}
   </body>
 </html>
