@@ -139,14 +139,33 @@
 #builtBurger{
   display:block;
 }
+
+main.td-main{
+  position: static;
+}
+
+nav.js-navbar-scroll.navbar.navbar-expand{
+  padding-bottom: 0;
+}
+
 }
 
 @media (max-width: 884px){
 #main_navbar{
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 13% /* Adjust as items added or removed */
 }
+
+.td-main{
+  position: relative;
+  top: 13%;
+}
+
+.js-navbar-scroll.navbar.navbar-expand{
+  padding-bottom: 30px;
+}
+
 }
 
 /* NAVIGATION */
