@@ -1,19 +1,21 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="{{ .Site.Language.Lang }}" class="no-js">
-  <head>
-    {{ partial "head.html" . }}
-  </head>
-  <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
-    <header>
-      {{ partial "navbar.html" . }}
-    </header>
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
+  <header>
+    {{ partial "navbar.html" . }}
+  </header>
   <div id="menuToggle">
-    <input type="checkbox" id="burgerCheckbox"/>
+    <input type="checkbox" id="burgerCheckbox" />
     <span id="builtBurger">
-    <span class="burger" id="burgerBun"></span>
-    <span class="burger" id="burgerPatty"></span>
-    <span class="burger" id="burgerBase"></span>
-  </span>
+      <span class="burger" id="burgerBun"></span>
+      <span class="burger" id="burgerPatty"></span>
+      <span class="burger" id="burgerBase"></span>
+    </span>
     <div class="td-navbar-nav-scroll ms-md-auto">
       <ul class="navbar-nav mt-2 mt-lg-0" id="menu">
         {{ $p := . -}}
@@ -25,16 +27,14 @@
           {{ $post := .Post -}}
           {{ $url := urls.Parse .URL -}}
           {{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-          <a {{/**/ -}}
-            class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
-            href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
-            {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
-          >
-              {{- with .Pre }}{{ $pre }}{{ end -}}
-              <span {{- if $active }} class="active" {{- end }}>
-                {{- .Name -}}
-              </span>
-              {{- with .Post }}{{ $post }}{{ end -}}
+          <a {{/**/ -}} class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+            href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{- if ne $url.Host
+            $baseurl.Host }} target="_blank" {{- end -}}>
+            {{- with .Pre }}{{ $pre }}{{ end -}}
+            <span {{- if $active }} class="active" {{- end }}>
+              {{- .Name -}}
+            </span>
+            {{- with .Post }}{{ $post }}{{ end -}}
           </a>
         </li>
         {{ end -}}
@@ -49,7 +49,7 @@
         </li>
         {{ end -}}
       </ul>
-      </div>
+    </div>
     <div class="container-fluid td-default td-outer" id="mainPage">
       <main role="main" class="td-main">
         {{ block "main" . }}{{ end }}
@@ -58,6 +58,7 @@
     </div>
   </div>
 
-    {{ partialCached "scripts.html" . }}
-  </body>
+  {{ partialCached "scripts.html" . }}
+</body>
+
 </html>
