@@ -56,6 +56,7 @@
             groff
             hugo
             nodejs
+            nodePackages.prettier
           ];
           git.hooks = {
             enable = true;
