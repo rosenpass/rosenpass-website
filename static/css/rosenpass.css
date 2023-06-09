@@ -23,8 +23,46 @@
     format("truetype-variations");
 }
 
+/* ADHD Spacing */
 
+ol {
+  margin-top: 15px !important;
+}
 
+ul {
+  margin-top: 15px !important ;
+}
+
+.starter-code-server pre {
+  margin-bottom: 0;
+}
+
+.starter-code-server pre p {
+  color: #f70484;
+  display: inline;
+  font-weight: bold;
+}
+
+.starter-code-client pre p {
+  color: #f0ad4e;
+  display: inline;
+  font-weight: bold;
+}
+
+.starter-code-server div {
+  margin-bottom: 5px;
+}
+
+#set-up-rosenpass-keys {
+  margin-top: 20px;
+}
+
+section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > p:nth-child(18) {
+  margin-top: 10px;
+}
 
 /* NAVIGATION */
 
