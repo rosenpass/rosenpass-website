@@ -20,6 +20,52 @@
   src: url('/fonts/Noto_Sans_Mono/NotoSansMono-VariableFont_wdth,wght.ttf') format("truetype-variations");
 }
 
+/* ADHD Spacing */
+
+ol {
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+ul {
+  margin-top: 15px !important ;
+}
+
+.starter-code-server pre {
+  margin-bottom: 0 !important;
+}
+
+.starter-code-server pre p {
+  color: #f70484 !important;
+  display: inline;
+  font-weight: bold;
+}
+
+.starter-code-client pre p {
+  color: #f0ad4e !important;
+  display: inline;
+  font-weight: bold;
+}
+
+.starter-code-server div {
+  margin-bottom: 5px !important;
+}
+
+#set-up-rosenpass-keys {
+  margin-top: 20px;
+}
+
+html.no-js
+  body.td-home
+  div#menuToggle
+  div#mainPage.container-fluid.td-default.td-outer
+  main.td-main
+  section.row.td-box.td-box--light.td-box--gradient.td-box--height-auto
+  div.col
+  div.row
+  p {
+  margin-top: 10px;
+}
 
 
 

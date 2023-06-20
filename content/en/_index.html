@@ -55,9 +55,9 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 {{% blocks/section color="light" class="no-flex" %}}
 
-Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.
+### **Getting Help**
 
-The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
+* The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
 
 ```sh
 $ rp explain genkey mykey
@@ -71,7 +71,7 @@ rosenpass keygen \
   public-key  mykey/pqpk
 ```
 
-Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
+* Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
 
 <!--
 TODO: @wucke13
@@ -99,55 +99,92 @@ We provide packages on debian, nix, and arch linux. On other system the rust pac
      (cargo) $ cargo install rosenpass
 ```
 
-To get more information about command line parameters used by the tools, you can ask the tools for help:
+* To get more information about command line parameters used by the tools, you can ask the tools for help:
 
 ```sh
 rp help
 rosenpass help
 ```
 
-To create a VPN connection, start by generating secret keys on both hosts.
+### **Set Up Rosenpass Keys**
+
+1. To create a VPN connection, start by generating secret keys on both hosts.
+
+<span class="starter-code-server">
 
 ```sh
-rp genkey server.rosenpass-secret
-rp genkey client.rosenpass-secret
+<p>user@server:~$</p> rp genkey server.rosenpass-secret
 ```
-
-Extract the public keys:
+</span>
+<span class="starter-code-client">
 
 ```sh
-rp pubkey server.rosenpass-secret server.rosenpass-public
-rp pubkey client.rosenpass-secret client.rosenpass-public
+<p>user@client:~$</p> rp genkey client.rosenpass-secret
 ```
+</span>
 
-Copy the `-public` directories to the other peers and then start the VPN. On the server:
+2. Extract the public keys:
+
+<span class="starter-code-server">
 
 ```sh
-sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
-	peer client.rosenpass-public allowed-ips fe80::/64
+<p>user@server:~$</p> rp pubkey server.rosenpass-secret server.rosenpass-public
 ```
-
-On the client:
+</span>
+<span class="starter-code-client">
 
 ```sh
-sudo rp exchange client.rosenpass-secret dev rosenpass0 \
-	peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+<p>user@client:~$</p> rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
+</span>
 
-Assign IP addresses:
+3. Copy the `-public` directories to the other peers and then start the VPN. 
+
+&nbsp;&bull; On the server:
+
+<span class="starter-code-server">
 
 ```sh
-sudo ip a add fe80::1/64 dev rosenpass0 # Server
-sudo ip a add fe80::2/64 dev rosenpass0 # Client
+<p>user@server:~$</p> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
+peer client.rosenpass-public allowed-ips fe80::/64
 ```
+</span>
 
-Test the connection by pinging the server on the client machine:
+&nbsp;&bull; On the client:
+
+<span class="starter-code-client">
 
 ```sh
-ping fe80::1%rosenpass0 # Client
+<p>user@client:~$</p> sudo rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 ```
+</span>
 
-You can watch how Rosenpass replaces the WireGuard PSK with the following command:
+4. Assign IP addresses:
+
+<span class="starter-code-server">
+
+```sh
+<p>user@server:~$</p> sudo ip a add fe80::1/64 dev rosenpass0
+```
+</span>
+<span class="starter-code-client">
+
+```sh
+<p>user@client:~$</p> sudo ip a add fe80::2/64 dev rosenpass0
+```
+</span>
+
+5. Test the connection by pinging the server on the client machine:
+
+<span class="starter-code-client">
+
+```sh
+<p>user@client:~$</p> ping fe80::1%rosenpass0
+```
+</span>
+
+6. You can watch how Rosenpass replaces the WireGuard PSK with the following command:
 
 ```sh
 watch -n 0.2 'wg show all; wg show all preshared-keys'
