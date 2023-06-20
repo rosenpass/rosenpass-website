@@ -10,48 +10,42 @@ images = ['img/rosenpass-preview.png']
 
 <p class="subtitle">Build post-quantum-secure VPNs with WireGuard!</p>
 <div class="rp-buttonrow mx-auto">
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
-		Getting Started <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
-	</a>
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/about" >}}">
-		About Rosenpass <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
-	</a>
-	<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
-		Source Code <i class="fab fa-github ml-2 "></i>
-	</a>
+<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
+Getting Started <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
+</a>
+<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/about" >}}">
+About Rosenpass <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
+</a>
+<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
+Source Code <i class="fab fa-github ml-2 "></i>
+</a>
 
-	
-	<div>
-	{{< blocks/link-down color="info" >}}
-	</div>
+<div>
+{{< blocks/link-down color="info" >}}
+</div>
 </div>
 {{< /blocks/cover >}}
 
 {{< blocks/section color="dark" >}}
 {{< blocks/feature icon="fa-lock" title="Post-Quantum Secure" >}}
 <strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
-It achieves the same security guarantees as WireGuard, using  two strong post-quantum key exchange methods – Classic McEliece and Kyber.
+It achieves the same security guarantees as WireGuard, using two strong post-quantum key exchange methods – Classic McEliece and Kyber.
 {{< /blocks/feature >}}
-
 
 {{< blocks/feature icon="fa-dragon" title="Works with WireGuard" url="" >}}
 To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security and high-speed data transmission.
 {{< /blocks/feature >}}
 
-
 {{< blocks/feature icon="fa-box-open" title="Free and Open Source" url="" >}}
 <strong>Rosenpass</strong> is Free and Open Source Software under the Apache 2.0 and MIT license and developed by hackers and researchers.
 {{< /blocks/feature >}}
 
-
 {{< /blocks/section >}}
 
-
 {{< blocks/lead color="secondary" >}}
-	<h3  id="start">Getting started</h3>
+<h3 id="start">Getting started</h3>
 
 {{< /blocks/lead >}}
-
 
 {{% blocks/section color="light" class="no-flex" %}}
 
@@ -67,8 +61,8 @@ umask 077
 mkdir -p mykey
 wg genkey > mykey/wgsk
 rosenpass keygen \
-  private-key mykey/pqsk \
-  public-key  mykey/pqpk
+private-key mykey/pqsk \
+public-key mykey/pqpk
 ```
 
 * Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
@@ -79,24 +73,24 @@ TODO: @wucke13
 We provide packages on debian, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt static binaries.
 
 <div>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
-		Download <i class="fab fa-github ml-2 "></i>
-	</a>
+<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
+Download <i class="fab fa-github ml-2 "></i>
+</a>
 </div>
 
 ```shell
-    (debian) $ apt install rosenpass
-      (arch) $ pacman -S rosenpass
+(debian) $ apt install rosenpass
+(arch) $ pacman -S rosenpass
 (nix-legacy) $ nix-env -iA nixos.rosenpass
- (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
-     (cargo) $ cargo install rosenpass
+(nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo) $ cargo install rosenpass
 ```
 -->
 
 ```shell
-  (arch AUR) $ aura -A rosenpass-git
- (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
-     (cargo) $ cargo install rosenpass
+(arch AUR) $ aura -A rosenpass-git
+(nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo) $ cargo install rosenpass
 ```
 
 * To get more information about command line parameters used by the tools, you can ask the tools for help:
@@ -198,16 +192,14 @@ watch -n 0.2 'wg show all; wg show all preshared-keys'
 {{< /blocks/lead >}}
 
 {{< blocks/section color="light" >}}
-	
-	<div class="text-center">
-	<h3> </h3>
-		<p>
-			The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
-		</p>
-		<p>
-			The content of this website is published under a Creative Commons license:<br />
-			 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)
-		</p>
-	</div>
-	
+<div class="text-center">
+<h3> </h3>
+<p>
+The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
+</p>
+<p>
+The content of this website is published under a Creative Commons license:<br />
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)
+</p>
+</div>
 {{< /blocks/section >}}
