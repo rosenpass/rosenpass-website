@@ -27,7 +27,6 @@
 
 ol {
   margin-top: 15px !important;
-  margin-bottom: 10px !important;
 }
 
 ul {
@@ -35,38 +34,33 @@ ul {
 }
 
 .starter-code-server pre {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 .starter-code-server pre p {
-  color: #f70484 !important;
+  color: #f70484;
   display: inline;
   font-weight: bold;
 }
 
 .starter-code-client pre p {
-  color: #f0ad4e !important;
+  color: #f0ad4e;
   display: inline;
   font-weight: bold;
 }
 
 .starter-code-server div {
-  margin-bottom: 5px !important;
+  margin-bottom: 5px;
 }
 
 #set-up-rosenpass-keys {
   margin-top: 20px;
 }
 
-html.no-js
-  body.td-home
-  div#menuToggle
-  div#mainPage.container-fluid.td-default.td-outer
-  main.td-main
-  section.row.td-box.td-box--light.td-box--gradient.td-box--height-auto
-  div.col
-  div.row
-  p {
+section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
+  > div:nth-child(1)
+  > div:nth-child(1)
+  > p:nth-child(18) {
   margin-top: 10px;
 }
 
