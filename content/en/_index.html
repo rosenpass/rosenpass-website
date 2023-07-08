@@ -51,7 +51,7 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 ### **Getting Help**
 
-* The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
+- The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
 
 ```sh
 $ rp explain genkey mykey
@@ -61,11 +61,11 @@ umask 077
 mkdir -p mykey
 wg genkey > mykey/wgsk
 rosenpass keygen \
-private-key mykey/pqsk \
-public-key mykey/pqpk
+  private-key mykey/pqsk \
+  public-key mykey/pqpk
 ```
 
-* Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
+- Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
 
 <!--
 TODO: @wucke13
@@ -88,21 +88,21 @@ Download <i class="fab fa-github ml-2 "></i>
 -->
 
 ```shell
-(arch AUR) $ aura -A rosenpass-git
-(nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
-(cargo) $ cargo install rosenpass
+(arch AUR)     $ aura -A rosenpass-git
+(nix-flake)    $ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo)        $ cargo install rosenpass
 ```
 
-* To get more information about command line parameters used by the tools, you can ask the tools for help:
+- To get more information about command line parameters used by the tools, you can ask the tools for help:
 
 ```sh
 rp help
 rosenpass help
 ```
 
-### **Set Up Rosenpass Keys**
+### **Generate and Use Rosenpass Keys**
 
-1. To create a VPN connection, start by generating secret keys on both hosts.
+1. Start by generating secret keys on both hosts:
 
 <span class="starter-code-server">
 
@@ -132,7 +132,7 @@ rosenpass help
 ```
 </span>
 
-3. Copy the `-public` directories to the other peers and then start the VPN. 
+3. Copy the `-public` directories to the other peers and then start the VPN: 
 
 &nbsp;&bull; On the server:
 
