@@ -130,24 +130,23 @@
 
 <p class="subtitle">Build post-quantum-secure VPNs with WireGuard!</p>
 <div class="rp-buttonrow mx-auto">
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
-		Getting Started <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
-	</a>
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/about/">
-		About Rosenpass <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
-	</a>
-	<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
-		Source Code <i class="fab fa-github ml-2 "></i>
-	</a>
+<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
+Getting Started <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
+</a>
+<a class="btn btn-lg btn-primary mr-3 mb-4" href="/about/">
+About Rosenpass <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
+</a>
+<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
+Source Code <i class="fab fa-github ml-2 "></i>
+</a>
 
-	
-	<div>
-	
-	
-	
-	<a class="btn btn-link text-info" href="#td-block-1" aria-label="Read more"><i class="fa-solid fa-circle-chevron-down" style="font-size: 400%"></i></a>
+<div>
 
-	</div>
+
+
+<a class="btn btn-link text-info" href="#td-block-1" aria-label="Read more"><i class="fa-solid fa-circle-chevron-down" style="font-size: 400%"></i></a>
+
+</div>
 </div>
 
             
@@ -178,12 +177,11 @@
 <div class="mb-0">
 
 <strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
-It achieves the same security guarantees as WireGuard, using  two strong post-quantum key exchange methods – Classic McEliece and Kyber.
+It achieves the same security guarantees as WireGuard, using two strong post-quantum key exchange methods – Classic McEliece and Kyber.
 
 </div>
 
 </div>
-
 
 
 <div class="col-lg-4 mb-5 mb-lg-0 text-center">
@@ -198,7 +196,6 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 </div>
 
 </div>
-
 
 
 <div class="col-lg-4 mb-5 mb-lg-0 text-center">
@@ -216,12 +213,10 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 
 
-
 			
 		</div>
 	</div>
 </section>
-
 
 
 
@@ -234,7 +229,7 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 		<div class="h4 mb-0">
 			
 				
-	<h3  id="start">Getting started</h3>
+<h3 id="start">Getting started</h3>
 
 
 			
@@ -246,15 +241,16 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 
 
-
  
 <a id="td-block-3" class="td-offset-anchor"></a>
 <section class="row td-box td-box--light td-box--gradient td-box--height-auto">
 	<div class="col">
 		<div class="row ">
 			
-				<p>Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.</p>
-<p>The <code>rp</code> bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the <code>wg</code> WireGuard frontend and the <code>rosenpass</code> tool that implements our cryptography using the <code>explain</code> flag.</p>
+				<h3 id="getting-help"><strong>Getting Help</strong></h3>
+<ul>
+<li>The <code>rp</code> bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the <code>wg</code> WireGuard frontend and the <code>rosenpass</code> tool that implements our cryptography using the <code>explain</code> flag.</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rp explain genkey mykey
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#! /bin/bash</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87">set</span> -e
@@ -263,51 +259,87 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 </span></span><span style="display:flex;"><span>wg genkey > mykey/wgsk
 </span></span><span style="display:flex;"><span>rosenpass keygen <span style="color:#4e9a06">\
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  private-key mykey/pqsk <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  public-key  mykey/pqpk
-</span></span></code></pre></div><p>Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in <a href="https://github.com/rosenpass/rosenpass#getting-rosenpass">the README</a>.</p>
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  public-key mykey/pqpk
+</span></span></code></pre></div><ul>
+<li>Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in <a href="https://github.com/rosenpass/rosenpass#getting-rosenpass">the README</a>.</li>
+</ul>
 <!--
 TODO: @wucke13
 
 We provide packages on debian, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt static binaries.
 
 <div>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
-		Download <i class="fab fa-github ml-2 "></i>
-	</a>
+<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
+Download <i class="fab fa-github ml-2 "></i>
+</a>
 </div>
 
 ```shell
-    (debian) $ apt install rosenpass
-      (arch) $ pacman -S rosenpass
+(debian) $ apt install rosenpass
+(arch) $ pacman -S rosenpass
 (nix-legacy) $ nix-env -iA nixos.rosenpass
- (nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
-     (cargo) $ cargo install rosenpass
+(nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo) $ cargo install rosenpass
 ```
 -->
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">(</span>arch AUR<span style="color:#ce5c00;font-weight:bold">)</span> $ aura -A rosenpass-git
-</span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">(</span>nix-flake<span style="color:#ce5c00;font-weight:bold">)</span> $ nix profile install github:rosenpass/rosenpass#rosenpass
-</span></span><span style="display:flex;"><span>     <span style="color:#ce5c00;font-weight:bold">(</span>cargo<span style="color:#ce5c00;font-weight:bold">)</span> $ cargo install rosenpass
-</span></span></code></pre></div><p>To get more information about command line parameters used by the tools, you can ask the tools for help:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>arch AUR<span style="color:#ce5c00;font-weight:bold">)</span>     $ aura -A rosenpass-git
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>nix-flake<span style="color:#ce5c00;font-weight:bold">)</span>    $ nix profile install github:rosenpass/rosenpass#rosenpass
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>cargo<span style="color:#ce5c00;font-weight:bold">)</span>        $ cargo install rosenpass
+</span></span></code></pre></div><ul>
+<li>To get more information about command line parameters used by the tools, you can ask the tools for help:</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp <span style="color:#204a87">help</span>
 </span></span><span style="display:flex;"><span>rosenpass <span style="color:#204a87">help</span>
-</span></span></code></pre></div><p>To create a VPN connection, start by generating secret keys on both hosts.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp genkey server.rosenpass-secret
-</span></span><span style="display:flex;"><span>rp genkey client.rosenpass-secret
-</span></span></code></pre></div><p>Extract the public keys:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp pubkey server.rosenpass-secret server.rosenpass-public
-</span></span><span style="display:flex;"><span>rp pubkey client.rosenpass-secret client.rosenpass-public
-</span></span></code></pre></div><p>Copy the <code>-public</code> directories to the other peers and then start the VPN. On the server:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer client.rosenpass-public allowed-ips fe80::/64
-</span></span></code></pre></div><p>On the client:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rp exchange client.rosenpass-secret dev rosenpass0 <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>	peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
-</span></span></code></pre></div><p>Assign IP addresses:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ip a add fe80::1/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Server</span>
-</span></span><span style="display:flex;"><span>sudo ip a add fe80::2/64 dev rosenpass0 <span style="color:#8f5902;font-style:italic"># Client</span>
-</span></span></code></pre></div><p>Test the connection by pinging the server on the client machine:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ping fe80::1%rosenpass0 <span style="color:#8f5902;font-style:italic"># Client</span>
-</span></span></code></pre></div><p>You can watch how Rosenpass replaces the WireGuard PSK with the following command:</p>
+</span></span></code></pre></div><h3 id="generate-and-use-rosenpass-keys"><strong>Generate and Use Rosenpass Keys</strong></h3>
+<ol>
+<li>Start by generating secret keys on both hosts:</li>
+</ol>
+<span class="starter-code-server">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@server:~$</p> rp genkey server.rosenpass-secret
+</span></span></code></pre></div></span>
+<span class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@client:~$</p> rp genkey client.rosenpass-secret
+</span></span></code></pre></div></span>
+<ol start="2">
+<li>Extract the public keys:</li>
+</ol>
+<span class="starter-code-server">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@server:~$</p> rp pubkey server.rosenpass-secret server.rosenpass-public
+</span></span></code></pre></div></span>
+<span class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@client:~$</p> rp pubkey client.rosenpass-secret client.rosenpass-public
+</span></span></code></pre></div></span>
+<ol start="3">
+<li>Copy the <code>-public</code> directories to the other peers and then start the VPN:</li>
+</ol>
+<p> • On the server:</p>
+<span class="starter-code-server">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@server:~$</p> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>peer client.rosenpass-public allowed-ips fe80::/64
+</span></span></code></pre></div></span>
+<p> • On the client:</p>
+<span class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@client:~$</p> sudo rp exchange client.rosenpass-secret dev rosenpass0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+</span></span></code></pre></div></span>
+<ol start="4">
+<li>Assign IP addresses:</li>
+</ol>
+<span class="starter-code-server">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@server:~$</p> sudo ip a add fe80::1/64 dev rosenpass0
+</span></span></code></pre></div></span>
+<span class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@client:~$</p> sudo ip a add fe80::2/64 dev rosenpass0
+</span></span></code></pre></div></span>
+<ol start="5">
+<li>Test the connection by pinging the server on the client machine:</li>
+</ol>
+<span class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><p>user@client:~$</p> ping fe80::1%rosenpass0
+</span></span></code></pre></div></span>
+<ol start="6">
+<li>You can watch how Rosenpass replaces the WireGuard PSK with the following command:</li>
+</ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch -n 0.2 <span style="color:#4e9a06">'wg show all; wg show all preshared-keys'</span>
 </span></span></code></pre></div>
 			
@@ -345,18 +377,16 @@ We provide packages on debian, nix, and arch linux. On other system the rust pac
 		<div class="row ">
 			
 				
-	
-	<div class="text-center">
-	<h3> </h3>
-		<p>
-			The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
-		</p>
-		<p>
-			The content of this website is published under a Creative Commons license:<br />
-			 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)
-		</p>
-	</div>
-	
+<div class="text-center">
+<h3> </h3>
+<p>
+The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
+</p>
+<p>
+The content of this website is published under a Creative Commons license:<br />
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)
+</p>
+</div>
 
 			
 		</div>
