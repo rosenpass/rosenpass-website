@@ -6,7 +6,7 @@
 {{ end }}
 
 <div class="row">
-	<div class="col-12">
+	<div class="col-12 col-xxl-9">
 		{{- if .Pages -}}
 		{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" )}}
 			{{ range $pag.PageGroups }}
