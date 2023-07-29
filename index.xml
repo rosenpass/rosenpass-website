@@ -5,6 +5,7 @@
     <description>Recent content on Rosenpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="https://rosenpass.eu/index.xml" rel="self" type="application/rss+xml" />
     
@@ -12,6 +13,47 @@
       
       
     
+    
+    <item>
+      <title>Blog: NetBird and Rosenpass&#39; July Hackathon</title>
+      <link>https://rosenpass.eu/blog/2023/netbird_july/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosenpass.eu/blog/2023/netbird_july/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Hello everyone and welcome to Rosenpass&amp;rsquo; very first blog post in what we hope to become a regular journal. This week, members of Rosenpass (Karolin, Ajuvo, and Alice) traveled to Berlin to meet up with NetBird, where we sought to build on the promising outcomes of our previous video conferences and establish a structure for deeper collaboration between our organizations along with a clear pathway to implementations of post-quantum security within NetBird&amp;rsquo;s services.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://netbird.io/&#34;&gt;NetBird&lt;/a&gt; is an open-source peer-to-peer overlay network that automatically connects machines over an encrypted WireGuard-based tunnel. With NetBird, once a VPN connection is established, no data is routed through a server.&lt;/p&gt;
+&lt;p&gt;On the first day, Ajuvo and I were warmly welcomed to NetBird&amp;rsquo;s shared WeWork space, following initial meetings and technical work earlier in the day between Karolin and the NetBird team. After initial introductions, coffee, and cake, we were treated by Misha, their CEO, to a seminar on NetBird&amp;rsquo;s technical architecture and process, before Karolin took the lead in explaining Cryptographic principles and their applications to various areas of NetBird&amp;rsquo;s application. Both of these seminars paid close attention to scientific communication, hoping to provide clear and understandable explanations of complex principles as part of an ongoing commitment to making security technologies available to the greatest possible range of people.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;width: 40rem;&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/whiteboard.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;whiteboard with notes from the previous seminars&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;p class=&#34;card-text&#34;&gt;The combined notes from the two seminars&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;Following those preliminary explainers, the focus shifted to more technical questions, before Karolin and Maycon, their lead software engineer, got deep into constructing a working port of Rosenpass&amp;rsquo; Rust implementation into NetBird&amp;rsquo;s GO-based software. Meanwhile, Ajuvo, Alice, Julia (their product manager), and Kyle (an intern with NetBird) began to make plans for a tour of Berlin&amp;rsquo;s premier hacker space: c-base, including its fascinating and wild lore.&lt;/p&gt;
+&lt;p&gt;On the second day, discussions continued, as well as work on that port. By the conclusion of c-base&amp;rsquo;s tour, all were eager to continue work whilst soaking in the sun in c-base&amp;rsquo;s outdoor area, before eventually saying our goodbyes.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;width: 40rem;&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/c-base.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;view of the river from c-base&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;p class=&#34;card-text&#34;&gt;The view from c-base&amp;#39;s outdoor area in Berlin&amp;#39;s summer sun&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;As a result of the communal hackathons, meetings, and broader discussions, NetBird and Rosenpass had agreed on several collaborative projects, including the development of a full Golang implementation of Rosenpass, easing its integration into NetBird and further afield, with further work together planned for the future. We look forward to the continued growth of this promising relationship.&lt;/p&gt;
+&lt;h3 id=&#34;outcomes&#34;&gt;Outcomes:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Agreement to collaborate on the development of a Golang implementation of Rosenpass, including sharing its financial burden&lt;/li&gt;
+&lt;li&gt;Arranged future in-person meeting in August&lt;/li&gt;
+&lt;li&gt;Agreement in principle to apply post-quantum security to more areas of NetBird&amp;rsquo;s infrastructure&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
     
   </channel>
 </rss>
