@@ -21,9 +21,3 @@ On the second day, discussions continued, as well as work on that port. By the c
 {{< blocks/blog-image src="img/c-base.jpg" alt="view of the river from c-base" text="The view from c-base's outdoor area in Berlin's summer sun" >}}
 
 As a result of the communal hackathons, meetings, and broader discussions, NetBird and Rosenpass had agreed on several collaborative projects, including the development of a full Golang implementation of Rosenpass, easing its integration into NetBird and further afield, with further work together planned for the future. We look forward to the continued growth of this promising relationship.
-
-### Outcomes:
-
-- Agreement to collaborate on the development of a Golang implementation of Rosenpass, including sharing its financial burden
-- Arranged future in-person meeting in August
-- Agreement in principle to apply post-quantum security to more areas of NetBird's infrastructure
