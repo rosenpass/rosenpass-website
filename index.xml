@@ -5,7 +5,7 @@
     <description>Recent content on Rosenpass</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="https://rosenpass.eu/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,6 +13,31 @@
       
       
     
+    
+    <item>
+      <title>Blog: Post-Quantum Security in Avionics Paper Hackathon</title>
+      <link>https://rosenpass.eu/blog/2023/avionics_july/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosenpass.eu/blog/2023/avionics_july/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols.&lt;/p&gt;
+&lt;p&gt;As it currently stands, the process for updating the security of aircraft is a slow and labourious one. Certification of new standards can take years, and roll-out longer. This is, naturally, a problem in relation to faster-moving threats, such as those posed to cryptographic security. This academic paper, a joint collaboration between members of Rosenpass and the DLR (German Aerospace Center), proposes a method for significantly improving that situation by leveraging the partitioning principles already in use on aircraft to create a swappable, almost &amp;ldquo;plug and play&amp;rdquo; module to provide cryptographic functions on aeroplanes. The hope is to create a more responsive landscape for Avionics security, and help build closer ties between itself and Cryptography as a whole.&lt;/p&gt;
+&lt;p&gt;To this end, a great deal of thought, and thus time, has been invested in mapping out the proposed protocols, structures, challenges, technical steps, and broader communication strategy in proposing this approach. Wanja Zaeske, a research scientist at DLR with strong contributions to the broader work at Rosenpass, spent the latter half of last week intensely working with Karolin, whose expertise in Cryptography needs no introduction, to iron out all the theoretical wrinkles in the paper. Meanwhile, Sven Friedrich, another research scientist at DLR, was hard at work, on Thursday, at producing a software demonstrator of the proposed protocols. My own role was to help with the argument constructions within the paper, and be an able English-language editor in the latter stages.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/wanja_karo_alice.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Photo of Wanja Zaeske, Karolin Varner and Alice Bowman&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;p class=&#34;card-text&#34;&gt;From left to right: Wanja Zaeske, Karolin Varner, Alice Bowman&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;Satisfyingly, the in-person sessions proved fruitful in all directions. We were able to end Friday with a shared vision on all parts of the paper, and simply need to draft what was already agreed upon. We look forward to presenting the results of our labour in the coming months.&lt;/p&gt;
+
+      </description>
+    </item>
     
     <item>
       <title>Blog: NetBird and Rosenpass&#39; July Hackathon</title>
