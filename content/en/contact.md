@@ -35,4 +35,8 @@ support@rosenpass.eu
 
 press@rosenpass.eu
 
+#### Matrix chat
+
+https://matrix.to/#/#rosenpass:matrix.org
+
 {{< /blocks/section >}}
