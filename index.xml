@@ -30,6 +30,7 @@
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
     &lt;img src=&#34;https://rosenpass.eu/img/wanja_karo_alice.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Photo of Wanja Zaeske, Karolin Varner and Alice Bowman&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;From left to right: Wanja Zaeske, Karolin Varner, Alice Bowman&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -55,6 +56,7 @@
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
     &lt;img src=&#34;https://rosenpass.eu/img/whiteboard.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;whiteboard with notes from the previous seminars&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;The combined notes from the two seminars&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -65,6 +67,7 @@
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
     &lt;img src=&#34;https://rosenpass.eu/img/c-base.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;view of the river from c-base&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;The view from c-base&amp;#39;s outdoor area in Berlin&amp;#39;s summer sun&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
