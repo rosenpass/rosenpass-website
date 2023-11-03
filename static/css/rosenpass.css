@@ -24,6 +24,7 @@
 }
 
 
+<<<<<<< HEAD
 /* Docs */
 .presentation-list h3 {
   margin-left: 1rem;
@@ -37,6 +38,8 @@
   margin-bottom: 2.5rem;
 }
 
+=======
+>>>>>>> 772b656 (documentation wtih man pages demonstration)
 /* ManPages styles */
 .manpage h2 {
   text-align: center;
