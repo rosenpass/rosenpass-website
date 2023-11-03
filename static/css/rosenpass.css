@@ -23,6 +23,35 @@
     format("truetype-variations");
 }
 
+
+/* ManPages styles */
+.manpage h2 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.manpage h3{
+  font-weight: bold;
+  margin: 2rem 0 0.75rem;
+}
+
+.manpage p {
+  margin: 0.5rem 0 2rem 0.5rem;
+}
+
+.manpage .highlight {
+  border-width: 0px;
+  margin: 0 0 0 0.5rem;
+}
+
+.manpage .indented-boxes .highlight {
+  margin-left: 1.5rem;
+}
+
+.manpage .indented-boxes p {
+  margin-left: 1.5rem;
+}
+
 /* ADHD Spacing */
 
 ol {
@@ -104,6 +133,15 @@ section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
 .navbar-bg-onscroll {
   background: #fff !important;
   opacity: inherit;
+}
+
+#sidebar-docs{
+  background-color: rgba(13, 110, 253, 0.03);
+}
+
+.td-sidebar-nav .td-sidebar-link.tree-root{
+  color: black;
+  border-bottom: 1px black solid;
 }
 
 /* MAIN COVER */
