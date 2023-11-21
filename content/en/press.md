@@ -4,9 +4,6 @@ title: "Press"
 linkTitle: "Press"
 weight: 60
 
-menu:
-  main:
-    weight: 60
 type: community
 ---
 

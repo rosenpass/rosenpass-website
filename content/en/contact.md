@@ -3,9 +3,6 @@
 title: "Contact"
 linkTitle: "Contact"
 weight: 70
-menu:
-  main:
-    weight: 70
 type: community
 ---
 
