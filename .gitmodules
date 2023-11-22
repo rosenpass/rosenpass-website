@@ -2,3 +2,7 @@
 [submodule "themes/docsy"]
 	path = themes/docsy
 	url = https://github.com/google/docsy
+
+[submodule "slides"]
+	path = slides
+	url = https://github.com/rosenpass/slides
