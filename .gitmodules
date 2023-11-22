@@ -4,5 +4,5 @@
 	url = https://github.com/google/docsy
 
 [submodule "slides"]
-	path = slides
+	path = static/presentations/slides
 	url = https://github.com/rosenpass/slides
