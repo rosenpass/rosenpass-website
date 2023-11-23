@@ -6,3 +6,6 @@
 [submodule "slides"]
 	path = static/presentations/slides
 	url = https://github.com/rosenpass/slides
+[submodule "static/presentations/slides"]
+	path = static/presentations/slides
+	url = https://github.com/rosenpass/slides
