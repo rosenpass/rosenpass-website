@@ -1,6 +1,5 @@
 
 ---
-title: "Rosenpass Manual"
 linkTitle: "Rosenpass Manual"
 weight: 60
 menu: false

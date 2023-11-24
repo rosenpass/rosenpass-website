@@ -24,6 +24,19 @@
 }
 
 
+/* Docs */
+.presentation-list h3 {
+  margin-left: 1rem;
+  margin-bottom: 0;
+  font-size: larger;
+  font-weight: 650;
+}
+
+.presentation-list p {
+  margin-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+
 /* ManPages styles */
 .manpage h2 {
   text-align: center;

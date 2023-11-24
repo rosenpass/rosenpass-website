@@ -1,6 +1,7 @@
 ---
 title: "(EN) Formosa 2023 - Rosenpass"
 linkTitle: "(EN) Formosa 2023"
+description: "(English) A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects."
 weight: 96
 menu: false
 type: docs
