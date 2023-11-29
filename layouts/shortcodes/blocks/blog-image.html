@@ -2,6 +2,7 @@
 <div class="card mb-3" style="max-width: 90vw; width: 40rem">
     <img src="{{ .Get "src" | absURL }}" class="card-img-top" alt="{{ .Get "alt" }}">
     <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">{{ .Get "subtitle" }}</h6>
       <p class="card-text">{{ .Get "text" }}</p>
     </div>
   </div>
