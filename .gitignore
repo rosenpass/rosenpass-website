@@ -5,3 +5,4 @@ package-lock.json
 .hugo_build.lock
 .direnv/
 result
+/resources/_gen/assets/scss/scss/

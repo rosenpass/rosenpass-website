@@ -14,13 +14,15 @@ defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 
 
-[languages]
-[languages.en]
-title = "Rosenpass"
-description = "Build post-quantum-secure VPNs with WireGuard!"
-languageName ="English"
-weight = 1
 
+[languages]
+	[languages.en]
+		title = "Rosenpass"
+		languageName ="English"
+		weight = 1
+		[languages.en.params]
+			description = "Build post-quantum-secure VPNs with WireGuard!"
+			
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
