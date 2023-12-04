@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+{{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdf_filename }}
+=======
+{{ $pdfFile := printf "/presentations/%s" .Page.Params.pdf_filename }}
+>>>>>>> bafcdd5 (documentation skeleton)
+<iframe src="{{ $pdfFile }}" style="width:100%; height:95vh;"></iframe>
