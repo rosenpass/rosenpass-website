@@ -24,7 +24,6 @@
 }
 
 
-<<<<<<< HEAD
 /* Docs */
 .presentation-list h3 {
   margin-left: 1rem;
@@ -38,8 +37,6 @@
   margin-bottom: 2.5rem;
 }
 
-=======
->>>>>>> 772b656 (documentation wtih man pages demonstration)
 /* ManPages styles */
 .manpage h2 {
   text-align: center;
@@ -70,12 +67,12 @@
 
 /* ADHD Spacing */
 
-ol {
-  margin-top: 15px !important;
+.contains-code-snippets ol {
+  margin-top: 15px;
 }
 
-ul {
-  margin-top: 15px !important ;
+.contains-code-snippets ul {
+  margin-top: 15px;
 }
 
 .starter-code-server pre {
@@ -151,13 +148,38 @@ section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
   opacity: inherit;
 }
 
-#sidebar-docs{
-  background-color: rgba(13, 110, 253, 0.03);
+aside.td-sidebar {
+	background-color: var(--bs-white);
+	border:none;
 }
 
+aside#sidebar-blog #td-sidebar-menu{
+  background-color: var(--bs-primary);
+}
+
+aside#sidebar-docs #td-sidebar-menu{
+  background-color: var(--bs-secondary);
+}
+
+aside #td-sidebar-menu{
+	margin-top:2rem;
+	border-radius: 1rem;
+}
+
+
+.td-sidebar-nav .td-sidebar-link__page {	color: black; }
+.td-sidebar-nav .td-sidebar-nav__section.with-child {	font-weight:bold;}
+
+.td-sidebar-nav a:hover {	color: var(--bs-white);}
+
+nav.foldable-nav .td-sidebar-nav__section, nav.foldable-nav .with-child ul{	margin-top: 0;}
+
+
 .td-sidebar-nav .td-sidebar-link.tree-root{
-  color: black;
-  border-bottom: 1px black solid;
+margin-left: 1rem;
+  color: white;
+  border-bottom: none;
+  font-size: larger;
 }
 
 /* MAIN COVER */
