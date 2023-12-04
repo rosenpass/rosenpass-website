@@ -10,8 +10,13 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none " id="sidebar-docs">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none custom-burger" id="sidebar-docs">
             {{ partial "sidebar-docs.html" . }}
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            {{ partial "page-meta-links.html" . }}
+            {{ partial "toc.html" . }}
+            {{ partial "taxonomy_terms_clouds.html" . }}
           </aside>
           <main class="col-12 col-md-9 col-xxl-8 ps-md-5 pe-md-4" role="main">
             {{ partial "version-banner.html" . }}
@@ -24,5 +29,12 @@
       {{ partial "footer.html" . }}
     </div>
     {{ partial "scripts.html" . }}
+    <script>
+      const toggleButton = document.querySelector('.td-sidebar__toggle');
+      const targetCollapse = document.querySelector('#td-section-nav');
+      toggleButton.addEventListener('click', function () {
+        $(targetCollapse).collapse('toggle');
+      });
+    </script>
   </body>
 </html>
