@@ -23,8 +23,26 @@
     format("truetype-variations");
 }
 
+/* Burger fixes */
+#sidebar-docs.custom-burger{
+padding: 0;
+background: none;
+}
 
-<<<<<<< HEAD
+.custom-burger > div {
+padding: 0;
+}
+
+.custom-burger > div > form {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.custom-burger > div > form > button {
+margin-left: auto !important;
+margin-right: auto !important;
+}
+
 /* Docs */
 .presentation-list h3 {
   margin-left: 1rem;
@@ -38,8 +56,6 @@
   margin-bottom: 2.5rem;
 }
 
-=======
->>>>>>> 772b656 (documentation wtih man pages demonstration)
 /* ManPages styles */
 .manpage h2 {
   text-align: center;

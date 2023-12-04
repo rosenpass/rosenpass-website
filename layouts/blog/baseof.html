@@ -10,7 +10,7 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none custom-burger" id="sidebar-docs">
             {{ partial "sidebar-blog.html" . }}
           </aside>
           <main class="col-12 col-md-9 col-xxl-8 ps-md-5 pe-md-4" role="main">
@@ -27,5 +27,12 @@
       {{ partial "footer.html" . }}
     </div>
     {{ partial "scripts.html" . }}
+    <script>
+      const toggleButton = document.querySelector('.td-sidebar__toggle');
+      const targetCollapse = document.querySelector('#td-section-nav');
+      toggleButton.addEventListener('click', function () {
+        $(targetCollapse).collapse('toggle');
+      });
+    </script>
   </body>
 </html>
