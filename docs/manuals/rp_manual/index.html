@@ -1,0 +1,414 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.109.0">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Rosenpass</title>
+<meta name="description" content="&lt;!DOCTYPE html&gt; ROSENPASS(1) ROSENPASS(1) General Commands Manual ROSENPASS(1) NAME rosenpass &amp;#x2014; builds post-quantum-secure VPNs SYNOPSIS rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] DESCRIPTION rosenpass performs cryptographic key exchanges that are secure against quantum-computers and outputs the keys. These keys can then be passed to various services such as wireguard or other vpn services as pre-shared-keys to achieve security against attackers with quantum computers. This is a research project and quantum computers are not thought to become practical in less than ten years.">
+<meta property="og:title" content="" />
+<meta property="og:description" content="&lt;!DOCTYPE html&gt; ROSENPASS(1) ROSENPASS(1) General Commands Manual ROSENPASS(1) NAME rosenpass &#x2014; builds post-quantum-secure VPNs
+SYNOPSIS rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] DESCRIPTION rosenpass performs cryptographic key exchanges that are secure against quantum-computers and outputs the keys. These keys can then be passed to various services such as wireguard or other vpn services as pre-shared-keys to achieve security against attackers with quantum computers.
+This is a research project and quantum computers are not thought to become practical in less than ten years." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rosenpass.eu/docs/manuals/rp_manual/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="docs" />
+
+<meta property="og:site_name" content="Rosenpass" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content="&lt;!DOCTYPE html&gt; ROSENPASS(1) ROSENPASS(1) General Commands Manual ROSENPASS(1) NAME rosenpass &#x2014; builds post-quantum-secure VPNs
+SYNOPSIS rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] DESCRIPTION rosenpass performs cryptographic key exchanges that are secure against quantum-computers and outputs the keys. These keys can then be passed to various services such as wireguard or other vpn services as pre-shared-keys to achieve security against attackers with quantum computers.
+This is a research project and quantum computers are not thought to become practical in less than ten years.">
+
+<meta itemprop="wordCount" content="452"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="&lt;!DOCTYPE html&gt; ROSENPASS(1) ROSENPASS(1) General Commands Manual ROSENPASS(1) NAME rosenpass &#x2014; builds post-quantum-secure VPNs
+SYNOPSIS rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] DESCRIPTION rosenpass performs cryptographic key exchanges that are secure against quantum-computers and outputs the keys. These keys can then be passed to various services such as wireguard or other vpn services as pre-shared-keys to achieve security against attackers with quantum computers.
+This is a research project and quantum computers are not thought to become practical in less than ten years."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.28979827aefebe4db1996d85fa98060a9edf8f8209165622fbd0ca1e0799275b.css" as="style">
+<link href="/scss/main.min.28979827aefebe4db1996d85fa98060a9edf8f8209165622fbd0ca1e0799275b.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/rosenpass.css"/>
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-light flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg width="100%" height="100%" viewBox="0 0 8684 8684" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.62209"><g><path d="M5918.83 4378.11s595.781 1609.9 18.511 2851.49c-577.269 1241.59-1439.06 1159.12-1700.2 1255.33-261.145 96.212-1397.36-210.749-1773.04-1131.63-375.684-920.883-174.098-2409.87-174.098-2409.87l-2.764-148.72s-193.424-384.642-560.532-1009c-592.108-1018.45-1665.79-2847.58-1385.53-3287.07 280.266-439.485 844.737-559.345 1405.27-45.766 564.478 512.859 1168.42 2043.79 1338.17 3726.19.0.0 828.95-340.693 1713.16-51.577.0.0 169.739-1307.56 868.429-2292.22 694.737-984.308 1677.64-1651.89 2344.74-1483.72 667.109 168.171 521.06 873.53-94.738 1413.27-615.794 539.732-1878.96 2221.41-1997.38 2613.31z" style="fill:#fff"/><path d="M2339.83 7764.88l-1193.39 64.289 47.37 688.29 438.162-21.068-86.841-322.534 414.471-18.887-31.575 317.086 434.211-15.621-22.404-691.555z" style="fill:#fff"/><path id="pink" d="M4428.82 8437.2l-414.478-17.761c134.211-7.111 82.897-63.158 39.473-90.793-228.951-147.235-382.896-548.684-327.636-566.845.0.0 394.745 120.398 485.533 122.764 146.053 4.345 374.999-26.844 457.895-171.319 19.739-34.734 102.631-170.526 63.158-169.733-659.211 13.422-765.793-367.901-757.896-538.82.0.0 603.95 172.898 757.896-36.314 150-209.611-55.261-889.347 153.951-1220.53 82.896-131.054 205.26-238.815 323.684-340.659 169.739-141.315 450.005-196.189 497.375-402.242 31.575-139.736-122.369-368.688-177.636-432.238-110.527-129.867-240.788-245.525-367.108-360.791 86.842-271.975 173.684-545.137 288.162-809.216 244.74-575.528 631.581-1034.22 963.162-1586.06 327.636-552.635 1369.74-819.479 1152.64-388.82.0.0-497.374 571.188-528.951 605.136-651.319 778.421-919.743 1245.01-1393.43 2053.04 74.999 76.973 146.053 154.345 209.211 238.816 59.212 82.109 106.582 287.763 146.054 379.743 189.479 420.395 181.582 847.896 185.527 1259.61 7.897 797.767-240.787 1511.07-896.053 2055.01-221.054 183.161-544.744 392.373-860.531 418.031l-.006.004zm-915.798-2091.73s-615.792 34.74-718.423-494.61c-118.423-639.078 288.157-535.655 517.108-294.075 228.945 241.58 201.315 788.685 201.315 788.685z" style="fill:#f70484"/><path d="M2287.24 4794.71s-193.424-384.642-560.532-1009c-592.108-1018.45-1665.79-2847.58-1385.53-3287.07 280.266-439.485 844.737-559.345 1405.27-45.766 564.478 512.859 1168.42 2043.79 1338.17 3726.19.0.0 828.95-340.693 1713.16-51.577.0.0 169.739-1307.56 868.429-2292.22 694.737-984.308 1677.64-1651.89 2344.74-1483.72 667.109 168.171 521.06 873.53-94.738 1413.27-615.794 539.732-1878.96 2221.41-1997.38 2613.31" style="fill:none;stroke:#000;stroke-width:258.66px"/><path d="M2283.29 5165.91s-292.108 1720.54 351.315 2466.58c600.004 691.555 1247.38 848.099 1784.22 804.514 532.902-43.585 1168.42-548.815 1507.91-1168.08 363.157-666.13 374.999-2542.12-292.109-3183.19 592.108-1102.35 1377.64-2020.92 2056.59-2753.16.0.0-386.841-550.991-1290.8 483.804-900.004 1035.15-1235.53 2463.66-1235.53 2463.66 335.526 204.849 473.683 471.449 540.791 794.71.0.0-564.477 157.992-828.955 672.668-217.103 416.963-126.315 1215.66-126.315 1215.66-248.685 233.909-525.004 220.469-813.162 49.395.0.0 15.789 626.545 888.162 501.237-177.63 354.492-611.841 539.733-1144.74 197.221 23.684 144.922 110.527 383.194 276.32 562.254 177.63 191.052 801.319 425.683 1756.58-677.752" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:3.75"/><path d="M3380.67 7715.09l-2234.23 114.072 47.37 688.29 438.162-21.068-86.841-322.534 414.471-18.887-31.575 317.086 434.211-15.621-47.37-691.555" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/><path d="M5147.98 7621.96l1091.47-48.521s57.123-1030.02 664.047-1055.78c606.924-25.754 888.736 410.526 640.449 730.086-134.769 174.352-464.845 406.176-746.683 490.485-233.087 70.667-437.159 38.209-472.337-216.25-79.459-595.607 1077.88-316.741 1231.47-11.283 150.028 304.643 32.017 735.54-566.576 681.906-667.083-60.004-750.369-619.165-750.369-619.165" style="fill:none;stroke:#000;stroke-width:248.05px;stroke-miterlimit:1.5"/><path d="M7545.57 6577.87s196.999-285.577 452.118-196.331c246.844 86.35 253.996 348.283 23.412 475.463.0.0 442.268 42.684 416.038 414.054-30.169 371.089-409.823 413.21-409.823 413.21s285.689 161.749 89.258 369.662c-204.157 216.089-346.463 104.255-470.429 14.063" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/><path d="M3526.72 6353.97s19.733-541.549-209.212-782.725c-228.95-241.895-572.374-322.17-532.902 170.711 47.37 590.219 742.114 612.014 742.114 612.014z" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/></g></svg></span><span class="navbar-brand__name">Rosenpass</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/#start"><span>Quick Start</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/about/"><span>About</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/docs/"><span class="active">Rosenpass Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/blog/"><span>Rosenpass Blog</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/contributors/"><span>Contributors</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none " id="sidebar-docs">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="Documentation" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Rosenpass Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssource_code-li">
+  <input type="checkbox" id="m-docssource_code-check"/>
+  <label for="m-docssource_code-check"><a href="https://github.com/rosenpass/rosenpass" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docssource_code"><i class="fab fa-github"></i><span class="">Source Code</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docswhitepaper-li">
+  <input type="checkbox" id="m-docswhitepaper-check"/>
+  <label for="m-docswhitepaper-check"><a href="https://rosenpass.eu/whitepaper.pdf" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docswhitepaper"><i class="fa-sharp fa-solid fa-file-pdf"></i><span class="">Whitepaper</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docspresentations-li">
+  <input type="checkbox" id="m-docspresentations-check"/>
+  <label for="m-docspresentations-check"><a href="/docs/presentations/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docspresentations"><span class="">Conference Presentations</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsmrmcd-2023-li">
+  <input type="checkbox" id="m-docspresentationsmrmcd-2023-check"/>
+  <label for="m-docspresentationsmrmcd-2023-check"><a href="/docs/presentations/mrmcd-2023/" title="(DE) MRMCD 2023 - Sichere Kryptografie trotz Quantencomputern: Projektupdate" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationsmrmcd-2023"><span class="">(DE) MRMCD 2023</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsformosa-2023-li">
+  <input type="checkbox" id="m-docspresentationsformosa-2023-check"/>
+  <label for="m-docspresentationsformosa-2023-check"><a href="/docs/presentations/formosa-2023/" title="(EN) Formosa 2023 - Rosenpass" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationsformosa-2023"><span class="">(EN) Formosa 2023</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsiav-2023-li">
+  <input type="checkbox" id="m-docspresentationsiav-2023-check"/>
+  <label for="m-docspresentationsiav-2023-check"><a href="/docs/presentations/iav-2023/" title="(DE) IAV 2023 - VPN &amp; Struktur für Translationsforschung in der Kryptografie " class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationsiav-2023"><span class="">(DE) IAV 2023</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationseasterhegg-2023-li">
+  <input type="checkbox" id="m-docspresentationseasterhegg-2023-check"/>
+  <label for="m-docspresentationseasterhegg-2023-check"><a href="/docs/presentations/easterhegg-2023/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationseasterhegg-2023"><span class="">(DE) Easterhegg 2023</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsrwpqc-2023-li">
+  <input type="checkbox" id="m-docspresentationsrwpqc-2023-check"/>
+  <label for="m-docspresentationsrwpqc-2023-check"><a href="/docs/presentations/rwpqc-2023/" title="(EN) RWPQC 2023 - Securing &amp; Deploying Post-Quantum WireGuard" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationsrwpqc-2023"><span class="">(EN) RWPQC 2023</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsyrcs-2023-li">
+  <input type="checkbox" id="m-docspresentationsyrcs-2023-check"/>
+  <label for="m-docspresentationsyrcs-2023-check"><a href="/docs/presentations/yrcs-2023/" title="(EN) YRCS 2023 - Sichere Kryptografie trotz Quantencomputern: Projektupdate" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docspresentationsyrcs-2023"><span class="">(EN) YRCS 2023</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsmanuals-li">
+  <input type="checkbox" id="m-docsmanuals-check" checked/>
+  <label for="m-docsmanuals-check"><a href="/docs/manuals/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsmanuals"><span class="">Manuals</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsmanualsrp_manual-li">
+  <input type="checkbox" id="m-docsmanualsrp_manual-check" checked/>
+  <label for="m-docsmanualsrp_manual-check"><a href="/docs/manuals/rp_manual/" title="" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsmanualsrp_manual"><span class="td-sidebar-nav-active-item">Rosenpass Manual</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualsrosenpass_manual_custom-li">
+  <input type="checkbox" id="m-docsmanualsrosenpass_manual_custom-check"/>
+  <label for="m-docsmanualsrosenpass_manual_custom-check"><a href="/docs/manuals/rosenpass_manual_custom/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsmanualsrosenpass_manual_custom"><span class="">Rosenpass Manual Custom</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsquick_start-li">
+  <input type="checkbox" id="m-docsquick_start-check"/>
+  <label for="m-docsquick_start-check"><a href="/docs/quick_start/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsquick_start"><span class="">Quick Start Guide</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsrp_manual-li">
+  <input type="checkbox" id="m-docsrp_manual-check"/>
+  <label for="m-docsrp_manual-check"><a href="/docs/rp_manual/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsrp_manual"><span class="">Rosenpass Manual</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsrosenpass_manual_custom-li">
+  <input type="checkbox" id="m-docsrosenpass_manual_custom-check"/>
+  <label for="m-docsrosenpass_manual_custom-check"><a href="/docs/rosenpass_manual_custom/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsrosenpass_manual_custom"><span class="">Rosenpass Manual Custom</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <main class="col-12 col-md-9 col-xxl-8 ps-md-5 pe-md-4" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://rosenpass.eu/docs/">Rosenpass Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://rosenpass.eu/docs/manuals/">Manuals</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://rosenpass.eu/docs/manuals/rp_manual/" aria-disabled="true" class="btn-link disabled">Rosenpass Manual</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1></h1>
+	
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	
+<section class="row td-box td-box--white">
+  <div class="col">
+    <div class="row">
+      
+      <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    table.head, table.foot { width: 100%; }
+    td.head-rtitle, td.foot-os { text-align: right; }
+    td.head-vol { text-align: center; }
+    .Nd, .Bf, .Op { display: inline; }
+    .Pa, .Ad { font-style: italic; }
+    .Ms { font-weight: bold; }
+    .Bl-diag > dt { font-weight: bold; }
+    code.Nm, .Fl, .Cm, .Ic, code.In, .Fd, .Fn, .Cd { font-weight: bold;
+      font-family: inherit; }
+  </style>
+  <title>ROSENPASS(1)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">ROSENPASS(1)</td>
+    <td class="head-vol">General Commands Manual</td>
+    <td class="head-rtitle">ROSENPASS(1)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp"><code class="Nm">rosenpass</code> &#x2014; <span class="Nd">builds
+    post-quantum-secure VPNs</span></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<table class="Nm">
+  <tr>
+    <td><code class="Nm">rosenpass</code></td>
+    <td>[COMMAND] [<var class="Ar">OPTIONS ...</var>] [<var class="Ar">ARGS
+      ...</var>]</td>
+  </tr>
+</table>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><code class="Nm">rosenpass</code> performs cryptographic key
+    exchanges that are secure against quantum-computers and outputs the keys.
+    These keys can then be passed to various services such as wireguard or other
+    vpn services as pre-shared-keys to achieve security against attackers with
+    quantum computers.</p>
+<p class="Pp">This is a research project and quantum computers are not thought
+    to become practical in less than ten years. If you are not specifically
+    tasked with developing post-quantum secure systems, you probably do not need
+    this tool.</p>
+<section class="Ss">
+<h2 class="Ss" id="COMMANDS"><a class="permalink" href="#COMMANDS">COMMANDS</a></h2>
+<dl class="Bl-tag">
+  <dt><var class="Ar">keygen private-key &lt;file-path&gt; public-key
+    &lt;file-path&gt;</var></dt>
+  <dd>Generate a keypair to use in the exchange command later. Send the
+      public-key file to your communication partner and keep the private-key
+      file secret!</dd>
+  <dt><var class="Ar">exchange private-key &lt;file-path&gt; public-key
+    &lt;file-path&gt;</var> [<var class="Ar">OPTIONS</var>]
+    <var class="Ar">PEERS</var></dt>
+  <dd>Start a process to exchange keys with the specified peers. You should
+      specify at least one peer.
+    <p class="Pp">It's <var class="Ar">OPTIONS</var> are as follows:</p>
+    <dl class="Bl-tag">
+      <dt><var class="Ar">listen &lt;ip&gt;[:&lt;port&gt;]</var></dt>
+      <dd>Instructs <code class="Nm">rosenpass</code> to listen on the specified
+          interface and port. By default <code class="Nm">rosenpass</code> will
+          listen on all interfaces and select a random port.</dd>
+      <dt><var class="Ar">verbose</var></dt>
+      <dd>Extra logging.</dd>
+    </dl>
+  </dd>
+</dl>
+</section>
+<section class="Ss">
+<h2 class="Ss" id="PEER"><a class="permalink" href="#PEER">PEER</a></h2>
+<p class="Pp">Each <var class="Ar">PEER</var> is defined as follows: &quot;peer
+    public-key &lt;file-path&gt; [endpoint &lt;ip&gt;[:&lt;port&gt;]]
+    [preshared-key &lt;file-path&gt;] [outfile &lt;file-path&gt;] [wireguard
+    &lt;dev&gt; &lt;peer&gt; &lt;extra_params&gt;]&quot;</p>
+<p class="Pp">Providing a <var class="Ar">PEER</var> instructs
+    <code class="Nm">rosenpass</code> to exchange keys with the given peer and
+    write the resulting PSK into the given output file. You must either specify
+    the outfile or wireguard output option.</p>
+<p class="Pp">The parameters of <var class="Ar">PEER</var> are as follows:</p>
+<dl class="Bl-tag">
+  <dt><var class="Ar">endpoint &lt;ip&gt;[:&lt;port&gt;]</var></dt>
+  <dd>Specifies the address where the peer can be reached. This will be
+      automatically updated after the first successful key exchange with the
+      peer. If this is unspecified, the peer must initiate the connection.</dd>
+  <dt><var class="Ar">preshared-key &lt;file-path&gt;</var></dt>
+  <dd>You may specify a pre-shared key which will be mixed into the final
+      secret.</dd>
+  <dt><var class="Ar">outfile &lt;file-path&gt;</var></dt>
+  <dd>You may specify a file to write the exchanged keys to. If this option is
+      specified, <code class="Nm">rosenpass</code> will write a notification to
+      standard out every time the key is updated.</dd>
+  <dt><var class="Ar">wireguard &lt;dev&gt; &lt;peer&gt;
+    &lt;extra_params&gt;</var></dt>
+  <dd>This allows you to directly specify a wireguard peer to deploy the
+      pre-shared-key to. You may specify extra parameters you would pass to
+      &quot;wg set&quot; besides the preshared-key parameter which is used by
+      <code class="Nm">rosenpass</code>. This makes it possible to add peers
+      entirely from <code class="Nm">rosenpass</code>.</dd>
+</dl>
+</section>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="EXIT_STATUS"><a class="permalink" href="#EXIT_STATUS">EXIT
+  STATUS</a></h1>
+<p class="Pp">The <code class="Nm">rosenpass</code> utility exits&#x00A0;0 on
+    success, and&#x00A0;&gt;0 if an error occurs.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp"><a class="Xr">rp(1)</a>, <a class="Xr">wg(1)</a></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="STANDARDS"><a class="permalink" href="#STANDARDS">STANDARDS</a></h1>
+<p class="Pp">This tool is the reference implementation of the Rosenpass
+    protocol, written by Karolin Varner, Benjamin Lipp, Wanja Zaeske, and Lisa
+    Schmidt.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="AUTHORS"><a class="permalink" href="#AUTHORS">AUTHORS</a></h1>
+<p class="Pp">Rosenpass was created by Karolin Varner, Benjamin Lipp, Wanja
+    Zaeske, Marei Peischl, Stephan Ajuvo, and Lisa Schmidt.</p>
+<p class="Pp">This manual page was written by <span class="An">Emil
+    Engler</span></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUGS"><a class="permalink" href="#BUGS">BUGS</a></h1>
+<p class="Pp">The bugs are tracked at
+    <a class="Lk" href="https://github.com/rosenpass/rosenpass/issues">https://github.com/rosenpass/rosenpass/issues</a>.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date">April 17, 2023</td>
+    <td class="foot-os">Debian</td>
+  </tr>
+</table>
+</body>
+</html>
+    </div>
+  </div>
+</section>
+
+	
+	
+	
+</div>
+
+
+          </main>
+          <div class="col-xxl-4"></div>
+        </div>
+      </div>
+      
+<footer class="bg-white py-5 row d-print-none">
+ 
+  <p class=" text-center text-xs mb-1"><a href="/press/">Press</a> | <a href="/impressum/"  >Impressum</a> | <a href="/contact">Contact</a></p>
+   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLnet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
+  <p class=" text-center text-xs">Website and mail hosting sponsored by <a href="https://servercow.de/">Servercow</a>.</p>
+  
+  <div class="container-fluid mx-sm-5 text-center text-xs">
+ 
+	<div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+	
+      </div>
+	  
+    </div>
+  </div>
+</footer>
+
+
+
+    </div>
+    
+  <script src="/js/main.min.92cf54a72f85dc2168b0699758429bcdd908723f274a6be8e13a12f44d92b36a.js" integrity="sha256-ks9Upy&#43;F3CFosGmXWEKbzdkIcj8nSmvo4ToS9E2Ss2o=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

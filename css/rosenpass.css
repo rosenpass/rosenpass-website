@@ -23,14 +23,56 @@
     format("truetype-variations");
 }
 
-/* ADHD Spacing */
 
-ol {
-  margin-top: 15px !important;
+/* Docs */
+.presentation-list h3 {
+  margin-left: 1rem;
+  margin-bottom: 0;
+  font-size: larger;
+  font-weight: 650;
 }
 
-ul {
-  margin-top: 15px !important ;
+.presentation-list p {
+  margin-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ManPages styles */
+.manpage h2 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.manpage h3{
+  font-weight: bold;
+  margin: 2rem 0 0.75rem;
+}
+
+.manpage p {
+  margin: 0.5rem 0 2rem 0.5rem;
+}
+
+.manpage .highlight {
+  border-width: 0px;
+  margin: 0 0 0 0.5rem;
+}
+
+.manpage .indented-boxes .highlight {
+  margin-left: 1.5rem;
+}
+
+.manpage .indented-boxes p {
+  margin-left: 1.5rem;
+}
+
+/* ADHD Spacing */
+
+.contains-code-snippets ol {
+  margin-top: 15px;
+}
+
+.contains-code-snippets ul {
+  margin-top: 15px;
 }
 
 .starter-code-server pre {
@@ -104,6 +146,40 @@ section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
 .navbar-bg-onscroll {
   background: #fff !important;
   opacity: inherit;
+}
+
+aside.td-sidebar {
+	background-color: var(--bs-white);
+	border:none;
+}
+
+aside#sidebar-blog #td-sidebar-menu{
+  background-color: var(--bs-primary);
+}
+
+aside#sidebar-docs #td-sidebar-menu{
+  background-color: var(--bs-secondary);
+}
+
+aside #td-sidebar-menu{
+	margin-top:2rem;
+	border-radius: 1rem;
+}
+
+
+.td-sidebar-nav .td-sidebar-link__page {	color: black; }
+.td-sidebar-nav .td-sidebar-nav__section.with-child {	font-weight:bold;}
+
+.td-sidebar-nav a:hover {	color: var(--bs-white);}
+
+nav.foldable-nav .td-sidebar-nav__section, nav.foldable-nav .with-child ul{	margin-top: 0;}
+
+
+.td-sidebar-nav .td-sidebar-link.tree-root{
+margin-left: 1rem;
+  color: white;
+  border-bottom: none;
+  font-size: larger;
 }
 
 /* MAIN COVER */

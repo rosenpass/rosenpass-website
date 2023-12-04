@@ -52,28 +52,19 @@
   <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
     <ul class="navbar-nav mt-2 mt-lg-0">
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/#start"><span>Getting started</span></a>
+        <a class="nav-link" href="/#start"><span>Quick Start</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="/about/"><span>About</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="https://github.com/rosenpass/rosenpass" target="_blank"><i class='fab fa-github '></i><span>Source Code</span></a>
+        <a class="nav-link" href="/docs/"><span>Rosenpass Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/whitepaper.pdf"><i class='fa-sharp fa-solid fa-file-pdf'></i><span>Whitepaper</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link active" href="/blog/"><span class="active">Blog</span></a>
+        <a class="nav-link active" href="/blog/"><span class="active">Rosenpass Blog</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="/contributors/"><span>Contributors</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/press/"><span>Press</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/contact/"><span>Contact</span></a>
       </li>
       </ul>
   </div>
@@ -86,24 +77,30 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none " id="sidebar-blog">
             
 <div id="td-sidebar-menu" class="td-sidebar__inner">
   <form class="td-sidebar__search d-flex align-items-center">
     
   </form>
-  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
     <ul class="td-sidebar-nav__section pe-md-3 ul-0">
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-blog-li">
-  <a href="/blog/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section tree-root" id="m-blog"><span class="td-sidebar-nav-active-item">Blog</span></a>
+  <a href="/blog/" title="Blog" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section tree-root" id="m-blog"><span class="td-sidebar-nav-active-item">Rosenpass Blog</span></a>
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-blog2023-li">
-  <a href="/blog/2023/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-blog2023"><span class="">2023</span></a>
+  <input type="checkbox" id="m-blog2023-check"/>
+  <label for="m-blog2023-check"><a href="/blog/2023/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-blog2023"><span class="">2023</span></a></label>
+  
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-blog2023avionics_july-li">
-  <a href="/blog/2023/avionics_july/" title="Post-Quantum Security in Avionics Paper Hackathon" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-blog2023avionics_july"><span class="">Post-Quantum Security in Avionics</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-blog2023netbird_july-li">
-  <a href="/blog/2023/netbird_july/" title="NetBird and Rosenpass&#39; July Hackathon" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-blog2023netbird_july"><span class="">Netbird Hackathon</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog2023avionics_july-li">
+  <input type="checkbox" id="m-blog2023avionics_july-check"/>
+  <label for="m-blog2023avionics_july-check"><a href="/blog/2023/avionics_july/" title="Post-Quantum Security in Avionics Paper Hackathon" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-blog2023avionics_july"><span class="">Post-Quantum Security in Avionics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog2023netbird_july-li">
+  <input type="checkbox" id="m-blog2023netbird_july-check"/>
+  <label for="m-blog2023netbird_july-check"><a href="/blog/2023/netbird_july/" title="NetBird and Rosenpass&#39; July Hackathon" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-blog2023netbird_july"><span class="">Netbird Hackathon</span></a></label>
+  
 </li>
   </ul>
 </li>
@@ -207,7 +204,7 @@ As it currently …</p>
       
 <footer class="bg-white py-5 row d-print-none">
  
-  <p class=" text-center text-xs mb-1"><a href="/impressum/"  >Impressum | Terms and Conditions</a></p>
+  <p class=" text-center text-xs mb-1"><a href="/press/">Press</a> | <a href="/impressum/"  >Impressum</a> | <a href="/contact">Contact</a></p>
    <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLnet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program.</p>
   <p class=" text-center text-xs">Website and mail hosting sponsored by <a href="https://servercow.de/">Servercow</a>.</p>
   
