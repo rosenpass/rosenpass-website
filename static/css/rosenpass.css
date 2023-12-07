@@ -23,6 +23,17 @@
     format("truetype-variations");
 }
 
+/* Navbar Small Display */
+#main_navbar {
+  height: auto
+}
+
+#navbar-custom{
+ flex-wrap: wrap;
+ justify-content: center;
+ padding-bottom: 1rem;
+}
+
 /* Burger fixes */
 #sidebar-docs.custom-burger{
 padding: 0;
@@ -31,6 +42,8 @@ background: none;
 
 .custom-burger > div {
 padding: 0;
+background: none !important;
+margin-top: 0 !important;
 }
 
 .custom-burger > div > form {
