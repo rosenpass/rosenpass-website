@@ -54,6 +54,8 @@ margin-top: 0 !important;
 .custom-burger > div > form > button {
 margin-left: auto !important;
 margin-right: auto !important;
+margin-top: 0;
+margin-bottom: 0;
 }
 
 /* Docs */
