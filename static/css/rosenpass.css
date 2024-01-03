@@ -202,7 +202,10 @@ aside #td-sidebar-menu{
 
 
 .td-sidebar-nav .td-sidebar-link__page {	color: black; }
-.td-sidebar-nav .td-sidebar-nav__section.with-child {	font-weight:bold;}
+.td-sidebar-nav .td-sidebar-nav__section.with-child {	
+  padding-top: 1rem;
+  font-weight:bold;
+}
 
 .td-sidebar-nav a:hover {	color: var(--bs-white);}
 
