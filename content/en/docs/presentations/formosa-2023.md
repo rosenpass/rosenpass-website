@@ -1,6 +1,6 @@
 ---
 title: ""
-linkTitle: "(EN) Formosa 2023"
+linkTitle: "Formosa 2023"
 description: ""
 weight: 96
 menu: false
@@ -11,9 +11,9 @@ pdf_filename: "2023-07-10-FormosaRetreat/slides.pdf"
 ---
 
 {{< blocks/lead >}}
-# (EN) Formosa 2023 - Rosenpass
+# Formosa 2023 - Rosenpass  <i class="fa-regular fa-language h6 text-light"> EN </i> 
 
-(English) A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects.
+A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects.
 {{< /blocks/lead >}}
 {{< blocks/section color="white">}}
 {{< /blocks/section >}}

@@ -1,6 +1,6 @@
 ---
 title: ""
-linkTitle: "(EN) RWPQC 2023"
+linkTitle: "RWPQC 2023"
 description: ""
 weight: 99
 menu: false
@@ -10,9 +10,9 @@ toc:
 pdf_filename: "2023-03-26-rwpqc/slides.pdf"
 ---
 {{< blocks/lead >}}
-# (EN) RWPQC 2023 - Securing & Deploying Post-Quantum WireGuard
+# RWPQC 2023 - Securing & Deploying Post-Quantum WireGuard  <i class="fa-regular fa-language h6 text-light"> EN </i> 
 
-(English) A presentation on Rosenpass' post-quantum WireGuard solutions, including key-encapsulation mechanisms, Noise, and Proverif
+A presentation on Rosenpass' post-quantum WireGuard solutions, including key-encapsulation mechanisms, Noise, and Proverif
 {{< /blocks/lead >}}
 {{< blocks/section color="white">}}
 {{< /blocks/section >}}
