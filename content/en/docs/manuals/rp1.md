@@ -1,6 +1,7 @@
 
 ---
-linkTitle: "High-level interface to Rosenpass"
+linkTitle: "High-Level Interfaces"
+Title: ""
 weight: 70
 menu: false
 type: docs
