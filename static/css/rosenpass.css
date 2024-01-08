@@ -71,6 +71,10 @@ margin-bottom: 0;
   margin-bottom: 2.5rem;
 }
 
+.indent {
+  margin-left: 0.25rem;
+}
+
 /* ManPages styles */
 .manpage h2 {
   text-align: center;

@@ -9,13 +9,13 @@ no_list: true
 ---
 
 
-<p>
-Welcome to the documentation page for Rosenpass. This guide contains the manual pages, slides from various presentations,
+<p class="indent">
+  Welcome to the documentation page for Rosenpass. This guide contains the manual pages, slides from various presentations,
 as well as links to both our scientific whitepaper and the github repository for the Rosenpass source code.
 </p>
 
-<h2>What is Rosenpass?</h3>
-  <p>
+<h2>What is Rosenpass?</h2>
+  <p class="indent">
     Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. 
     The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds 
     protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass 
@@ -23,7 +23,7 @@ as well as links to both our scientific whitepaper and the github repository for
   </p>
 
 <h2>Who is Rosenpass for?</h2>
-  <p>
+  <p class="indent">
 	Rosenpass is for everyone who wants secure encryption, particularly in a world where "store now, decrypt later" attacks are considered to be a present threat. If your data is being encrypted with methods that are not post-quantum secure, that data may 
     already be vulnerable to harvest attacks relying on future access to quantum computing. The goal of Rosenpass is to protect
     everyone from that future, much as classical encryption methods protect everyone in a pre-quantum world. That said, there is
@@ -32,17 +32,17 @@ as well as links to both our scientific whitepaper and the github repository for
       of Linux. Support for further systems is actively being researched, but is not currently imminent.
   </p>
 <h2>How to use this Guide</h2>
-  <p>
+  <p class="indent">
     If you simply want to get Rosenpass up and running quickly, you are best served using the <a href="https://rosenpass.eu/docs/quick_start">Quick Start Guide</a>
     It contains everything you need to download, configure, and start a WireGuard connection using the Rosenpass key exchange. Much of the rest of the guide
     is aimed at both scientific explanation and technical guides to the implementation. It is also intended to host many of our conference presentations.
   </p>
 <h2>Which systems currently support Rosenpass?</h2>
-  <p>
+  <p class="indent">
     Rosenpass currently provides packages and static binaries for several Linux distributions, as shown below. Further packages and support are planned, with 
     development of a Golang implementation, to complement our current Rust build, expected to help with that process.
   </p>
-  <img src="https://repology.org/badge/vertical-allrepos/rosenpass.svg">
+  <img src="https://repology.org/badge/vertical-allrepos/rosenpass.svg" class="indent">
  
 
 <h2>What planned features are on the way?</h2>
