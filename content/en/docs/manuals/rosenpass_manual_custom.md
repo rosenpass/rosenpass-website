@@ -1,6 +1,6 @@
 ---
-linkTitle: "Rosenpass Manual Custom"
-weight: 60
+linkTitle: ""
+weight: 100
 menu: false
 type: docs
 ---

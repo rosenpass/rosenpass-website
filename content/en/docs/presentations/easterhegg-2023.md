@@ -1,6 +1,6 @@
 ---
 title: ""
-linkTitle: "(DE) Easterhegg 2023"
+linkTitle: "Easterhegg 2023"
 description: ""
 weight: 98
 menu: false
@@ -10,8 +10,8 @@ toc:
 pdf_filename: "2023-04-08-easterhegg/slides.pdf"
 ---
 
-{{< blocks/lead >}}
-# (DE) Easterhegg 2023 - Ein VPN zum Schutz vor Quantencomputern
+{{< blocks/lead class="doc-title" >}}
+# Easterhegg 2023 - Ein VPN zum Schutz vor Quantencomputern  <i class="fa-regular fa-language h6 text-light"> DE </i> 
 
 A deeper dive into post-quantum cryptography, Rosenpass' approach to the issue, and a demonstration of Rosenpass' solution and integration with WireGuard.
 {{< /blocks/lead >}}
