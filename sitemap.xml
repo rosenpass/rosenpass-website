@@ -9,6 +9,8 @@
   </url><url>
     <loc>https://rosenpass.eu/docs/whitepaper/</loc>
   </url><url>
+    <loc>https://rosenpass.eu/docs/quick_start/</loc>
+  </url><url>
     <loc>https://rosenpass.eu/docs/presentations/</loc>
   </url><url>
     <loc>https://rosenpass.eu/docs/manuals/</loc>
@@ -19,17 +21,11 @@
   </url><url>
     <loc>https://rosenpass.eu/press/</loc>
   </url><url>
-    <loc>https://rosenpass.eu/docs/quick_start/</loc>
-  </url><url>
     <loc>https://rosenpass.eu/docs/manuals/rp_manual/</loc>
   </url><url>
-    <loc>https://rosenpass.eu/docs/rp_manual/</loc>
-  </url><url>
-    <loc>https://rosenpass.eu/docs/manuals/rosenpass_manual_custom/</loc>
-  </url><url>
-    <loc>https://rosenpass.eu/docs/rosenpass_manual_custom/</loc>
-  </url><url>
     <loc>https://rosenpass.eu/contact/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/docs/manuals/rp1/</loc>
   </url><url>
     <loc>https://rosenpass.eu/impressum/</loc>
   </url><url>
@@ -43,15 +39,17 @@
   </url><url>
     <loc>https://rosenpass.eu/docs/presentations/rwpqc-2023/</loc>
   </url><url>
+    <loc>https://rosenpass.eu/docs/manuals/rosenpass_manual_custom/</loc>
+  </url><url>
     <loc>https://rosenpass.eu/docs/presentations/yrcs-2023/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/blog/</loc>
+    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/blog/2023/avionics_july/</loc>
     <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/</loc>
-    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rosenpass.eu/blog/</loc>
     <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/blog/2023/netbird_july/</loc>

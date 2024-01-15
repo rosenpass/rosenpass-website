@@ -23,6 +23,40 @@
     format("truetype-variations");
 }
 
+/* Navbar Small Display */
+#main_navbar {
+  height: auto
+}
+
+#navbar-custom{
+ flex-wrap: wrap;
+ justify-content: center;
+ padding-bottom: 1rem;
+}
+
+/* Burger fixes */
+#sidebar-docs.custom-burger{
+padding: 0;
+background: none;
+}
+
+.custom-burger > div {
+padding: 0;
+background: none !important;
+margin-top: 0 !important;
+}
+
+.custom-burger > div > form {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.custom-burger > div > form > button {
+margin-left: auto !important;
+margin-right: auto !important;
+margin-top: 0;
+margin-bottom: 0;
+}
 
 /* Docs */
 .presentation-list h3 {
@@ -35,6 +69,16 @@
 .presentation-list p {
   margin-left: 1rem;
   margin-bottom: 2.5rem;
+}
+
+.indent {
+  margin-left: 0.25rem;
+}
+
+.doc-title {
+  border-radius: 30px;
+  padding-top: 0.5rem;
+  margin-inline: 0.25rem;
 }
 
 /* ManPages styles */
@@ -168,7 +212,10 @@ aside #td-sidebar-menu{
 
 
 .td-sidebar-nav .td-sidebar-link__page {	color: black; }
-.td-sidebar-nav .td-sidebar-nav__section.with-child {	font-weight:bold;}
+.td-sidebar-nav .td-sidebar-nav__section.with-child {	
+  padding-top: 1rem;
+  font-weight:bold;
+}
 
 .td-sidebar-nav a:hover {	color: var(--bs-white);}
 
