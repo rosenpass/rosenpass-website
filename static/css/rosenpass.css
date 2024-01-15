@@ -81,6 +81,20 @@ margin-bottom: 0;
   margin-inline: 0.25rem;
 }
 
+.flex-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0.4rlh;
+}
+
+.presentation-card {
+  color: black;
+}
+
+.presentation-card:hover {
+  transform: scale(1.025);
+}
+
 /* ManPages styles */
 .manpage h2 {
   text-align: center;
