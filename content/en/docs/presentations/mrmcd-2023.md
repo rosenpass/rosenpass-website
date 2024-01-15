@@ -9,7 +9,7 @@ toc:
   depth: 3
 pdf_filename: "2023-09-03-MRMCD2023/slides.pdf"
 ---
-{{< blocks/lead >}}
+{{< blocks/lead class="doc-title" >}}
 # MRMCD 2023 - Sichere Kryptografie trotz Quantencomputern: Projektupdate  <i class="fa-regular fa-language h6 text-light"> DE </i> 
 
 A recap on, and overview of, Rosenpass' progress since April presented to the MetaRehinMainChaosDays conference in Darmstadt.

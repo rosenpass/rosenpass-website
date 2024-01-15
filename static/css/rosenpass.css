@@ -75,6 +75,12 @@ margin-bottom: 0;
   margin-left: 0.25rem;
 }
 
+.doc-title {
+  border-radius: 30px;
+  padding-top: 0.5rem;
+  margin-inline: 0.25rem;
+}
+
 /* ManPages styles */
 .manpage h2 {
   text-align: center;

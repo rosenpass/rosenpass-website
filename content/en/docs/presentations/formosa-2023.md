@@ -10,7 +10,7 @@ toc:
 pdf_filename: "2023-07-10-FormosaRetreat/slides.pdf"
 ---
 
-{{< blocks/lead >}}
+{{< blocks/lead class="doc-title" >}}
 # Formosa 2023 - Rosenpass  <i class="fa-regular fa-language h6 text-light"> EN </i> 
 
 A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects.
