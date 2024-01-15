@@ -222,7 +222,7 @@ aside#sidebar-docs #td-sidebar-menu{
 
 @media (max-width: 767px) {
 
-  aside #td-sidebar-menu {
+  #td-sidebar-menu {
 	  margin-top: 2rem;
 	  border-radius: 1rem;
   }
@@ -230,12 +230,16 @@ aside#sidebar-docs #td-sidebar-menu{
 
 @media (min-width: 768px) {
 
-  aside #td-sidebar-menu {
+    #td-sidebar-menu {
     margin-top: 2rem;
     border-radius: 0 1rem 1rem 0;
   }
 
   #sidebar-docs {
+    padding-left: 0;
+  }
+
+  #sidebar-blog{
     padding-left: 0;
   }
 }
