@@ -24,6 +24,26 @@
 }
 
 /* Navbar */
+
+.navbar button{ border:none;}
+
+.navbar-toggler {width:35px;	height:35px;	padding: 0.2rem; }
+.navbar-toggler:focus { text-decoration: none; box-shadow: none;} /* Button fixes */
+
+.navbar-toggler .icon-bar {display:block; background-color:var(--bs-navbar-color); margin:4px; height:3px; width:26px; border-radius:2px;}
+.navbar-toggler.collapsed .icon-bar { width:20px; }
+
+/* Navbar Burger Animation to X */
+.navbar-toggler .icon-bar:nth-of-type(1) {transform: rotate(45deg); 	transform-origin: 10% 20%; }
+.navbar-toggler .icon-bar:nth-of-type(2) {opacity: 0; filter: alpha(opacity=0); }
+.navbar-toggler .icon-bar:nth-of-type(3) {transform: rotate(-45deg);	transform-origin: 10% 80%; }
+
+.navbar-toggler.collapsed .icon-bar:nth-of-type(1) {	transform: rotate(0);}
+.navbar-toggler.collapsed .icon-bar:nth-of-type(2) {opacity: 1; filter: alpha(opacity=100);}
+.navbar-toggler.collapsed .icon-bar:nth-of-type(3) {	transform: rotate(0); }
+
+
+
 #main_navbar {
   height: auto
 }
@@ -31,7 +51,8 @@
 #navbar-custom{
  flex-wrap: wrap;
  justify-content: center;
- padding-bottom: 1rem;
+ margin-left: auto;
+ padding: 0.5rem;
 }
 
 /* Burger fixes */
@@ -196,7 +217,7 @@ section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
   font-weight: normal;
 }
 .td-navbar .nav-item {
-  padding: 0 10px;
+  padding: 0 0.4rem;
 }
 .td-navbar .nav-link {
   text-shadow: none;
@@ -223,8 +244,12 @@ aside#sidebar-docs #td-sidebar-menu{
 @media (max-width: 767px) {
 
   #td-sidebar-menu {
-	  margin-top: 2rem;
-	  border-radius: 1rem;
+	margin: -1rem;
+    padding: 1rem 1rem 0 1rem;
+  }
+   #td-sidebar-menu nav{
+	
+    padding-bottom: 1rem;
   }
 }
 
@@ -395,6 +420,29 @@ img.rp-supporter {
   padding: 20px;
   max-width: 300px;
 }
+
+/* blog list */
+
+#bloglist .bloglist-item {
+  background-color: var(--bs-light);
+  border-radius: 1rem;
+  padding: 2rem; 
+  padding-bottom: 4rem;
+}
+
+#bloglist h5 a {color: var(--bs-primary); font-size:larger;}
+
+#bloglist .readmore  { 
+	background-color: var(--bs-primary);  
+	color: var(--bs-white);  
+	width: 7rem; 
+	border-radius:2rem;
+	padding: 0.5rem 1rem!important;
+	float:right;
+	}
+	
+#bloglist .readmore  a {  color: var(--bs-white); }
+
 
 /* small adjustments */
 

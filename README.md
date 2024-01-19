@@ -2,7 +2,7 @@
 Website for project Rosenpass (quantum secure VPN key exchange)
 
 
-## Website ressources
+## Website Components
 
 ### Hugo
 The website is built with Hugo, which generates a static site.
