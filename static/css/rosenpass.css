@@ -111,6 +111,20 @@ margin-bottom: 0;
 
 /* ADHD Spacing */
 
+.title-box{
+  padding: 2rem;
+}
+
+.codebox div.highlight{
+margin: 0 0 15px 0;
+border: none;
+}
+
+.spacer {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
 .contains-code-snippets ol {
   margin-top: 15px;
 }
