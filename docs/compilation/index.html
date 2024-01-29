@@ -19,30 +19,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Rosenpass</title>
-<meta name="description" content="General Commands Manual Name Rosenpass - builds post-quantum secure VPNs
-Synopsis rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] Description Rosenpass performs cryptographic key exchanges, that are secure against quantum computers, and outputs the keys. These keys can then be passed to various services, such as WireGuard or other VPN services, as pre-shared keys to achieve security against attackers with quantum computers.
-This is a research project and quantum computers are not thought to become practical in less than ten years.">
+<meta name="description" content="Compile it yourself You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git. Install the dependencies. Under Debian, you can do this with the following command: sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command: sudo apt-get --yes install wireguard Install Rust &amp;gt;= 1.">
 <meta property="og:title" content="" />
-<meta property="og:description" content="General Commands Manual Name Rosenpass - builds post-quantum secure VPNs
-Synopsis rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] Description Rosenpass performs cryptographic key exchanges, that are secure against quantum computers, and outputs the keys. These keys can then be passed to various services, such as WireGuard or other VPN services, as pre-shared keys to achieve security against attackers with quantum computers.
-This is a research project and quantum computers are not thought to become practical in less than ten years." />
+<meta property="og:description" content="Compile it yourself You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git. Install the dependencies. Under Debian, you can do this with the following command: sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command: sudo apt-get --yes install wireguard Install Rust &gt;= 1." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://rosenpass.eu/docs/manuals/rosenpass_manual_custom/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://rosenpass.eu/docs/compilation/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="docs" />
 
 <meta property="og:site_name" content="Rosenpass" />
 <meta itemprop="name" content="">
-<meta itemprop="description" content="General Commands Manual Name Rosenpass - builds post-quantum secure VPNs
-Synopsis rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] Description Rosenpass performs cryptographic key exchanges, that are secure against quantum computers, and outputs the keys. These keys can then be passed to various services, such as WireGuard or other VPN services, as pre-shared keys to achieve security against attackers with quantum computers.
-This is a research project and quantum computers are not thought to become practical in less than ten years.">
+<meta itemprop="description" content="Compile it yourself You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git. Install the dependencies. Under Debian, you can do this with the following command: sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command: sudo apt-get --yes install wireguard Install Rust &gt;= 1.">
 
-<meta itemprop="wordCount" content="432"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+<meta itemprop="wordCount" content="296"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
 
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="General Commands Manual Name Rosenpass - builds post-quantum secure VPNs
-Synopsis rosenpass [COMMAND] [OPTIONS ...] [ARGS ...] Description Rosenpass performs cryptographic key exchanges, that are secure against quantum computers, and outputs the keys. These keys can then be passed to various services, such as WireGuard or other VPN services, as pre-shared keys to achieve security against attackers with quantum computers.
-This is a research project and quantum computers are not thought to become practical in less than ten years."/>
+<meta name="twitter:description" content="Compile it yourself You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git. Install the dependencies. Under Debian, you can do this with the following command: sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command: sudo apt-get --yes install wireguard Install Rust &gt;= 1."/>
 
 
 
@@ -115,9 +107,9 @@ This is a research project and quantum computers are not thought to become pract
   <input type="checkbox" id="m-docsquick_start-check"/>
   <label for="m-docsquick_start-check"><a href="https://rosenpass.eu/#start" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsquick_start"><span class="">Quick Start</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscompilation-li">
-  <input type="checkbox" id="m-docscompilation-check"/>
-  <label for="m-docscompilation-check"><a href="/docs/compilation/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docscompilation"><span class="">Compilation and Installation</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docscompilation-li">
+  <input type="checkbox" id="m-docscompilation-check" checked/>
+  <label for="m-docscompilation-check"><a href="/docs/compilation/" title="" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docscompilation"><span class="td-sidebar-nav-active-item">Compilation and Installation</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docspresentations-li">
   <input type="checkbox" id="m-docspresentations-check"/>
@@ -150,8 +142,8 @@ This is a research project and quantum computers are not thought to become pract
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsmanuals-li">
-  <input type="checkbox" id="m-docsmanuals-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsmanuals-li">
+  <input type="checkbox" id="m-docsmanuals-check"/>
   <label for="m-docsmanuals-check"><a href="/docs/manuals/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsmanuals"><span class="">Manuals</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -163,9 +155,9 @@ This is a research project and quantum computers are not thought to become pract
   <input type="checkbox" id="m-docsmanualsrp1-check"/>
   <label for="m-docsmanualsrp1-check"><a href="/docs/manuals/rp1/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsmanualsrp1"><span class="">High-Level Interfaces</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsmanualsrosenpass_manual_custom-li">
-  <input type="checkbox" id="m-docsmanualsrosenpass_manual_custom-check" checked/>
-  <label for="m-docsmanualsrosenpass_manual_custom-check"><a href="/docs/manuals/rosenpass_manual_custom/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsmanualsrosenpass_manual_custom"><span class="td-sidebar-nav-active-item"></span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualsrosenpass_manual_custom-li">
+  <input type="checkbox" id="m-docsmanualsrosenpass_manual_custom-check"/>
+  <label for="m-docsmanualsrosenpass_manual_custom-check"><a href="/docs/manuals/rosenpass_manual_custom/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsmanualsrosenpass_manual_custom"><span class=""></span></a></label>
   
 </li>
   </ul>
@@ -180,9 +172,9 @@ This is a research project and quantum computers are not thought to become pract
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/rosenpass/rosenpass-website/tree/main/content/en/docs/manuals/rosenpass_manual_custom.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
-  <a href="https://github.com/rosenpass/rosenpass-website/edit/main/content/en/docs/manuals/rosenpass_manual_custom.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/rosenpass/rosenpass-website/new/main/content/en/docs/manuals/rosenpass_manual_custom.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+<a href="https://github.com/rosenpass/rosenpass-website/tree/main/content/en/docs/compilation.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/rosenpass/rosenpass-website/edit/main/content/en/docs/compilation.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/rosenpass/rosenpass-website/new/main/content/en/docs/compilation.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
   <a href="https://github.com/rosenpass/rosenpass-website/issues/new?title=" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
   
 </div>
@@ -218,11 +210,8 @@ This is a research project and quantum computers are not thought to become pract
   <li class="breadcrumb-item">
     <a href="https://rosenpass.eu/docs/">Documentation</a>
   </li>
-  <li class="breadcrumb-item">
-    <a href="https://rosenpass.eu/docs/manuals/">Manuals</a>
-  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://rosenpass.eu/docs/manuals/rosenpass_manual_custom/" aria-disabled="true" class="btn-link disabled"></a>
+    <a href="https://rosenpass.eu/docs/compilation/" aria-disabled="true" class="btn-link disabled">Compilation and Installation</a>
   </li>
   </ol>
 </nav>
@@ -249,62 +238,160 @@ This is a research project and quantum computers are not thought to become pract
 
 
  
- 
+
 <a id="td-block-0" class="td-offset-anchor"></a>
-<section class="row td-box td-box--light td-box--gradient td-box--height-auto no-flex">
+<section class="row td-box td-box--secondary position-relative td-box--gradient td-box--height-auto title-box">
+	<div class="container text-center td-arrow-down">
+		<div class="h4 mb-0">
+			
+				<h2 id="compile-it-yourself">Compile it yourself</h2>
+
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+ 
+ 
+<a id="td-block-1" class="td-offset-anchor"></a>
+<section class="row td-box td-box--light td-box--gradient td-box--height-auto no-flex contains-code-snippets">
 	<div class="col">
 		<div class="row ">
 			
-				<div class="manpage">
-<h2 id="general-commands-manual"><strong>General Commands Manual</strong></h2>
-<h3 id="name">Name</h3>
-<p>Rosenpass - builds post-quantum secure VPNs</p>
-<h3 id="synopsis">Synopsis</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rosenpass <span style="color:#ce5c00;font-weight:bold">[</span>COMMAND<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>OPTIONS ...<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>ARGS ...<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><h3 id="description">Description</h3>
-<p>Rosenpass performs cryptographic key exchanges, that are secure against quantum computers, and outputs the keys. These keys can then be passed to various services, such as WireGuard or other VPN services, as pre-shared keys to achieve security against attackers with quantum computers.</p>
-<p>This is a research project and quantum computers are not thought to become practical in less than ten years. If you are not specficially tasked with developing post-quantum secure systems, you probably do not need this tool.</p>
-<h3 id="commands">Commands</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>keygen private-key &lt;file-path&gt; public-key &lt;file-path&gt;
-</span></span></code></pre></div><p>Generate a keypair to use in the exchange command later. Send the public-key file to your communication partner and keep the private-key file secret!</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>exchange private-key &lt;file-path&gt; public-key &lt;file-path&gt; <span style="color:#ce5c00;font-weight:bold">[</span>OPTIONS<span style="color:#ce5c00;font-weight:bold">]</span> PEERS
-</span></span></code></pre></div><p>Start a process to exchange keys with the specified peers. You should specify at least one peer.</p>
+				<p><span class="spacer"></span></p>
 <ul>
-<li>Its options are as follows:</li>
+<li>You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git.</li>
 </ul>
-<span class="indented-boxes"> 
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>listen &lt;ip&gt;<span style="color:#ce5c00;font-weight:bold">[</span>:&lt;port&gt;<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><p>Instruct rosenpass to listen on the specified interface and port. By default, rosenpass will listen on all interfaces and select a random port.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>verbose
-</span></span></code></pre></div><p>Extra logging.</p>
-</span>
-<h3 id="peer">Peer</h3>
-<p>Each PEER is defined as follows:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>peer public-key &lt;file-path&gt; <span style="color:#ce5c00;font-weight:bold">[</span>endpoint &lt;ip&gt;<span style="color:#ce5c00;font-weight:bold">[</span>:&lt;port&gt;<span style="color:#ce5c00;font-weight:bold">]]</span> <span style="color:#ce5c00;font-weight:bold">[</span>preshared-key &lt;file-path&gt;<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>outfile &lt;file-path&gt;<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>wireguard &lt;dev&gt; &lt;peer&gt; &lt;extra_params&gt;<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><p>Providing a PEER instructs rosenpass to exchange keys with the given peer and write the resulting PSK into the given output file. You must either specify the outfile or wireguard output option.</p>
+<ol>
+<li>Install the dependencies. Under Debian, you can do this with the following command:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential
+</span></span></code></pre></div></span>
+<ol start="2">
+<li>If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt-get --yes install wireguard
+</span></span></code></pre></div></span>
+<ol start="3">
+<li>Install Rust &gt;= 1.64.0 (as of 2023-07-01). This can be achieved using <a href="https://rustup.rs/">Rustup</a>, for example.<br>
+<span class="spacer"></span></li>
+<li>Clone the Git Repository:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/rosenpass/rosenpass.git
+</span></span></code></pre></div></span>
+<ol start="5">
+<li>Change to the Rosenpass directory:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#204a87">cd</span> rosenpass
+</span></span></code></pre></div></span>
+<ol start="6">
+<li>Switch to the version you want to install. Without switching, you will install and compile the dev version. Find the name of the version that you would like to install on the <a href="https://github.com/rosenpass/rosenpass/releases">releases page</a>, or <a href="https://github.com/rosenpass/rosenpass/releases/latest">find the name of the latest release</a>. Use the following command to switch to version, e.g., 0.2.1:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git checkout v0.2.1
+</span></span></code></pre></div></span>
+<ol start="7">
+<li>Compile Rosenpass, this may take a while:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cargo build --release
+</span></span></code></pre></div></span>
+<ol start="8">
+<li>Install Rosenpass:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo install target/release/rosenpass /usr/local/bin
+</span></span></code></pre></div></span>
+<ol start="9">
+<li>If you want the Rosenpass helper:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp
+</span></span></code></pre></div></span>
+<p>It can be installed it with:</p>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo install rp /usr/local/bin
+</span></span></code></pre></div></span>
+<span class="spacer"></span>
+<p><strong>That&rsquo;s it! You have now downloaded, compiled, and installed Rosenpass.</strong></p>
+<p><span class="spacer"></span></p>
+
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+ 
+
+<a id="td-block-2" class="td-offset-anchor"></a>
+<section class="row td-box td-box--secondary position-relative td-box--gradient td-box--height-auto title-box">
+	<div class="container text-center td-arrow-down">
+		<div class="h4 mb-0">
+			
+				<h2 id="installation-via-binary-files">Installation via binary files</h2>
+
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+ 
+ 
+<a id="td-block-3" class="td-offset-anchor"></a>
+<section class="row td-box td-box--light td-box--gradient td-box--height-auto no-flex contains-code-snippets">
+	<div class="col">
+		<div class="row ">
+			
+				<p><span class="spacer"></span></p>
 <ul>
-<li>The parameters of PEER are as follows:</li>
+<li>If Rosenpass is not yet available for your distribution, you can attempt to download it manually.</li>
 </ul>
-<span class="indented-boxes"> 
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>endpoint &lt;ip&gt;<span style="color:#ce5c00;font-weight:bold">[</span>:&lt;port&gt;<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><p>Specifies the address where the peer can be reached. This will be automatically updated after the first successful key exchange with the peer. If this is unspecified, the peer must initiate the connection.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>preshared-key &lt;file-path&gt;
-</span></span></code></pre></div><p>You may specify a file to write the exchanged keys to. If this option is specified, rosenpass will write a notification to standard out every time the key is updated.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wireguard &lt;dev&gt; &lt;peer&gt; &lt;extra_params&gt;
-</span></span></code></pre></div><p>This allows you to directly specify a wireguard peer to deploy the pre-shared-key to. You may specify extra parameters you would pass to &ldquo;wg set&rdquo; besides the preshared-key parameter which is used by rosenpass. This makes it possible to add peers entirely from rosenpass.</p>
-</span>
-<h3 id="exit-status">Exit Status</h3>
-<p>The rosenpass utlity exits 0 on success, and &gt;0 if an error occurs.</p>
-<h3 id="see-also">See Also</h3>
-<p>rp(1), wg(1)</p>
-<h3 id="standards">Standards</h3>
-<p>This tool is the reference implementation of the Rosenpass protocol, written by Karolin Varner, Benjamin Lipp, Wanja Zaeske, and Lisa Schmidt.</p>
-<h3 id="authors">Authors</h3>
-<p>Rosenpass was created by Karolin Varner, Benjamin Lipp, Wanja Zaeske, Marei Peischl, Stephan Ajuvo, and Lisa Schmidt.</p>
-<p>This manual page was written by Emil Engler</p>
-<h3 id="bugs">Bugs</h3>
-<p>The bugs are tracked at <a href="https://github.com/rosenpass/rosenpass/issues">https://github.com/rosenpass/rosenpass/issues</a>.</p>
-</div>
+<ol>
+<li>Download the desired version for your operating system from the <a href="https://github.com/rosenpass/rosenpass/releases/">releases page</a>, or directly jump to the <a href="https://github.com/rosenpass/rosenpass/releases/latest">latest version</a>.<br>
+<span class="spacer"></span></li>
+<li>Unzip the file. On Linux you can use tar for this:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tar xf rosenpass-x86_64-linux-0.2.1.tar
+</span></span></code></pre></div></span>
+<ol start="3">
+<li>Install Rosenpass:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo install bin/rosenpass /usr/local/bin
+</span></span></code></pre></div></span>
+<ol start="4">
+<li>If you want the Rosenpass helper:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rp
+</span></span></code></pre></div></span>
+<p>It can be installed it with:</p>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo install bin/rp /usr/local/bin
+</span></span></code></pre></div></span>
+<ol start="5">
+<li>Delete the downloaded files:</li>
+</ol>
+<span class="codebox">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm -r rosenpass-x86_64-linux-0.1.1.tar bin/
+</span></span></code></pre></div></span>
+<p><span class="spacer"></span></p>
+<p><strong>That&rsquo;s it! You have now downloaded and installed Rosenpass.</strong></p>
+<p><span class="spacer"></span></p>
 
 			
 		</div>
