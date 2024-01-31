@@ -23,6 +23,18 @@
     format("truetype-variations");
 }
 
+
+
+.block-lead {
+	padding: 3rem 0;
+}
+
+.block-lead .conference {
+	opacity: 0.5;
+}
+
+
+
 /* Navbar */
 
 .navbar button{ border:none;}
@@ -30,7 +42,15 @@
 .navbar-toggler {width:35px;	height:35px;	padding: 0.2rem; }
 .navbar-toggler:focus { text-decoration: none; box-shadow: none;} /* Button fixes */
 
-.navbar-toggler .icon-bar {display:block; background-color:var(--bs-navbar-color); margin:4px; height:3px; width:26px; border-radius:2px;}
+.navbar-toggler .icon-bar {
+	transition: all 0.3s ease-out; 
+	display:block; 
+	background-color:var(--bs-navbar-color); 
+	margin:4px; 
+	height:3px; 
+	width:26px; 
+	border-radius:2px;
+}
 .navbar-toggler.collapsed .icon-bar { width:20px; }
 
 /* Navbar Burger Animation to X */
@@ -423,25 +443,71 @@ img.rp-supporter {
 
 /* blog list */
 
-#bloglist .bloglist-item {
+.post-list .post-list-item {
   background-color: var(--bs-light);
   border-radius: 1rem;
   padding: 2rem; 
-  padding-bottom: 4rem;
 }
 
-#bloglist h5 a {color: var(--bs-primary); font-size:larger;}
+#blog-list .post-list-item { padding-bottom: 4rem; }
 
-#bloglist .readmore  { 
+
+.post-list h5 a {color: var(--bs-primary); font-size:larger;}
+
+ .readmore  { 
 	background-color: var(--bs-primary);  
 	color: var(--bs-white);  
 	width: 7rem; 
 	border-radius:2rem;
 	padding: 0.5rem 1rem!important;
 	float:right;
+	margin-bottom: 0;
 	}
 	
-#bloglist .readmore  a {  color: var(--bs-white); }
+ .readmore  a {  color: var(--bs-white)!important; }
+
+/* documentation -> conference presentations */
+
+#presentation-list li{
+	margin-bottom:1rem;
+	padding-bottom:1rem;
+}
+
+#presentation-list .post-list-item{
+	border-width: 0;
+	background-color: var(--bs-white);  
+	height:100%;
+}
+
+#presentation-list .language {
+	background-color: var(--bs-gray-200);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	width: 3rem;
+	text-align: center;
+	position: absolute;
+	right: 2rem;
+	top: 1.5rem;
+}
+#presentation-list .card-title {padding-top: 0.5rem;}
+#presentation-list .post-image {padding: 1rem 0;}
+
+.presentation-download {
+	text-align: right;
+} 
+
+.download-button { 
+	background-color: var(--bs-primary);  
+	color: var(--bs-white);  
+	width: 9rem; 
+	border-radius:2rem;
+	padding: 0.5rem 1rem!important;
+	margin-bottom: 0;
+	}
+	
+.download-button a {  color: var(--bs-white); }
+
+
 
 
 /* small adjustments */
