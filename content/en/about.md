@@ -20,17 +20,17 @@ type: community
 {{< blocks/section color="white" >}}
 
 
-Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymization, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are probably using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important VPNs type is called WireGuard®.
+Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymisation, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are likely using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important current VPN technology is called WireGuard®.
 
-WireGuard is excellent; it is fast, secure, and very efficient, but there is a problem on the horizon threatening its security: quantum computers may be able to break all modern cryptosystems in a couple of years. With this breakage, all systems on the internet are threatened by criminals and state actors again; even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
+WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
 
-Rosenpass can be used to hedge against that risk. The application can be installed to run in parallel to WireGuard and protect it from quantum attacks. Rosenpass doesn't change the way WireGuard works: its encryption remains as it was, except for an additional key that cannot be broken by the quantum computers.
+Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
 
-Rosenpass is free and open-source software, developed by cryptographers and scientists thanks to a grant by the Dutch philanthropic foundation NLNet.
+Rosenpass is free and open-source software, developed by cryptographers and scientists thanks to an initial grant by the Dutch philanthropic foundation NLNet.
 
 **Do you still have questions?**
 
-To help everyone understand what Rosenpass does, we provided explanation at different levels:
+To help everyone understand what Rosenpass does, we have provided a series of explanations aimed at differing levels of technical proficiency:
 
 {{% blocks/anchor-nav %}} 
 
@@ -38,19 +38,19 @@ To help everyone understand what Rosenpass does, we provided explanation at diff
 
 {{< blocks/lead color="light" >}}
 
-### Explain it to me like I'm five.
+### Explain it to me like I've just discovered computers.
 
 {{< /blocks/lead >}}
 
 {{< blocks/section color="white">}}
 
-Cryptographers are people who work on making your phone, tablet, or laptop more secure. They create calculations that are very complicated to undo. These calculations can be used to create locked locks, sealing messages, so they cannot be opened unless you have the key. These locks can be created by any computer; your phone, tablet or laptop is probably creating many of them right now.
+Cryptographers are people who work on making your phone, tablet, laptop, or just about any computer more secure. They create calculations that are very complicated to undo without a key. These calculations can be used to create closed locks, sealing messages, so they cannot be opened unless you have the key for them. These locks can be created by any computer. Your phone, tablet, or laptop is probably creating many of them right now.
 
-This technology has been working very well for years, but people are working to undo all the hard work: Some people are working to build a quantum computer; a special type of computer that can open these locks without the key. Quantum computers use properties of the smallest things that exist to perform calculations. Quantum computers are difficult to use and good at few things, but they happen to be very good at opening most of the locks created by cryptographers.
+This technology has been working very well for years, but people are working to undo all the hard work. Some people are working to build quantum computers, which are a special type of computer that can open these locks even without the key. Quantum computers take advantage of the properties of the smallest particles in existence to perform calculations that are too challenging for normal computers. Quantum computers are difficult to use and good at few things, but they happen to be very good at opening most of the locks created by cryptographers.
 
-There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the best. Some winners have been found, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers cannot break the locks your computer creates.
+There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the best. Some winners have been found, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers will not be able to break the locks that your computer creates.
 
-Rosenpass is a part of this effort. Our program allows another program called WireGuard to create safe locks. Rosenpass and WireGuard work together to protect network messages better than either could on their own.
+Rosenpass is a part of this effort. Our program allows another program called WireGuard to create safe locks, even against quantum computers. Rosenpass and WireGuard work together to better protect network messages better either could on their own.
 
 {{< /blocks/section >}}
 
@@ -62,16 +62,16 @@ Rosenpass is a part of this effort. Our program allows another program called Wi
 
 {{< blocks/section  color="light" >}}
 
-Rosenpass provides a complement to the well-known WireGuard protocol, adding quantum-hardened cryptography and key exchange while keeping the established WireGuard standard encryption security. So Rosenpass is an add-on, enhancing WireGuard's key negotiation process with Post Quantum Secure (PQS) cryptography, based a combination of Classic McEliece and Kyber.
+Rosenpass provides a complement to the well-known WireGuard protocol, adding quantum-hardened cryptography and key exchange while keeping the established WireGuard standard encryption security. So Rosenpass functions as an add-on, enhancing WireGuard's key negotiation process with Post Quantum Secure (PQS) cryptography, based a combination of Classic McEliece and Kyber.
 
 Rosenpass is free and open-source software. This means it can be publicly reviewed and adapted by other developers for their purposes. All contributions to Rosenpass are provided both under a Apache 2.0 and an MIT License. When using Rosenpass itself, the user may choose under which license to use Rosenpass.
 (See the [License](/#license) section for detailed information.) 
 
 Rosenpass uses symbolically verified, state-of-the-art cryptography. This project is part of a wider effort to break new ground in improving the security of an important component of the public internet.
 
-The project is run by a team of cryptographers, researchers, open-source developers, hackers and designers. We emphasize verifiable security, usability, and science communication. It comes as a small package in a GitHub repository, and is easy to install and maintain alongside your WireGuard installation.
+The project is run by a team of cryptographers, researchers, open-source developers, hackers and designers. We emphasise verifiable security, usability, and science communication. It is provided as a small package in a GitHub repository, and is easy to install and maintain alongside your WireGuard installation.
 
-Rosenpass is written in Rust. The application serves as a reference implementation; it aids developers implementing and adapting the protocol to other systems by providing readable source code and ample documentation. The software developed to implement Rosenpass can be easily adapted to other pieces of the internet security landscape, preserving trust and safety of future networks.
+Rosenpass is written in Rust. The application serves as a reference implementation. It aids developers in implementing and adapting the protocol to other systems by providing readable source code and ample documentation. The software developed to implement Rosenpass can be easily adapted to other pieces of the internet security landscape, preserving trust and safety of future networks.
 
 {{< /blocks/section >}}
 
@@ -84,15 +84,15 @@ Rosenpass is written in Rust. The application serves as a reference implementati
 
 {{< blocks/section  color="white" >}}
 
-Rosenpass implements a post-quantum-secure key exchange in the spirit of the [Noise Protocol Framework](https://noiseprotocol.org/). The motivating use case is integrating with the WireGuard VPN: In this mode, the shared secret generated by Rosenpass is supplied to WireGuard as its pre-shared symmetric key (PSK). This results in a WireGuard VPN connection with hybrid post-quantum security.
+Rosenpass implements a post-quantum-secure key exchange in the spirit of the [Noise Protocol Framework](https://noiseprotocol.org/). The motivating use case is integrating with the WireGuard VPN. In this mode, the shared secret generated by Rosenpass is supplied to WireGuard as its pre-shared symmetric key (PSK). This results in a WireGuard VPN connection with hybrid post-quantum security.
 
 While Rosenpass is designed with WireGuard in mind, it can be used as a stand-alone tool to exchange keys. Using this mode, it can be employed to secure other protocols against attacks from quantum computers. The other protocol needs to provide security, assuming a secure PSK is used for this to work. To use this mode, the `rosenpass` binary must be used together with the `outfile <FILE>` parameter. Rosenpass will write a key to the given file every two minutes, and print a message on standard out to notify the user or the calling script that the key has changed.
 
-The implementation is written in Rust but uses libsodium and liboqs -- both of which are C libraries. This does not result in pretty code everywhere, but enables some advanced security features. We use a couple of techniques to make sure the code is secure: We use variable colouring (gating use of a secret value through a `.secret()` method), and the code zeroizes all key material.
+The implementation is written in Rust but uses libsodium and liboqs, both of which are C libraries. This does not result in pretty code everywhere, but enables some advanced security features. We use a couple of techniques to make sure the code is secure: We use variable colouring (gating use of a secret value through a `.secret()` method), and the code zeroises all key material.
 
 #### Repo
 
-There is a public GitHub repository for Rosenpass. We welcome all kinds of contributions:
+We maintain a public GitHub repository for Rosenpass. We welcome all kinds of contributions:
 
 https://github.com/rosenpass/rosenpass
 
@@ -112,7 +112,7 @@ Check the [Getting Started](/#start) section for further information.
 
 The Rosenpass protocol provides a post-quantum-secure authenticated key exchange, based on the work "Post-quantum WireGuard" (PQWG) by Hülsing, Ning, Schwabe, Weber, and Zimmermann [^pqwg]. Apart from some tweaks to the protocol internals, we provide security against what we call _state disruption attacks_ as a major contribution.
 
-Both the classic WireGuard protocol (WG)[^wg] and PQWG rely on a timestamp to protect against replay of the first protocol message. By setting the system time to a future date, an attacker can trick the initiator into generating a kill-packet that can be used to inhibit future handshakes without special access; this renders the initiator's static key pair practically useless. Assuming an attacker's ability to modify the system time is realistic due to the use of the insecure NTP protocol on many systems, as described in [WireGuard CVE-2021-46873](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46873).
+Both the classic WireGuard protocol (WG)[^wg] and PQWG rely on a timestamp to protect against replay of the first protocol message. By setting the system time to a future date, an attacker can trick the initiator into generating a kill-packet that can be used to inhibit future handshakes without special access. This renders the initiator's static key pair practically useless. Assuming an attacker's ability to modify the system time is realistic due to the use of the insecure NTP protocol on many systems, as described in [WireGuard CVE-2021-46873](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46873).
 
 Instead of attempting to protect against replay attacks on the first protocol message, Rosenpass uses a stateless responder, so replay of the first message leads to no attack. To achieve this, we move the responder state into an encrypted cookie and have the responder include it with their message. The initiator returns this cookie in their reply, so the responder can restore it before processing the reply.
 
