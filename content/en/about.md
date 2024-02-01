@@ -48,9 +48,9 @@ Cryptographers are people who work on making your phone, tablet, laptop, or just
 
 This technology has been working very well for years, but people are working to undo all the hard work. Some people are working to build quantum computers, which are a special type of computer that can open these locks even without the key. Quantum computers take advantage of the properties of the smallest particles in existence to perform calculations that are too challenging for normal computers. Quantum computers are difficult to use and good at few things, but they happen to be very good at opening most of the locks created by cryptographers.
 
-There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the best. Some winners have been found, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers will not be able to break the locks that your computer creates.
+There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the most secure. Some frontrunners have been decided upon, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers will not be able to break the locks that your computer creates.
 
-Rosenpass is a part of this effort. Our program allows another program called WireGuard to create safe locks, even against quantum computers. Rosenpass and WireGuard work together to better protect network messages better either could on their own.
+Rosenpass is part of this wider effort. Our program allows another program called WireGuard to create safe locks, even against quantum computers. Rosenpass and WireGuard work together to better protect network messages better either could on their own.
 
 {{< /blocks/section >}}
 
@@ -88,11 +88,11 @@ Rosenpass implements a post-quantum-secure key exchange in the spirit of the [No
 
 While Rosenpass is designed with WireGuard in mind, it can be used as a stand-alone tool to exchange keys. Using this mode, it can be employed to secure other protocols against attacks from quantum computers. The other protocol needs to provide security, assuming a secure PSK is used for this to work. To use this mode, the `rosenpass` binary must be used together with the `outfile <FILE>` parameter. Rosenpass will write a key to the given file every two minutes, and print a message on standard out to notify the user or the calling script that the key has changed.
 
-The implementation is written in Rust but uses libsodium and liboqs, both of which are C libraries. This does not result in pretty code everywhere, but enables some advanced security features. We use a couple of techniques to make sure the code is secure: We use variable colouring (gating use of a secret value through a `.secret()` method), and the code zeroises all key material.
+The implementation is written in Rust but uses libsodium and liboqs, both of which are C libraries. This does not result in pretty code everywhere, but enables some advanced security features. We use a couple of techniques to make sure the code is secure. We use variable colouring (gating use of a secret value through a `.secret()` method), and the code zeroises all key material.
 
 #### Repo
 
-We maintain a public GitHub repository for Rosenpass. We welcome all kinds of contributions:
+We maintain a public GitHub repository for Rosenpass and welcome all kinds of contributions:
 
 https://github.com/rosenpass/rosenpass
 
