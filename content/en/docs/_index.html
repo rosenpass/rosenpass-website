@@ -17,9 +17,9 @@ as well as links to both our scientific whitepaper and the github repository for
 <h2>What is Rosenpass?</h2>
   <p class="indent">
     Rosenpass is a daemon, that, given a private key and a list of peers, performs a key exchange with each peer. 
-    The resulting keys are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds 
-    protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass 
-    with tools other than WireGuard. It can also be exported to an outfile.
+    The resulting shared secrets are given to WireGuard using its PSK feature – WireGuard remains as secure as it was, Rosenpass adds 
+	protection against quantum computers. Rosenpass can also write the shared secrets to files; this can be used to integrate Rosenpass 
+    with tools other than WireGuard.
   </p>
 
 <h2>Who is Rosenpass for?</h2>
@@ -28,28 +28,28 @@ as well as links to both our scientific whitepaper and the github repository for
     already be vulnerable to harvest attacks relying on future access to quantum computing. The goal of Rosenpass is to protect
     everyone from that future, much as classical encryption methods protect everyone in a pre-quantum world. That said, there is
      a skill-floor to using the currently available implementations of Rosenpass. Typically, developers with some experience of 
-     manually configured VPNs will have the easiest time setting up the Rosenpass demon, particularly those using specific versions
+     manually configured VPNs will have the easiest time setting up the Rosenpass daemon, particularly those using specific versions
       of Linux. Support for further systems is actively being researched, but is not currently imminent.
   </p>
-<h2>How to use this Guide</h2>
+<h2>Quick Start</h2>
   <p class="indent">
-    If you simply want to get Rosenpass up and running quickly, you are best served using the <a href="https://rosenpass.eu/docs/quick_start">Quick Start Guide</a>
-    It contains everything you need to download, configure, and start a WireGuard connection using the Rosenpass key exchange. Much of the rest of the guide
-    is aimed at both scientific explanation and technical guides to the implementation. It is also intended to host many of our conference presentations.
+    If you simply want to get Rosenpass up and running quickly, you are best served using the <a href="https://rosenpass.eu/docs/quick_start">Quick Start Guide</a>.
+    It contains everything you need to download, configure, and start a WireGuard connection using the Rosenpass key exchange. 
   </p>
-<h2>Which systems currently support Rosenpass?</h2>
+<h2>Which systems are supported by Rosenpass?</h2>
   <p class="indent">
-    Rosenpass currently provides packages and static binaries for several Linux distributions, as shown below. Further packages and support are planned, with 
-    development of a Golang implementation, to complement our current Rust build, expected to help with that process.
+    Rosenpass currently provides packages and static binaries for several Linux distributions, as shown here: 
   </p>
   <img src="https://repology.org/badge/vertical-allrepos/rosenpass.svg" class="indent">
  
 
+
 <h2>What planned features are on the way?</h2>
   <ul>
-    <li><b>Cunicu integration:</b> <a href="https://cunicu.li">Cunicu</a> is user-space daemon for managing WireGuard connections for small devices. We intend to integrate post-quantum security into that daemon via Rosenpass</li>
+    <li><b>Cunicu integration:</b> <a href="https://cunicu.li">Cunicu</a> is a user-space daemon for managing WireGuard connections for small devices. We intend to integrate post-quantum security into that daemon via Rosenpass</li>
     <li><b>Docker and micro-VM implementations:</b> We are currently working on using micro-VMs to reduce the scope of system privileges Rosenpass needs to run</li>
     <li><b>Hacspec integration:</b> Hackspec is a rust-based language designed by <a>Cryspen</a> to enable the use of several formal verification tools that enable high-assurance cryptography</li>
     <li><b>NetBird partnership:</b> We are working with <a>NetBird</a> to produce a commercially-ready VPN service that is post-quantum secure</li>
-    <li><b>Golang implementation of Rosenpass:</b> We are currently working on a Golang-built implementation of Rosenpass to increase its ease-of-use in wider environments</li>
+    <li><b>Golang implementation of Rosenpass:</b> Our initial implementation of Rosenpass is written in Rust, but we are working on an alternative, compatible Golang-built implementation to increase diversity and reach new platforms. 	
+	It is called <a href="https://github.com/cunicu/go-rosenpass">go-rosenpass</a>. 	</li>
   </ul>

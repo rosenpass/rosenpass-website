@@ -33,7 +33,7 @@ It achieves the same security guarantees as WireGuard, using two strong post-qua
 {{< /blocks/feature >}}
 
 {{< blocks/feature icon="fa-dragon" title="Works with WireGuard" url="" >}}
-To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security and high-speed data transmission.
+<strong>Rosenpass</strong> keeps WireGuard security intact and adds on to it; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security.
 {{< /blocks/feature >}}
 
 {{< blocks/feature icon="fa-box-open" title="Free and Open Source" url="" >}}
@@ -51,7 +51,8 @@ To use <strong>Rosenpass</strong>, you don't have to get rid of WireGuard; Rosen
 
 ### **Getting Help**
 
-- The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
+The `rosenpass` programme (which handles the post-quantum secure key exchange) is accompanied by a convienience wrapper called `rp`. It can set up both WireGuard and Rosenpass for you. Usually this means generation of WireGuard and Rosenpass public and secret keys, as well as setting up the WireGuard interface and launching a Rosenpass process. However, using the `explain` verb, `rp` can also show you how to integrate Rosenpass with WireGuard yourself!
+
 
 ```sh
 $ rp explain genkey mykey
@@ -65,32 +66,20 @@ rosenpass keygen \
   public-key mykey/pqpk
 ```
 
-- Since Rosenpass was released very recently, packaging is an ongoing process. We will provide packages for debian, nix, arch linux, and possibly alpine. You can follow the process in [the README](https://github.com/rosenpass/rosenpass#getting-rosenpass).
+- Since Rosenpass was released very recently, packaging is an ongoing process. We provide packages for Nix, Arch Linux, and Alpine Linux. 
+You can see the current status here:
+[![Packaging status](https://repology.org/badge/vertical-allrepos/rosenpass.svg)](https://repology.org/project/rosenpass/versions)
+Furthermore, you can always compile Rosenpass yourself or download our pre-built, statically linked binaries from the [ GitHub release page](https://github.com/rosenpass/rosenpass/releases/latest). You can also find [OCI container images](https://opencontainers.org/) (Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting Rosenpass to x86_64, and you can compile it for any architecture in Linux or MacOS, that is supported by [liboqs](https://openquantumsafe.org/liboqs/#overview).   
 
-<!--
-TODO: @wucke13
-
-We provide packages on debian, nix, and arch linux. On other system the rust package manager `cargo` can be used. If none of these methods are suitable, you can download one of our prebuilt static binaries.
-
-<div>
-<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/rosenpass/rosenpass"target="_blank" >
-Download <i class="fab fa-github ml-2 "></i>
-</a>
-</div>
+Here's how you can install Rosenpass on your distribution of Linux:
 
 ```shell
-(debian) $ apt install rosenpass
-(arch) $ pacman -S rosenpass
-(nix-legacy) $ nix-env -iA nixos.rosenpass
-(nix-flake) $ nix profile install github:rosenpass/rosenpass#rosenpass
-(cargo) $ cargo install rosenpass
-```
--->
-
-```shell
-(arch AUR)     $ aura -A rosenpass-git
-(nix-flake)    $ nix profile install github:rosenpass/rosenpass#rosenpass
-(cargo)        $ cargo install rosenpass
+(arch AUR)		$ aura -A rosenpass-git
+(arch pacman)	$ pacman -S rosenpass
+(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo)			$ cargo install rosenpass
+(alpine)		$ apk add rosenpass
 ```
 
 - To get more information about command line parameters used by the tools, you can ask the tools for help:
@@ -100,9 +89,12 @@ rp help
 rosenpass help
 ```
 
-### **Generate and Use Rosenpass Keys**
+### **Set up your Rosenpass enhanced WireGuard VPN**
 
-1. Start by generating secret keys on both hosts:
+
+Note: Technically there's no difference between both hosts, but we named them server (pink) and client (orange) in this example to make it easier to comprehend.
+
+1.	Start by generating secret keys on both hosts:
 
 <span class="starter-code-server">
 
@@ -117,7 +109,7 @@ rosenpass help
 ```
 </span>
 
-2. Extract the public keys:
+2. Extract the public keys
 
 <span class="starter-code-server">
 
@@ -132,7 +124,12 @@ rosenpass help
 ```
 </span>
 
-3. Copy the `-public` directories to the other peers and then start the VPN: 
+3. Copy each `-public` directory to the other peer and you're done!
+
+
+### **Launch your Rosenpass enhanced WireGuard VPN**
+
+3. Start the VPN: 
 
 &nbsp;&bull; On the server:
 
@@ -169,6 +166,8 @@ peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 ```
 </span>
 
+### **Verify the magic!**
+
 5. Test the connection by pinging the server on the client machine:
 
 <span class="starter-code-client">
@@ -183,6 +182,12 @@ peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 ```sh
 watch -n 0.2 'wg show all; wg show all preshared-keys'
 ```
+
+Rosenpass will now generate a new PSK key for WireGuard about every two minutes and keep your VPN connection secure against post-quantum computer attacks. 
+
+
+-> Link to Documentation
+
 
 {{% /blocks/section %}}
 
