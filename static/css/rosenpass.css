@@ -460,13 +460,20 @@ img.rp-supporter {
 	width: 7rem; 
 	border-radius:2rem;
 	padding: 0.5rem 1rem!important;
-	float:right;
 	margin-bottom: 0;
+  align-self: end;
+  margin-top: auto;
 	}
 	
  .readmore  a {  color: var(--bs-white)!important; }
 
 /* documentation -> conference presentations */
+
+#presentation-list .card-text{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+}
 
 #presentation-list li{
 	margin-bottom:1rem;
