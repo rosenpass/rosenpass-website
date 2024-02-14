@@ -34,6 +34,8 @@ a {font-weight:bold;}
 
 .td-box h4 {font-size: 1rem; font-weight: bold; margin-bottom:1rem; margin-top:1.5rem;}
 
+.text-xs {font-size:smaller;}
+
 .block-lead .td-arrow-down::before {  bottom: -1.5rem; } /* fixes arrow down distance*/
 
 .block-lead {    padding: 3rem 0; }
