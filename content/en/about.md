@@ -38,7 +38,8 @@ To help everyone understand what Rosenpass does, we have provided a series of ex
 
 {{< blocks/lead color="light" >}}
 
-### Explain it to me like I've just discovered computers.
+### Explain it like I'm five. 
+(Meaning you don't have to know a lot about computers to understand this.)
 
 {{< /blocks/lead >}}
 

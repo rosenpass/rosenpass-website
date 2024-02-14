@@ -24,14 +24,49 @@
 }
 
 
+/* General, site-wide changes to the theme */
 
-.block-lead {
-    padding: 3rem 0;
+a {font-weight:bold;}
+
+.td-box--light p > a { color: var(--bs-link-color); }
+
+.td-box h3 {font-size: 1.5rem; font-weight: bold; margin-bottom:1rem; margin-top:1.5rem;}
+
+.td-box h4 {font-size: 1rem; font-weight: bold; margin-bottom:1rem; margin-top:1.5rem;}
+
+.block-lead .td-arrow-down::before {  bottom: -1.5rem; } /* fixes arrow down distance*/
+
+.block-lead {    padding: 3rem 0; }
+
+pre  { padding: 10px;  line-height: 1.8;}
+
+code { font-size-adjust: 0.56; }
+
+li {margin-left:2rem;}
+
+.button-link { 
+    background-color: var(--bs-primary);  
+    color: var(--bs-white);  
+    width: auto; 
+    border-radius:2rem;
+    padding: 0.5rem 1rem!important;
+    margin-bottom: 0;
+    }
+    
+.button-link  a {  color: var(--bs-white)!important; }
+
+
+
+/* Quick Start on start page */
+
+.howto {margin-top: -1rem;}
+
+.howto>li {
+  margin: 2rem 0 1rem 1rem;
+  font-size:1.2rem;
+  font-style: italic;
 }
 
-.block-lead .conference {
-    opacity: 0.5;
-}
 
 
 
@@ -176,31 +211,18 @@ margin: 0 0 15px 0;
 border: none;
 }
 
-.spacer {
-  display: inline-block;
-  margin-top: 1rem;
-}
-
-.contains-code-snippets ol {
-  margin-top: 15px;
-}
-
-.contains-code-snippets ul {
-  margin-top: 15px;
-}
-
 .starter-code-server pre {
   margin-bottom: 0;
 }
 
-.starter-code-server pre p {
-  color: #f70484;
+.starter-code-server + div pre span span span{
+  color: #d0006d;
   display: inline;
   font-weight: bold;
 }
 
-.starter-code-client pre p {
-  color: #f0ad4e;
+.starter-code-client + div pre span span span{
+  color: #bf7000;
   display: inline;
   font-weight: bold;
 }
@@ -528,16 +550,3 @@ img.rp-supporter {
     
 .download-button a {  color: var(--bs-white); }
 
-
-
-
-/* small adjustments */
-
-pre {
-  padding: 10px;
-  line-height: 1.8;
-}
-
-code {
-  font-size-adjust: 0.56;
-}
