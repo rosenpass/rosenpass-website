@@ -1,3 +1,32 @@
 {{ define "main" }}
-{{ .Render "content" }}
+
+<a id="td-block" class="td-offset-anchor"></a>
+<section class="row  block-lead td-box td-box--light position-relative td-box--gradient">
+	<div class="container text-center td-arrow-down">
+		{{ with .LinkTitle }}
+			<div class="h3 conference mb-0">	
+				{{ . }}
+			</div>			
+		{{ end }}
+		<div class="h4 mb-0">
+			{{ .Title }}
+		</div>
+	</div>
+</section>
+
+<section class="row td-box td-box--white td-box--gradient  pt-5 pb-5">
+	<div class="col">
+		<div class="row">
+			{{ .Description }}
+		</div>
+	</div>
+</section>
+
+
+
+
+{{ .Content }}
+
+
+
 {{ end }}

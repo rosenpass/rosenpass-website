@@ -1,23 +1,50 @@
 {{ define "main" }}
-<div class="td-content">
-	<h1>{{ .Title }}</h1>
-  {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
-	<header class="article-meta">
-		{{ partial "taxonomy_terms_article_wrapper.html" . }}
-		{{ if (and (not .Params.hide_readingtime) (.Site.Params.ui.readingtime.enable)) }}
-			{{ partial "reading-time.html" . }}
-		{{ end }}
-	</header>
-	{{ .Content }}
-        {{ partial "section-index.html" . }}
-	{{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
-		{{ partial "feedback.html" .Site.Params.ui.feedback }}
-		<br />
-	{{ end }}
-	{{ if (.Site.DisqusShortname) }}
-		<br />
-		{{ partial "disqus-comment.html" . }}
-	{{ end }}
-	{{ partial "page-meta-lastmod.html" . }}
-</div>
+
+{{ if (and .Parent .Parent.IsHome) }}
+{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+{{ else }}
+{{$.Scratch.Set "blog-pages" .Pages }}
 {{ end }}
+
+{{ .Content }}
+
+<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
+	{{- if .Pages -}}
+		{{ if not .Params.no_list }}
+			{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" )}}
+				{{ range $pag.PageGroups }}
+				<ul  id="presentation-list"  class="post-list list-unstyled row">
+					
+					{{ range  $p := .Pages}}
+					<li class="col-12 col-md-6">
+						<div class="post-list-item card">
+							<p class="h4">{{ $p.LinkTitle }} </p>
+							<span class="language">{{ $p.Params.talkLanguage }}</span>
+							{{ with $p.Params.banner }}
+								<a href="{{ $p.RelPermalink }}">
+									<img class="post-image card-img-top" 
+										 src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
+								</a>
+							{{ end }}
+							<h5 class="card-title"><a href="{{ .RelPermalink }}">  "{{ $p.Title }}"</a></h5>
+							<div class="card-text"><p class="pt-0 mt-0">{{ $p.Description }}</p>
+								<p class="pt-0 readmore"><a href="{{ .RelPermalink }}" aria-label="{{ T "ui_read_more"}} - {{ .LinkTitle }}">{{ T "ui_read_more"}}</a></p>
+							</div>
+						</div>
+					</li>
+					{{ end }}
+			
+				</ul>
+				{{ end }}
+			{{ end }}
+		</section>
+		<div class="row ps-2 pt-2">
+			<div class="col">
+				{{ if .Pages }}
+					{{ template "_internal/pagination.html" . }}
+				{{ end }}
+			</div>
+		</div>
+
+		{{ end }}
+	{{ end }}

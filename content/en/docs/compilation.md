@@ -7,6 +7,9 @@ type: docs
 ---
 
 
+Below is a guide on how to compile Rosenpass yourself, including via the binary files. This can be used to compile Rosenpass for systems not yet fully supported, such as Debian, and provides a more customised experience.
+
+
 {{< blocks/lead color="secondary" class="title-box" >}}
 ## Compile it yourself
 {{< /blocks/lead >}}

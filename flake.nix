@@ -48,6 +48,7 @@
             runHook postInstall
           '';
         };
+          packages.default = packages.website;
 
         devShells.default = (pkgs.devshell.mkShell {
           imports = [ "${devshell}/extra/git/hooks.nix" ];

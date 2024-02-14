@@ -1,2 +1,6 @@
 {{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdf_filename }}
-<iframe src="{{ $pdfFile }}" style="width:100%; height:95vh;"></iframe>
+
+<p class="presentation-download">Read here or <span class="pt-0 download-button"><a href="{{ $pdfFile }}">Download PDF</a></span></p>
+<object data="{{ $pdfFile }}" type="application/pdf" width="100%" style="height:90vh;">
+      <p>Unable to display PDF file. Please download it instead.</p>
+</object>
