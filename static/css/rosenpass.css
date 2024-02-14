@@ -71,6 +71,9 @@ li {margin-left:2rem;}
 
 
 /* Navbar */
+@media (min-width: 768px) {
+.td-home .td-navbar { position: absolute} /* fixes scrolling issue on start page */
+}
 
 .navbar button{ border:none;}
 
