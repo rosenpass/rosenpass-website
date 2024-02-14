@@ -72,7 +72,24 @@ li {margin-left:2rem;}
 
 
 
+/* Navbar responsive fix - change here if menu contents change! */
+
+@media (min-width: 768px) {  /* adjustments for middle sized screens*/
+	#main_navbar li {
+		padding:0 0.1rem;
+		font-size:0.9rem;
+	}
+}
+
+@media (min-width: 860px) {  /* reset to normal look for large screens*/
+	#main_navbar li {
+		padding:0 0.4rem;
+		font-size:1rem;
+	}
+}
+
 /* Navbar */
+
 @media (min-width: 768px) {
 .td-home .td-navbar { position: absolute} /* fixes scrolling issue on start page */
 }
