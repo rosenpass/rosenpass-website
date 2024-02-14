@@ -28,7 +28,7 @@
 &lt;p&gt;To this end, a great deal of thought, and thus time, has been invested in mapping out the proposed protocols, structures, challenges, technical steps, and broader communication strategy in proposing this approach. Wanja Zaeske, a research scientist at DLR with strong contributions to the broader work at Rosenpass, spent the latter half of last week intensely working with Karolin, whose expertise in Cryptography needs no introduction, to iron out all the theoretical wrinkles in the paper. Meanwhile, Sven Friedrich, another research scientist at DLR, was hard at work, on Thursday, at producing a software demonstrator of the proposed protocols. My own role was to help with the argument constructions within the paper, and be an able English-language editor in the latter stages.&lt;/p&gt;
 
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
-    &lt;img src=&#34;https://rosenpass.eu/img/wanja_karo_alice.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Photo of Wanja Zaeske, Karolin Varner and Alice Bowman&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/wanja_karo_alice.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Photo of Wanja Zaeske, Karolin Varner and Alice Bowman&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
       &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;From left to right: Wanja Zaeske, Karolin Varner, Alice Bowman&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;p&gt;On the first day, Ajuvo and I were warmly welcomed to NetBird&amp;rsquo;s shared WeWork space, following initial meetings and technical work earlier in the day between Karolin and the NetBird team. After initial introductions, coffee, and cake, we were treated by Misha, their CEO, to a seminar on NetBird&amp;rsquo;s technical architecture and process, before Karolin took the lead in explaining Cryptographic principles and their applications to various areas of NetBird&amp;rsquo;s application. Both of these seminars paid close attention to scientific communication, hoping to provide clear and understandable explanations of complex principles as part of an ongoing commitment to making security technologies available to the greatest possible range of people.&lt;/p&gt;
 
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
-    &lt;img src=&#34;https://rosenpass.eu/img/whiteboard.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;whiteboard with notes from the previous seminars&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/whiteboard.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;whiteboard with notes from the previous seminars&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
       &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;The combined notes from the two seminars&lt;/p&gt;
@@ -65,7 +65,7 @@
 &lt;p&gt;On the second day, discussions continued, as well as work on that port. By the conclusion of c-base&amp;rsquo;s tour, all were eager to continue work whilst soaking in the sun in c-base&amp;rsquo;s outdoor area, before eventually saying our goodbyes.&lt;/p&gt;
 
 &lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
-    &lt;img src=&#34;https://rosenpass.eu/img/c-base.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;view of the river from c-base&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/c-base.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;view of the river from c-base&#34;&gt;
     &lt;div class=&#34;card-body&#34;&gt;
       &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
       &lt;p class=&#34;card-text&#34;&gt;The view from c-base&amp;#39;s outdoor area in Berlin&amp;#39;s summer sun&lt;/p&gt;

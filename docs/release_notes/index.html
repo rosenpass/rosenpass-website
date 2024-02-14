@@ -18,18 +18,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Conference Presentations | Rosenpass</title>
-<meta name="description" content="Build post-quantum-secure VPNs with WireGuard!">
-<meta property="og:title" content="Conference Presentations" />
-<meta property="og:description" content="Build post-quantum-secure VPNs with WireGuard!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://rosenpass.eu/docs/presentations/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="og:site_name" content="Rosenpass" />
-<meta itemprop="name" content="Conference Presentations">
-<meta itemprop="description" content="Build post-quantum-secure VPNs with WireGuard!"><meta name="twitter:card" content="summary_large_image"/>
+<title>Rosenpass</title>
+<meta name="description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&amp;rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &amp;ldquo;private&amp;rdquo; to describe keys.">
+<meta property="og:title" content="" />
+<meta property="og:description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rosenpass.eu/docs/release_notes/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="docs" />
+
+<meta property="og:site_name" content="Rosenpass" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys.">
+
+<meta itemprop="wordCount" content="357"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
 
-<meta name="twitter:title" content="Conference Presentations"/>
-<meta name="twitter:description" content="Build post-quantum-secure VPNs with WireGuard!"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys."/>
 
 
 
@@ -45,7 +50,7 @@
 
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       <nav class="navbar navbar-expand-md navbar-light flex-column flex-md-row td-navbar"  role="navigation">
    <div class="container-fluid">
@@ -113,13 +118,13 @@
   <input type="checkbox" id="m-docscompilation-check"/>
   <label for="m-docscompilation-check"><a href="/docs/compilation/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docscompilation"><span class="">Compilation and Installation</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsrelease_notes-li">
-  <input type="checkbox" id="m-docsrelease_notes-check"/>
-  <label for="m-docsrelease_notes-check"><a href="/docs/release_notes/" title="" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsrelease_notes"><span class="">Release Notes</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsrelease_notes-li">
+  <input type="checkbox" id="m-docsrelease_notes-check" checked/>
+  <label for="m-docsrelease_notes-check"><a href="/docs/release_notes/" title="" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsrelease_notes"><span class="td-sidebar-nav-active-item">Release Notes</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docspresentations-li">
-  <input type="checkbox" id="m-docspresentations-check" checked/>
-  <label for="m-docspresentations-check"><a href="/docs/presentations/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docspresentations"><span class="td-sidebar-nav-active-item">Conference Presentations</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docspresentations-li">
+  <input type="checkbox" id="m-docspresentations-check"/>
+  <label for="m-docspresentations-check"><a href="/docs/presentations/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docspresentations"><span class="">Conference Presentations</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docspresentationsmrmcd-2023-li">
@@ -178,14 +183,23 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/rosenpass/rosenpass-website/tree/main/content/en/docs/presentations/_index.html" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
-  <a href="https://github.com/rosenpass/rosenpass-website/edit/main/content/en/docs/presentations/_index.html" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/rosenpass/rosenpass-website/new/main/content/en/docs/presentations/_index.html?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
-  <a href="https://github.com/rosenpass/rosenpass-website/issues/new?title=Conference%20Presentations" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/rosenpass/rosenpass-website/tree/main/content/en/docs/release_notes.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/rosenpass/rosenpass-website/edit/main/content/en/docs/release_notes.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/rosenpass/rosenpass-website/new/main/content/en/docs/release_notes.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/rosenpass/rosenpass-website/issues/new?title=" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
   
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#021">0.2.1</a></li>
+    <li><a href="#020">0.2.0</a></li>
+    <li><a href="#011">0.1.1</a></li>
+  </ul>
+</nav>
+      </div>
+    
             
 
 	
@@ -214,173 +228,90 @@
 
             
 
-
-
-
-
-
-
-
-
- 
-
-<a id="td-block-0" class="td-offset-anchor"></a>
-<section class="row  block-lead td-box td-box--primary position-relative td-box--gradient td-box--height-auto ">
+<a id="td-block" class="td-offset-anchor"></a>
+<section class="row  block-lead td-box td-box--light position-relative td-box--gradient">
 	<div class="container text-center td-arrow-down">
+		
+			<div class="h3 conference mb-0">	
+				Release Notes
+			</div>			
+		
 		<div class="h4 mb-0">
 			
-				
-Conference Presentations
-
-			
 		</div>
 	</div>
 </section>
 
-
-
-
-
- 
- 
-<a id="td-block-1" class="td-offset-anchor"></a>
-<section class="row td-box td-box--light td-box--gradient td-box--height-auto pt-5 pb-5">
+<section class="row td-box td-box--white td-box--gradient  pt-5 pb-5">
 	<div class="col">
-		<div class="row ">
-			
-				
-In this section you can find the slides of presentations we held. 
-For some talks, there are also videos recordings available.
-
+		<div class="row">
 			
 		</div>
 	</div>
 </section>
 
 
-<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
-			
-				
-				<ul  id="presentation-list"  class="post-list list-unstyled row">
-					
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">YRCS 2023 </p>
-							<span class="language">EN</span>
-							
-								<a href="/docs/presentations/yrcs-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/yrcs2023.jpg" alt="Featured Image for YRCS 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/yrcs-2023/">  "Securing &amp; Deploying Post-Quantum WireGuard"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">A deeper look into Rosenpass&#39; deployment of post-quantum WireGuard, its KEMs, protocol design, and DoS resistance.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/yrcs-2023/" aria-label="Read more - YRCS 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">RWPQC 2023 </p>
-							<span class="language">EN</span>
-							
-								<a href="/docs/presentations/rwpqc-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/rwpqc2023.jpg" alt="Featured Image for RWPQC 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/rwpqc-2023/">  "Securing &amp; Deploying Post-Quantum WireGuard"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">A presentation on Rosenpass&#39; post-quantum WireGuard solutions, including key-encapsulation mechanisms, Noise, and Proverif.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/rwpqc-2023/" aria-label="Read more - RWPQC 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">Easterhegg 2023 </p>
-							<span class="language">DE</span>
-							
-								<a href="/docs/presentations/easterhegg-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/easterhegg2023.jpg" alt="Featured Image for Easterhegg 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/easterhegg-2023/">  "Ein VPN zum Schutz vor Quantencomputern"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">A deeper dive into post-quantum cryptography, Rosenpass&#39; approach to the issue, and a demonstration of Rosenpass&#39; solution and integration with WireGuard.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/easterhegg-2023/" aria-label="Read more - Easterhegg 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">IAV 2023 </p>
-							<span class="language">DE</span>
-							
-								<a href="/docs/presentations/iav-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/iav2023.jpg" alt="Featured Image for IAV 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/iav-2023/">  "VPN &amp; Struktur für Translationsforschung in der Kryptografie"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">An overview on quantum cryptography, Rosenpass&#39; cryptographic tools and structure.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/iav-2023/" aria-label="Read more - IAV 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">Formosa 2023 </p>
-							<span class="language">EN</span>
-							
-								<a href="/docs/presentations/formosa-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/formosa2023.jpg" alt="Featured Image for Formosa 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/formosa-2023/">  "Rosenpass"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/formosa-2023/" aria-label="Read more - Formosa 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-					<li class="col-12 col-md-6">
-						<div class="post-list-item card">
-							<p class="h4">MRMCD 2023 </p>
-							<span class="language">DE</span>
-							
-								<a href="/docs/presentations/mrmcd-2023/">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/mrmcd2023.jpg" alt="Featured Image for MRMCD 2023" >
-								</a>
-							
-							<h5 class="card-title"><a href="/docs/presentations/mrmcd-2023/">  "Sichere Kryptografie trotz Quantencomputern: Projektupdate"</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">A recap on, and overview of, Rosenpass&#39; progress since April presented to the MetaRehinMainChaosDays conference in Darmstadt.</p>
-								<p class="pt-0 readmore"><a href="/docs/presentations/mrmcd-2023/" aria-label="Read more - MRMCD 2023">Read more</a></p>
-							</div>
-						</div>
-					</li>
-					
-			
-				</ul>
-				
-			
-		</section>
-		<div class="row ps-2 pt-2">
-			<div class="col">
-				
-					
-				
-			</div>
-		</div>
 
-		
-	
+
+<h2 id="021">0.2.1</h2>
+<ul>
+<li>Improved code quality by applying clippy lints</li>
+<li>Removed unnecessary unsafe keyword instances</li>
+<li>Addressed stack overflow based test failure using the stacker crate</li>
+<li>Added fix to reap lingering wireguard child-processes</li>
+<li>Updated manpage</li>
+<li>Split code into subcrates, added cargo workspace</li>
+<li>Repaired benchmark code</li>
+<li>Added a couple more unit tests</li>
+</ul>
+<h2 id="020">0.2.0</h2>
+<ul>
+<li>Refined CI for pre-release vs draft vs release artifacts</li>
+<li>Added licensing information: MIT and Apache 2.0</li>
+<li>Refined artwork</li>
+<li>Refined whitepaper</li>
+<li>Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods</li>
+<li>Renamed protocol::Server to protocol::CryptoServer</li>
+<li>Added examples for keyexchange and CryptoServer usage into code</li>
+<li>Renamed EKEM/SKEM to EphermeralKEM/StaticKEM</li>
+<li>Introduced consistent code formatting using cargo-fmt style hints</li>
+<li>Further documentation improvements</li>
+<li>Fixed crash on empty message handling</li>
+<li>Added manpage</li>
+<li>Moved from nixpkgs&rsquo; rustPlatform to naersk + fenix in the nix flake</li>
+<li>Reworked CI target platforms (removed i686 Linux)</li>
+<li>Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets</li>
+<li>Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys. It is now either &ldquo;secret&rdquo; or &ldquo;public&rdquo;. This avoids the potential for confusion between &ldquo;pk&rdquo; (public key) and &ldquo;pk&rdquo; (private key) by renaming &ldquo;private key&rdquo; to &ldquo;secret key&rdquo; (sk).</li>
+<li>Added support for dualstack and non-dualstack IPv4 + IPv6 configurations</li>
+<li>Added QC CI code independent of Nix (dissimalar redundancy, yay!)</li>
+<li>Updated crate dependencies</li>
+<li>Fixed race condition of concurrent handshakes</li>
+<li>Added private-key legacy support to CLI parser (as outlined above, we strongly recommend that you define them as secret keys!!!1!)</li>
+<li>Introduced Cachix for CI Nix caching (finally bearable feedack in time for more eager contributors)</li>
+<li>Added the i686-linux back in, as the respective OQS bug was resolved</li>
+<li>Updated flake.lock</li>
+<li>Added autogenerated CI Nix workflow and its generator script</li>
+<li>Added Mac OS CI build jobs</li>
+<li>Added .gitlab-ci.yaml for mirroring to gitlab.com (also add mirror to <a href="https://gitlab.com/rosenpass/rosenpass">https://gitlab.com/rosenpass/rosenpass</a> )</li>
+<li>Added dualstack support to rp script</li>
+<li>Belatedly updated from liboqs-0.7.2 to liboqs-0.8.0</li>
+<li>Added shellcheck to CI</li>
+<li>Updated rust/Cargo.lock dependencies</li>
+<li>Added freebsd support to rp script, prepared for other BSDs</li>
+</ul>
+<h2 id="011">0.1.1</h2>
+<ul>
+<li>Initial publication of the rosenpass tool, including associated whitepaper and artwork.</li>
+<li>Proof-read the whitepaper</li>
+<li>Added the nix-based development environment and CI</li>
+<li>Disabled CI for Windows and aarch64-linux</li>
+<li>Added automated release workflow</li>
+</ul>
+
+
+
+
+
           </main>
           <div class="col-xxl-4"></div>
         </div>
