@@ -8,6 +8,9 @@ menu:
 no_list: true
 ---
 
+{{< blocks/lead color="primary" class="mb-5" >}}
+Documentation
+{{< /blocks/lead >}}
 
 <p class="indent">
   Welcome to the documentation page for Rosenpass. This guide contains the manual pages, slides from various presentations,
@@ -52,4 +55,17 @@ as well as links to both our scientific whitepaper and the github repository for
     <li><b>NetBird partnership:</b> We are working with <a>NetBird</a> to produce a commercially-ready VPN service that is post-quantum secure</li>
     <li><b>Golang implementation of Rosenpass:</b> Our initial implementation of Rosenpass is written in Rust, but we are working on an alternative, compatible Golang-built implementation to increase diversity and reach new platforms. 	
 	It is called <a href="https://github.com/cunicu/go-rosenpass">go-rosenpass</a>. 	</li>
+  </ul>
+
+  <h2>Current Version Release Notes</h2>
+  <h3>&nbsp;&nbsp;0.2.1</h3>
+  <ul>
+  <li> Improved code quality by applying clippy lints</li>  
+  <li> Removed unnecessary unsafe keyword instances</li>  
+  <li> Addressed stack overflow based test failure using the stacker crate</li>  
+  <li> Added fix to reap lingering wireguard child-processes</li>  
+  <li> Updated manpage</li>  
+  <li> Split code into subcrates, added cargo workspace</li>  
+  <li> Repaired benchmark code</li>  
+  <li> Added a couple more unit tests</li>   
   </ul>
