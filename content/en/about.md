@@ -1,6 +1,6 @@
 ---
-title: "About Rosenpass"
-linkTitle: "About"
+title: "What is Rosenpass?"
+linkTitle: "What is Rosenpass?"
 weight: 20
 menu:
   main:
