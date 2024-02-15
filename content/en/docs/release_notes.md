@@ -6,13 +6,16 @@ menu: false
 type: docs
 ---
 
-## 0.1.1
+## 0.2.1
 
-- Initial publication of the rosenpass tool, including associated whitepaper and artwork.
-- Proof-read the whitepaper
-- Added the nix-based development environment and CI
-- Disabled CI for Windows and aarch64-linux
-- Added automated release workflow
+- Improved code quality by applying clippy lints
+- Removed unnecessary unsafe keyword instances
+- Addressed stack overflow based test failure using the stacker crate
+- Added fix to reap lingering wireguard child-processes
+- Updated manpage
+- Split code into subcrates, added cargo workspace
+- Repaired benchmark code
+- Added a couple more unit tests
 
 
 ## 0.2.0
@@ -50,14 +53,15 @@ type: docs
 - Updated rust/Cargo.lock dependencies
 - Added freebsd support to rp script, prepared for other BSDs
 
-## 0.2.1
+## 0.1.1
 
-- Improved code quality by applying clippy lints
-- Removed unnecessary unsafe keyword instances
-- Addressed stack overflow based test failure using the stacker crate
-- Added fix to reap lingering wireguard child-processes
-- Updated manpage
-- Split code into subcrates, added cargo workspace
-- Repaired benchmark code
-- Added a couple more unit tests
+- Initial publication of the rosenpass tool, including associated whitepaper and artwork.
+- Proof-read the whitepaper
+- Added the nix-based development environment and CI
+- Disabled CI for Windows and aarch64-linux
+- Added automated release workflow
+
+
+
+
 
