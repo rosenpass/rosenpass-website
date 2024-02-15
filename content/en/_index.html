@@ -53,13 +53,13 @@ It achieves the same security guarantees as WireGuard, using two strong post-qua
 <h3> Supported Systems</h3>
 
 <p>We provide packages for <strong>Nix</strong>, <strong>Arch Linux</strong>, and <strong>Alpine Linux</strong>. </p>
-<p>Since Rosenpass was released very recently, <strong>packaging is an ongoing process</strong>.
+<p>Since <strong>Rosenpass</strong> was released very recently, <strong>packaging is an ongoing process</strong>.
 You can find the latest information about all the Linux distributions we support on 
 <strong><a href="https://repology.org/project/rosenpass/versions" target="_blank">Repology</a></strong>.</p>
 <p>Even if your distribution is not listed here, you can always <strong>compile Rosenpass yourself</strong> or download a pre-built, statically linked <strong>binary</strong> from our
 <a href="https://github.com/rosenpass/rosenpass/releases/latest" target="_blank">GitHub release page</a>. You can also find 
 <a href="https://opencontainers.org/" target="_blank">OCI container images</a>
-(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting Rosenpass to x86_64, and you can compile it for any architecture in Linux or MacOS, that is supported by 
+(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting <strong>Rosenpass</strong> to x86_64, and you can compile it for any architecture in Linux or MacOS, that is supported by 
 <a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
 
 <h3>How to install Rosenpass on your Linux distribution</h3>
@@ -115,7 +115,7 @@ rosenpass help
 ```
 </p>
 
-<li>Copy each `-public` directory to the other peer</li>
+<li>Copy each <code>-public</code> directory to the other peer</li>
  Congrats! You're basic setup is done!
 
 
@@ -170,20 +170,20 @@ peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
 watch -n 0.2 'wg show all; wg show all preshared-keys'
 ```
 <p><strong>All done!</strong></p>
-<p>Rosenpass will now generate a new PSK key for WireGuard about every two minutes and <strong>keep your VPN connection secure</strong> against post-quantum computer attacks. </p>
+<p><strong>Rosenpass</strong> will now generate a new PSK key for WireGuard about every two minutes and <strong>keep your VPN connection secure</strong> against post-quantum computer attacks. </p>
 </ol>
 
 
 
 <h3>For the curious</h3>
 
-<p>`rp` is a convienience wrapper for the actual `rosenpass` programme (which handles the post-quantum secure key exchange). `rp` can set up both WireGuard and Rosenpass for you by:</p>
+<p><code>rp</code> is a convienience wrapper for the actual <code>rosenpass</code> programme (which handles the post-quantum secure key exchange). <code>rp</code> can set up both WireGuard and <strong>Rosenpass</strong> for you by:</p>
 <ul>
- <li>generating WireGuard and Rosenpass public and secret keys</li>
+ <li>generating WireGuard and <strong>Rosenpass</strong> public and secret keys</li>
  <li>setting up the WireGuard interface</li>
- <li>launching a Rosenpass process</li>
+ <li>launching a <strong>Rosenpass</strong> process</li>
  </ul>
-<p>If you're interested in learning more about how it all works, you can try setting everything up yourself. Use the `explain` verb to show you how to integrate Rosenpass with WireGuard:<p>
+<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
 
 
 ```sh
