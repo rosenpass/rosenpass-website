@@ -19,10 +19,13 @@ type: community
 
 {{< blocks/section color="white" >}}
 
+Rosenpass is free and open-source software, developed by cryptographers and scientists thanks to an initial grant by the Dutch philanthropic foundation NLNet, that provides post-quantum secure encryption keys for the WireGuard VPN protocol.
 
+Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymisation, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are likely using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important current VPN technology is called WireGuard®.
 
+WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
 
-Rosenpass is free and open-source software, developed by cryptographers and scientists thanks to an initial grant by the Dutch philanthropic foundation NLNet.
+Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
 
 **Do you still have questions?**
 
@@ -48,18 +51,6 @@ This technology has been working very well for years, but people are working to 
 There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the most secure. Some frontrunners have been decided upon, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers will not be able to break the locks that your computer creates.
 
 Rosenpass is part of this wider effort. Our program allows another program called WireGuard to create safe locks, even against quantum computers. Rosenpass and WireGuard work together to better protect network messages better either could on their own.
-
-
-
----------------------
-Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymisation, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are likely using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important current VPN technology is called WireGuard®.
-
-WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
-
-Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
----------------------
-
-
 
 {{< /blocks/section >}}
 

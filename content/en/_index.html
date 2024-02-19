@@ -59,7 +59,7 @@ You can find the latest information about all the Linux distributions we support
 <p>Even if your distribution is not listed here, you can always <strong>compile Rosenpass yourself</strong> or download a pre-built, statically linked <strong>binary</strong> from our
 <a href="https://github.com/rosenpass/rosenpass/releases/latest" target="_blank">GitHub release page</a>. You can also find 
 <a href="https://opencontainers.org/" target="_blank">OCI container images</a>
-(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting <strong>Rosenpass</strong> to x86_64, and you can compile it for any architecture in Linux or MacOS, that is supported by 
+(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting <strong>Rosenpass</strong> to x86_64, and you can compile it for any architecture in Linux, or MacOS, that is supported by 
 <a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
 
 <h3>How to install Rosenpass on your Linux distribution</h3>
@@ -73,7 +73,7 @@ You can find the latest information about all the Linux distributions we support
 (alpine)		$ apk add rosenpass
 ```
 
-<p>To get more information about available command line parameters, you can ask the tools for help:<p>
+<p>To find more information on the available command line parameters, you can use these tools:<p>
 
 ```sh
 rp help
@@ -83,7 +83,7 @@ rosenpass help
 <h3>How to set up your Rosenpass enhanced WireGuard VPN</h3>
 
 
-<p><strong>Note:</strong> Technically there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
+<p><strong>Note:</strong> Technically, there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
 <ol class="howto">
 <li>Start by generating secret keys on both hosts</li>
 
@@ -116,10 +116,10 @@ rosenpass help
 </p>
 
 <li>Copy each <code>-public</code> directory to the other peer</li>
- Congrats! You're basic setup is done!
+ Congrats! Your basic setup is complete!
 
 
-<h3>How to launch your Rosenpass enhanced WireGuard VPN</h3>
+<h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
 
 <li>Start the VPN</li>
 
@@ -183,7 +183,7 @@ watch -n 0.2 'wg show all; wg show all preshared-keys'
  <li>setting up the WireGuard interface</li>
  <li>launching a <strong>Rosenpass</strong> process</li>
  </ul>
-<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
+<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself manually. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
 
 
 ```sh
@@ -198,7 +198,7 @@ rosenpass keygen \
   public-key mykey/pqpk
 ```
 
-<p>You can find even more in-depth ressources in our Documentation section.</p>
+<p>We provide more in-depth ressources in our Documentation section.</p>
 
 <p class="pt-0 button-link"><a href="/docs" aria-label="documentation">Go to Documentation</a></p>
 						
