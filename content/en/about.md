@@ -11,7 +11,7 @@ type: community
 
 {{< blocks/lead  >}}
 
-## So what exactly does Rosenpass do?
+## What is Rosenpass?
  
 {{< /blocks/lead >}}
 
@@ -19,44 +19,73 @@ type: community
 
 {{< blocks/section color="white" >}}
 
-Rosenpass is free and open-source software, developed by cryptographers and scientists thanks to an initial grant by the Dutch philanthropic foundation NLNet, that provides post-quantum secure encryption keys for the WireGuard VPN protocol.
+**Rosenpass** is free and **open-source** software based on the latest research in the field of **cryptography**. It is intended to be used with **WireGuard VPN**, but can work with all software that uses pre-shared keys. It uses two cryptographic methods (Classic McEliece and Kyber) to secure systems against attacks with **quantum computers**.
 
-Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymisation, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are likely using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important current VPN technology is called WireGuard®.
+**Rosenpass** is also a **science communication** project that intends to make cryptography easy to understand for everyone. 
 
-WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
+#### "Explain it like I'm..."
 
-Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
+On that note, we have provided a series in-depth of explanations about what **Rosenpass** does at different levels. 
+Pick whatever you feel suits you best! :D
 
-**Do you still have questions?**
-
-To help everyone understand what Rosenpass does, we have provided a series of explanations aimed at differing levels of technical proficiency:
-
-{{% blocks/anchor-nav %}} 
+{{% blocks/eli5-nav %}} 
 
 {{< /blocks/section >}}
 
 {{< blocks/lead color="light" >}}
 
-### Explain it like I'm five. 
+### Explain it like I'm five! 
 (Meaning you don't have to know a lot about computers to understand this.)
 
 {{< /blocks/lead >}}
 
 {{< blocks/section color="white">}}
 
-Cryptographers are people who work on making your phone, tablet, laptop, or just about any computer more secure. They create calculations that are very complicated to undo without a key. These calculations can be used to create closed locks, sealing messages, so they cannot be opened unless you have the key for them. These locks can be created by any computer. Your phone, tablet, or laptop is probably creating many of them right now.
+#### What is cryptograhpy?
+Have you ever tried to write a message to a friend that only they could read? You might have told them: "Take each letter and move it forward four places in the alphabet!" And then you would have moved each letter four places backward before writing it down. Encryption is basically like that, but *a lot* more complicated! And you can do other useful stuff with it. For example make sure the message really comes from the person it claims to be from.
 
+#### Why do we need cryptography?
+Without cryptography, every message you send on your phone or computer could be read by everyone on the way between you and the receiver of that message. It's like sending a letter without an envelope! That might not be such a big problem for the GIFs you send to your friends (We also send postcards without envelopes, after all!), but there are parts of our communication that really shouldn't be public. Like when you buy something online: If you sent your credit card data unencrypted, it would mean that everyone could read that data and go buy something with your money!
+
+#### What is a quantum computer?
+Regular Computers only know two states: 0 (= power off) and 1 (= power on). When you send data on a regular comupter, it maps every letter to a long sequence of ones and zeros.
+All over the world, scientists are trying to build computers that use quantum mechanics to have more than just these two states, because that would make them much faster than the computers we have today. They made prototypes that kind of work, but they are huge, unstable (because they are super sensitve to their environment) and can't really do much, yet. 
+
+
+
+#### What makes quantum computers so bad for cryptography?
 This technology has been working very well for years, but people are working to undo all the hard work. Some people are working to build quantum computers, which are a special type of computer that can open these locks even without the key. Quantum computers take advantage of the properties of the smallest particles in existence to perform calculations that are too challenging for normal computers. Quantum computers are difficult to use and good at few things, but they happen to be very good at opening most of the locks created by cryptographers.
+
+#### What can we do to protect our encryption against quantum computers?
+Cryptographers are scientists who's job is to think of new ways to encrypt stuff and make sure they really work. But they also try to break the encryption methods we already have. Because if they can do it, attackers might also be able to! These scientists also know that quantum computers are coming. That's why they've been thinking ahead and found a few cyphers that don't have a weakness against quantum computers. Or at least, nobody found a way to break them, yet!
+
+
 
 There are many ways to create locks that cannot be opened by quantum computers. Cryptographers have been holding competitions to find out whose locks are the most secure. Some frontrunners have been decided upon, and now cryptographers are working hard to allow all computers to create these locks. When they are done, even quantum computers will not be able to break the locks that your computer creates.
 
+#### What is a VPN?
+A VPN or Virtual Private Network is like a tunnel that you can send your messages through, so that nobody can see them. Not even when and where they go to! This tunnel is also made of encryption! Many companies use VPNs so that their employees who work from home or are on a business trip can connect to the company network. This makes sure that their competitiors or people who want to harm them can't know what they are working on. 
+But you can also use a VPN at home. There are many providers that offer easy to use VPN software. 
+
+#### What is WireGuard?
+Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs can be used for anonymisation, to circumvent location-based website locks, and to get better deals in online stores. Whenever you connect to your workplace from your home, you are likely using a VPN to encrypt the connection. For people in countries that regulate their citizens' internet usage aggressively, VPNs have become a way to access uncensored information and free communication. One important current VPN technology is called WireGuard®.
+
+WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
+
+#### What is Rosenpass?
 Rosenpass is part of this wider effort. Our program allows another program called WireGuard to create safe locks, even against quantum computers. Rosenpass and WireGuard work together to better protect network messages better either could on their own.
+
+
+#### How can I use Rosenpass?
+
+Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
+
 
 {{< /blocks/section >}}
 
 {{< blocks/lead  color="secondary" >}}
 
-### Explain it like I'm a tech journalist
+### Explain it like I'm a tech journalist!
 
 {{< /blocks/lead >}}
 
@@ -78,7 +107,7 @@ Rosenpass is written in Rust. The application serves as a reference implementati
 
 {{< blocks/lead  color="primary" >}}
 
-### Explain it like I'm a developer
+### Explain it like I'm a developer!
 
 {{< /blocks/lead >}}
 
@@ -104,7 +133,7 @@ Check the [Getting Started](/#start) section for further information.
 
 {{< blocks/lead color="dark" >}}
 
-### Explain it like I'm a cryptographer
+### Explain it like I'm a cryptographer!
 
 {{< /blocks/lead >}}
 
