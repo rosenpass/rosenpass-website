@@ -57,6 +57,7 @@ Virtual Private Networks (VPNs) are a cornerstone of the modern internet. VPNs c
 WireGuard is considered to be excellent by most professionals. It is fast, secure, and very efficient, but there is nonetheless a problem on the horizon threatening its security. Quantum computers may be able to break all modern cryptosystems within a couple of years from now. With this breakage, all systems on the internet, from personal messages to banking, will be threatened by both criminals and state actors. Even data sent today is affected by this threat, as espionage agencies can store data transmitted today and decrypt it in the future.
 
 Rosenpass can be used to protect against that risk. The application can be installed to run in parallel to WireGuard, protecting it from quantum attacks. Rosenpass doesn't change the way WireGuard works, its encryption remains as it was in its standard implementation, except for the provision of an additional key that cannot be broken by the quantum computers.
+
 ---------------------
 
 
