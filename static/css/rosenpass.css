@@ -499,6 +499,38 @@ img.rp-supporter {
   max-width: 300px;
 }
 
+/* About / What is Rosenpass */
+
+.td-box.eli5-images {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction:column;
+	padding-top:0;
+	padding-bottom:0;
+	margin-top:-3rem;
+	margin-bottom:-2rem;
+}
+
+.eli5-image {
+max-width: 80vw;
+align-self: center;
+}
+
+@media (min-width: 768px) {
+
+	
+	.td-box.eli5-images {
+		flex-direction:row;
+	}
+	.eli5-image {
+		max-width: 25vw;
+	}
+}
+
+
+
+
 /* blog list */
 
 .post-list .post-list-item {
