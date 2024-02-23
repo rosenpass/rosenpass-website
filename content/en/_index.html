@@ -3,6 +3,7 @@ title = "Rosenpass"
 linkTitle = "Rosenpass"
 subtitle = "Build post-quantum-secure VPNs with WireGuard!"
 images = ['img/rosenpass-preview.png']
+weight = 10
 
 +++
 
@@ -11,10 +12,10 @@ images = ['img/rosenpass-preview.png']
 <p class="subtitle">Build post-quantum-secure VPNs with WireGuard!</p>
 <div class="rp-buttonrow mx-auto">
 <a class="btn btn-lg btn-secondary mr-3 mb-4" href="#start">
-Getting Started <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
+Quick Start <!-- <i class='fas fa-arrow-alt-circle-down '></i>-->
 </a>
 <a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/about" >}}">
-About Rosenpass <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
+What is Rosenpass? <!--<i class="fas fa-arrow-alt-circle-right ml-2"></i>-->
 </a>
 <a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/rosenpass/rosenpass" target="_blank">
 Source Code <i class="fab fa-github ml-2 "></i>
@@ -43,15 +44,146 @@ It achieves the same security guarantees as WireGuard, using two strong post-qua
 {{< /blocks/section >}}
 
 {{< blocks/lead color="secondary" >}}
-<h3 id="start">Getting started</h3>
+<h3 id="start">Quick Start</h3>
 
 {{< /blocks/lead >}}
 
 {{% blocks/section color="light" class="no-flex contains-code-snippets" %}}
 
-### **Getting Help**
+<h3> Supported Systems</h3>
 
-The `rosenpass` programme (which handles the post-quantum secure key exchange) is accompanied by a convienience wrapper called `rp`. It can set up both WireGuard and Rosenpass for you. Usually this means generation of WireGuard and Rosenpass public and secret keys, as well as setting up the WireGuard interface and launching a Rosenpass process. However, using the `explain` verb, `rp` can also show you how to integrate Rosenpass with WireGuard yourself!
+<p>We provide packages for <strong>Nix</strong>, <strong>Arch Linux</strong>, and <strong>Alpine Linux</strong>. </p>
+<p>Since <strong>Rosenpass</strong> was released not too long ago, <strong>packaging is an ongoing process</strong>.
+You can find the latest information about all the Linux distributions we support on 
+<strong><a href="https://repology.org/project/rosenpass/versions" target="_blank">Repology</a></strong>.</p>
+<p>Even if your distribution is not listed here, you can always <strong>compile Rosenpass yourself</strong> or download a pre-built, statically linked <strong>binary</strong> from our
+<a href="https://github.com/rosenpass/rosenpass/releases/latest" target="_blank">GitHub release page</a>. You can also find 
+<a href="https://opencontainers.org/" target="_blank">OCI container images</a>
+(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting <strong>Rosenpass</strong> to x86_64, and you can compile it for any architecture in Linux, or MacOS, that is supported by 
+<a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
+
+<h3>How to install Rosenpass on your Linux distribution</h3>
+
+```shell
+(arch AUR)		$ aura -A rosenpass-git
+(arch pacman)	$ pacman -S rosenpass
+(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo)			$ cargo install rosenpass
+(alpine)		$ apk add rosenpass
+```
+
+<p>To find more information on the available command line parameters, you can use these tools:<p>
+
+```sh
+rp help
+rosenpass help
+```
+
+<h3>How to set up your Rosenpass enhanced WireGuard VPN</h3>
+
+
+<p><strong>Note:</strong> Technically, there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
+<ol class="howto">
+<li>Start by generating secret keys on both hosts</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> rp genkey server.rosenpass-secret
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> rp genkey client.rosenpass-secret
+```
+</p>
+
+<li>Extract the public keys</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> rp pubkey server.rosenpass-secret server.rosenpass-public
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> rp pubkey client.rosenpass-secret client.rosenpass-public
+```
+</p>
+
+<li>Copy each <code>-public</code> directory to the other peer</li>
+ Congrats! Your basic setup is complete!
+
+
+<h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
+
+<li>Start the VPN</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
+peer client.rosenpass-public allowed-ips fe80::/64
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> sudo rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+```
+</p>
+
+<li>Assign IP addresses</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> sudo ip a add fe80::1/64 dev rosenpass0
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> sudo ip a add fe80::2/64 dev rosenpass0
+```
+</p>
+
+<h3>Just to be sure: Verify the magic!</h3>
+
+<li>Test the connection by pinging the server on the client machine</li>
+
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> ping fe80::1%rosenpass0
+```
+</p>
+
+<li>You can watch how Rosenpass replaces the WireGuard PSK with the following command</li>
+
+```sh
+watch -n 0.2 'wg show all; wg show all preshared-keys'
+```
+<p><strong>All done!</strong></p>
+<p><strong>Rosenpass</strong> will now generate a new PSK key for WireGuard about every two minutes and <strong>keep your VPN connection secure</strong> against post-quantum computer attacks. </p>
+</ol>
+
+
+
+<h3>For the curious</h3>
+
+<p><code>rp</code> is a convienience wrapper for the actual <code>rosenpass</code> programme (which handles the post-quantum secure key exchange). <code>rp</code> can set up both WireGuard and <strong>Rosenpass</strong> for you by:</p>
+<ul>
+ <li>generating WireGuard and <strong>Rosenpass</strong> public and secret keys</li>
+ <li>setting up the WireGuard interface</li>
+ <li>launching a <strong>Rosenpass</strong> process</li>
+ </ul>
+<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself manually. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
 
 
 ```sh
@@ -66,127 +198,11 @@ rosenpass keygen \
   public-key mykey/pqpk
 ```
 
-- Since Rosenpass was released very recently, packaging is an ongoing process. We provide packages for Nix, Arch Linux, and Alpine Linux. 
-You can see the current status here:
-[![Packaging status](https://repology.org/badge/vertical-allrepos/rosenpass.svg)](https://repology.org/project/rosenpass/versions)
-Furthermore, you can always compile Rosenpass yourself or download our pre-built, statically linked binaries from the [ GitHub release page](https://github.com/rosenpass/rosenpass/releases/latest). You can also find [OCI container images](https://opencontainers.org/) (Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting Rosenpass to x86_64, and you can compile it for any architecture in Linux or MacOS, that is supported by [liboqs](https://openquantumsafe.org/liboqs/#overview).   
+<p>We provide more in-depth ressources in our Documentation section.</p>
 
-Here's how you can install Rosenpass on your distribution of Linux:
+<p class="pt-0 button-link"><a href="/docs" aria-label="documentation">Go to Documentation</a></p>
+						
 
-```shell
-(arch AUR)		$ aura -A rosenpass-git
-(arch pacman)	$ pacman -S rosenpass
-(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
-(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
-(cargo)			$ cargo install rosenpass
-(alpine)		$ apk add rosenpass
-```
-
-- To get more information about command line parameters used by the tools, you can ask the tools for help:
-
-```sh
-rp help
-rosenpass help
-```
-
-### **Set up your Rosenpass enhanced WireGuard VPN**
-
-
-Note: Technically there's no difference between both hosts, but we named them server (pink) and client (orange) in this example to make it easier to comprehend.
-
-1.	Start by generating secret keys on both hosts:
-
-<span class="starter-code-server">
-
-```sh
-<p>user@server:~$</p> rp genkey server.rosenpass-secret
-```
-</span>
-<span class="starter-code-client">
-
-```sh
-<p>user@client:~$</p> rp genkey client.rosenpass-secret
-```
-</span>
-
-2. Extract the public keys
-
-<span class="starter-code-server">
-
-```sh
-<p>user@server:~$</p> rp pubkey server.rosenpass-secret server.rosenpass-public
-```
-</span>
-<span class="starter-code-client">
-
-```sh
-<p>user@client:~$</p> rp pubkey client.rosenpass-secret client.rosenpass-public
-```
-</span>
-
-3. Copy each `-public` directory to the other peer and you're done!
-
-
-### **Launch your Rosenpass enhanced WireGuard VPN**
-
-3. Start the VPN: 
-
-&nbsp;&bull; On the server:
-
-<span class="starter-code-server">
-
-```sh
-<p>user@server:~$</p> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
-peer client.rosenpass-public allowed-ips fe80::/64
-```
-</span>
-
-&nbsp;&bull; On the client:
-
-<span class="starter-code-client">
-
-```sh
-<p>user@client:~$</p> sudo rp exchange client.rosenpass-secret dev rosenpass0 \
-peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
-```
-</span>
-
-4. Assign IP addresses:
-
-<span class="starter-code-server">
-
-```sh
-<p>user@server:~$</p> sudo ip a add fe80::1/64 dev rosenpass0
-```
-</span>
-<span class="starter-code-client">
-
-```sh
-<p>user@client:~$</p> sudo ip a add fe80::2/64 dev rosenpass0
-```
-</span>
-
-### **Verify the magic!**
-
-5. Test the connection by pinging the server on the client machine:
-
-<span class="starter-code-client">
-
-```sh
-<p>user@client:~$</p> ping fe80::1%rosenpass0
-```
-</span>
-
-6. You can watch how Rosenpass replaces the WireGuard PSK with the following command:
-
-```sh
-watch -n 0.2 'wg show all; wg show all preshared-keys'
-```
-
-Rosenpass will now generate a new PSK key for WireGuard about every two minutes and keep your VPN connection secure against post-quantum computer attacks. 
-
-
--> Link to Documentation
 
 
 {{% /blocks/section %}}
