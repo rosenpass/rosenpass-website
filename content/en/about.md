@@ -46,9 +46,9 @@ Pick whatever you feel suits you best! :D
 Have you ever tried **writing a message** to a friend that **only they could read**? You might have told them: "Take each letter and move it forward three places in the alphabet!". Then you would have moved each letter of your message three places backward before writing it down. Encryption is basically like that, but *a lot* more complicated! And you can do other useful stuff with it. For example make sure the message really comes from the person it claims to be from.
 
 {{< /blocks/section >}}
-{{< blocks/eli5-images 	src1="eli5_wic1.png" alt1="Childish drawing of a girl handing a note to a boy." 
-						src2="eli5_wic2.png" alt2="Girl handing a letter to the boy. Both have notes at their desks. " 
-						src3="eli5_wic3.png" alt3="Decoding the letter with the note. " >}}
+{{< blocks/eli5-images 	src1="img/about/eli5_wic1.png" alt1="Childish drawing of a girl handing a note to a boy." 
+						src2="img/about/eli5_wic2.png" alt2="Girl handing a letter to the boy. Both have notes at their desks. " 
+						src3="img/about/eli5_wic3.png" alt3="Decoding the letter with the note. " >}}
 
 {{< blocks/section color="white">}}
 
