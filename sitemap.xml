@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://rosenpass.eu/blog/2023/</loc>
-    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
+    <loc>https://rosenpass.eu/blog/2024/</loc>
+    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/docs/source_code/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/blog/2023/</loc>
+    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/docs/whitepaper/</loc>
   </url><url>
@@ -15,14 +18,16 @@
   </url><url>
     <loc>https://rosenpass.eu/docs/release_notes/</loc>
   </url><url>
-    <loc>https://rosenpass.eu/docs/presentations/</loc>
-  </url><url>
-    <loc>https://rosenpass.eu/docs/manuals/</loc>
+    <loc>https://rosenpass.eu/docs/pentest/</loc>
   </url><url>
     <loc>https://rosenpass.eu/</loc>
-    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rosenpass.eu/docs/presentations/</loc>
   </url><url>
     <loc>https://rosenpass.eu/about/</loc>
+  </url><url>
+    <loc>https://rosenpass.eu/docs/manuals/</loc>
   </url><url>
     <loc>https://rosenpass.eu/contributors/</loc>
   </url><url>
@@ -51,7 +56,10 @@
     <loc>https://rosenpass.eu/docs/presentations/yrcs-2023/</loc>
   </url><url>
     <loc>https://rosenpass.eu/blog/</loc>
-    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rosenpass.eu/blog/2024/pentest_january/</loc>
+    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/blog/2023/avionics_july/</loc>
     <lastmod>2023-08-07T00:00:00+00:00</lastmod>
