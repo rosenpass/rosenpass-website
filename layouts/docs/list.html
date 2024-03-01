@@ -11,7 +11,7 @@
 <section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
 	{{- if .Pages -}}
 		{{ if not .Params.no_list }}
-			{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" )}}
+			{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" "asc")}}
 				{{ range $pag.PageGroups }}
 				<ul  id="presentation-list"  class="post-list list-unstyled row">
 					
