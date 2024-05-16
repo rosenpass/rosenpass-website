@@ -174,31 +174,7 @@ watch -n 0.2 'wg show all; wg show all preshared-keys'
 </ol>
 
 
-
-<h3>For the curious</h3>
-
-<p><code>rp</code> is a convienience wrapper for the actual <code>rosenpass</code> programme (which handles the post-quantum secure key exchange). <code>rp</code> can set up both WireGuard and <strong>Rosenpass</strong> for you by:</p>
-<ul>
- <li>generating WireGuard and <strong>Rosenpass</strong> public and secret keys</li>
- <li>setting up the WireGuard interface</li>
- <li>launching a <strong>Rosenpass</strong> process</li>
- </ul>
-<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself manually. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
-
-
-```sh
-$ rp explain genkey mykey
-#! /bin/bash
-set -e
-umask 077
-mkdir -p mykey
-wg genkey > mykey/wgsk
-rosenpass keygen \
-  private-key mykey/pqsk \
-  public-key mykey/pqpk
-```
-
-<p>We provide more in-depth ressources in our Documentation section.</p>
+<p>We provide in-depth ressources in our Documentation section.</p>
 
 <p class="pt-0 button-link"><a href="/docs" aria-label="documentation">Go to Documentation</a></p>
 						
