@@ -317,24 +317,7 @@ You can find the latest information about all the Linux distributions we support
 </span></span></code></pre></div><p><strong>All done!</strong></p>
 <p><strong>Rosenpass</strong> will now generate a new PSK key for WireGuard about every two minutes and <strong>keep your VPN connection secure</strong> against post-quantum computer attacks. </p>
 </ol>
-<h3>For the curious</h3>
-<p><code>rp</code> is a convienience wrapper for the actual <code>rosenpass</code> programme (which handles the post-quantum secure key exchange). <code>rp</code> can set up both WireGuard and <strong>Rosenpass</strong> for you by:</p>
-<ul>
- <li>generating WireGuard and <strong>Rosenpass</strong> public and secret keys</li>
- <li>setting up the WireGuard interface</li>
- <li>launching a <strong>Rosenpass</strong> process</li>
- </ul>
-<p>If you're interested in learning more about how <code>rosenpass</code>  works, you can try setting everything up yourself manually. Use the <code>explain</code> verb to show you how to integrate <strong>Rosenpass</strong> with WireGuard:<p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rp explain genkey mykey
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#! /bin/bash</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87">set</span> -e
-</span></span><span style="display:flex;"><span><span style="color:#204a87">umask</span> <span style="color:#0000cf;font-weight:bold">077</span>
-</span></span><span style="display:flex;"><span>mkdir -p mykey
-</span></span><span style="display:flex;"><span>wg genkey > mykey/wgsk
-</span></span><span style="display:flex;"><span>rosenpass keygen <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  private-key mykey/pqsk <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  public-key mykey/pqpk
-</span></span></code></pre></div><p>We provide more in-depth ressources in our Documentation section.</p>
+<p>We provide in-depth ressources in our Documentation section.</p>
 <p class="pt-0 button-link"><a href="/docs" aria-label="documentation">Go to Documentation</a></p>
 
 			
