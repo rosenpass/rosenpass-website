@@ -288,16 +288,10 @@ as well as links to both our scientific whitepaper and the github repository for
   </ul>
 
   <h2>Current Version Release Notes</h2>
-  <h3>&nbsp;&nbsp;0.2.1</h3>
+  <h3>&nbsp;&nbsp;0.2.2</h3>
   <ul>
-  <li> Improved code quality by applying clippy lints</li>  
-  <li> Removed unnecessary unsafe keyword instances</li>  
-  <li> Addressed stack overflow based test failure using the stacker crate</li>  
-  <li> Added fix to reap lingering wireguard child-processes</li>  
-  <li> Updated manpage</li>  
-  <li> Split code into subcrates, added cargo workspace</li>  
-  <li> Repaired benchmark code</li>  
-  <li> Added a couple more unit tests</li>   
+    <li> Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.</li>  
+    <li> This release has no impact for majority of users using Rosenpass with Wireguard</li>  
   </ul>
 
 <section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">

@@ -19,22 +19,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Rosenpass</title>
-<meta name="description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&amp;rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &amp;ldquo;private&amp;rdquo; to describe keys.">
+<meta name="description" content="0.2.2 Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake. This release has no impact for majority of users using Rosenpass with Wireguard 0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.">
 <meta property="og:title" content="" />
-<meta property="og:description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys." />
+<meta property="og:description" content="0.2.2 Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake. This release has no impact for majority of users using Rosenpass with Wireguard 0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rosenpass.eu/docs/release_notes/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="docs" />
 
 <meta property="og:site_name" content="Rosenpass" />
 <meta itemprop="name" content="">
-<meta itemprop="description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys.">
+<meta itemprop="description" content="0.2.2 Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake. This release has no impact for majority of users using Rosenpass with Wireguard 0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.">
 
-<meta itemprop="wordCount" content="357"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+<meta itemprop="wordCount" content="396"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
 
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0.2.0 Refined CI for pre-release vs draft vs release artifacts Added licensing information: MIT and Apache 2.0 Refined artwork Refined whitepaper Improved consistency of whitepaper by removing synonyms for Key Encapsulation Methods Renamed protocol::Server to protocol::CryptoServer Added examples for keyexchange and CryptoServer usage into code Renamed EKEM/SKEM to EphermeralKEM/StaticKEM Introduced consistent code formatting using cargo-fmt style hints Further documentation improvements Fixed crash on empty message handling Added manpage Moved from nixpkgs&rsquo; rustPlatform to naersk &#43; fenix in the nix flake Reworked CI target platforms (removed i686 Linux) Rewrote Application server, introduced new CLI, added support for configuration files, added support for multiple listen sockets Improved consistency: banned the usage of &ldquo;private&rdquo; to describe keys."/>
+<meta name="twitter:description" content="0.2.2 Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake. This release has no impact for majority of users using Rosenpass with Wireguard 0.2.1 Improved code quality by applying clippy lints Removed unnecessary unsafe keyword instances Addressed stack overflow based test failure using the stacker crate Added fix to reap lingering wireguard child-processes Updated manpage Split code into subcrates, added cargo workspace Repaired benchmark code Added a couple more unit tests 0."/>
 
 
 
@@ -197,6 +197,7 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
+    <li><a href="#022">0.2.2</a></li>
     <li><a href="#021">0.2.1</a></li>
     <li><a href="#020">0.2.0</a></li>
     <li><a href="#011">0.1.1</a></li>
@@ -257,6 +258,11 @@
 
 
 
+<h2 id="022">0.2.2</h2>
+<ul>
+<li>Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.</li>
+<li>This release has no impact for majority of users using Rosenpass with Wireguard</li>
+</ul>
 <h2 id="021">0.2.1</h2>
 <ul>
 <li>Improved code quality by applying clippy lints</li>
