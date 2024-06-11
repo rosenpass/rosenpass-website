@@ -6,6 +6,12 @@ menu: false
 type: docs
 ---
 
+
+## 0.2.2
+- Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.
+- This release has no impact for majority of users using Rosenpass with Wireguard
+
+
 ## 0.2.1
 
 - Improved code quality by applying clippy lints
