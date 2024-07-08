@@ -418,6 +418,8 @@ margin-left: 1rem;
   padding-bottom: 20px;
 }
 
+
+
 .link-block {
   color: #fff;
   padding: 20px 10px;
@@ -435,6 +437,13 @@ margin-left: 1rem;
     column-gap: 2%;
     width: 100%;
   }
+  .link-collection.link-collection-comp {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    column-gap: 2%;
+    width: 100%;
+    justify-content: center;
+    }
 }
 
 /* Contributors Page*/
@@ -558,6 +567,11 @@ align-self: center;
  .readmore  a {  color: var(--bs-white)!important; }
 
 /* documentation -> conference presentations */
+
+.spacer {
+  height: 1rem;
+  display: inline-block;
+}
 
 #presentation-list .card-text{
   display: flex;

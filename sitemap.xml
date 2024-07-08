@@ -2,13 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://rosenpass.eu/blog/2024/</loc>
-    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://rosenpass.eu/docs/source_code/</loc>
-  </url><url>
-    <loc>https://rosenpass.eu/blog/2023/</loc>
-    <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/docs/whitepaper/</loc>
   </url><url>
@@ -58,13 +52,13 @@
     <loc>https://rosenpass.eu/blog/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://rosenpass.eu/blog/2024/pentest_january/</loc>
+    <loc>https://rosenpass.eu/blog/pentest_january/</loc>
     <lastmod>2024-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://rosenpass.eu/blog/2023/avionics_july/</loc>
+    <loc>https://rosenpass.eu/blog/avionics_july/</loc>
     <lastmod>2023-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://rosenpass.eu/blog/2023/netbird_july/</loc>
+    <loc>https://rosenpass.eu/blog/netbird_july/</loc>
     <lastmod>2023-07-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rosenpass.eu/categories/</loc>
