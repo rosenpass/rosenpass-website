@@ -1,0 +1,134 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rosenpass – Blog</title>
+    <link>https://rosenpass.eu/blog/</link>
+    <description>Recent content in Blog on Rosenpass</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://rosenpass.eu/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: Rosenpass Penetration Test</title>
+      <link>https://rosenpass.eu/blog/pentest_january/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosenpass.eu/blog/pentest_january/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Last month, we had the good fortune to collaborate with Radically Open Security (ROS), who ran a series of penetration tests on our Rosenpass project with the aim of identifying, and then addressing, any unseen security flaws in the project. These tests were primarily undertaken by Morgan Hill, a freelance security consultant working with ROS who focuses on Rust language projects. The report produced from these tests forms the basis of this blogpost and can be found in both the documentation section and linked below.&lt;/p&gt;
+&lt;p&gt;As always in this business, what was secure yesterday may be broken today, and thus we are always grateful to those who test our set ups. We were particularly keen to work with Radically Open Security, as an organisation strongly committed to maintaining, and improving the security of the internet as a whole. They make a point of releasing theirs tools as open source software for wider use and adoption, as well as providing detailed explanations to their partners on how to perform the same audits themselves.&lt;/p&gt;
+&lt;p&gt;The results of this penetration test were promising, with one moderate and three low risk issues found, alongside one inconsistency in documentation. The moderate risk was addressed promptly in the Rosenpass 0.2.1 release, with work planned on the low risk issues.&lt;/p&gt;
+&lt;h2 id=&#34;methodolodgy&#34;&gt;Methodolodgy&lt;/h2&gt;
+&lt;p&gt;To penetration test and audit Rosenpass Radically Open Security employed a series of stages to discover weekenesses. First, they seek a high level overview of the code and its dependencies. To do this in Rust projects they use &lt;code&gt;cargo audit&lt;/code&gt; which lists any known vulnerabilities found in dependencies. For Rust projects &lt;code&gt;cargo geiger&lt;/code&gt; is a valuable tool to identify &lt;code&gt;unsafe&lt;/code&gt; blocks that typically warrant extra attention at the code audit stage. If there is &lt;code&gt;unsafe&lt;/code&gt; code present then &lt;code&gt;miri&lt;/code&gt; can be used to identify potential issues such as race conditions and undefined behaviour.&lt;/p&gt;
+&lt;p&gt;Secondly, ROS begin a comprehensive code audit. A code audit involves going through each line of code with a fine-tooth comb. The aim is not only to understand what each line is intended to do, but importantly to understand what each line allows to be done. Special attention is showen to unsafe code blocks, networking code or anything parsing user input. The pentester may write stubs to run interesting code paths and attach debuggers to assess the realworld behviour.&lt;/p&gt;
+&lt;p&gt;Thirdly, ROS utilizes fuzzing for a belt and braces approach. Fuzzing is a method of rapidly testing code paths with a barrage of computer generated input that can turn up issues not spotted by human eyes. Rust provides a very low friction entry into fuzzing with &lt;code&gt;cargo fuzz&lt;/code&gt; which uses &lt;code&gt;libfuzzer&lt;/code&gt; to get started with basic coverage guided fuzzing. To fuzz the penentester must idenify interesting functions and write fuzz targets to harness them. These fuzz targets can be contributed back to the project. If &lt;code&gt;libfuzzer&lt;/code&gt; is insuffecent then the targets can be use with other fuzzers such as &lt;code&gt;AFL++&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Discovered vulnerabilities are then classified according to the scale of the risk they pose:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extreme. Where there is an extreme risk of security controls becoming compromised, with the possibility of catastrophic losses.&lt;/li&gt;
+&lt;li&gt;High. Where there is a high risk of security controls becoming compromised, with the possibility for significant losses.&lt;/li&gt;
+&lt;li&gt;Elevated. Where there is an elevated risk of security controls becoming compromised, with the possibility for material losses.&lt;/li&gt;
+&lt;li&gt;Moderate. Where there is a moderate risk of security controls becoming compromised, with the possibility for limited losses.&lt;/li&gt;
+&lt;li&gt;Low. Where there is a low risk of security controls becoming compromised, with the possibility for measurable negative impacts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;h3 id=&#34;message-handler-vulnerability-to-dos-denial-of-service-attack&#34;&gt;Message Handler vulnerability to DoS (Denial of Service) attack&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Moderate risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The penetration test found a vulnerability in Rosenpass&amp;rsquo; message handler, as it previously did not validate the length of a message. If an attacker sent a small UDP datagram to the target, this could result in a panic, crashing the Rosenpass program and halting the key exchange. This could result in a pre-shared key becoming stale, or the exchange never occurring in the first place. By default, user data would continue to be passed by the WireGuard interface. A stale key would be logged, but its notice would subject to user error.&lt;/p&gt;
+&lt;p&gt;This issue was assigned &lt;a href=&#34;https://rustsec.org/advisories/RUSTSEC-2023-0077.html&#34;&gt;RUSTSEC-2023-0077&lt;/a&gt; in the Rust security advisory database.&lt;/p&gt;
+&lt;p&gt;ROS suggests checking the message length against what is expected before its processing.&lt;/p&gt;
+&lt;h3 id=&#34;temporary-exposure-of-ssh-private-key-to-other-users-on-the-host&#34;&gt;Temporary exposure of SSH private key to other users on the host&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Low risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It was also discovered that the GitLab CI (Continuous Integration) configuration may temporarily expose an SSH private key to other users on the host, as the file mode is set after the file is written. An attacker with persistence as another on the CI runner may be able to monitor for, and take advantage of, this momentary exposure to steal the private key.&lt;/p&gt;
+&lt;p&gt;ROS suggests running &lt;code&gt;umask 077&lt;/code&gt; before writing the SSH private key to the filesystem.&lt;/p&gt;
+&lt;h3 id=&#34;two-issues-relating-to-unmaintained-github-actions&#34;&gt;Two issues relating to unmaintained GitHub Actions&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Low risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In both the release and quality control GitHub workflows, an unmaintained action was discovered. Use of unmaintained actions pose a security risk as, as always, what was secure yesterday may be broken today. The first, &lt;code&gt;softprops/action-gh-release&lt;/code&gt;, and the second, &lt;code&gt;actions-rs/audit-check&lt;/code&gt; are thus both in need of replacement. It is also important to monitor dependencies such as this, to ensure that they remain maintained over time.&lt;/p&gt;
+&lt;h3 id=&#34;the-resphello-biscuit-and-auth-fields-are-swapped-in-the-implementation-versus-the-protocol-paper&#34;&gt;The &lt;em&gt;RespHello Biscuit&lt;/em&gt; and &lt;em&gt;Auth&lt;/em&gt; fields are swapped in the implementation versus the protocol paper&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Inapplicable risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;An inconsistency was discovered in the order of these fields between implementation and its documentation. Although this issue has not manifested in either the Rust nor Go implementation of Rosenpass, it poses a potential issue for any future third party implementations that rely on the protocol paper. The paper should be updated to match the implementation.&lt;/p&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;We are pleased to say that no severe security risks were discovered in the course of ROS&amp;rsquo; penetration test. We remain grateful for the opportunity to have had our project be subjected to an unbiased audit, especially as a young project aiming to provide production-ready Post-Quantum solutions.&lt;/p&gt;
+&lt;p&gt;Morgan Hill&amp;rsquo;s work primarily comprised a line-by-line code audit, generating several leads that were then subject to further interrogation. Finding generally high-quality code, alongside the safety characteristics of the Rust programming Language, most of these leads could be safely disregarded.&lt;/p&gt;
+&lt;p&gt;The ROS report notes the high responsiveness of the Rosenpass developers, who were quick to respond to the moderate issue, allowing it the be fixed and successfully re-tested before the publication of this report.&lt;/p&gt;
+&lt;p&gt;The ROS report also notes that its overall impression of Rosenpass is that &amp;ldquo;of a responsive and engaged project utilizing modern tools to achieve their aims&amp;rdquo;, although there is further work to be undertaken to resolve the hardening issues discovered in Rosenpass&amp;rsquo; CI/CD.&lt;/p&gt;
+&lt;p&gt;As can never be overstated, an audit such as this, however successful, is but a snapshot of a project&amp;rsquo;s security. It is deeply important to continually assess and improve upon Rosenpass&amp;rsquo; security, responding to new threats before they become severe.&lt;/p&gt;
+&lt;p&gt;We would like to extend a heartfelt &amp;ldquo;thank you&amp;rdquo; Radically Open Security, as well as personally to Morgan Hill, who carried out this penetration test. We look forward to future opportunities to collaborate, and to further improve our project.&lt;/p&gt;
+&lt;p&gt;Radically Open Security&amp;rsquo;s report can be read in full &lt;a href=&#34;https://rosenpass.eu/docs/pentest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Post-Quantum Security in Avionics Paper Hackathon</title>
+      <link>https://rosenpass.eu/blog/avionics_july/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosenpass.eu/blog/avionics_july/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols.&lt;/p&gt;
+&lt;p&gt;As it currently stands, the process for updating the security of aircraft is a slow and labourious one. Certification of new standards can take years, and roll-out longer. This is, naturally, a problem in relation to faster-moving threats, such as those posed to cryptographic security. This academic paper, a joint collaboration between members of Rosenpass and the DLR (German Aerospace Center), proposes a method for significantly improving that situation by leveraging the partitioning principles already in use on aircraft to create a swappable, almost &amp;ldquo;plug and play&amp;rdquo; module to provide cryptographic functions on aeroplanes. The hope is to create a more responsive landscape for Avionics security, and help build closer ties between itself and Cryptography as a whole.&lt;/p&gt;
+&lt;p&gt;To this end, a great deal of thought, and thus time, has been invested in mapping out the proposed protocols, structures, challenges, technical steps, and broader communication strategy in proposing this approach. Wanja Zaeske, a research scientist at DLR with strong contributions to the broader work at Rosenpass, spent the latter half of last week intensely working with Karolin, whose expertise in Cryptography needs no introduction, to iron out all the theoretical wrinkles in the paper. Meanwhile, Sven Friedrich, another research scientist at DLR, was hard at work, on Thursday, at producing a software demonstrator of the proposed protocols. My own role was to help with the argument constructions within the paper, and be an able English-language editor in the latter stages.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/wanja_karo_alice.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Photo of Wanja Zaeske, Karolin Varner and Alice Bowman&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
+      &lt;p class=&#34;card-text&#34;&gt;From left to right: Wanja Zaeske, Karolin Varner, Alice Bowman&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;Satisfyingly, the in-person sessions proved fruitful in all directions. We were able to end Friday with a shared vision on all parts of the paper, and simply need to draft what was already agreed upon. We look forward to presenting the results of our labour in the coming months.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: NetBird and Rosenpass&#39; July Hackathon</title>
+      <link>https://rosenpass.eu/blog/netbird_july/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://rosenpass.eu/blog/netbird_july/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Hello everyone and welcome to Rosenpass&amp;rsquo; very first blog post in what we hope to become a regular journal. This week, members of Rosenpass (Karolin, Ajuvo, and Alice) traveled to Berlin to meet up with NetBird, where we sought to build on the promising outcomes of our previous video conferences and establish a structure for deeper collaboration between our organizations along with a clear pathway to implementations of post-quantum security within NetBird&amp;rsquo;s services.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://netbird.io/&#34;&gt;NetBird&lt;/a&gt; is an open-source peer-to-peer overlay network that automatically connects machines over an encrypted WireGuard-based tunnel. With NetBird, once a VPN connection is established, no data is routed through a server.&lt;/p&gt;
+&lt;p&gt;On the first day, Ajuvo and I were warmly welcomed to NetBird&amp;rsquo;s shared WeWork space, following initial meetings and technical work earlier in the day between Karolin and the NetBird team. After initial introductions, coffee, and cake, we were treated by Misha, their CEO, to a seminar on NetBird&amp;rsquo;s technical architecture and process, before Karolin took the lead in explaining Cryptographic principles and their applications to various areas of NetBird&amp;rsquo;s application. Both of these seminars paid close attention to scientific communication, hoping to provide clear and understandable explanations of complex principles as part of an ongoing commitment to making security technologies available to the greatest possible range of people.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/whiteboard.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;whiteboard with notes from the previous seminars&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
+      &lt;p class=&#34;card-text&#34;&gt;The combined notes from the two seminars&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;Following those preliminary explainers, the focus shifted to more technical questions, before Karolin and Maycon, their lead software engineer, got deep into constructing a working port of Rosenpass&amp;rsquo; Rust implementation into NetBird&amp;rsquo;s GO-based software. Meanwhile, Ajuvo, Alice, Julia (their product manager), and Kyle (an intern with NetBird) began to make plans for a tour of Berlin&amp;rsquo;s premier hacker space: c-base, including its fascinating and wild lore.&lt;/p&gt;
+&lt;p&gt;On the second day, discussions continued, as well as work on that port. By the conclusion of c-base&amp;rsquo;s tour, all were eager to continue work whilst soaking in the sun in c-base&amp;rsquo;s outdoor area, before eventually saying our goodbyes.&lt;/p&gt;
+
+&lt;div class=&#34;card mb-3&#34; style=&#34;max-width: 90vw; width: 40rem&#34;&gt;
+    &lt;img src=&#34;https://rosenpass.eu/img/blog/2023/c-base.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;view of the river from c-base&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+      &lt;h6 class=&#34;card-subtitle mb-2 text-muted&#34;&gt;Photography: Alice Bowman&lt;/h6&gt;
+      &lt;p class=&#34;card-text&#34;&gt;The view from c-base&amp;#39;s outdoor area in Berlin&amp;#39;s summer sun&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;As a result of the communal hackathons, meetings, and broader discussions, NetBird and Rosenpass had agreed on several collaborative projects, including the development of a full Golang implementation of Rosenpass, easing its integration into NetBird and further afield, with further work together planned for the future. We look forward to the continued growth of this promising relationship.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
