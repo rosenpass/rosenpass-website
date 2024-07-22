@@ -21,7 +21,8 @@
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://rosenpass.eu/blog/pentest_january/</guid>
-      <description>
+      <description>Radically Open Security&#39;s penetration test of the Rosenpass project</description>
+      <content>
         
         
         &lt;p&gt;Last month, we had the good fortune to collaborate with Radically Open Security (ROS), who ran a series of penetration tests on our Rosenpass project with the aim of identifying, and then addressing, any unseen security flaws in the project. These tests were primarily undertaken by Morgan Hill, a freelance security consultant working with ROS who focuses on Rust language projects. The report produced from these tests forms the basis of this blogpost and can be found in both the documentation section and linked below.&lt;/p&gt;
@@ -64,7 +65,7 @@
 &lt;p&gt;We would like to extend a heartfelt &amp;ldquo;thank you&amp;rdquo; Radically Open Security, as well as personally to Morgan Hill, who carried out this penetration test. We look forward to future opportunities to collaborate, and to further improve our project.&lt;/p&gt;
 &lt;p&gt;Radically Open Security&amp;rsquo;s report can be read in full &lt;a href=&#34;https://rosenpass.eu/docs/pentest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-      </description>
+      </content>
     </item>
     
     <item>
@@ -73,7 +74,8 @@
       <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://rosenpass.eu/blog/avionics_july/</guid>
-      <description>
+      <description>An intense in-person session to work on and improve the academic paper</description>
+      <content>
         
         
         &lt;p&gt;Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols.&lt;/p&gt;
@@ -90,7 +92,7 @@
 
 &lt;p&gt;Satisfyingly, the in-person sessions proved fruitful in all directions. We were able to end Friday with a shared vision on all parts of the paper, and simply need to draft what was already agreed upon. We look forward to presenting the results of our labour in the coming months.&lt;/p&gt;
 
-      </description>
+      </content>
     </item>
     
     <item>
@@ -99,7 +101,8 @@
       <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://rosenpass.eu/blog/netbird_july/</guid>
-      <description>
+      <description>An informal meet-up to grow the scope of our collaboration</description>
+      <content>
         
         
         &lt;p&gt;Hello everyone and welcome to Rosenpass&amp;rsquo; very first blog post in what we hope to become a regular journal. This week, members of Rosenpass (Karolin, Ajuvo, and Alice) traveled to Berlin to meet up with NetBird, where we sought to build on the promising outcomes of our previous video conferences and establish a structure for deeper collaboration between our organizations along with a clear pathway to implementations of post-quantum security within NetBird&amp;rsquo;s services.&lt;/p&gt;
@@ -127,7 +130,7 @@
 
 &lt;p&gt;As a result of the communal hackathons, meetings, and broader discussions, NetBird and Rosenpass had agreed on several collaborative projects, including the development of a full Golang implementation of Rosenpass, easing its integration into NetBird and further afield, with further work together planned for the future. We look forward to the continued growth of this promising relationship.&lt;/p&gt;
 
-      </description>
+      </content>
     </item>
     
   </channel>
