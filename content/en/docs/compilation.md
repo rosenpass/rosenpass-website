@@ -63,12 +63,12 @@ cd rosenpass
 
 </span>
 
-6. Switch to the version you want to install. Without switching, you will install and compile the dev version. Find the name of the version that you would like to install on the [releases page](https://github.com/rosenpass/rosenpass/releases), or [find the name of the latest release](https://github.com/rosenpass/rosenpass/releases/latest). Use the following command to switch to version, e.g., 0.2.1: 
+6. Switch to the version you want to install. Without switching, you will install and compile the dev version. Find the name of the version that you would like to install on the [releases page](https://github.com/rosenpass/rosenpass/releases), or [find the name of the latest release](https://github.com/rosenpass/rosenpass/releases/latest). Use the following command to switch to version, e.g., 0.2.2: 
 
 <span class="codebox">
 
 ```sh
-git checkout v0.2.1
+git checkout v0.2.2
 ```
 
 </span>
@@ -137,7 +137,7 @@ sudo install rp /usr/local/bin
 <span class="codebox">
 
 ```sh
-tar xf rosenpass-x86_64-linux-0.2.1.tar
+tar xf rosenpass-x86_64-linux-0.2.2.tar
 ```
 
 </span>
@@ -177,7 +177,7 @@ sudo install bin/rp /usr/local/bin
 <span class="codebox">
 
 ```sh
-rm -r rosenpass-x86_64-linux-0.1.1.tar bin/
+rm -r rosenpass-x86_64-linux-0.2.2.tar bin/
 ```
 
 </span>
