@@ -274,7 +274,8 @@ You can find the latest information about all the Linux distributions we support
 </span></span></code></pre></div><h3>How to set up your Rosenpass enhanced WireGuard VPN</h3>
 <p><strong>Note:</strong> Technically, there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
 <ol class="howto">
-<li>Start by generating secret keys on both hosts</li>
+<li>Start by generating secret keys on both hosts.</li>
+<p><strong>Note:</strong> These will be stored in newly created server.rosenpass-secret and client.rosenpass-secret directories.</p>
 <p class="starter-code-server">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@server:~$</span> rp genkey server.rosenpass-secret
 </span></span></code></pre></div></p>
@@ -282,6 +283,7 @@ You can find the latest information about all the Linux distributions we support
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@client:~$</span> rp genkey client.rosenpass-secret
 </span></span></code></pre></div></p>
 <li>Extract the public keys</li>
+<p><strong>Note:</strong> As above, these will be stored in newly created server.rosenpass-public and client.rosenpass-public directories.</p>
 <p class="starter-code-server">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@server:~$</span> rp pubkey server.rosenpass-secret server.rosenpass-public
 </span></span></code></pre></div></p>
@@ -289,7 +291,13 @@ You can find the latest information about all the Linux distributions we support
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@client:~$</span> rp pubkey client.rosenpass-secret client.rosenpass-public
 </span></span></code></pre></div></p>
 <li>Copy each <code>-public</code> directory to the other peer</li>
- Congrats! Your basic setup is complete!
+<p class="starter-code-server">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@server:~$</span> scp -r server.rosenpass-public user@client:/path/to/directory
+</span></span></code></pre></div></p>
+<p class="starter-code-client">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span>user@client:~$</span> scp -r client.rosenpass-public user@server:/path/to/directory
+</span></span></code></pre></div></p>
+<p><strong>Congrats! Your basic setup is complete!</strong></p>
 <h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
 <li>Start the VPN</li>
 <p class="starter-code-server">

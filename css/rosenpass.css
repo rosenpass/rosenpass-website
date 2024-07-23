@@ -26,6 +26,12 @@
 
 /* General, site-wide changes to the theme */
 
+#rss-button{
+  align-items: center !important;
+  justify-content: center;
+  width: 40vw !important;
+}
+
 a {font-weight:bold;}
 
 .td-box--light p > a { color: var(--bs-link-color); }
@@ -57,6 +63,13 @@ li {margin-left:2rem;}
     
 .button-link  a {  color: var(--bs-white)!important; }
 
+.td-rss-button.rss-feed-button{
+  position: inherit;
+  width: 3rem;
+  display: inline-block !important;
+  /* margin: auto 0.5rem; */
+  margin-right: 0.5rem;
+}
 
 
 /* Quick Start on start page */
