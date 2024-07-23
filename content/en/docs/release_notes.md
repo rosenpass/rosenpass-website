@@ -6,7 +6,6 @@ menu: false
 type: docs
 ---
 
-
 ## 0.2.2
 - Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.
 - This release has no impact for majority of users using Rosenpass with Wireguard
@@ -67,7 +66,4 @@ type: docs
 - Disabled CI for Windows and aarch64-linux
 - Added automated release workflow
 
-
-
-
-
+{{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" >}}

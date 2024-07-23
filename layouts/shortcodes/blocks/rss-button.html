@@ -1,0 +1,12 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $col_id := .Get "color" | default .Ordinal }}
+{{ $href := .Get "href" | default "https://rosenpass.eu" }}
+{{ $text := .Get "text" | default " " }}
+<div class="row d-flex justify-content-center">
+<span class="td-blog d-flex px-3 py-3 mx-1 my-3 td-box--{{ $col_id }}" id="rss-button">
+    <a class="td-rss-button rss-feed-button" title="RSS" href="{{ $href }}" target="_blank" rel="noopener">
+      <i class="fa-solid fa-rss" aria-hidden="true"></i>
+    </a> <span>{{ $text }}
+    </span>
+</span> 
+</div>
