@@ -26,10 +26,16 @@
 
 /* General, site-wide changes to the theme */
 
+@media (min-width: 768px) {  /* adjustments for middle sized screens*/
+	#rss-button{
+    width: 40vw !important;
+  }
+}
+
 #rss-button{
   align-items: center !important;
   justify-content: center;
-  width: 40vw !important;
+  width: 80vw !important;
 }
 
 a {font-weight:bold;}
