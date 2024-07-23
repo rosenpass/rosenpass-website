@@ -4,7 +4,9 @@ linkTitle: "Release Notes"
 weight: 5
 menu: false
 type: docs
+rss: "https://github.com/rosenpass/rosenpass/releases.atom"
 ---
+
 
 ## 0.2.2
 - Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.

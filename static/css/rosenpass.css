@@ -38,6 +38,17 @@
   width: 80vw !important;
 }
 
+#release-title{
+  margin-left: auto;
+  padding-left: 5rem;
+  align-self: center;
+}
+
+#release-button{
+  margin-left: auto;
+  padding-right: 2rem;
+}
+
 a {font-weight:bold;}
 
 .td-box--light p > a { color: var(--bs-link-color); }
