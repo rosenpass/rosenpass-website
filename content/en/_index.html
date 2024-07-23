@@ -85,7 +85,8 @@ rosenpass help
 
 <p><strong>Note:</strong> Technically, there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
 <ol class="howto">
-<li>Start by generating secret keys on both hosts</li>
+<li>Start by generating secret keys on both hosts.</li>
+<p><strong>Note:</strong> These will be stored in newly created server.rosenpass-secret and client.rosenpass-secret directories.</p>
 
 <p class="starter-code-server">
 
@@ -101,6 +102,7 @@ rosenpass help
 </p>
 
 <li>Extract the public keys</li>
+<p><strong>Note:</strong> As above, these will be stored in newly created server.rosenpass-public and client.rosenpass-public directories.</p>
 
 <p class="starter-code-server">
 
@@ -116,7 +118,21 @@ rosenpass help
 </p>
 
 <li>Copy each <code>-public</code> directory to the other peer</li>
- Congrats! Your basic setup is complete!
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> scp -r server.rosenpass-public user@client:/path/to/directory
+```
+</p>
+<p class="starter-code-client">
+    
+```sh
+<span>user@client:~$</span> scp -r client.rosenpass-public user@server:/path/to/directory
+```
+</p>
+
+ <strong>Congrats! Your basic setup is complete!</strong>
 
 
 <h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
