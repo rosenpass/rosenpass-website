@@ -228,6 +228,10 @@ margin-bottom: 0;
   padding: 2rem;
 }
 
+pre:has(code.language-bash){
+  max-height: 20vh;
+}
+
 .codebox div.highlight{
 margin: 0 0 15px 0;
 border: none;
