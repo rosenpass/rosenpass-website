@@ -228,6 +228,10 @@ margin-bottom: 0;
   padding: 2rem;
 }
 
+pre:has(code.language-bash){
+  max-height: 20vh;
+}
+
 .codebox div.highlight{
 margin: 0 0 15px 0;
 border: none;
@@ -556,7 +560,7 @@ align-self: center;
  .readmore  { 
     background-color: var(--bs-primary);  
     color: var(--bs-white);  
-    width: 7rem; 
+    width: 7.02rem; 
     border-radius:2rem;
     padding: 0.5rem 1rem!important;
     margin-bottom: 0;
