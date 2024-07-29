@@ -26,9 +26,33 @@
 
 /* General, site-wide changes to the theme */
 
-@media (min-width: 768px) {  /* adjustments for middle sized screens*/
+@media (min-width: 768px) {
+
+  #rss-button-mobile{
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 768px) {  /* adjustments for middle sized screens*/
 	#rss-button{
-    width: 40vw !important;
+    display: none !important;
+  }
+
+  #rss-button-mobile{
+    width: 80vw;
+  }
+  #rss-link-mobile{
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: inherit;
+    cursor: inherit;
+    font-weight: inherit;
+  }
+  #rss-link-mobile:active { 
+    transform: scale(0.98); 
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
   }
 }
 
@@ -570,9 +594,6 @@ align-self: center;
 		max-width: 25vw;
 	}
 }
-
-
-
 
 /* blog list */
 
