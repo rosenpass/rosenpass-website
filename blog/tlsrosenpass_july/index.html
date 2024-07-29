@@ -1,0 +1,817 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.109.0">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Rosenpass with TLS | Rosenpass</title>
+<meta name="description" content="Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL">
+<meta property="og:title" content="Rosenpass with TLS" />
+<meta property="og:description" content="Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rosenpass.eu/blog/tlsrosenpass_july/" /><meta property="og:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-07-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-29T00:00:00+00:00" /><meta property="og:site_name" content="Rosenpass" />
+<meta itemprop="name" content="Rosenpass with TLS">
+<meta itemprop="description" content="Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL"><meta itemprop="datePublished" content="2024-07-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-07-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4995"><meta itemprop="image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://rosenpass.eu/img/rosenpass-preview.png"/>
+
+<meta name="twitter:title" content="Rosenpass with TLS"/>
+<meta name="twitter:description" content="Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.72d354d7bbda56bc0869941cc6bf94e9f7edb91ac05ce0ba871ff9b78bf7462c.css" as="style">
+<link href="/scss/main.min.72d354d7bbda56bc0869941cc6bf94e9f7edb91ac05ce0ba871ff9b78bf7462c.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/rosenpass.css"/>
+
+
+  </head>
+  <body class="td-page td-blog">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light flex-column flex-md-row td-navbar"  role="navigation">
+   <div class="container-fluid">
+		<a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg width="100%" height="100%" viewBox="0 0 8684 8684" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.62209"><g><path d="M5918.83 4378.11s595.781 1609.9 18.511 2851.49c-577.269 1241.59-1439.06 1159.12-1700.2 1255.33-261.145 96.212-1397.36-210.749-1773.04-1131.63-375.684-920.883-174.098-2409.87-174.098-2409.87l-2.764-148.72s-193.424-384.642-560.532-1009c-592.108-1018.45-1665.79-2847.58-1385.53-3287.07 280.266-439.485 844.737-559.345 1405.27-45.766 564.478 512.859 1168.42 2043.79 1338.17 3726.19.0.0 828.95-340.693 1713.16-51.577.0.0 169.739-1307.56 868.429-2292.22 694.737-984.308 1677.64-1651.89 2344.74-1483.72 667.109 168.171 521.06 873.53-94.738 1413.27-615.794 539.732-1878.96 2221.41-1997.38 2613.31z" style="fill:#fff"/><path d="M2339.83 7764.88l-1193.39 64.289 47.37 688.29 438.162-21.068-86.841-322.534 414.471-18.887-31.575 317.086 434.211-15.621-22.404-691.555z" style="fill:#fff"/><path id="pink" d="M4428.82 8437.2l-414.478-17.761c134.211-7.111 82.897-63.158 39.473-90.793-228.951-147.235-382.896-548.684-327.636-566.845.0.0 394.745 120.398 485.533 122.764 146.053 4.345 374.999-26.844 457.895-171.319 19.739-34.734 102.631-170.526 63.158-169.733-659.211 13.422-765.793-367.901-757.896-538.82.0.0 603.95 172.898 757.896-36.314 150-209.611-55.261-889.347 153.951-1220.53 82.896-131.054 205.26-238.815 323.684-340.659 169.739-141.315 450.005-196.189 497.375-402.242 31.575-139.736-122.369-368.688-177.636-432.238-110.527-129.867-240.788-245.525-367.108-360.791 86.842-271.975 173.684-545.137 288.162-809.216 244.74-575.528 631.581-1034.22 963.162-1586.06 327.636-552.635 1369.74-819.479 1152.64-388.82.0.0-497.374 571.188-528.951 605.136-651.319 778.421-919.743 1245.01-1393.43 2053.04 74.999 76.973 146.053 154.345 209.211 238.816 59.212 82.109 106.582 287.763 146.054 379.743 189.479 420.395 181.582 847.896 185.527 1259.61 7.897 797.767-240.787 1511.07-896.053 2055.01-221.054 183.161-544.744 392.373-860.531 418.031l-.006.004zm-915.798-2091.73s-615.792 34.74-718.423-494.61c-118.423-639.078 288.157-535.655 517.108-294.075 228.945 241.58 201.315 788.685 201.315 788.685z" style="fill:#f70484"/><path d="M2287.24 4794.71s-193.424-384.642-560.532-1009c-592.108-1018.45-1665.79-2847.58-1385.53-3287.07 280.266-439.485 844.737-559.345 1405.27-45.766 564.478 512.859 1168.42 2043.79 1338.17 3726.19.0.0 828.95-340.693 1713.16-51.577.0.0 169.739-1307.56 868.429-2292.22 694.737-984.308 1677.64-1651.89 2344.74-1483.72 667.109 168.171 521.06 873.53-94.738 1413.27-615.794 539.732-1878.96 2221.41-1997.38 2613.31" style="fill:none;stroke:#000;stroke-width:258.66px"/><path d="M2283.29 5165.91s-292.108 1720.54 351.315 2466.58c600.004 691.555 1247.38 848.099 1784.22 804.514 532.902-43.585 1168.42-548.815 1507.91-1168.08 363.157-666.13 374.999-2542.12-292.109-3183.19 592.108-1102.35 1377.64-2020.92 2056.59-2753.16.0.0-386.841-550.991-1290.8 483.804-900.004 1035.15-1235.53 2463.66-1235.53 2463.66 335.526 204.849 473.683 471.449 540.791 794.71.0.0-564.477 157.992-828.955 672.668-217.103 416.963-126.315 1215.66-126.315 1215.66-248.685 233.909-525.004 220.469-813.162 49.395.0.0 15.789 626.545 888.162 501.237-177.63 354.492-611.841 539.733-1144.74 197.221 23.684 144.922 110.527 383.194 276.32 562.254 177.63 191.052 801.319 425.683 1756.58-677.752" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:3.75"/><path d="M3380.67 7715.09l-2234.23 114.072 47.37 688.29 438.162-21.068-86.841-322.534 414.471-18.887-31.575 317.086 434.211-15.621-47.37-691.555" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/><path d="M5147.98 7621.96l1091.47-48.521s57.123-1030.02 664.047-1055.78c606.924-25.754 888.736 410.526 640.449 730.086-134.769 174.352-464.845 406.176-746.683 490.485-233.087 70.667-437.159 38.209-472.337-216.25-79.459-595.607 1077.88-316.741 1231.47-11.283 150.028 304.643 32.017 735.54-566.576 681.906-667.083-60.004-750.369-619.165-750.369-619.165" style="fill:none;stroke:#000;stroke-width:248.05px;stroke-miterlimit:1.5"/><path d="M7545.57 6577.87s196.999-285.577 452.118-196.331c246.844 86.35 253.996 348.283 23.412 475.463.0.0 442.268 42.684 416.038 414.054-30.169 371.089-409.823 413.21-409.823 413.21s285.689 161.749 89.258 369.662c-204.157 216.089-346.463 104.255-470.429 14.063" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/><path d="M3526.72 6353.97s19.733-541.549-209.212-782.725c-228.95-241.895-572.374-322.17-532.902 170.711 47.37 590.219 742.114 612.014 742.114 612.014z" style="fill:none;stroke:#000;stroke-width:258.66px;stroke-miterlimit:1.5"/></g></svg></span><span class="navbar-brand__name">Rosenpass</span></a>
+	  	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	  <div class="collapse navbar-collapse" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0" id="navbar-custom">
+		  <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+			<a class="nav-link" href="/#start"><span>Quick Start</span></a>
+		  </li>
+		  <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+			<a class="nav-link" href="/about/"><span>What is Rosenpass?</span></a>
+		  </li>
+		  <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+			<a class="nav-link" href="/docs/"><span>Documentation</span></a>
+		  </li>
+		  <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+			<a class="nav-link active" href="/blog/"><span class="active">Blog</span></a>
+		  </li>
+		  <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+			<a class="nav-link" href="/contributors/"><span>Contributors &amp; Contact</span></a>
+		  </li>
+		  </ul>
+	  </div>
+	  <div class="navbar-nav d-none d-lg-block">
+		
+	  </div>
+	 </div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none " id="sidebar-blog">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center p-0">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 mx-auto fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-blog-li">
+  <a href="/blog/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-blog"><span class="">Blog</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-blogtlsrosenpass_july-li">
+  <input type="checkbox" id="m-blogtlsrosenpass_july-check" checked/>
+  <label for="m-blogtlsrosenpass_july-check"><a href="/blog/tlsrosenpass_july/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-blogtlsrosenpass_july"><span class="td-sidebar-nav-active-item">Rosenpass with TLS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blogpentest_january-li">
+  <input type="checkbox" id="m-blogpentest_january-check"/>
+  <label for="m-blogpentest_january-check"><a href="/blog/pentest_january/" title="Rosenpass Penetration Test" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-blogpentest_january"><span class="">Penetration Test for Rosenpass</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blogavionics_july-li">
+  <input type="checkbox" id="m-blogavionics_july-check"/>
+  <label for="m-blogavionics_july-check"><a href="/blog/avionics_july/" title="Post-Quantum Security in Avionics Paper Hackathon" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-blogavionics_july"><span class="">Post-Quantum Security in Avionics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blognetbird_july-li">
+  <input type="checkbox" id="m-blognetbird_july-check"/>
+  <label for="m-blognetbird_july-check"><a href="/blog/netbird_july/" title="NetBird and Rosenpass&#39; July Hackathon" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-blognetbird_july"><span class="">Netbird Hackathon</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <main class="col-12 col-md-9 col-xxl-8 ps-md-5 pe-md-4" role="main">
+            <a class="td-rss-button" title="RSS" href="https://rosenpass.eu/blog/index.xml" target="_blank" rel="noopener">
+              <i class="fa-solid fa-rss" aria-hidden="true"></i>
+            </a>
+            
+<div class="td-content">
+	<h1>Rosenpass with TLS</h1>
+	<div class="lead">Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL</div>
+	<div class="td-byline mb-4">
+		By <b>Benjamin Lipp</b> |
+		<time datetime="2024-07-29" class="text-muted">Monday, July 29, 2024</time>
+	</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<p>Although Rosenpass&rsquo; primary use case is the creation of a hybrid post-quantum-secure VPN Channel for WireGuard, we have always sought to expand its utility to help create post-quantum-secure systems in other applications. In this case, by applying the principles used for its combination with WireGuard, we sought to produce a proof-of-concept demonstrating such its application to Transport Layer Security (TLS).</p>
+<p>To achieve this, we used the popular OpenSSL library, and its tools <code>s-client</code> and <code>s_server</code> , to attempt to provide hybrid post-quantum security for TLS versions 1.2 and 1.3, which are the two versions currently in use online.</p>
+<p>Typically, Rosenpass achieves post-quantum hybrid security with WireGuard by injecting external post-quantum-secure keys, from the Rosenpass tool, into its key derivation. This is called a pre-shared key (PSK), which is a symmetric key that both involved parties have to agree upon ahead of time.</p>
+<p>As with WireGuard, both TLS 1.2 and 1.3 allow for the injection of an external pre-shared key as part of its key exchange. While the processes differ between the versions, we were able to specify a PSK for both versions of the protocol using the same command line interface.</p>
+<h3 id="on-using-certificates">On Using Certificates</h3>
+<p>TLS relies on certificates, provided by an authority, to establish authentication. Most commonly, a web server will authenticate itself to a client web browser through the provision of a signed certificate from a trusted certification authority. Interestingly, TLS also supports client certificates in the other direction, allowing for a client to authenticate itself to a server. This is not commonly used.</p>
+<p>Another approach is to use a pre-shared key to allow two parties to authenticate each other independently of a certification authority. If a symmetric secret is successfully exchanged, there is no need for a public-key infrastructure (PKI) to solve the problem of key distribution.</p>
+<p>Thus, at a glance, it would appear redundant to use certificates in addition to a PSK ciphersuite with TLS. However, that redundancy is an end in of itself, as it is what hybrid security relies on, as we do not yet want to rely soley on post-quantum-secure PSKs that have not seen the same degree of real-world stress testing as classical cyrptographic solutions. Forced to choose between classical, albeit non-post-quantum-secure, crytography and post-quantum cryptography, it would be prudent to choose the better analysed cryptography for auythentication, especially given that quantum computers are not currently known to be in use. Fortunately, using hybrid schemes allow us to rely on the strengths of both methods.</p>
+<p>Unfortunately, the TLS standards do not support combining certificates with PSK ciphersuites, as they were written without such a hybrid use case in mind. Indeed, OpenSSL s_client and s_server do not support using both certificates and a PSK. In testing, when we specified a certificate on the command line, the s_server proceeded to ignore our specified PSK. We could see this by giving the client and the server non-matching PSKs and PSK identities without causing the channel establishment to fail.</p>
+<h2 id="tutorial-overview">Tutorial Overview</h2>
+<p>For this tutorial, we used two of the OpenSSL project&rsquo;s command line tools, <code>s_client</code> and <code>s_server</code>, that respectively implement a TLS client and server. The tools&rsquo; man pages did not reveal to us what the <code>s</code> stands for. Is it “simple”? Or just a shorthand for the old “SSL”? In any case, <code>s_client</code>&rsquo;s man page claims, “[i]t is a <em>very</em> useful diagnostic tool for SSL servers”, so how could we resist? Regardless, one of this tutorial&rsquo;s co-authors has indeed already used <code>s_client</code> many times to test and debug TLS connections.</p>
+<p>In the following sections, we build up the final show case step-by-step, retracing the steps we took:</p>
+<ul>
+<li>As a first step, we showed how to use OpenSSL&rsquo;s <code>s_client</code> and <code>s_server</code> to establish a TLS channel using a dummy pre-shared key.</li>
+<li>Then, we demonstrated the set up of two Rosenpass peers on localhost, having them exchange a post-quantum-secure key.</li>
+<li>As a last step, we plugged the first two steps together and used <code>s_client</code> and <code>s_server</code> to establish a TLS channel using a key exchanged by Rosenpass as pre-shared key.</li>
+<li>Finally, we include an informal discusssion of the cryptographic security of this approach.</li>
+<li>The conclusion contains an overview the issues we encountered on the way, as well as a discussion on the direction of future potential work.</li>
+</ul>
+<p>All commands, config files, and scripts described in this tutorial are available in the <a href="https://github.com/rosenpass/openssl-tutorial">repository rosenpass/openssl-tutorial</a>.</p>
+<h3 id="1-simple-example-with-a-dummy-pre-shared-key">1. Simple Example with a Dummy Pre-Shared Key</h3>
+<p>We started with the simple example of employing a dummy pre-shared key. We used two terminals on the same machine. In one, we executed the following command to start the server, which is explained directly below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span></code></pre></div><p>We told the server to accept connections on port 4433 on localhost (<code>-accept localhost:4433</code>). The <code>-www</code> parameter starts a simple HTTP server providing an HTML page with information about the TLS session. The client can request it by sending the <code>GET /</code> HTTP command. In our test case, we usually only ran each command once and then switched to another one, which is why the option <code>-naccept 1</code> is useful, which kills the server after one connection. We used <code>-trace</code> to display the TLS protocol messages received and sent by the server. This is not necessary for simple tests, however, we wanted to be able to explain what is going on based on this output.</p>
+<p>And now for the cryptographically revelant parameters: As described above, we did not use certificates in our example (<code>-nocert</code>). The parameter <code>-psk</code> is used to provide a pre-shared key. Here, we just gave an unsecure short example key. TLS uses a so-called PSK identity bitstring to help the client and server communicate which PSK they use. In OpenSSL, it has a default value of <code>Client_identity</code>, and we set it to <code>rosenpass</code> using the <code>-psk_identity</code> parameter.</p>
+<p>With OpenSSL version 3.0.10, this command displays the following to indicate that the server is listening for connections:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Using default temp DH parameters
+</span></span><span style="display:flex;"><span>ACCEPT
+</span></span></code></pre></div><p>The first line gives an important security hint: the server is not sampling freshly random values for ephemeral Diffie-Hellman keys, but using pre-defined default values. This means you should not use the above commands for production use. If you need, look into the documentation of the <code>-dhparam</code> CLI option.</p>
+<p>In the other terminal, we executed the following command for the client:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ openssl s_client -connect localhost:4433 -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span></code></pre></div><p>This command tells the client to connect to the port and server indicated above, and provide it with the same pre-shared key. The client produces a lot of output, giving details about the TLS channel, and then waiting for input that shall be sent on the channel:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>CONNECTED<span style="color:#ce5c00;font-weight:bold">(</span>00000003<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                               
+</span></span><span style="display:flex;"><span>Can<span style="color:#4e9a06">&#39;t use SSL_get_servername                                                                                                                                      
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">no peer certificate available                                                                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">No client certificate CA names sent                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Server Temp Key: X25519, 253 bits                                                                                                                                 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">SSL handshake has read 225 bytes and written 465 bytes                                                                                                            
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Verification: OK                                                                                                                                                  
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Reused, TLSv1.3, Cipher is TLS_CHACHA20_POLY1305_SHA256                                                                                                           
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Secure Renegotiation IS NOT supported                                                                                                                             
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Compression: NONE                                                                                                                                                 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Expansion: NONE                                                                                                                                                   
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">No ALPN negotiated                                                                                                                                                
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Early data was not sent                                                                                                                                           
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Verify return code: 0 (ok)                                                                                                                                        
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">---                                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Post-Handshake New Session Ticket arrived:                                                                                                                        
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">SSL-Session:                                                                                                                                                      
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Protocol  : TLSv1.3                                                                                                                                           
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Cipher    : TLS_CHACHA20_POLY1305_SHA256                                                                                                                      
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Session-ID: 3F45E9CD0E643A96B92BB0379DD656B2533ED1CF5419AAED4B42018121E95B89                                                                                  
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Session-ID-ctx:                                                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Resumption PSK: 435E82BE9A44F9EFCB056B5D600A8C5D5400CD4F5C1571197F476CF8803CFD2D                                                                              
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    PSK identity: None                                                                                                                                            
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    PSK identity hint: None                                                                                                                                       
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    SRP username: None                                                                                                                                            
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    TLS session ticket lifetime hint: 304 (seconds)                                                                                                               
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    TLS session ticket:                                                                                                                                           
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0000 - 25 36 db ec 3a b0 1b ae-09 f1 08 6e 3c 05 06 97   %6..:......n&lt;...                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0010 - 62 01 2e 07 4a e9 65 91-90 31 29 77 95 12 34 70   b...J.e..1)w..4p                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0020 - 36 c2 da d5 3e 0c 3a bf-71 9e ea bc be 73 92 53   6...&gt;.:.q....s.S                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0030 - 62 06 29 07 c0 8d 31 3e-6c c6 92 c6 f1 73 6c ac   b.)...1&gt;l....sl.                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0040 - 58 b6 04 0f ae f9 7d e3-f5 50 78 d4 62 a0 09 ff   X.....}..Px.b...                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0050 - c9 78 7d 31 0b ef e3 10-07 e2 83 31 f1 c7 5c 2f   .x}1.......1..\/                                                                                     
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    0060 - 68 8a 47 bc 27 50 01 59-cc 98 dc cd 39 04 9b 5d   h.G.&#39;</span>P.Y....9..<span style="color:#ce5c00;font-weight:bold">]</span>                                                                                     
+</span></span><span style="display:flex;"><span>    <span style="color:#0000cf;font-weight:bold">0070</span> - bd b6 bb c8 e2 <span style="color:#0000cf;font-weight:bold">95</span> <span style="color:#0000cf;font-weight:bold">57</span> fa-26 8c 0e ae <span style="color:#0000cf;font-weight:bold">95</span> 1f <span style="color:#0000cf;font-weight:bold">83</span> <span style="color:#0000cf;font-weight:bold">48</span>   ......W.<span style="color:#000;font-weight:bold">&amp;</span>......H                                                                                     
+</span></span><span style="display:flex;"><span>    <span style="color:#0000cf;font-weight:bold">0080</span> - <span style="color:#0000cf;font-weight:bold">27</span> c3 aa <span style="color:#0000cf;font-weight:bold">07</span> c4 <span style="color:#0000cf;font-weight:bold">55</span> cb d0-1f ae <span style="color:#0000cf;font-weight:bold">24</span> <span style="color:#0000cf;font-weight:bold">93</span> <span style="color:#0000cf;font-weight:bold">75</span> b8 <span style="color:#0000cf;font-weight:bold">27</span> cf   <span style="color:#4e9a06">&#39;....U....$.u.&#39;</span>.                                                                                     
+</span></span><span style="display:flex;"><span>    <span style="color:#0000cf;font-weight:bold">0090</span> - <span style="color:#0000cf;font-weight:bold">80</span> ab 7a f9 <span style="color:#0000cf;font-weight:bold">95</span> 4d <span style="color:#0000cf;font-weight:bold">63</span> 8b-40 ba <span style="color:#0000cf;font-weight:bold">71</span> 9e 3a aa c8 a3   ..z..Mc.@.q.:...                                                                                     
+</span></span><span style="display:flex;"><span>    00a0 - <span style="color:#0000cf;font-weight:bold">42</span> <span style="color:#0000cf;font-weight:bold">13</span> d4 1f b0 0f 1d dd-d0 <span style="color:#0000cf;font-weight:bold">67</span> <span style="color:#0000cf;font-weight:bold">82</span> <span style="color:#0000cf;font-weight:bold">89</span> <span style="color:#0000cf;font-weight:bold">62</span> <span style="color:#0000cf;font-weight:bold">27</span> <span style="color:#0000cf;font-weight:bold">57</span> <span style="color:#0000cf;font-weight:bold">19</span>   B........g..b<span style="color:#a40000">&#39;</span>W.                                                                                     
+</span></span><span style="display:flex;"><span>    00b0 - 2d <span style="color:#0000cf;font-weight:bold">32</span> f7 bd <span style="color:#0000cf;font-weight:bold">84</span> <span style="color:#0000cf;font-weight:bold">57</span> c3 1b-79 <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#0000cf;font-weight:bold">75</span> <span style="color:#0000cf;font-weight:bold">87</span> cc 5e c9 <span style="color:#0000cf;font-weight:bold">49</span>   -2...W..yPu..^.I                                                                                     
+</span></span><span style="display:flex;"><span>                                                                                                                                                                  
+</span></span><span style="display:flex;"><span>    Start Time: <span style="color:#0000cf;font-weight:bold">1721301066</span>                                                                                                                                        
+</span></span><span style="display:flex;"><span>    Timeout   : <span style="color:#0000cf;font-weight:bold">304</span> <span style="color:#ce5c00;font-weight:bold">(</span>sec<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>    Verify <span style="color:#204a87;font-weight:bold">return</span> code: <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">(</span>unspecified certificate verification error<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                            
+</span></span><span style="display:flex;"><span>    Extended master secret: no                                                                                                                                    
+</span></span><span style="display:flex;"><span>    Max Early Data: <span style="color:#0000cf;font-weight:bold">0</span>                                                                                                                                             
+</span></span><span style="display:flex;"><span>---                                                                                                                                                               
+</span></span><span style="display:flex;"><span><span style="color:#204a87">read</span> R BLOCK
+</span></span></code></pre></div><p>We then inputted <code>GET /</code> and confirmed with <code>Enter</code> to request the server&rsquo;s status page via HTTP. The result was:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>HTTP/1.0 <span style="color:#0000cf;font-weight:bold">200</span> ok
+</span></span><span style="display:flex;"><span>Content-type: text/html
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;HTML&gt;&lt;BODY <span style="color:#000">BGCOLOR</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;#ffffff&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;pre&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s_server -accept localhost:4433 -www -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace 
+</span></span><span style="display:flex;"><span>Secure Renegotiation IS supported
+</span></span><span style="display:flex;"><span>Ciphers supported in s_server binary
+</span></span><span style="display:flex;"><span>TLSv1.3    :TLS_AES_256_GCM_SHA384    TLSv1.3    :TLS_CHACHA20_POLY1305_SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.3    :TLS_AES_128_GCM_SHA256    TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 
+</span></span><span style="display:flex;"><span>TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   
+</span></span><span style="display:flex;"><span>TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     
+</span></span><span style="display:flex;"><span>TLSv1.0    :ECDHE-ECDSA-AES256-SHA    TLSv1.0    :ECDHE-RSA-AES256-SHA      
+</span></span><span style="display:flex;"><span>SSLv3      :DHE-RSA-AES256-SHA        TLSv1.0    :ECDHE-ECDSA-AES128-SHA    
+</span></span><span style="display:flex;"><span>TLSv1.0    :ECDHE-RSA-AES128-SHA      SSLv3      :DHE-RSA-AES128-SHA        
+</span></span><span style="display:flex;"><span>TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 
+</span></span><span style="display:flex;"><span>TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 
+</span></span><span style="display:flex;"><span>TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 TLSv1.2    :AES256-GCM-SHA384         
+</span></span><span style="display:flex;"><span>TLSv1.2    :PSK-AES256-GCM-SHA384     TLSv1.2    :PSK-CHACHA20-POLY1305     
+</span></span><span style="display:flex;"><span>TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.2    :AES128-GCM-SHA256         TLSv1.2    :PSK-AES128-GCM-SHA256     
+</span></span><span style="display:flex;"><span>TLSv1.2    :AES256-SHA256             TLSv1.2    :AES128-SHA256             
+</span></span><span style="display:flex;"><span>TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA  
+</span></span><span style="display:flex;"><span>SSLv3      :SRP-RSA-AES-256-CBC-SHA   SSLv3      :SRP-AES-256-CBC-SHA       
+</span></span><span style="display:flex;"><span>TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 
+</span></span><span style="display:flex;"><span>SSLv3      :RSA-PSK-AES256-CBC-SHA    SSLv3      :DHE-PSK-AES256-CBC-SHA    
+</span></span><span style="display:flex;"><span>SSLv3      :AES256-SHA                TLSv1.0    :PSK-AES256-CBC-SHA384     
+</span></span><span style="display:flex;"><span>SSLv3      :PSK-AES256-CBC-SHA        TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA  SSLv3      :SRP-RSA-AES-128-CBC-SHA   
+</span></span><span style="display:flex;"><span>SSLv3      :SRP-AES-128-CBC-SHA       TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 
+</span></span><span style="display:flex;"><span>TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 SSLv3      :RSA-PSK-AES128-CBC-SHA    
+</span></span><span style="display:flex;"><span>SSLv3      :DHE-PSK-AES128-CBC-SHA    SSLv3      :AES128-SHA                
+</span></span><span style="display:flex;"><span>TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>Ciphers common between both SSL end points:
+</span></span><span style="display:flex;"><span>TLS_AES_256_GCM_SHA384     TLS_CHACHA20_POLY1305_SHA256 TLS_AES_128_GCM_SHA256    
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384 
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305 DHE-RSA-CHACHA20-POLY1305 
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256 
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES256-SHA384  ECDHE-RSA-AES256-SHA384    DHE-RSA-AES256-SHA256     
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES128-SHA256  ECDHE-RSA-AES128-SHA256    DHE-RSA-AES128-SHA256     
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES256-SHA     ECDHE-RSA-AES256-SHA       DHE-RSA-AES256-SHA        
+</span></span><span style="display:flex;"><span>ECDHE-ECDSA-AES128-SHA     ECDHE-RSA-AES128-SHA       DHE-RSA-AES128-SHA        
+</span></span><span style="display:flex;"><span>RSA-PSK-AES256-GCM-SHA384  DHE-PSK-AES256-GCM-SHA384  RSA-PSK-CHACHA20-POLY1305 
+</span></span><span style="display:flex;"><span>DHE-PSK-CHACHA20-POLY1305  ECDHE-PSK-CHACHA20-POLY1305 AES256-GCM-SHA384         
+</span></span><span style="display:flex;"><span>PSK-AES256-GCM-SHA384      PSK-CHACHA20-POLY1305      RSA-PSK-AES128-GCM-SHA256 
+</span></span><span style="display:flex;"><span>DHE-PSK-AES128-GCM-SHA256  AES128-GCM-SHA256          PSK-AES128-GCM-SHA256     
+</span></span><span style="display:flex;"><span>AES256-SHA256              AES128-SHA256              ECDHE-PSK-AES256-CBC-SHA384
+</span></span><span style="display:flex;"><span>ECDHE-PSK-AES256-CBC-SHA   RSA-PSK-AES256-CBC-SHA384  DHE-PSK-AES256-CBC-SHA384 
+</span></span><span style="display:flex;"><span>RSA-PSK-AES256-CBC-SHA     DHE-PSK-AES256-CBC-SHA     AES256-SHA                
+</span></span><span style="display:flex;"><span>PSK-AES256-CBC-SHA384      PSK-AES256-CBC-SHA         ECDHE-PSK-AES128-CBC-SHA256
+</span></span><span style="display:flex;"><span>ECDHE-PSK-AES128-CBC-SHA   RSA-PSK-AES128-CBC-SHA256  DHE-PSK-AES128-CBC-SHA256 
+</span></span><span style="display:flex;"><span>RSA-PSK-AES128-CBC-SHA     DHE-PSK-AES128-CBC-SHA     AES128-SHA                
+</span></span><span style="display:flex;"><span>PSK-AES128-CBC-SHA256      PSK-AES128-CBC-SHA
+</span></span><span style="display:flex;"><span>Supported groups: x25519:secp256r1:x448:secp521r1:secp384r1:ffdhe2048:ffdhe3072:ffdhe4096:ffdhe6144:ffdhe8192
+</span></span><span style="display:flex;"><span>Shared groups: x25519:secp256r1:x448:secp521r1:secp384r1:ffdhe2048:ffdhe3072:ffdhe4096:ffdhe6144:ffdhe8192
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>Reused, TLSv1.3, Cipher is TLS_CHACHA20_POLY1305_SHA256
+</span></span><span style="display:flex;"><span>SSL-Session:
+</span></span><span style="display:flex;"><span>    Protocol  : TLSv1.3
+</span></span><span style="display:flex;"><span>    Cipher    : TLS_CHACHA20_POLY1305_SHA256
+</span></span><span style="display:flex;"><span>    Session-ID: EC67D9D937FDC27A2F0E35D008787E510414B6DD66D92C25D5AC01C4D1946357
+</span></span><span style="display:flex;"><span>    Session-ID-ctx: <span style="color:#0000cf;font-weight:bold">01000000</span>
+</span></span><span style="display:flex;"><span>    Resumption PSK: 435E82BE9A44F9EFCB056B5D600A8C5D5400CD4F5C1571197F476CF8803CFD2D
+</span></span><span style="display:flex;"><span>    PSK identity: None
+</span></span><span style="display:flex;"><span>    PSK identity hint: None
+</span></span><span style="display:flex;"><span>    SRP username: None
+</span></span><span style="display:flex;"><span>    Start Time: <span style="color:#0000cf;font-weight:bold">1721301066</span>
+</span></span><span style="display:flex;"><span>    Timeout   : <span style="color:#0000cf;font-weight:bold">304</span> <span style="color:#ce5c00;font-weight:bold">(</span>sec<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Verify <span style="color:#204a87;font-weight:bold">return</span> code: <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">(</span>unspecified certificate verification error<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Extended master secret: no
+</span></span><span style="display:flex;"><span>    Max Early Data: <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> items in the session cache
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client connects <span style="color:#ce5c00;font-weight:bold">(</span>SSL_connect<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client renegotiates <span style="color:#ce5c00;font-weight:bold">(</span>SSL_connect<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client connects that finished
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> server accepts <span style="color:#ce5c00;font-weight:bold">(</span>SSL_accept<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> server renegotiates <span style="color:#ce5c00;font-weight:bold">(</span>SSL_accept<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> server accepts that finished
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> session cache hits
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> session cache misses
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> session cache timeouts
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> callback cache hits
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> cache full overflows <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">128</span> allowed<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>no client certificate available
+</span></span><span style="display:flex;"><span>&lt;/pre&gt;&lt;/BODY&gt;&lt;/HTML&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>closed
+</span></span></code></pre></div><p>The last line, <code>closed</code>, indicates that the secure channel has been closed. On the server&rsquo;s side, we can also see that the command terminated with the following output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Received Record                                                                                                                                                   
+</span></span><span style="display:flex;"><span>Header:                                                                                                                                                           
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.0 <span style="color:#ce5c00;font-weight:bold">(</span>0x301<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                       
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                   
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">396</span>                                                                                                                                                    
+</span></span><span style="display:flex;"><span>    ClientHello, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">392</span>                                                                                                                                       
+</span></span><span style="display:flex;"><span>      <span style="color:#000">client_version</span><span style="color:#ce5c00;font-weight:bold">=</span>0x303 <span style="color:#ce5c00;font-weight:bold">(</span>TLS 1.2<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                              
+</span></span><span style="display:flex;"><span>      Random:                                                                                                                                                     
+</span></span><span style="display:flex;"><span>        <span style="color:#000">gmt_unix_time</span><span style="color:#ce5c00;font-weight:bold">=</span>0xB5D63ECD                                                                                                                                  
+</span></span><span style="display:flex;"><span>        random_bytes <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>28<span style="color:#ce5c00;font-weight:bold">)</span>: 4477B06A7A1D3A3E305AD869EF2D0B351A3D1B69C1DFA32FB0E7F9E7                                                                           
+</span></span><span style="display:flex;"><span>      session_id <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB                                                                       
+</span></span><span style="display:flex;"><span>      cipher_suites <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>114<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                     
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x13, 0x02<span style="color:#ce5c00;font-weight:bold">}</span> TLS_AES_256_GCM_SHA384                                                                                                                       
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x13, 0x03<span style="color:#ce5c00;font-weight:bold">}</span> TLS_CHACHA20_POLY1305_SHA256                                                                                                                 
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x13, 0x01<span style="color:#ce5c00;font-weight:bold">}</span> TLS_AES_128_GCM_SHA256                                                                                                                       
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x2C<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384                                                                                                      
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x30<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x9F<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_256_GCM_SHA384                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xA9<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xA8<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                  
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xAA<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x2B<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256                                                                                                      
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x2F<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x9E<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_128_GCM_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x24<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384                                                                                                      
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x28<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x6B<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_256_CBC_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x23<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256                                                                                                      
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x27<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x67<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_128_CBC_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x0A<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA                                                                                                         
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x14<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                                                                                                           
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x39<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_256_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x09<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA                                                                                                         
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x13<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                                                                                                           
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x33<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_RSA_WITH_AES_128_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAD<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_256_GCM_SHA384                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAB<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_256_GCM_SHA384                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xAE<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xAD<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xAC<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                  
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x9D<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_256_GCM_SHA384                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xA9<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_256_GCM_SHA384                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xCC, 0xAB<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAC<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_128_GCM_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAA<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_128_GCM_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x9C<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_128_GCM_SHA256                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xA8<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_128_GCM_SHA256                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x3D<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_256_CBC_SHA256                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x3C<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_128_CBC_SHA256                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x38<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x36<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA                                                                                                           
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xB7<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_256_CBC_SHA384                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xB3<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_256_CBC_SHA384                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x95<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_256_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x91<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_256_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x35<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_256_CBC_SHA                                                                                                                 
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAF<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_256_CBC_SHA384                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x8D<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_256_CBC_SHA                                                                                                                 
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x37<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256                                                                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0xC0, 0x35<span style="color:#ce5c00;font-weight:bold">}</span> TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA                                                                                                           
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xB6<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_128_CBC_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xB2<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_128_CBC_SHA256                                                                                                          
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x94<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_PSK_WITH_AES_128_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x90<span style="color:#ce5c00;font-weight:bold">}</span> TLS_DHE_PSK_WITH_AES_128_CBC_SHA                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x2F<span style="color:#ce5c00;font-weight:bold">}</span> TLS_RSA_WITH_AES_128_CBC_SHA                                                                                                                 
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xAE<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_128_CBC_SHA256                                                                                                              
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0x8C<span style="color:#ce5c00;font-weight:bold">}</span> TLS_PSK_WITH_AES_128_CBC_SHA                                                                                                                 
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">{</span>0x00, 0xFF<span style="color:#ce5c00;font-weight:bold">}</span> TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+</span></span><span style="display:flex;"><span>      compression_methods <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>1<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                 
+</span></span><span style="display:flex;"><span>        No Compression <span style="color:#ce5c00;font-weight:bold">(</span>0x00<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                     
+</span></span><span style="display:flex;"><span>      extensions, <span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">205</span>                                                                                                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>ec_point_formats<span style="color:#ce5c00;font-weight:bold">(</span>11<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">4</span>                                                                                                             
+</span></span><span style="display:flex;"><span>          uncompressed <span style="color:#ce5c00;font-weight:bold">(</span>0<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                        
+</span></span><span style="display:flex;"><span>          ansiX962_compressed_prime <span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                           
+</span></span><span style="display:flex;"><span>          ansiX962_compressed_char2 <span style="color:#ce5c00;font-weight:bold">(</span>2<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                           
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>supported_groups<span style="color:#ce5c00;font-weight:bold">(</span>10<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">22</span>                                                                                                            
+</span></span><span style="display:flex;"><span>          ecdh_x25519 <span style="color:#ce5c00;font-weight:bold">(</span>29<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                        
+</span></span><span style="display:flex;"><span>          secp256r1 <span style="color:#ce5c00;font-weight:bold">(</span>P-256<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                  
+</span></span><span style="display:flex;"><span>          ecdh_x448 <span style="color:#ce5c00;font-weight:bold">(</span>30<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                          
+</span></span><span style="display:flex;"><span>          secp521r1 <span style="color:#ce5c00;font-weight:bold">(</span>P-521<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span>25<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                  
+</span></span><span style="display:flex;"><span>          secp384r1 <span style="color:#ce5c00;font-weight:bold">(</span>P-384<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span>24<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                  
+</span></span><span style="display:flex;"><span>          ffdhe2048 <span style="color:#ce5c00;font-weight:bold">(</span>256<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>          ffdhe3072 <span style="color:#ce5c00;font-weight:bold">(</span>257<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>          ffdhe4096 <span style="color:#ce5c00;font-weight:bold">(</span>258<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>          ffdhe6144 <span style="color:#ce5c00;font-weight:bold">(</span>259<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>          ffdhe8192 <span style="color:#ce5c00;font-weight:bold">(</span>260<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                                         
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>session_ticket<span style="color:#ce5c00;font-weight:bold">(</span>35<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span>                                                                                                               
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>encrypt_then_mac<span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span>                                                                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>extended_master_secret<span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span>                                                                                                       
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>signature_algorithms<span style="color:#ce5c00;font-weight:bold">(</span>13<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">42</span>                                                                                                        
+</span></span><span style="display:flex;"><span>          ecdsa_secp256r1_sha256 <span style="color:#ce5c00;font-weight:bold">(</span>0x0403<span style="color:#ce5c00;font-weight:bold">)</span>                                                                                                                         
+</span></span><span style="display:flex;"><span>          ecdsa_secp384r1_sha384 <span style="color:#ce5c00;font-weight:bold">(</span>0x0503<span style="color:#ce5c00;font-weight:bold">)</span>                                        
+</span></span><span style="display:flex;"><span>          ecdsa_secp521r1_sha512 <span style="color:#ce5c00;font-weight:bold">(</span>0x0603<span style="color:#ce5c00;font-weight:bold">)</span>                                        
+</span></span><span style="display:flex;"><span>          ed25519 <span style="color:#ce5c00;font-weight:bold">(</span>0x0807<span style="color:#ce5c00;font-weight:bold">)</span>                                                       
+</span></span><span style="display:flex;"><span>          ed448 <span style="color:#ce5c00;font-weight:bold">(</span>0x0808<span style="color:#ce5c00;font-weight:bold">)</span>                                                         
+</span></span><span style="display:flex;"><span>          rsa_pss_pss_sha256 <span style="color:#ce5c00;font-weight:bold">(</span>0x0809<span style="color:#ce5c00;font-weight:bold">)</span>                                            
+</span></span><span style="display:flex;"><span>          rsa_pss_pss_sha384 <span style="color:#ce5c00;font-weight:bold">(</span>0x080a<span style="color:#ce5c00;font-weight:bold">)</span>                                            
+</span></span><span style="display:flex;"><span>          rsa_pss_pss_sha512 <span style="color:#ce5c00;font-weight:bold">(</span>0x080b<span style="color:#ce5c00;font-weight:bold">)</span>                                            
+</span></span><span style="display:flex;"><span>          rsa_pss_rsae_sha256 <span style="color:#ce5c00;font-weight:bold">(</span>0x0804<span style="color:#ce5c00;font-weight:bold">)</span>                                           
+</span></span><span style="display:flex;"><span>          rsa_pss_rsae_sha384 <span style="color:#ce5c00;font-weight:bold">(</span>0x0805<span style="color:#ce5c00;font-weight:bold">)</span>                                           
+</span></span><span style="display:flex;"><span>          rsa_pss_rsae_sha512 <span style="color:#ce5c00;font-weight:bold">(</span>0x0806<span style="color:#ce5c00;font-weight:bold">)</span>                                           
+</span></span><span style="display:flex;"><span>          rsa_pkcs1_sha256 <span style="color:#ce5c00;font-weight:bold">(</span>0x0401<span style="color:#ce5c00;font-weight:bold">)</span>                                              
+</span></span><span style="display:flex;"><span>          rsa_pkcs1_sha384 <span style="color:#ce5c00;font-weight:bold">(</span>0x0501<span style="color:#ce5c00;font-weight:bold">)</span>                                              
+</span></span><span style="display:flex;"><span>          rsa_pkcs1_sha512 <span style="color:#ce5c00;font-weight:bold">(</span>0x0601<span style="color:#ce5c00;font-weight:bold">)</span>                                              
+</span></span><span style="display:flex;"><span>          ecdsa_sha224 <span style="color:#ce5c00;font-weight:bold">(</span>0x0303<span style="color:#ce5c00;font-weight:bold">)</span>                                                  
+</span></span><span style="display:flex;"><span>          rsa_pkcs1_sha224 <span style="color:#ce5c00;font-weight:bold">(</span>0x0301<span style="color:#ce5c00;font-weight:bold">)</span>                                              
+</span></span><span style="display:flex;"><span>          dsa_sha224 <span style="color:#ce5c00;font-weight:bold">(</span>0x0302<span style="color:#ce5c00;font-weight:bold">)</span>                                                    
+</span></span><span style="display:flex;"><span>          dsa_sha256 <span style="color:#ce5c00;font-weight:bold">(</span>0x0402<span style="color:#ce5c00;font-weight:bold">)</span>                                                    
+</span></span><span style="display:flex;"><span>          dsa_sha384 <span style="color:#ce5c00;font-weight:bold">(</span>0x0502<span style="color:#ce5c00;font-weight:bold">)</span>                                                    
+</span></span><span style="display:flex;"><span>          dsa_sha512 <span style="color:#ce5c00;font-weight:bold">(</span>0x0602<span style="color:#ce5c00;font-weight:bold">)</span>                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>supported_versions<span style="color:#ce5c00;font-weight:bold">(</span>43<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">5</span>                                                                                                           
+</span></span><span style="display:flex;"><span>          TLS 1.3 <span style="color:#ce5c00;font-weight:bold">(</span>772<span style="color:#ce5c00;font-weight:bold">)</span>                 
+</span></span><span style="display:flex;"><span>          TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>771<span style="color:#ce5c00;font-weight:bold">)</span>                 
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>psk_key_exchange_modes<span style="color:#ce5c00;font-weight:bold">(</span>45<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span>                                                                                                       
+</span></span><span style="display:flex;"><span>          psk_dhe_ke <span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>                                                         
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>key_share<span style="color:#ce5c00;font-weight:bold">(</span>51<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">38</span>                                  
+</span></span><span style="display:flex;"><span>            NamedGroup: ecdh_x25519 <span style="color:#ce5c00;font-weight:bold">(</span>29<span style="color:#ce5c00;font-weight:bold">)</span>                                         
+</span></span><span style="display:flex;"><span>            key_exchange:  <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: 5D6910ECD062F3F039BAE0408F958A09B294E24FEE94E2A695DE794E8F3B170B                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>psk<span style="color:#ce5c00;font-weight:bold">(</span>41<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">52</span>                                        
+</span></span><span style="display:flex;"><span>          <span style="color:#0000cf;font-weight:bold">0000</span> - <span style="color:#0000cf;font-weight:bold">00</span> 0f <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">09</span> <span style="color:#0000cf;font-weight:bold">72</span> 6f <span style="color:#0000cf;font-weight:bold">73</span> 65-6e <span style="color:#0000cf;font-weight:bold">70</span> <span style="color:#0000cf;font-weight:bold">61</span> <span style="color:#0000cf;font-weight:bold">73</span> <span style="color:#0000cf;font-weight:bold">73</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span>   ....rosenpass..                                                                                   
+</span></span><span style="display:flex;"><span>          000f - <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">21</span> <span style="color:#0000cf;font-weight:bold">20</span> 1c 7a 65-4b <span style="color:#0000cf;font-weight:bold">77</span> <span style="color:#0000cf;font-weight:bold">67</span> fb 5f <span style="color:#0000cf;font-weight:bold">05</span> ea   ...! .zeKwg._..                                                                                   
+</span></span><span style="display:flex;"><span>          001e - af 2c 8c <span style="color:#0000cf;font-weight:bold">57</span> <span style="color:#0000cf;font-weight:bold">45</span> 4e <span style="color:#0000cf;font-weight:bold">36</span> 00-5a e2 <span style="color:#0000cf;font-weight:bold">17</span> fa ee <span style="color:#0000cf;font-weight:bold">58</span> c3   .,.WEN6.Z....X.                                                                                   
+</span></span><span style="display:flex;"><span>          002d - ac <span style="color:#0000cf;font-weight:bold">83</span> c2 <span style="color:#0000cf;font-weight:bold">45</span> <span style="color:#0000cf;font-weight:bold">52</span> <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">75</span>                           ...ER3u                                                                                           
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sent Record                             
+</span></span><span style="display:flex;"><span>Header:                                 
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>                                                      
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>                                                  
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">128</span>                          
+</span></span><span style="display:flex;"><span>    ServerHello, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">124</span>                                                      
+</span></span><span style="display:flex;"><span>      <span style="color:#000">server_version</span><span style="color:#ce5c00;font-weight:bold">=</span>0x303 <span style="color:#ce5c00;font-weight:bold">(</span>TLS 1.2<span style="color:#ce5c00;font-weight:bold">)</span>                                             
+</span></span><span style="display:flex;"><span>      Random:                           
+</span></span><span style="display:flex;"><span>        <span style="color:#000">gmt_unix_time</span><span style="color:#ce5c00;font-weight:bold">=</span>0x67909183                                                 
+</span></span><span style="display:flex;"><span>        random_bytes <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>28<span style="color:#ce5c00;font-weight:bold">)</span>: 983F9CDF3B45917CD2D4AB4AC77F162C332CEBE036CF6E9B63E3C52D                                                                           
+</span></span><span style="display:flex;"><span>      session_id <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB                                                                       
+</span></span><span style="display:flex;"><span>      cipher_suite <span style="color:#ce5c00;font-weight:bold">{</span>0x13, 0x03<span style="color:#ce5c00;font-weight:bold">}</span> TLS_CHACHA20_POLY1305_SHA256                                                                                                      
+</span></span><span style="display:flex;"><span>      compression_method: No Compression <span style="color:#ce5c00;font-weight:bold">(</span>0x00<span style="color:#ce5c00;font-weight:bold">)</span>                                  
+</span></span><span style="display:flex;"><span>      extensions, <span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">52</span>                                                    
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>supported_versions<span style="color:#ce5c00;font-weight:bold">(</span>43<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span>                                                                                                           
+</span></span><span style="display:flex;"><span>            TLS 1.3 <span style="color:#ce5c00;font-weight:bold">(</span>772<span style="color:#ce5c00;font-weight:bold">)</span>                                                        
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>key_share<span style="color:#ce5c00;font-weight:bold">(</span>51<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">36</span>                                  
+</span></span><span style="display:flex;"><span>            NamedGroup: ecdh_x25519 <span style="color:#ce5c00;font-weight:bold">(</span>29<span style="color:#ce5c00;font-weight:bold">)</span>                                         
+</span></span><span style="display:flex;"><span>            key_exchange:  <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: D4A82CB37846403182A733E065DB2CA53B45F54970B24380EB146CB4F5BBD948                                                             
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>psk<span style="color:#ce5c00;font-weight:bold">(</span>41<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span>                                         
+</span></span><span style="display:flex;"><span>          <span style="color:#0000cf;font-weight:bold">0000</span> - <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span>                                          ..                                                                                                
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sent Record                             
+</span></span><span style="display:flex;"><span>Header:                                 
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>                                                      
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ChangeCipherSpec <span style="color:#ce5c00;font-weight:bold">(</span>20<span style="color:#ce5c00;font-weight:bold">)</span>                                           
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>                            
+</span></span><span style="display:flex;"><span>    change_cipher_spec <span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>                                                       
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sent Record                             
+</span></span><span style="display:flex;"><span>Header:                                 
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>                                                      
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>                                            
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">23</span>                           
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>                                            
+</span></span><span style="display:flex;"><span>    EncryptedExtensions, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span>                                                
+</span></span><span style="display:flex;"><span>      No extensions                     
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sent Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">53</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Finished, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">32</span>
+</span></span><span style="display:flex;"><span>      verify_data <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: 647FC71F9CC0E7940587B29DECF7FC5295A944BF6540B4D5FA6117B70CAAFD25
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Received Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ChangeCipherSpec <span style="color:#ce5c00;font-weight:bold">(</span>20<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>Received Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">53</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Finished, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">32</span>
+</span></span><span style="display:flex;"><span>      verify_data <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>32<span style="color:#ce5c00;font-weight:bold">)</span>: 71E1483F9FBD49677C5CCD0127B05013D4F2EB9863582F7619F00AE1E3C544BF
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sent Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">234</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Handshake <span style="color:#ce5c00;font-weight:bold">(</span>22<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    NewSessionTicket, <span style="color:#000">Length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">213</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">ticket_lifetime_hint</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">304</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">ticket_age_add</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">4053405538</span>
+</span></span><span style="display:flex;"><span>        ticket_nonce <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span>: <span style="color:#0000cf;font-weight:bold">0000000000000000</span>
+</span></span><span style="display:flex;"><span>        ticket <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>192<span style="color:#ce5c00;font-weight:bold">)</span>: 2536DBEC3AB01BAE09F1086E3C05069762012E074AE96591903129779512347036C2DAD53E0C3ABF719EEABCBE73925362062907C08D313E6CC692C6F1736CAC58B6040FAEF97DE3F55078D462A009FFC9787D310BEFE31007E28331F1C75C2F688A47BC27500159CC98DCCD39049B5DBDB6BBC8E29557FA268C0EAE951F834827C3AA07C455CBD01FAE249375B827CF80AB7AF9954D638B40BA719E3AAAC8A34213D41FB00F1DDDD0678289622757192D32F7BD8457C31B79507587CC5EC949
+</span></span><span style="display:flex;"><span>        No extensions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Received Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">23</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>Sent Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">5448</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>Sent Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">19</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Alert <span style="color:#ce5c00;font-weight:bold">(</span>21<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Level</span><span style="color:#ce5c00;font-weight:bold">=</span>warning<span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">description</span><span style="color:#ce5c00;font-weight:bold">=</span>close notify<span style="color:#ce5c00;font-weight:bold">(</span>0<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Received Record
+</span></span><span style="display:flex;"><span>Header:
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">=</span> TLS 1.2 <span style="color:#ce5c00;font-weight:bold">(</span>0x303<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> ApplicationData <span style="color:#ce5c00;font-weight:bold">(</span>23<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">Length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">19</span>
+</span></span><span style="display:flex;"><span>  Inner Content <span style="color:#000">Type</span> <span style="color:#ce5c00;font-weight:bold">=</span> Alert <span style="color:#ce5c00;font-weight:bold">(</span>21<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Level</span><span style="color:#ce5c00;font-weight:bold">=</span>warning<span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">description</span><span style="color:#ce5c00;font-weight:bold">=</span>close notify<span style="color:#ce5c00;font-weight:bold">(</span>0<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> items in the session cache
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client connects <span style="color:#ce5c00;font-weight:bold">(</span>SSL_connect<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client renegotiates <span style="color:#ce5c00;font-weight:bold">(</span>SSL_connect<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> client connects that finished
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> server accepts <span style="color:#ce5c00;font-weight:bold">(</span>SSL_accept<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> server renegotiates <span style="color:#ce5c00;font-weight:bold">(</span>SSL_accept<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> server accepts that finished
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">1</span> session cache hits
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> session cache misses
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> session cache timeouts
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> callback cache hits
+</span></span><span style="display:flex;"><span>   <span style="color:#0000cf;font-weight:bold">0</span> cache full overflows <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">128</span> allowed<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><h4 id="observations">Observations</h4>
+<h5 id="is-the-psk-really-being-used">Is the PSK really being used?</h5>
+<p>We wanted to confirm that the PSK and the PSK identity are actually being used for channel establishment. So let&rsquo;s see!</p>
+<p><strong>Failure On Non-Matching PSK or PSK Identity.</strong> The channel establishment indeed fails if either the PSK or the PSK identity parameter do not match on both sides. Feel free to try and experiment with this a bit yourself!</p>
+<p><strong>Observing the Usage of the PSK Mode in the Output.</strong> The output of client and server gave us a hint about usage of a PSK ciphersuite. First, they showed <code>Reused, TLSv1.3</code> instead of <code>New, TLSv1.3</code> in case of a certificate-only channel establishment. This is because the PSK modes in TLS 1.3 are mainly designed to reuse key material from a previous session.</p>
+<p>In the trace output of the server, we can see that the client signals a PSK key exchange extension, and sends the PSK identity:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>psk_key_exchange_modes<span style="color:#ce5c00;font-weight:bold">(</span>45<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span>                                                                                                       
+</span></span><span style="display:flex;"><span>          psk_dhe_ke <span style="color:#ce5c00;font-weight:bold">(</span>1<span style="color:#ce5c00;font-weight:bold">)</span>                                                         
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">extension_type</span><span style="color:#ce5c00;font-weight:bold">=</span>psk<span style="color:#ce5c00;font-weight:bold">(</span>41<span style="color:#ce5c00;font-weight:bold">)</span>, <span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">52</span>                                        
+</span></span><span style="display:flex;"><span>          <span style="color:#0000cf;font-weight:bold">0000</span> - <span style="color:#0000cf;font-weight:bold">00</span> 0f <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">09</span> <span style="color:#0000cf;font-weight:bold">72</span> 6f <span style="color:#0000cf;font-weight:bold">73</span> 65-6e <span style="color:#0000cf;font-weight:bold">70</span> <span style="color:#0000cf;font-weight:bold">61</span> <span style="color:#0000cf;font-weight:bold">73</span> <span style="color:#0000cf;font-weight:bold">73</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span>   ....rosenpass..                                                                                   
+</span></span><span style="display:flex;"><span>          000f - <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">00</span> <span style="color:#0000cf;font-weight:bold">21</span> <span style="color:#0000cf;font-weight:bold">20</span> 1c 7a 65-4b <span style="color:#0000cf;font-weight:bold">77</span> <span style="color:#0000cf;font-weight:bold">67</span> fb 5f <span style="color:#0000cf;font-weight:bold">05</span> ea   ...! .zeKwg._..                                                                                   
+</span></span><span style="display:flex;"><span>          001e - af 2c 8c <span style="color:#0000cf;font-weight:bold">57</span> <span style="color:#0000cf;font-weight:bold">45</span> 4e <span style="color:#0000cf;font-weight:bold">36</span> 00-5a e2 <span style="color:#0000cf;font-weight:bold">17</span> fa ee <span style="color:#0000cf;font-weight:bold">58</span> c3   .,.WEN6.Z....X.                                                                                   
+</span></span><span style="display:flex;"><span>          002d - ac <span style="color:#0000cf;font-weight:bold">83</span> c2 <span style="color:#0000cf;font-weight:bold">45</span> <span style="color:#0000cf;font-weight:bold">52</span> <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">75</span>                           ...ER3u
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><p>In the session details, the PSK identity did not appear:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    PSK identity: None
+</span></span><span style="display:flex;"><span>    PSK identity hint: None
+</span></span></code></pre></div><p>This is not the intended behaviour, and <a href="https://github.com/openssl/openssl/issues/24823">we filed a bug report against OpenSSL</a>. On the API level, this bug was already known by the OpenSSL maintainers.</p>
+<p>The output told us that the ciphersuite <code>TLS_CHACHA20_POLY1305_SHA256</code> has been selected for this secure channel, which does not indicate usage of a PSK. This is expected behaviour because, in TLS 1.3, the PSK is not part of the ciphersuite as it is in TLS 1.2.</p>
+<h5 id="indicating-the-psk-in-plaintext-on-the-command-line-is-a-security-issue">Indicating the PSK in Plaintext on the Command Line is a Security Issue</h5>
+<p>You might have noticed that we gave the PSK as a plaintext parameter on the command line. You might also be aware that it is a bad idea to indicate secrets in the parameters of a command. This is true because it means that the secret can end up in the terminal history file, as well as being visible in the process list while the command is running.</p>
+<p>The PSK is, unsurprisingly, indeed visible in the process list:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps a <span style="color:#000;font-weight:bold">|</span> grep openssl
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">269543</span> pts/2    S+     0:00 openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">269748</span> pts/3    S+     0:00 grep --color<span style="color:#ce5c00;font-weight:bold">=</span>auto openssl
+</span></span></code></pre></div><p>We, unsurprisingly, do not like to leak our secrets to everyone having access to the process list!</p>
+<p>The tool <code>xargs</code> did <em>not</em> help because it simply prepares the command that will still then contain the plaintext PSK:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#204a87">echo</span> 1a2b3c4d5e6f <span style="color:#000;font-weight:bold">|</span> xargs -I % sh -c <span style="color:#4e9a06">&#39;openssl s_server -accept localhost:4433 -www -naccept 1 -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps a <span style="color:#000;font-weight:bold">|</span> grep openssl
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">270394</span> pts/2    S+     0:00 xargs -I % sh -c openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">270395</span> pts/2    S+     0:00 sh -c openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">270396</span> pts/2    S+     0:00 openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span><span style="display:flex;"><span> <span style="color:#0000cf;font-weight:bold">270400</span> pts/3    S+     0:00 grep --color<span style="color:#ce5c00;font-weight:bold">=</span>auto openssl
+</span></span></code></pre></div><p>OpenSSL s_client and s_server do not support reading the PSK from stdin because s_client uses stdin for input meant to be sent over the secure channel.</p>
+<p>We opened a <a href="https://github.com/openssl/openssl/issues/24721">feature request against OpenSSL, to allow reading the PSK from a file</a>. The OpenSSL maintainers reacted impressively quickly, acknowledging the feature request. We agreed to contribute a pull request, and received helpful advice from a maintainer on how to go about it. Engaging with OpenSSL, for both of our requests, was a very pleasant experience!</p>
+<h4 id="using-tls-12">Using TLS 1.2</h4>
+<p>TLS version 1.2 is still commonly in use on the internet, so we ran the example with this version as well. We were able to force the server to use TLS 1.2 by adding the CLI option <code>-tls1_2</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ openssl s_server -accept localhost:4433 -www -naccept <span style="color:#0000cf;font-weight:bold">1</span> -trace -nocert -tls1_2 -psk 1a2b3c4d5e6f -psk_identity rosenpass
+</span></span></code></pre></div><p>We did not need to adapt the client command. The output reads a bit differently:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>New, TLSv1.2, Cipher is DHE-PSK-AES256-GCM-SHA384
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>SSL-Session:
+</span></span><span style="display:flex;"><span>    Protocol  : TLSv1.2
+</span></span><span style="display:flex;"><span>    Cipher    : DHE-PSK-AES256-GCM-SHA384
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    PSK identity: rosenpass
+</span></span><span style="display:flex;"><span>    PSK identity hint: None
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>…<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>In TLS 1.2, the usage of a PSK was still part of the ciphersuite choice, and it is visible in the chosen ciphersuite <code>DHE-PSK-AES256-GCM-SHA384</code>. Also, the PSK identity <code>rosenpass</code> was displayed.</p>
+<h3 id="2-rosenpass-simple-example">2. Rosenpass Simple Example</h3>
+<p>For this section, we assume that you have already installed Rosenpass on your system. You can do so by following the step-by-step <a href="https://rosenpass.eu/docs/compilation/">manual on our website</a>.</p>
+<p>We needed two Rosenpass peers, and we set them up based on the two config files: <code>rp1</code> and <code>rp2</code>.</p>
+<p>They are written such that the two peers are talking to each other, respectively. Each peer reads its public key and secret key from files <code>public_key</code> and <code>secret_key</code>, and writes the Rosenpass shared key into a <code>key_out</code> file. After a successful key exchange, the files <code>rp1-key-out</code> and <code>rp2-key-out</code> will be be exactly equal. This key is what we then handed over to OpenSSL in the following section.</p>
+<p>rp1:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">public_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp1-public-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">secret_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp1-secret-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">listen</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#4e9a06">&#34;127.0.0.1:9998&#34;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">verbosity</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Quiet&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[[</span>peers<span style="color:#ce5c00;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">public_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp2-public-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">endpoint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1:9999&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">key_out</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp1-key-out&#34;</span>
+</span></span></code></pre></div><p>rp2:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">public_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp2-public-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">secret_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp2-secret-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">listen</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#4e9a06">&#34;127.0.0.1:9999&#34;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">verbosity</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Quiet&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[[</span>peers<span style="color:#ce5c00;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">public_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp1-public-key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">endpoint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;127.0.0.1:9998&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">key_out</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;rp2-key-out&#34;</span>
+</span></span></code></pre></div><p>After writing these two config files, we executed the following two commands to instruct Rosenpass to sample the key pairs:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rosenpass gen-keys rp1
+</span></span><span style="display:flex;"><span>$ rosenpass gen-keys rp2
+</span></span></code></pre></div><p>Now, in two different terminals, just as in the previous section, we started two Rosenpass peers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo rosenpass exchange-config rp1
+</span></span></code></pre></div><p>This command will not produce any output at this stage. It listens on port <code>9998</code> and waits for a connection.</p>
+<p>Shortly after we started the second peer:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo rosenpass exchange-config rp2
+</span></span></code></pre></div><p>Both peers then showed an output on the terminal:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>output-key peer mD5+gb1BH3MZDewgoO3QML1DtA3Ip5XJtk+9kEp9ZpE<span style="color:#ce5c00;font-weight:bold">=</span> key-file <span style="color:#4e9a06">&#34;rp1-key-out&#34;</span> exchanged
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>output-key peer 2GTde5XqHa7bB4pq8Xk2BFD+QX94CqpPE+3VvYhvyZg<span style="color:#ce5c00;font-weight:bold">=</span> key-file <span style="color:#4e9a06">&#34;rp2-key-out&#34;</span> exchanged
+</span></span></code></pre></div><p>Also, we can see that the two files <code>rp1-key-out</code> and <code>rp2-key-out</code> have been created, and that they are equal. Testing this command revealed that it did not produce output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ diff rp*-key-out
+</span></span></code></pre></div><p>We then terminated both Rosenpass peers using <code>Ctrl+C</code>. Otherwise, they would have continued to perform new handshakes and written new shared keys to their output key file every two minutes.</p>
+<h3 id="3-plugging-it-all-in">3. Plugging it all in</h3>
+<p>The final step was to hand the Rosenpass shared key over to the OpenSSL <code>s_client</code> and <code>s_server</code> commands. We needed to achieve the following:</p>
+<ul>
+<li>Detect when Rosenpass finished a handshake,</li>
+<li>Encode the Rosenpass shared key such that <code>s_client</code> and <code>s_server</code> can read it,</li>
+<li>And launch <code>s_client</code> and <code>s_server</code> with the key.</li>
+</ul>
+<p>We implement this in Bash scripts, which are available in the repo <a href="https://github.com/rosenpass/openssl-tutorial">rosenpass/openssl-tutorial</a> alongside the configuration files <code>rp1</code> and <code>rp2</code> for Rosenpass:</p>
+<ul>
+<li><code>setup.bash</code>: sample the Rosenpass keys based on the config files,</li>
+<li><code>client.bash</code>: running Rosenpass and then OpenSSL <code>s_client</code>,</li>
+<li><code>server_tls12.bash</code>: running Rosenpass and the OpenSSL <code>s_server</code> with the <code>-tls1_2</code> flag</li>
+<li><code>server_tls13.bash</code>: the same but with the <code>-tls1_3</code> flag</li>
+<li><code>common.bash</code>: shared code between client and server.</li>
+</ul>
+<h4 id="waiting-for-one-rosenpass-handshake-and-encoding-the-shared-key">Waiting for One Rosenpass Handshake and Encoding the Shared Key</h4>
+<p>The first two tasks from above &ndash; running Rosenpass and detecting the end of the first handshake, and encoding the key for OpenSSL &ndash; were the same for client and server, and so we could share the code in a common Bash script that is sourced by both the client and server scripts. The client and server scripts only needed to set a variable, <code>PEER</code> to <code>rp1</code> or <code>rp2</code>, before sourcing the script to indicate which Rosenpass peer the script should set up. We took care to include comprehensive code comments into the script, allowing us to quote it in its entirety below.</p>
+<p>The main idea for detecting the end of the first handshake was to use the existence of the output key file as signal. At the beginning of the script, we made sure that the file is deleted, and then waited until it was created again. When starting Rosenpass, we remember its process ID, so that we could kill it after the first handshake. Waiting for the file creation in a sleep loop is certainly not the cleanest approach, but as the handshake is not supposed to take long anyway, it seems ok for this purpose.</p>
+<p>Encoding the shared key for OpenSSL was achieved through a series of pipes, to get from base64 to hex encoding. At the end of the script, we had a variable <code>PSK</code> containing the Rosenpass shared key in an encoding readable by OpenSSL, and a variable <code>PSK_ID</code> containing the bitstring <code>rosenpass</code> for the PSK identity.</p>
+<p>common.bash:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># This has to match the filename configured</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># in rp1 and rp2, respectively. Rosenpass will</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># write the shared key into this file.</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PSK_FILE</span><span style="color:#ce5c00;font-weight:bold">=</span>./<span style="color:#4e9a06">${</span><span style="color:#000">PEER</span><span style="color:#4e9a06">}</span>-key-out
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Ideally, we want to have OpenSSL read the PSK</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># from a file. This is the filename we will use.</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PSK_FILE_HEX</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">${</span><span style="color:#000">PSK_FILE</span><span style="color:#4e9a06">}</span>.hex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># PSK identity is a bitstring used by TLS and it</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># has to be the same for client and server</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PSK_ID</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;rosenpass&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Remove previous PSK output file, because we use</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># it to test if the first handshake completed.</span>
+</span></span><span style="display:flex;"><span>rm -f <span style="color:#000">$PSK_FILE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Start Rosenpass in the background and keep the</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># process ID to be able to kill the process after</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># the first handshake completed.</span>
+</span></span><span style="display:flex;"><span>sudo rosenpass exchange-config <span style="color:#4e9a06">${</span><span style="color:#000">PEER</span><span style="color:#4e9a06">}</span> <span style="color:#000;font-weight:bold">&amp;</span> <span style="color:#000">PID</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">$!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;Started Rosenpass with PID </span><span style="color:#000">$PID</span><span style="color:#4e9a06">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Wait for the PSK file to be created by Rosenpass.</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">while</span> <span style="color:#ce5c00;font-weight:bold">[</span> ! -f <span style="color:#000">$PSK_FILE</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">do</span> sleep 1<span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Kill the Rosenpass process as soon as a PSK has been written</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># to the PSK file.</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> -e <span style="color:#4e9a06">&#34;PSK file has been created, killing Rosenpass process&#34;</span>
+</span></span><span style="display:flex;"><span>sudo <span style="color:#204a87">kill</span> <span style="color:#000">$PID</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Encode the PSK for OpenSSL. We need to go from base64 to hex.</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PSK</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span>cat <span style="color:#000">$PSK_FILE</span> <span style="color:#000;font-weight:bold">|</span> base64 -d <span style="color:#000;font-weight:bold">|</span> od -t x1 -An <span style="color:#000;font-weight:bold">|</span> tr -d <span style="color:#4e9a06">&#39; \n&#39;</span><span style="color:#204a87;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Write PSK to file in case we manage to have OpenSSL read it from there</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#000">$PSK</span> &gt; <span style="color:#000">$PSK_FILE_HEX</span>
+</span></span></code></pre></div><h4 id="client-and-server-scripts">Client and Server Scripts</h4>
+<p>The client and server scripts call OpenSSL <code>s_client</code> and <code>s_server</code> and hand the PSK and PSK identity over as CLI parameters:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-psk <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">PSK</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> -psk_identity <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">PSK_ID</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span>
+</span></span></code></pre></div><p>As explained above, this is insecure because the PSK ends up visible in plaintext in the process list. We will hopefully soon have time to work on a pull request for the feature request that we submitted to OpenSSL.</p>
+<p>On the client side, the user still needs to input <code>GET /</code> manually. We also tested piping <code>echo &quot;GET /&quot;</code> into the <code>openssl s_client</code> command, however, this turned out to be unreliable. The server sometimes did not answer with the status output. We believe this may be because the input would sometimes arrive too early.</p>
+<h3 id="4-security-analysis">4. Security Analysis</h3>
+<p>The general idea of hybrid post-quantum security is that:</p>
+<ol>
+<li>We retain classic security in the case that the post-quantum cryptographic building blocks turn out to be vulnerable, be it to attacks by classical or quantum computers.</li>
+<li>We still maintain security when quantum computers inevitably begin to break the building blocks of classical cryptography.</li>
+</ol>
+<p>The second point is especially relevant for confidentiality, as adversaries can start storing encrypted communication today and wait until a quantum computer capable of breaking it becomes available. By starting to employ post-quantum cryptography today, we improve our chances of protecting against “store-now decrypt-later” attacks.</p>
+<p>Both TLS 1.2 and TLS 1.3 employ a key schedule that hashes together different cryptographic key material to produce a symmetric session key. In our case, the cryptographic key material is comprised of:</p>
+<ol>
+<li>The shared secret from the ephemeral Diffie-Hellman (DH) key exchange executed within the TLS handshake.</li>
+<li>The PSK.</li>
+</ol>
+<p>The key schedule is built in a way such that the symmetric session key remains secure even if the adversary knows either the DH shared secret or the PSK. The rough idea is that the key schedule is a key derivation function <code>KDF(dh, psk)</code> depending on both the DH shared secret and the PSK. This function produces a secure uniformly random symmetric key as long as one of the two parameters <code>dh</code> and <code>psk</code> is not known to the adversary.</p>
+<p>There are two cryptography papers formally analysing the security of the PSK ciphersuites of TLS 1.2 and TLS 1.3. The analyses were done assuming a classical adversary, but still give indications that this security also holds against a quantum adversary. For more assurance and more precise security bounds, these analyses would need to be repeated with the consideration of a quantum adversary. At least in the case of TLS 1.3, this might necessitate the Quantum Random Oracle Model, which is a more involved way of analysing security of hash functions against a quantum adversary.</p>
+<p>For TLS 1.2, more details can be found in <em>Section 3</em> and <em>Theorem 2</em> of <a href="https://eprint.iacr.org/2014/037">ia.cr/2014/037</a> relating to the “TLS_DHE_PSK protocol”. For TLS 1.3, there are <em>Theorem 7.1</em> and <em>Figure 1</em> of <a href="https://eprint.iacr.org/2022/246">ia.cr/2022/246</a>.</p>
+<h3 id="5-conclusion">5. Conclusion</h3>
+<p>In the course of producing this tutorial, we were able to demonstrate that Rosenpass can be used to achieve hybrid post-quantum security with both a TLS 1.2 and a TLS 1.3 channel. Although we have made our scripts available in <a href="https://github.com/rosenpass/openssl-tutorial">rosenpass/openssl-tutorial</a>, it is worth noting that this is meant as a proof-of-concept. The reader should be aware that this tutorial&rsquo;s implentation is not as secure as it should be for production use. The immediately known flaws in this method are:</p>
+<ol>
+<li>We were only able to reach hybrid confidentiality. As explained in the tutorial, we were not able to do the same for authentication which, rather than being hybrid, is only post-quantum secure.</li>
+<li>Ephemeral keys are not freshly sampled random values, as mentioned above.</li>
+<li>The pre-shared key is leaked in the process list, as reported in a feature request to OpenSSL.</li>
+<li>There should be a binding of the Rosenpass key exchange to information about the TLS peers, ideally the server certificate. For this, we would need to add an interface to Rosenpass that accepts such an additional input to be incorporated into the key exchange.</li>
+</ol>
+<p>This work was supported by <a href="https://nlnet.nl/project/Rosenpass-API/">the NLnet foundation</a>.</p>
+<p>We would love to hear from you if you have questions or comments, and also if you would like to explore working together on Rosenpass-related projects. Feel free to <a href="https://rosenpass.eu/contributors/">reach out to us</a>!</p>
+
+	
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/pentest_january/" aria-label="Previous - Rosenpass Penetration Test" class="btn btn-primary"><span class="me-1">←</span>Previous</a>
+  </li>
+  <li>
+    <a class="btn btn-primary disabled">Next<span class="ms-1">→</span></a>
+  </li>
+</ul>
+
+</div>
+
+
+          </main>
+          <div class="col-xxl-4"></div>
+        </div>
+      </div>
+      
+<footer class="bg-white py-5 row d-print-none">
+ 
+  <p class=" text-center mb-1"><a href="/press/">Press</a> | <a href="/impressum/"  >Impressum</a> | <a href="/contributors/#contact">Contact</a></p>
+   <p class=" text-center text-xs mb-1">Funded through <a href="https://nlnet.nl/">NLnet</a> with financial support from the European Commission's <a href="https://nlnet.nl/assure">NGI Assure</a> program <br/>
+   and ProtoType Fund of the <a href="https://okfn.de/en/">Open Knowledge Foundation Germany</a>, financed by the <a href="https://www.bmbf.de/en/index.html">Federal Ministry of Education and Research (BMBF).</a></p></p>
+  <p class=" text-center text-xs">Website and mail hosting sponsored by <a href="https://servercow.de/">Servercow</a>.</p>
+  
+  <div class="container-fluid mx-sm-5 text-center text-xs">
+ 
+	<div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+	
+      </div>
+	  
+    </div>
+  </div>
+</footer>
+
+
+
+    </div>
+    
+  <script src="/js/main.min.e8a76b5226cc825b6469cc5171457ed69c69bbffd1cb6c088c51963f50ca6051.js" integrity="sha256-6KdrUibMgltkacxRcUV&#43;1pxpu//Ry2wIjFGWP1DKYFE=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+    <script>
+      const toggleButton = document.querySelector('.td-sidebar__toggle');
+      const targetCollapse = document.querySelector('#td-section-nav');
+      toggleButton.addEventListener('click', function () {
+        $(targetCollapse).collapse('toggle');
+      });
+    </script>
+  </body>
+</html>
