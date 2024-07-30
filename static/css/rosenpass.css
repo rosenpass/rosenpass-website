@@ -47,7 +47,7 @@
     align-items: center;
     color: inherit;
     text-decoration: inherit;
-    cursor: inherit;
+    cursor: pointer;
     font-weight: inherit;
   }
   #rss-link-mobile:active { 
