@@ -4,6 +4,7 @@ linkTitle: "Rosenpass with TLS"
 description: "Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass and OpenSSL"
 author: "Benjamin Lipp"
 date: 2024-07-29
+editor: "Alice Bowman"
 ---
 
 Although Rosenpass' primary use case is the creation of a hybrid post-quantum-secure VPN Channel for WireGuard, we have always sought to expand its utility to help create post-quantum-secure systems in other applications. In this case, by applying the principles used for its combination with WireGuard, we sought to produce a proof-of-concept demonstrating such its application to Transport Layer Security (TLS).
