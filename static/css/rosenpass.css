@@ -599,7 +599,11 @@ align-self: center;
 	}
 }
 
-/* blog list */
+/* blog */
+
+#editor{
+  font-size: 0.85rem;
+}
 
 .post-list .post-list-item {
   background-color: var(--bs-light);
