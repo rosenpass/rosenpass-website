@@ -16,10 +16,12 @@
 				<ul  id="presentation-list"  class="post-list list-unstyled row">
 					
 					{{ range  $p := .Pages}}
-					<li class="col-12 col-md-6">
+					<li class="col-12 col-lg-5">
 						<div class="post-list-item card">
-							<p class="h4">{{ $p.LinkTitle }} </p>
-							<span class="language">{{ $p.Params.talkLanguage }}</span>
+							<div class="row px-0 justify-content-between">
+								<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }} </p>
+								<span class="language">{{ $p.Params.talkLanguage }}</span>
+							</div>
 							{{ with $p.Params.banner }}
 								<a href="{{ $p.RelPermalink }}">
 									<img class="post-image card-img-top" 
