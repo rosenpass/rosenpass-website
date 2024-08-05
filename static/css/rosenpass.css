@@ -286,6 +286,10 @@ margin-bottom: 0;
   padding: 2rem;
 }
 
+.title-box-presentation {
+  margin-bottom: 1.7rem;
+}
+
 pre:has(code.language-bash){
   max-height: 20vh;
 }
@@ -549,6 +553,7 @@ i.video-info:hover{
   border-radius: 0 0 1rem 1rem;
   background-color: #00000010;
   opacity: 1;
+  box-shadow: 0.25rem 0.25rem 0.25rem #00000080;
 }
 
 #video-container {
@@ -777,7 +782,20 @@ align-self: center;
 
 .presentation-download {
     text-align: right;
+    margin-bottom: 0;
+    margin-left: auto;
 } 
+
+.presentation-box {
+  box-shadow: 0.25rem 0.25rem 0.25rem #00000050;
+  border-radius: 1rem;
+}
+
+.presentation-box:hover {
+  transition: all 1s;
+  border-radius: 0;
+  box-shadow: 0.25rem 0.25rem 0.25rem #00000080;
+}
 
 .download-button { 
     background-color: var(--bs-primary);  
@@ -786,7 +804,19 @@ align-self: center;
     border-radius:2rem;
     padding: 0.5rem 1rem!important;
     margin-bottom: 0;
+    font-size:medium;
+    box-shadow: 0.25rem 0.25rem 0.25rem #00000050;
+    border-style: solid;
+    border-color: var(--bs-white);
+    border-width: 2px;
+    opacity: 0.8;
     }
+
+.download-button:hover{
+  transition: all 1s;
+  opacity: 1;
+  box-shadow: 0.25rem 0.25rem 0.25rem #00000080;
+}
     
 .download-button a {  color: var(--bs-white); }
 
