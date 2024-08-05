@@ -779,8 +779,40 @@ align-self: center;
   display: inline-block;
 }
 
-#presentation-list{
+#presentation-list {
+  justify-content: space-evenly;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media(min-width:992px){
+  #presentation-list li {
+    width: 48%;
+    padding: 0.5rem !important;
+  }
+}
+
+#presentation-list .card-text{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+}
+
+#presentation-list li{
+    margin-bottom:1rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom:1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+}
+
+/* #presentation-list{
   justify-content: center;
+  padding-lef
 }
 
 #presentation-list .card-text{
@@ -792,7 +824,7 @@ align-self: center;
 #presentation-list li{
     margin-bottom:1rem;
     padding-bottom:1rem;
-}
+} */
 
 #presentation-list .post-list-item{
     border-width: 0;
