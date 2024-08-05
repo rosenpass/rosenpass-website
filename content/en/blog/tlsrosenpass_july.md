@@ -9,7 +9,7 @@ editor: "Alice Bowman"
 
 Although Rosenpass' primary use case is the creation of a hybrid post-quantum-secure VPN Channel for WireGuard, we have always sought to expand its utility to help create post-quantum-secure systems in other applications. In this case, by applying the principles used for its combination with WireGuard, we sought to produce a proof-of-concept demonstrating such its application to Transport Layer Security (TLS).
 
-To achieve this, we used the popular OpenSSL library, and its tools `s-client` and `s_server` , to attempt to provide hybrid post-quantum security for TLS versions 1.2 and 1.3, which are the two versions currently in use online.
+To achieve this, we used the popular OpenSSL library, and its tools `s_client` and `s_server` , to attempt to provide hybrid post-quantum security for TLS versions 1.2 and 1.3, which are the two versions currently in use online.
 
 Typically, Rosenpass achieves post-quantum hybrid security with WireGuard by injecting external post-quantum-secure keys, from the Rosenpass tool, into its key derivation. This is called a pre-shared key (PSK), which is a symmetric key that both involved parties have to agree upon ahead of time.
 
