@@ -413,10 +413,45 @@ aside#sidebar-docs #td-sidebar-menu{
   }
 }
 
+@media (max-width:768px){
+  .td-toc.blog-toc{
+    display: none;
+  }
+}
+
+.td-toc.blog-toc #TableOfContents a {
+  color:black;
+}
+
+.td-toc.blog-toc #TableOfContents a:hover {
+  color:var(--bs-white);
+}
+
+.td-toc.blog-toc nav ul li a::before {
+  content: '•';
+  color: black ;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+}
+.td-toc.blog-toc nav ul li a {
+  font-size: large;
+  font-weight:normal
+}
+
+.td-toc.blog-toc nav ul li ul li a {
+  font-size: medium;
+  font-weight: lighter;
+}
+
+.td-sidebar-link.td-sidebar-link__page.active{
+  font-size: larger !important;
+}
+
 .td-sidebar-nav .td-sidebar-link__page {	color: black; }
 .td-sidebar-nav .td-sidebar-nav__section.with-child {	
   padding-top: 1rem;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .td-sidebar-nav a:hover {	color: var(--bs-white);}
