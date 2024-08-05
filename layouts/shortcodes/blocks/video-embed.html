@@ -1,0 +1,73 @@
+{{ $href := .Get "href" | default "" }}
+{{ $host := .Get "host" | default "" }}
+{{ $screenshot := .Get "screenshot" | default "" }}
+<div id="video-card" class="td-card card mb-4 border-0">
+    <div class="card-body p-0">
+            <div id="video-container" class="rounded">
+                <button id="video-overlay" data-toggle="modal" data-target="#video-permission">
+                  <img src="/{{ $screenshot }}" id="video-screenshot" width="100%">
+                </button>
+                <!-- <iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe> -->
+            </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-9">
+            {{ with $.Get "title" }}
+            <h5 class="ps-3 pt-1 mb-0">
+                {{ if eq $.Page.File.Ext "md" }}
+                {{ $.Get "title" | markdownify }}
+                {{ else }}
+                {{ $.Get "title" | htmlUnescape | safeHTML }}
+                {{ end }}
+            </h5>
+            {{ end }}
+            {{ with $.Get "subtitle" }}
+            <h6 class="mb-2 ps-3 text-muted">
+                {{ if eq $.Page.File.Ext "md" }}
+                {{ $.Get "subtitle" | markdownify }}
+                {{ else }}
+                {{ $.Get "subtitle" | htmlUnescape | safeHTML }}
+                {{ end }}
+            </h6>
+                {{ with $.Get "host"}}
+            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }}</p>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="col-2 me-1 mt-1 align-content-center d-flex">
+            <i class="fa-solid fa-user-shield video-info" data-toggle="tooltip" title="All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data."></i>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="video-permission" tabindex="-1" role="dialog" aria-labelledby="videoPermissionLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Warning: Loading content from external provider</h5>
+        </div>
+        <div class="modal-body">
+            <p>All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data. Whilst we attempt to use less data-greedy video sources, we cannot take responsibility for externally-hosted content.</p>
+            <p>For more information, see our <a href="http://localhost:1313/impressum/">Datenschutz.</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="load-video">Load Video</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById("load-video").addEventListener("click", function(){
+        const video = '<iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe>';
+        document.getElementById("video-container").innerHTML = video;
+        // document.getElementById("video").classList.add("d-none");
+        document.getElementById("video-card").classList.add("data-accept");
+        document.getElementById("video").classList.add("data-accept");
+        document.getElementById("video-overlay").classList.add("data-accept");
+   });
+  </script>
