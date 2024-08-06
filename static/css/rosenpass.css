@@ -450,12 +450,10 @@ aside#sidebar-docs #td-sidebar-menu{
 
 .td-sidebar-nav__section-title.td-sidebar-nav__section.without-child.active-path:has(label):has(.blog-toc)::before{
   content: '';
-  /* position:inherit; */
   width: 100%;
   height: 2px;
   left: 0;
   display: block;
-  /* clear: both; */
   background-color: black;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -797,6 +795,34 @@ align-self: center;
     }
     
  .readmore  a {  color: var(--bs-white)!important; }
+
+  .blog p:has(+ h3)::after{
+    content: '';
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2px;
+    left: 0;
+    display: block;
+    background-color: black;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    opacity: 0.1;
+  }
+
+  .blog p:has(+ h2)::after{
+    content: '';
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2px;
+    left: 0;
+    display: block;
+    background-color: black;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    opacity: 0.25;
+  }
 
 /* documentation -> conference presentations */
 
