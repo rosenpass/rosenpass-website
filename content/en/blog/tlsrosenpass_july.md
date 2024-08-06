@@ -7,6 +7,8 @@ date: 2024-07-29
 editor: "Alice Bowman"
 ---
 
+## Introduction
+
 Although Rosenpass' primary use case is the creation of a hybrid post-quantum-secure VPN Channel for WireGuard, we have always sought to expand its utility to help create post-quantum-secure systems in other applications. In this case, by applying the principles used for its combination with WireGuard, we sought to produce a proof-of-concept demonstrating such its application to Transport Layer Security (TLS).
 
 To achieve this, we used the popular OpenSSL library, and its tools `s_client` and `s_server` , to attempt to provide hybrid post-quantum security for TLS versions 1.2 and 1.3, which are the two versions currently in use online.
@@ -39,7 +41,8 @@ In the following sections, we build up the final show case step-by-step, retraci
 
 All commands, config files, and scripts described in this tutorial are available in the [repository rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial).
 
-### 1. Simple Example with a Dummy Pre-Shared Key
+
+### Simple Example with a Dummy Pre-Shared Key
 
 
 We started with the simple example of employing a dummy pre-shared key. We used two terminals on the same machine. In one, we executed the following command to start the server, which is explained directly below:
@@ -562,8 +565,7 @@ SSL-Session:
 ```
 In TLS 1.2, the usage of a PSK was still part of the ciphersuite choice, and it is visible in the chosen ciphersuite `DHE-PSK-AES256-GCM-SHA384`. Also, the PSK identity `rosenpass` was displayed.
 
-
-### 2. Rosenpass Simple Example
+### Rosenpass Simple Example
 
 For this section, we assume that you have already installed Rosenpass on your system. You can do so by following the step-by-step [manual on our website](https://rosenpass.eu/docs/compilation/).
 
@@ -631,7 +633,7 @@ $ diff rp*-key-out
 We then terminated both Rosenpass peers using `Ctrl+C`. Otherwise, they would have continued to perform new handshakes and written new shared keys to their output key file every two minutes.
 
 
-### 3. Plugging it all in
+### Plugging it all in
 
 The final step was to hand the Rosenpass shared key over to the OpenSSL `s_client` and `s_server` commands. We needed to achieve the following:
 
@@ -710,7 +712,7 @@ As explained above, this is insecure because the PSK ends up visible in plaintex
 
 On the client side, the user still needs to input `GET /` manually. We also tested piping `echo "GET /"` into the `openssl s_client` command, however, this turned out to be unreliable. The server sometimes did not answer with the status output. We believe this may be because the input would sometimes arrive too early.
 
-### 4. Security Analysis
+## Security Analysis
 
 The general idea of hybrid post-quantum security is that:
 
@@ -730,7 +732,7 @@ There are two cryptography papers formally analysing the security of the PSK cip
 
 For TLS 1.2, more details can be found in *Section 3* and *Theorem 2* of [ia.cr/2014/037](https://eprint.iacr.org/2014/037) relating to the “TLS_DHE_PSK protocol”. For TLS 1.3, there are *Theorem 7.1* and *Figure 1* of [ia.cr/2022/246](https://eprint.iacr.org/2022/246).
     
-### 5. Conclusion
+## Conclusion
 
 In the course of producing this tutorial, we were able to demonstrate that Rosenpass can be used to achieve hybrid post-quantum security with both a TLS 1.2 and a TLS 1.3 channel. Although we have made our scripts available in [rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial), it is worth noting that this is meant as a proof-of-concept. The reader should be aware that this tutorial's implentation is not as secure as it should be for production use. The immediately known flaws in this method are:
 
