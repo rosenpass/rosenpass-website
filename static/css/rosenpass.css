@@ -217,12 +217,11 @@ margin-bottom: 0;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  
 }
 
 div.click-to-copy{
-  /* position: absolute;
-  right: 10%; */ 
+  background-color: inherit;
+  width: 2rem;
 }
 
 .highlight:has(pre):has(div):has(code) code{
@@ -231,7 +230,7 @@ div.click-to-copy{
   overflow: auto;
 }
 
-button.code-copy{
+.click-to-copy:has(button.code-copy) button{
   color: var(--bs-gray-600);
   width: 2rem;
   height: 2rem;
@@ -240,7 +239,7 @@ button.code-copy{
   box-shadow: 0.1rem 0.1rem 0.1rem #00000030;
 }
 
-button.code-copy:hover{
+.click-to-copy:has(button.code-copy) button:hover{
   transition: all 1s;
   color: var(--bs-gray-700);
   width: 2rem;
@@ -250,7 +249,7 @@ button.code-copy:hover{
   box-shadow: 0.1rem 0.1rem 0.1rem #00000050;
 }
 
-button.code-copy:active{
+.click-to-copy:has(button.code-copy) button:active{
   transition: all 0.1s;
   transform: scale(0.9);
 }
