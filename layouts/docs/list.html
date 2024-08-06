@@ -28,7 +28,7 @@
 										 src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
 								</a>
 							{{ end }}
-							<h5 class="card-title"><a href="{{ .RelPermalink }}">  "{{ $p.Title }}"</a></h5>
+							<h5 class="card-title"><a href="{{ .RelPermalink }}">  {{ $p.Title }}</a></h5>
 							<div class="card-text"><p class="pt-0 mt-0">{{ $p.Description }}</p>
 								<p class="pt-0 readmore"><a href="{{ .RelPermalink }}" aria-label="{{ T "ui_read_more"}} - {{ .LinkTitle }}">{{ T "ui_read_more"}}</a></p>
 							</div>
