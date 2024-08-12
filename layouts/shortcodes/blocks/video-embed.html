@@ -73,59 +73,61 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // Variables
-    const dataAccept = document.getElementById("data-accept");
-    const videoOverlay = document.getElementById("video-overlay");
-    const videoCard = document.getElementById("video-card");
-    const videoContainer = document.getElementById("video-container");
-    // const video = document.getElementById("video");
-    const cancelLoad = document.getElementById("cancel-load");
-    const loadVideo = document.getElementById("load-video");
-    const videoLoader = document.getElementById("video-loader");
-    const videoScreenshot = document.getElementById("video-screenshot");
+// Variables
+const dataAccept = document.getElementById("data-accept");
+const videoOverlay = document.getElementById("video-overlay");
+const videoCard = document.getElementById("video-card");
+const videoContainer = document.getElementById("video-container");
+const cancelLoad = document.getElementById("cancel-load");
+const loadVideo = document.getElementById("load-video");
+const videoLoader = document.getElementById("video-loader");
+const videoScreenshot = document.getElementById("video-screenshot");
 
+// Function to fade in the element
+function fadeIn(element) {
+    if (!element.classList.contains('show')) {
+        element.classList.add('show');
+        setTimeout(() => {
+            element.classList.add('visible');
+        }, 10);
+    }
+}
 
-    // Function to fade in the element
-  function fadeIn(element) {
-    element.classList.add('show');
-    setTimeout(() => {
-        element.classList.add('visible');
-    }, 10);
-  }
 // Function to fade out the element
-  function fadeOut(element) {
-    element.classList.remove('visible');
-    setTimeout(() => {
-        element.classList.remove('show');
-    }, 500);
-  }
+function fadeOut(element) {
+    if (element.classList.contains('show')) {
+        element.classList.remove('visible');
+        setTimeout(() => {
+            element.classList.remove('show');
+        }, 500);
+    }
+}
 
-    // Video Overlay
-    videoOverlay.addEventListener("click", function(){
-      videoOverlay.disabled = true;
-      fadeIn(dataAccept);
-      videoCard.classList.add("permission");
-  
-      // Accept
-          loadVideo.addEventListener("click", function(){
-          fadeOut(dataAccept);
-          const videoFrame = '<iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe>';
-          videoLoader.innerHTML = videoFrame;
-          fadeIn(videoLoader);
-          videoCard.classList.add("data-accept");
-          document.getElementById("video").classList.add("data-accept");
-          videoOverlay.classList.add("data-accept");
-          videoCard.classList.remove("permission");
-          videoScreenshot.classList.add("d-none");  
-          return;
-          });
-          // Cancel
-          cancelLoad.addEventListener("click", function(){
-            videoCard.classList.remove("permission");
-            fadeOut(dataAccept);
-            videoOverlay.disabled = false;
-            return;
-          })
-        videoOverlay.disabled = false;
-      });
+// Video Overlay
+videoOverlay.addEventListener("click", function() {
+    videoOverlay.disabled = true;
+    fadeIn(dataAccept);
+    videoCard.classList.add("permission");
+    videoOverlay.disabled = false;
+});
+
+// Accept
+loadVideo.addEventListener("click", function() {
+    fadeOut(dataAccept);
+    const videoFrame = '<iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe>';
+    videoLoader.innerHTML = videoFrame;
+    fadeIn(videoLoader);
+    videoCard.classList.add("data-accept");
+    document.getElementById("video").classList.add("data-accept");
+    videoOverlay.classList.add("data-accept");
+    videoCard.classList.remove("permission");
+    videoScreenshot.classList.add("d-none");
+});
+
+// Cancel
+cancelLoad.addEventListener("click", function() {
+    videoCard.classList.remove("permission");
+    fadeOut(dataAccept);
+});
+
   </script>
