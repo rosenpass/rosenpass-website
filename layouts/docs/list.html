@@ -16,7 +16,7 @@
 				<ul  id="presentation-list"  class="post-list list-unstyled row">
 					
 					{{ range  $p := .Pages}}
-					<li class="col-12 col-lg-5">
+					<li class="col-12 col-lg-6">
 						<div class="post-list-item card">
 							<div class="row px-0 justify-content-between">
 								<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }} </p>
@@ -28,7 +28,7 @@
 										 src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
 								</a>
 							{{ end }}
-							<h5 class="card-title"><a href="{{ .RelPermalink }}">  "{{ $p.Title }}"</a></h5>
+							<h5 class="card-title"><a href="{{ .RelPermalink }}">  {{ $p.Title }}</a></h5>
 							<div class="card-text"><p class="pt-0 mt-0">{{ $p.Description }}</p>
 								<p class="pt-0 readmore"><a href="{{ .RelPermalink }}" aria-label="{{ T "ui_read_more"}} - {{ .LinkTitle }}">{{ T "ui_read_more"}}</a></p>
 							</div>

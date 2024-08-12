@@ -1,0 +1,136 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $col_id := .Get "color" | default "1" }}
+{{ $height := .Get "height" | default "auto"  }}
+{{/* Height can be one of: auto, min, med, max, full. */}}
+{{ $href := .Get "href" | default "" }}
+{{ $hostpg := .Get "hostPg" | default $href }}
+{{ $host := .Get "host" | default "" }}
+{{ $privacy := .Get "privacy" | default "" }}
+{{ $screenshot := .Get "screenshot" | default "" }}
+<a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
+<section class="td-box td-box--{{ $col_id }} position-relative td-box--gradient td-box--height-{{ $height }} title-box title-box-presentation">
+	<div class="container text-center td-arrow-down d-flex">
+            <div class="col-3"></div>
+		<div class="h4 mb-0 col-6">
+			Presentation Video
+		</div>
+            <p class="presentation-download"><span class="pt-0 download-button btn-primary" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."><a href="{{ $hostpg }}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></span></p>
+	</div>
+</section>
+<div id="video-card" class="td-card card mb-4 border-0">
+    <div class="card-body p-0">
+            <div id="video-container" class="rounded">
+                <button id="video-overlay">
+                  <div id="video-loader" class="fade-element"></div>
+                  <div id="data-accept" class="fade-element">
+                    <div class="container align-content-center h-100">
+                      <div class="row">
+                        <div class="col-12">
+                          <p>All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data. Whilst we attempt to use less data-greedy video sources, we cannot take responsibility for externally-hosted content.</p>
+                          <p>For more information, see our <a href="/impressum/">Datenschutz.</a></p>
+                        </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div id="load-video" class="btn btn-primary video-permission-button col-md-3 col-xl-2 col-4">Load Video</div>
+                        <div class="btn btn-secondary video-permission-button col-md-3 col-4 col-xl-2" id="cancel-load">Cancel</div>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="/{{ $screenshot }}" id="video-screenshot" width="100%">
+                </button>
+                <!-- <iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe> -->
+            </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-9">
+            {{ with $.Get "title" }}
+            <h5 class="ps-3 pt-1 mb-0">
+                {{ if eq $.Page.File.Ext "md" }}
+                {{ $.Get "title" | markdownify }}
+                {{ else }}
+                {{ $.Get "title" | htmlUnescape | safeHTML }}
+                {{ end }}
+            </h5>
+            {{ end }}
+            {{ with $.Get "subtitle" }}
+            <h6 class="mb-2 ps-3 text-muted">
+                {{ if eq $.Page.File.Ext "md" }}
+                {{ $.Get "subtitle" | markdownify }}
+                {{ else }}
+                {{ $.Get "subtitle" | htmlUnescape | safeHTML }}
+                {{ end }}
+            </h6>
+                {{ with $.Get "host"}}
+            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }} <a target="_blank" href="{{$privacy}}" class="privacy-link"><i class="fa-solid fa-circle-info" data-toggle="tooltip" title="Privacy Information"></i></a></p>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="col-2 me-1 mt-1 align-content-center d-flex">
+            <i class="fa-solid fa-user-shield video-info" data-toggle="tooltip" title="All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data."></i>
+        </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+// Variables
+const dataAccept = document.getElementById("data-accept");
+const videoOverlay = document.getElementById("video-overlay");
+const videoCard = document.getElementById("video-card");
+const videoContainer = document.getElementById("video-container");
+const cancelLoad = document.getElementById("cancel-load");
+const loadVideo = document.getElementById("load-video");
+const videoLoader = document.getElementById("video-loader");
+const videoScreenshot = document.getElementById("video-screenshot");
+
+// Function to fade in the element
+function fadeIn(element) {
+    if (!element.classList.contains('show')) {
+        element.classList.add('show');
+        setTimeout(() => {
+            element.classList.add('visible');
+        }, 10);
+    }
+}
+
+// Function to fade out the element
+function fadeOut(element) {
+    if (element.classList.contains('show')) {
+        element.classList.remove('visible');
+        setTimeout(() => {
+            element.classList.remove('show');
+        }, 500);
+    }
+}
+
+// Video Overlay
+videoOverlay.addEventListener("click", function() {
+    videoOverlay.disabled = true;
+    fadeIn(dataAccept);
+    videoCard.classList.add("permission");
+    setTimeout(() => {
+      videoOverlay.disabled = false;
+      videoCard.classList.remove("permission");
+    }, 2000);
+});
+
+// Accept
+loadVideo.addEventListener("click", function() {
+    fadeOut(dataAccept);
+    const videoFrame = '<iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe>';
+    videoLoader.innerHTML = videoFrame;
+    fadeIn(videoLoader);
+    videoCard.classList.add("data-accept");
+    document.getElementById("video").classList.add("data-accept");
+    videoOverlay.classList.add("data-accept");
+    videoCard.classList.remove("permission");
+    videoScreenshot.classList.add("d-none");
+});
+
+// Cancel
+cancelLoad.addEventListener("click", function() {
+    videoCard.classList.remove("permission");
+    fadeOut(dataAccept);
+});
+
+  </script>

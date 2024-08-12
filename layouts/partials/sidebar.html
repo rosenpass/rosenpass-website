@@ -71,6 +71,17 @@
     {{- end }}
   </ul>
   {{- end }}
+  {{ if $active -}}
+    {{ if not $s.Params.notoc -}}
+    {{ with $s.TableOfContents -}}
+      {{ if ne . `<nav id="TableOfContents"></nav>` -}}
+        <div class="td-toc blog-toc">
+          {{ . }}
+        </div>
+      {{ end -}}
+    {{ end -}}
+  {{ end -}}
+{{ end -}}
 </li>
 {{- end }}
 
