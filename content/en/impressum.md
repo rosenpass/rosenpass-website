@@ -60,23 +60,21 @@ Datenschutzerklärung / Data Protection Policy Statement
 
 Our Data Protection Policy (Datenschutzerklärung) is stated hereunto, in German, as Germany is our legal lieu de affaires. The German text is legally binding. We provide a summary for our English-speaking audience here: 
 
-You may always direct your inquiries regarding your personal data to impressum@rosenpass.eu
-Note that we are a non-commercial research project. We try to answer any such mail with priority. This does not affect your rights to complain with the responsible Data Protection Autorities. We would, however, encourage you to e-mail us first in case of any complaint or uncertainty.
+You may direct your inquiries regarding your personal data to impressum@rosenpass.eu.
+Please note that, whilst we endeavour to answer all inquries promptly, we are a non-commercial research project. This does not affect your right to file a complaint with the responsible Data Protection Autorities. We would, however, request that you e-mail us first in case of any complaint or uncertainty so that we may seek to resolve it ourselves.
 
 We aim at processing as little personal information on our visitors as technically possible. We do not use cookie consent tools as we only use technically essential cookies and logs and delete them in due course.
 
 We have signed an Auftragsverarbeitungsvertrag (Order processing contract according to GDPR) with our hoster and direct our instructions and settings accordingly, as far as this is technically possible.
 
-We do not use third-party services on this website that would require a prior consent from your side, as far as we know. We retain the right of error and ask for immediate notification in case of uncertainties.
+Any third-party services, that would require the user to consent to data sharing, used on this website are clearly marked and do not activate, nor send user data, prior to that consent. We welcome any notification of unmarked services and/or behaviours that we have overlooked.
 
 The responsible contact person for any such inquiries is stated in the Datenschutzerklärung below.
 
-However, on this website, we link to third-party websites/service whose data protection policies we don't have any control or influence over. Consult their respective data protection statements. We do not take any responsibilities for content oder data usage by websites that are linked on this site.
+On this website, we  dolink to third-party websites/service whose data protection policies we don't have any control or influence over. Please consult their respective data protection statements as appropriate. We do not accept any responsibility for content or data usage by external websites linked on this site.
 
 By using our website, you consent to our Privacy Policy and agree to its terms.
 
-Very welcome!
-Project Rosenpass
 
 {{< /blocks/section >}}
 
