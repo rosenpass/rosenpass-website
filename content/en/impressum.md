@@ -71,7 +71,7 @@ Any third-party services, that would require the user to consent to data sharing
 
 The responsible contact person for any such inquiries is stated in the Datenschutzerklärung below.
 
-On this website, we  dolink to third-party websites/service whose data protection policies we don't have any control or influence over. Please consult their respective data protection statements as appropriate. We do not accept any responsibility for content or data usage by external websites linked on this site.
+On this website, we  do link to third-party websites/services whose data protection policies we do not have any control or influence over. Please consult their respective data protection statements as appropriate. We do not accept any responsibility for content or data usage by external websites linked on this site.
 
 By using our website, you consent to our Privacy Policy and agree to its terms.
 
