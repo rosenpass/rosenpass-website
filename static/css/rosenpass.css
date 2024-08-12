@@ -676,6 +676,7 @@ background-color: #00000095;
   margin-left: 2rem;
   margin-right: 2rem;
   color: white;
+  text-shadow: 1px 1px 4px black;
 }
 
 .video-permission-button{
