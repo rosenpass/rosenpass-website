@@ -856,6 +856,10 @@ background-color: #00000095;
   justify-content: center;
 }
 
+i.mastodon {
+  color: #563ACC;
+}
+
 img.rp-supporter {
   padding: 20px;
   max-width: 300px;
