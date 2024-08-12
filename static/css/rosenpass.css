@@ -250,8 +250,7 @@ div.click-to-copy{
 }
 
 .click-to-copy:has(button.code-copy) button:active{
-  transition: all 0.1s;
-  transform: scale(0.9);
+  border: 2px inset;
 }
 
 /* Docs */
