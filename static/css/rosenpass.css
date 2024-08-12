@@ -840,7 +840,12 @@ align-self: center;
     
  .readmore  a {  color: var(--bs-white)!important; }
 
-  .blog p:has(+ h3)::after{
+ .blog p {
+    margin-bottom: 2rem;
+  } 
+  
+        /* Blog HR Space  */
+  /* .blog p:has(+ h3)::after{
     content: '';
     width: 70%;
     margin-left: auto;
@@ -866,7 +871,7 @@ align-self: center;
     margin-bottom: 1rem;
     margin-top: 3rem;
     opacity: 0.25;
-  }
+  } */
 
 /* documentation -> conference presentations */
 
