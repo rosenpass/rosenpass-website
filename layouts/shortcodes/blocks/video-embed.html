@@ -23,10 +23,18 @@
                 <button id="video-overlay">
                   <div id="video-loader" class="fade-element"></div>
                   <div id="data-accept" class="fade-element">
-                    <p>All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data. Whilst we attempt to use less data-greedy video sources, we cannot take responsibility for externally-hosted content.</p>
-                    <p>For more information, see our <a href="/impressum/">Datenschutz.</a></p>
-                    <div id="load-video" class="btn btn-primary video-permission-button">Load Video</div>
-                    <div class="btn btn-secondary video-permission-button" id="cancel-load">Cancel</div>
+                    <div class="container align-content-center h-100">
+                      <div class="row">
+                        <div class="col-12">
+                          <p>All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data. Whilst we attempt to use less data-greedy video sources, we cannot take responsibility for externally-hosted content.</p>
+                          <p>For more information, see our <a href="/impressum/">Datenschutz.</a></p>
+                        </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div id="load-video" class="btn btn-primary video-permission-button col-md-3 col-xl-2 col-4">Load Video</div>
+                        <div class="btn btn-secondary video-permission-button col-md-3 col-4 col-xl-2" id="cancel-load">Cancel</div>
+                      </div>
+                    </div>
                   </div>
                   <img src="/{{ $screenshot }}" id="video-screenshot" width="100%">
                 </button>

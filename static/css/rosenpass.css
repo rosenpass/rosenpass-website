@@ -667,16 +667,18 @@ width: 100%;
 background-color: #00000095;
 }
 
-#data-accept p:first-child {
-  margin-top: 5rem;
-}
-
 #data-accept:has(p) p{
-  /* margin-top: 4rem; */
   margin-left: 2rem;
   margin-right: 2rem;
   color: white;
   text-shadow: 1px 1px 4px black;
+  font-size: 1.5vw;
+}
+
+@media (max-width: 768px){
+  #data-accept:has(p) p{
+  font-size: 3vw;
+  }
 }
 
 .video-permission-button{
