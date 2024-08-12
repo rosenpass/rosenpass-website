@@ -5,6 +5,7 @@
 {{ $href := .Get "href" | default "" }}
 {{ $hostpg := .Get "hostPg" | default $href }}
 {{ $host := .Get "host" | default "" }}
+{{ $privacy := .Get "privacy" | default "" }}
 {{ $screenshot := .Get "screenshot" | default "" }}
 <a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
 <section class="td-box td-box--{{ $col_id }} position-relative td-box--gradient td-box--height-{{ $height }} title-box title-box-presentation">
@@ -45,7 +46,7 @@
                 {{ end }}
             </h6>
                 {{ with $.Get "host"}}
-            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }}</p>
+            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }} <a target="_blank" href="{{$privacy}}" class="privacy-link"><i class="fa-solid fa-circle-info" data-toggle="tooltip" title="Privacy Information"></i></a></p>
                 {{ end }}
             {{ end }}
         </div>

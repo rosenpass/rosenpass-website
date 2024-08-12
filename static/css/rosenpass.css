@@ -697,6 +697,16 @@ i.video-info:hover{
   opacity: 1;
 }
 
+.privacy-link {
+  color: inherit;
+}
+
+.privacy-link i {
+  font-size: 0.9em;
+  vertical-align: middle;
+  margin-top: -0.5em;
+}
+
 /* video data accept */
 
 #video-card.data-accept{
