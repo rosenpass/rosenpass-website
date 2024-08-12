@@ -108,7 +108,10 @@ videoOverlay.addEventListener("click", function() {
     videoOverlay.disabled = true;
     fadeIn(dataAccept);
     videoCard.classList.add("permission");
-    videoOverlay.disabled = false;
+    setTimeout(() => {
+      videoOverlay.disabled = false;
+      videoCard.classList.remove("permission");
+    }, 2000);
 });
 
 // Accept
