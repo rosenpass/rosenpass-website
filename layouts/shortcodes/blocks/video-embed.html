@@ -102,9 +102,10 @@
 
     // Video Overlay
     videoOverlay.addEventListener("click", function(){
-     fadeIn(dataAccept);
-      videoCard.classList.add("permission");
       videoOverlay.disabled = true;
+      fadeIn(dataAccept);
+      videoCard.classList.add("permission");
+  
       // Accept
           loadVideo.addEventListener("click", function(){
           fadeOut(dataAccept);
@@ -116,12 +117,15 @@
           videoOverlay.classList.add("data-accept");
           videoCard.classList.remove("permission");
           videoScreenshot.classList.add("d-none");  
+          return;
           });
           // Cancel
           cancelLoad.addEventListener("click", function(){
             videoCard.classList.remove("permission");
             fadeOut(dataAccept);
             videoOverlay.disabled = false;
+            return;
           })
+        videoOverlay.disabled = false;
       });
   </script>
