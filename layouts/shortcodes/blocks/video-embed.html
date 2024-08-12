@@ -3,6 +3,7 @@
 {{ $height := .Get "height" | default "auto"  }}
 {{/* Height can be one of: auto, min, med, max, full. */}}
 {{ $href := .Get "href" | default "" }}
+{{ $hostpg := .Get "hostPg" | default $href }}
 {{ $host := .Get "host" | default "" }}
 {{ $screenshot := .Get "screenshot" | default "" }}
 <a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
@@ -12,7 +13,7 @@
 		<div class="h4 mb-0 col-6">
 			Presentation Video
 		</div>
-            <p class="presentation-download"><span class="pt-0 download-button btn-primary" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."><a href="{{ $href }}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></span></p>
+            <p class="presentation-download"><span class="pt-0 download-button btn-primary" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."><a href="{{ $hostpg }}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></span></p>
 	</div>
 </section>
 <div id="video-card" class="td-card card mb-4 border-0">
