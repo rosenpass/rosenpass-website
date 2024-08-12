@@ -92,7 +92,7 @@ window.markmap = {
 {{ if .Site.Params.prism_syntax_highlighting -}}
   <script src='{{ "js/prism.js" | relURL }}'></script>
 {{ else -}}
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>  {{ $c2cJS := resources.Get "js/click-to-copy.js" -}}
+{{ $c2cJS := resources.Get "js/click-to-copy.js" -}}
   {{ if hugo.IsProduction -}}
     {{ $c2cJS = $c2cJS | minify | fingerprint -}}
   {{ end -}}
