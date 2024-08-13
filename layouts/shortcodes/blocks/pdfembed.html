@@ -16,5 +16,12 @@
 </section>
 
 <object data="{{ $pdfFile }}" type="application/pdf" width="100%" style="height:40vh;" class="presentation-box mt-1">
-      <p>Unable to display PDF file. Please download it instead.</p>
+	<div class="pdf-load-fail">
+		<div class="pdf-fail-text">
+			<p><i class="fa-solid fa-file-pdf fa-2xl"></i></p>
+			<p>Unable to display PDF.</p>
+			<p>Please download it directly <a href="{{ $pdfFile }}">here</a> instead.</p>
+			<p class="chrome-pdf">Chrome on mobile devices does not currently include an in-browser PDF reader. This is the most common reason to see this error.</p>
+		</div>
+	</div>
 </object>
