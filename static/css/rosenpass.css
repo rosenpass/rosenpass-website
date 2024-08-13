@@ -83,7 +83,10 @@ a {font-weight:bold;}
 
 .text-xs {font-size:smaller;}
 
-.block-lead .td-arrow-down::before {  bottom: -1.5rem; } /* fixes arrow down distance*/
+.block-lead .td-arrow-down::before,
+.title-box-presentation .td-arrow-down::before {  
+  bottom: -1.5rem;
+} /* fixes arrow down distance*/
 
 .block-lead {    padding: 3rem 0; }
 
