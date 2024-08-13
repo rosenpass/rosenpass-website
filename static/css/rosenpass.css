@@ -87,6 +87,13 @@ a {font-weight:bold;}
 
 .block-lead {    padding: 3rem 0; }
 
+.h4.mb-0.lead:has(h2[id]) h2[id]:before,
+.h4.mb-0.lead:has(h3[id]) h3[id]:before,
+.h4.mb-0.lead:has(h4[id]) h4[id]:before,
+.h4.mb-0.lead:has(h5[id]) h5[id]:before {
+  display: inline list-item;
+}
+
 pre  { padding: 10px;  line-height: 1.8;}
 
 code { font-size-adjust: 0.56; }
