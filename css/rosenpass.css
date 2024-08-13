@@ -87,6 +87,13 @@ a {font-weight:bold;}
 
 .block-lead {    padding: 3rem 0; }
 
+.h4.mb-0.lead:has(h2[id]) h2[id]:before,
+.h4.mb-0.lead:has(h3[id]) h3[id]:before,
+.h4.mb-0.lead:has(h4[id]) h4[id]:before,
+.h4.mb-0.lead:has(h5[id]) h5[id]:before {
+  display: inline list-item;
+}
+
 pre  { padding: 10px;  line-height: 1.8;}
 
 code { font-size-adjust: 0.56; }
@@ -631,15 +638,21 @@ margin-left: 1rem;
 }
 
 
+a:has(i.video-info){
+  display: contents;
+  color: inherit;
+}
+
 i.video-info{
 border-radius: 100%;
 padding: 0.7rem;
-margin: auto 1.5rem auto auto;
+margin: auto 1.5rem 2.5rem auto;
 background-color: #00000020;
 }
 
 i.video-info:hover{
   transition: all 1.5s;
+  color: var(--bs-link-color);
   background-color: #00000040;
 }
 
@@ -776,6 +789,11 @@ background-color: #00000095;
   font-size: 0.9em;
   vertical-align: middle;
   margin-top: -0.5em;
+}
+
+.privacy-link:hover i{
+  transition: all 1s;
+  color: var(--bs-link-color);
 }
 
 /* video data accept */
@@ -1050,8 +1068,8 @@ align-self: center;
 }
 
 .download-button { 
-    background-color: var(--bs-primary);  
-    color: var(--bs-white);  
+    /* background-color: var(--bs-primary);  
+    color: var(--bs-white);   */
     width: 9rem; 
     border-radius:2rem;
     padding: 0.5rem 1rem!important;
