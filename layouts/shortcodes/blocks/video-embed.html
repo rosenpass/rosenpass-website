@@ -14,7 +14,6 @@
 		<div class="h4 mb-0 col-6">
 			Presentation Video
 		</div>
-            <p class="presentation-download"><span class="pt-0 download-button btn-primary" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."><a href="{{ $hostpg }}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a></span></p>
 	</div>
 </section>
 <div id="video-card" class="td-card card mb-4 border-0">
@@ -37,9 +36,7 @@
                     </div>
                   </div>
                   <img src="/{{ $screenshot }}" id="video-screenshot" width="100%">
-                </button>
-                <!-- <iframe id="video" class="border" width="100%" src="{{ $href }}" frameborder="0" allowfullscreen></iframe> -->
-            </div>
+                </button>            </div>
     </div>
     <div class="row justify-content-between">
         <div class="col-9">
@@ -61,12 +58,12 @@
                 {{ end }}
             </h6>
                 {{ with $.Get "host"}}
-            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }} <a target="_blank" href="{{$privacy}}" class="privacy-link"><i class="fa-solid fa-circle-info" data-toggle="tooltip" title="Privacy Information"></i></a></p>
+            <p id="video-host" class="ps-3 mb-1 mt-2 text-muted">Hosted by: {{ $.Get "host" }} <a target="_blank" href="{{$privacy}}" class="privacy-link"><i class="fa-solid fa-circle-info" data-toggle="tooltip" title="Privacy and Licensing Information"></i></a></p>
                 {{ end }}
             {{ end }}
         </div>
         <div class="col-2 me-1 mt-1 align-content-center d-flex">
-            <i class="fa-solid fa-user-shield video-info" data-toggle="tooltip" title="All video content is hosted by outside providers and we cannot guarantee that those providors do not collect user data."></i>
+            <a href="{{ $hostpg }}" target="_blank"><i class="fa-solid fa-up-right-from-square video-info" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."></i></a>
         </div>
     </div>
   </div>
