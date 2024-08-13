@@ -344,6 +344,14 @@ pre:has(code.language-bash){
   max-height: 20vh;
 }
 
+.compilation div div ol li {
+  margin-left: 1rem;
+}
+
+.compilation div div span.codebox div.highlight {
+  margin: -5px 0 30px 0;
+}
+
 .codebox div.highlight{
 margin: 0 0 15px 0;
 border: none;

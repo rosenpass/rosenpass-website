@@ -16,7 +16,8 @@ Below is a guide on how to compile Rosenpass yourself, including via the binary 
 ## Compile it yourself
 {{< /blocks/lead >}}
 
-{{% blocks/section color="light" class="no-flex contains-code-snippets" %}}
+{{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
+
 
 <span class="spacer"></span>
 
@@ -124,7 +125,7 @@ sudo install rp /usr/local/bin
 ## Installation via binary files
 {{< /blocks/lead >}}
 
-{{% blocks/section color="light" class="no-flex contains-code-snippets" %}}
+{{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
 
 <span class="spacer"></span>
 
