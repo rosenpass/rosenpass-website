@@ -83,7 +83,10 @@ a {font-weight:bold;}
 
 .text-xs {font-size:smaller;}
 
-.block-lead .td-arrow-down::before {  bottom: -1.5rem; } /* fixes arrow down distance*/
+.block-lead .td-arrow-down::before,
+.title-box-presentation .td-arrow-down::before {  
+  bottom: -1.5rem;
+} /* fixes arrow down distance*/
 
 .block-lead {    padding: 3rem 0; }
 
@@ -278,6 +281,42 @@ div.click-to-copy{
   /* max-width: 75%; */
 }
 
+.pdf-load-fail{
+  background-color: #00000040;
+  border-radius: 1rem;
+  height: 40vh;
+  box-shadow: 0.25rem 0.25rem 0.25rem #00000050;
+}
+
+.pdf-fail-text{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.pdf-fail-text i{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pdf-fail-text p{
+  text-align: center;
+  text-shadow: 1px 1px 1px #00000020;
+}
+
+.pdf-fail-text p:has(i){
+  margin-top: auto;
+}
+
+.chrome-pdf{
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+
 .indent {
   margin-left: 0.25rem;
 }
@@ -286,6 +325,8 @@ div.click-to-copy{
   border-radius: 30px;
   padding-top: 0.5rem;
   margin-inline: 0.25rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-reverse {
