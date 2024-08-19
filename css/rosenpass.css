@@ -95,6 +95,10 @@ a {font-weight:bold;}
 .h4.mb-0.lead:has(h4[id]) h4[id]:before,
 .h4.mb-0.lead:has(h5[id]) h5[id]:before {
   display: inline list-item;
+  content: " ";
+  margin-top: -5rem;
+  height: 5rem;
+  visibility: hidden;
 }
 
 pre  { padding: 10px;  line-height: 1.8;}
@@ -699,6 +703,13 @@ margin: auto 1.5rem 2.5rem auto;
 background-color: #00000020;
 }
 
+div:has(#video-license) i.video-info {
+    border-radius: 100%;
+    padding: 0.7rem;
+    margin: auto 1.5rem 0rem auto;
+    background-color: #00000020;
+}
+
 i.video-info:hover{
   transition: all 1.5s;
   color: var(--bs-link-color);
@@ -801,6 +812,13 @@ background-color: #00000095;
   font-size: smaller;
 }
 
+#video-license {
+  font-size: smaller;
+  text-align: end;
+  margin-right: 1rem;
+  margin-top: auto;
+}
+
 #video {
   transition: all 1s;
   border-radius: 1rem;
@@ -868,17 +886,65 @@ background-color: #00000095;
 
 /* Contributors Page*/
 
-#main-contributors {
-  padding-top: 20px;
+.col.funding {
+  align-content: center;
 }
 
-#main-contributors section.member {
+.col.funding p {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media(max-width:768px){
+  .col.funding {
+    min-width: 100%;
+    margin-bottom: 4rem;
+  }
+}
+
+.contact .col {
+background-color: var(--bs-light);
+margin: 0.1rem;
+}
+
+.contact-blerb {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact .contact-box h5 {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+}
+
+.contact div h4 {
+  min-height: 46px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-box{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-contributors {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+#main-contributors .member {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: var(--bs-white);
 }
 
-#main-contributors section.member:nth-child(even) {
+#main-contributors .member:nth-child(even) {
   background-color: var(--bs-light);
 }
 
@@ -889,42 +955,129 @@ background-color: #00000095;
 }
 #main-contributors .infoblock {
   text-align: center;
+  margin-bottom: 1rem;
 }
 #main-contributors .infoblock p {
   margin: 5px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member .row {
+  flex-direction: column;
+}
+
+.member .row .col:has(img){
+  display: contents;
 }
 
 @media (min-width: 768px) {
   #main-contributors .contribution {
-    text-align: right;
-    width: 30%;
-    padding: 20px 0;
+    text-align: center;
+    width: 70%;
+    padding: 20px 0 0 0;
+    min-height: 68px;
   }
   #main-contributors .infoblock {
-    width: 30%;
-    text-align: left;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
-  #main-contributors section.member {
+  #main-contributors .member {
     padding-top: 0;
     padding-bottom: 0;
   }
 }
 
+@media(min-width: 992px) and (max-width:1200px){
+  #main-contributors .member{
+    background-color: var(--bs-white) !important;
+  }
+
+  #main-contributors .member:nth-child(4n-2),
+  #main-contributors .member:nth-child(4n-1){
+    background-color: var(--bs-light) !important;
+  }
+}
+
+@media(min-width: 1200px){
+  #main-contributors .member:last-child:nth-child(odd):not(:nth-child(3n)){
+    background-color: var(--bs-light) !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #main-contributors .member:last-child:nth-child(even){
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  #main-contributors .contribution {
+    width: 100%;
+  }
+  #main-contributors .infoblock {
+    width: 100%;
+  }
+}
+
+
 #main-contributors .github-pic {
   width: 120px;
   height: 120px;
-  margin: 25px;
+  margin: 0.5rem auto;
   padding: 0;
   border-radius: 50%;
 }
+
+.contributors {
+  justify-content: space-evenly;
+}
+
+.contributor-container {
+display: contents;
+}
+
+.contributor-container a {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  color: inherit;
+  font-size: larger;
+}
+
+.contributor-container a:hover {
+  transition: all 0.5s;
+  text-shadow: 1px 1px 1px var(--bs-link-color);
+  text-decoration: none;
+  color: var(--bs-link-color);
+}
+
 
 #main-contributors .td-box .row {
   align-items: center;
   justify-content: center;
 }
 
+.social-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.social-container p {
+  display: inline-block;
+}
+
 i.mastodon {
   color: #563ACC;
+}
+
+i.mastodon{
+  margin-top: 1rem;
+}
+
+img.social-svg {
+  height: 2em;
+  width: 2em;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 img.rp-supporter {
