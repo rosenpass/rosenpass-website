@@ -994,9 +994,8 @@ margin: 0.1rem;
     background-color: var(--bs-white) !important;
   }
 
-  #main-contributors .member:nth-child(7n + 1),
-  #main-contributors .member:nth-child(7n + 4),
-  #main-contributors .member:nth-child(7n + 5)  {
+  #main-contributors .member:nth-child(4n-2),
+  #main-contributors .member:nth-child(4n-1){
     background-color: var(--bs-light) !important;
   }
 }
