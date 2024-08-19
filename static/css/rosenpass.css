@@ -703,6 +703,13 @@ margin: auto 1.5rem 2.5rem auto;
 background-color: #00000020;
 }
 
+div:has(#video-license) i.video-info {
+    border-radius: 100%;
+    padding: 0.7rem;
+    margin: auto 1.5rem 0rem auto;
+    background-color: #00000020;
+}
+
 i.video-info:hover{
   transition: all 1.5s;
   color: var(--bs-link-color);
@@ -803,6 +810,13 @@ background-color: #00000095;
 
 #video-host {
   font-size: smaller;
+}
+
+#video-license {
+  font-size: smaller;
+  text-align: end;
+  margin-right: 1rem;
+  margin-top: auto;
 }
 
 #video {
