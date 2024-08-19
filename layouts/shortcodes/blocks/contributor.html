@@ -1,0 +1,6 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $github   := .Get "github" | default "" }} 
+
+	<div class="contributor-container">
+		<a href="https://github.com/rosenpass/rosenpass/commits?author={{ $github }}" alt="Rosenpass commits from {{ $github }}">{{ $github }}</a>
+	</div>
