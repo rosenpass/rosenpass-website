@@ -67,6 +67,13 @@
           };
           commands = [
             {
+              name = "website";
+              command = ''
+                nix build '.?submodules=1#website'
+              '';
+              help = "Build the website with submodules included and export to the result folder.";
+            }
+            {
               name = "build";
               # dev dependencies include "hugo-extended", which fails to
               # install on NixOS due to shipping a not runnable hugo binary
