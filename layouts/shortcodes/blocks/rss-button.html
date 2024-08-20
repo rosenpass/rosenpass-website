@@ -6,8 +6,10 @@
   <span class="td-blog d-flex px-3 py-3 mx-1 my-3 td-box--{{ $col_id }}" id="rss-button">
       <a class="td-rss-button rss-feed-button" title="RSS" href="{{ $href }}" target="_blank" rel="noopener">
         <i class="fa-solid fa-rss" aria-hidden="true"></i>
-      </a> <span>{{ $text }}
-      </span>
+      </a> 
+      <a class="unstyled-link" title="RSS" href="{{ $href }}" target="_blank" rel="noopener">
+          <span>{{ $text }}</span>
+      </a>
   </span> 
   <span class="td-blog d-flex px-3 py-3 mx-1 my-3 td-box--{{ $col_id }}" id="rss-button-mobile">
     <a href="{{ $href }}" id="rss-link-mobile">
