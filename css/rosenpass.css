@@ -62,13 +62,19 @@
   width: 80vw !important;
 }
 
-#release-title{
+.unstyled-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+#release-title {
   margin-left: auto;
   padding-left: 5rem;
   align-self: center;
 }
 
-#release-button{
+#release-button {
   margin-left: auto;
   padding-right: 2rem;
 }
@@ -886,8 +892,30 @@ background-color: #00000095;
 
 /* Contributors Page*/
 
+@media(max-width: 768px){
+  .container.mobile-display {
+    display: block;
+  }
+  .container.large-display {
+    display: none;
+  }
+}
+
+@media(min-width: 768px){
+  .container.mobile-display {
+    display: none;
+  }
+  .container.large-display {
+    display: block;
+  }
+}
+
 .col.funding {
   align-content: center;
+}
+
+.col.funding.baseline {
+  align-content: baseline;
 }
 
 .col.funding p {
@@ -961,6 +989,11 @@ margin: 0.1rem;
   margin: 5px 0;
   margin-left: auto;
   margin-right: auto;
+}
+
+.easteregg-ff7900:hover{
+  transition: all 0.5s;
+  color: #ff7900;
 }
 
 .member .row {
