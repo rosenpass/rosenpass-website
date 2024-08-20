@@ -7,7 +7,8 @@
 {{ $affiliation     := .Get "affiliation" }} 
 {{ $institute       := .Get "institute" }} 
 {{ $institutetitle  := .Get "institutetitle" | default ""  }} 
-{{ $instituteweb    := .Get "instituteweb" }} 
+{{ $instituteweb    := .Get "instituteweb" }}
+{{ $color 			:= .Get "color" | default "inherit" }} 
 
 {{ $mail   := .Get "mail" | default "info@rosenpass.eu" }} 
 {{ $key   := .Get "key" }} 
@@ -22,7 +23,7 @@
 			</div>
 			<div class="col">
 				<div class="infoblock">
-					<p>{{ $name }}</p>					
+					<p class="easteregg-{{ $color }}">{{ $name }}</p>					
 				{{ if $affiliation }}
 					<p>{{ $affiliation }}, 
 					{{ if $institute }}

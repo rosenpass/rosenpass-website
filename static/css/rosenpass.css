@@ -963,6 +963,11 @@ margin: 0.1rem;
   margin-right: auto;
 }
 
+.easteregg-ff7900:hover{
+  transition: all 0.5s;
+  color: #ff7900;
+}
+
 .member .row {
   flex-direction: column;
 }
