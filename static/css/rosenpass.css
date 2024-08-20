@@ -892,8 +892,30 @@ background-color: #00000095;
 
 /* Contributors Page*/
 
+@media(max-width: 768px){
+  .container.mobile-display {
+    display: block;
+  }
+  .container.large-display {
+    display: none;
+  }
+}
+
+@media(min-width: 768px){
+  .container.mobile-display {
+    display: none;
+  }
+  .container.large-display {
+    display: block;
+  }
+}
+
 .col.funding {
   align-content: center;
+}
+
+.col.funding.baseline {
+  align-content: baseline;
 }
 
 .col.funding p {
