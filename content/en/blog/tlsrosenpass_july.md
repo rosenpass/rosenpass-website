@@ -741,6 +741,6 @@ In the course of producing this tutorial, we were able to demonstrate that Rosen
 3) The pre-shared key is leaked in the process list, as reported in a feature request to OpenSSL.
 4) There should be a binding of the Rosenpass key exchange to information about the TLS peers, ideally the server certificate. For this, we would need to add an interface to Rosenpass that accepts such an additional input to be incorporated into the key exchange.
 
-This work was supported by [the NLnet foundation](https://nlnet.nl/project/Rosenpass-API/).
+This work was [supported](https://nlnet.nl/project/Rosenpass-API/) by the [NLnet](https://nlnet.nl) foundation, through [NGI Assure](https://nlnet.nl/assure), a fund established with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program.
 
 We would love to hear from you if you have questions or comments, and also if you would like to explore working together on Rosenpass-related projects. Feel free to [reach out to us](https://rosenpass.eu/contributors/)!
