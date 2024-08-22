@@ -623,7 +623,7 @@
 &lt;li&gt;The pre-shared key is leaked in the process list, as reported in a feature request to OpenSSL.&lt;/li&gt;
 &lt;li&gt;There should be a binding of the Rosenpass key exchange to information about the TLS peers, ideally the server certificate. For this, we would need to add an interface to Rosenpass that accepts such an additional input to be incorporated into the key exchange.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;This work was supported by &lt;a href=&#34;https://nlnet.nl/project/Rosenpass-API/&#34;&gt;the NLnet foundation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This work was &lt;a href=&#34;https://nlnet.nl/project/Rosenpass-API/&#34;&gt;supported&lt;/a&gt; by the &lt;a href=&#34;https://nlnet.nl&#34;&gt;NLnet&lt;/a&gt; foundation, through &lt;a href=&#34;https://nlnet.nl/assure&#34;&gt;NGI Assure&lt;/a&gt;, a fund established with financial support from the European Commission&amp;rsquo;s &lt;a href=&#34;https://ngi.eu&#34;&gt;Next Generation Internet&lt;/a&gt; program.&lt;/p&gt;
 &lt;p&gt;We would love to hear from you if you have questions or comments, and also if you would like to explore working together on Rosenpass-related projects. Feel free to &lt;a href=&#34;https://rosenpass.eu/contributors/&#34;&gt;reach out to us&lt;/a&gt;!&lt;/p&gt;
 
       </content:encoded>
