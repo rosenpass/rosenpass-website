@@ -69,6 +69,7 @@
             {
               name = "website";
               command = ''
+                ./changelog-check.sh
                 nix build '.?submodules=1#website'
               '';
               help = "Build the website with submodules included and export to the result folder.";
@@ -91,6 +92,7 @@
             {
               name = "serve";
               command = ''
+                ./changelog-check.sh
                 npm ci --omit=dev
                 hugo server $@
               '';
