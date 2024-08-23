@@ -381,6 +381,29 @@ div.click-to-copy{
   margin-left: 1.5rem;
 }
 
+/* Changelog */
+
+.changelog-container.card.card-body {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+button.btn.changelog {
+  border: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+.changelog .card.card-body {
+  border: none;
+  padding-top: 0;
+  padding-left: 2rem;
+}
+
+.changelog-release span {
+  font-size: large;
+}
+
 /* ADHD Spacing */
 
 .title-box{
