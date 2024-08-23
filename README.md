@@ -49,11 +49,36 @@ In Powershell 7(+) (with npm, node and chocolatey):
 
 ## Getting started with Nix
 
-Due to a quirk in the handling of submodules, building the website requires some magic:
+### Initialising
+One nix package manager is installed:
+- clone the repo (if not already)
+- git submodule init (if not already)
+- git submodule update
 
-```console
-nix build '.?submodules=1#website'
-```
+### Everyday Use
 
-A development shell can be started using `nix develop`. It contains NodeJS and Hugo,
+- A development shell can be started using `nix develop`. It contains NodeJS and Hugo,
 plus a couple of handy commands, the list of which can be shown by invoking `menu`.
+```nix develop```
+
+- Serve the website to a localhost, usually 1313
+```serve```
+
+- Build the website
+```website```
+    - Note that the "build" command on its own does not work. The website command inputs "nix build 'submodules=1#website'" which is necessary to function
+
+- The built files are located in the "result" folder
+
+### Debugging
+If the result folder is not accessible, try:
+
+- Find the path info
+``` nix path-info 'submodules=1#website' ```
+
+- Using the path from the last command's output, manually add the root:
+``` nix-store --realise --add-root [output of last command]```
+
+Even if required, these steps should only need to be used once, and may have just been a quirk of my (Alice) set up.
+
+
