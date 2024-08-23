@@ -1,3 +1,35 @@
 {{ define "main" }}
 {{ .Render "content" }}
+    {{ if .Params.blogpost }}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "{{ .Params.schema.headline | default .Title }}",
+          "description": "{{ .Params.schema.description | default .Description }}",
+          "url": {{ .Permalink }},
+          "author": {
+            "@type": "Person",
+            "name": " {{ .Params.schema.author.name | default .Params.author }}",
+            "email": {{ .Params.email | default "press@rosenpass.eu"}},
+            "editor": {{ .Params.editor | default .Params.author }},
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "{{ .Params.schema.publisher.name | default "Rosenpass" }}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://rosenpass.eu/RosenPass-Logo.svg"
+            }
+          },
+          "datePublished": "{{ .PublishDate | default .Date }}",
+          "dateModified": "{{ .Lastmod | default .Date }}",
+          "dateCreated": .Date,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ .Params.schema.mainEntityOfPage.id | default .Permalink }}"
+          }
+        }
+        </script>
+    {{ end }}
 {{ end }}

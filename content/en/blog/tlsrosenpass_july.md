@@ -5,6 +5,7 @@ description: "Creating a Hybrid Post-Quantum-Secure TLS Channel with Rosenpass a
 author: "Benjamin Lipp"
 date: 2024-07-29
 editor: "Alice Bowman"
+blogpost: "true"
 ---
 
 ## Introduction
