@@ -78,6 +78,11 @@
               # dev dependencies include "hugo-extended", which fails to
               # install on NixOS due to shipping a not runnable hugo binary
               command = ''
+                git submodule update --init --recursive  # Ensure submodules are updated
+                cd themes/docsy
+                git fetch
+                git checkout ee99df66e218979c80b02d144f1aff0b32e52581  # Ensure specific Docsy commit
+                cd ../../
                 npm ci --omit=dev
                 hugo $@
               '';
