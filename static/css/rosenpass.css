@@ -388,20 +388,54 @@ div.click-to-copy{
   margin-bottom: 0.2rem;
 }
 
+.changelog-container p:has(.changelog) {
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 button.btn.changelog {
   border: none;
   background-color: inherit;
   box-shadow: none;
+  min-width: 30%;
+  text-align: left;
+}
+
+button.btn.changelog[aria-expanded="true"]{
+  color: var(--bs-btn-bg);
+}
+
+button.btn.changelog:hover {
+  color: var(--bs-btn-bg);
+}
+
+button.btn.changelog:active {
+  transition: all 0.5s;
+  transform: scale(0.975);
+  color: var(--bs-btn-bg);
+  box-shadow: none;
+  background-color: inherit;
 }
 
 .changelog .card.card-body {
   border: none;
   padding-top: 0;
   padding-left: 2rem;
+  max-height: 30vh;
+  overflow: auto;
 }
 
 .changelog-release span {
   font-size: large;
+}
+
+@media (min-width: 1200px) {
+  .changelog-container.card.card-body {
+    padding-left: 2rem;
+    padding-top: 1.5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
 }
 
 /* ADHD Spacing */
