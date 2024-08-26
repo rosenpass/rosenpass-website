@@ -24,7 +24,7 @@
           },
           "datePublished": "{{ .PublishDate | default .Date }}",
           "dateModified": "{{ .Lastmod | default .Date }}",
-          "dateCreated": .Date,
+          "dateCreated": "{{ .Date}}",
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "{{ .Params.schema.mainEntityOfPage.id | default .Permalink }}"
