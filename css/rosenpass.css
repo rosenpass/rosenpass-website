@@ -402,7 +402,13 @@ button.btn.changelog {
 }
 
 button.btn.changelog[aria-expanded="true"]{
+  transition: all 0.5s;
   color: var(--bs-btn-bg);
+}
+
+button.btn.changelog[aria-expanded="false"]{
+  transition: all 0.5s;
+  color: inherit;
 }
 
 button.btn.changelog:hover {
@@ -412,7 +418,6 @@ button.btn.changelog:hover {
 button.btn.changelog:active {
   transition: all 0.5s;
   transform: scale(0.975);
-  color: var(--bs-btn-bg);
   box-shadow: none;
   background-color: inherit;
 }
@@ -425,8 +430,60 @@ button.btn.changelog:active {
   overflow: auto;
 }
 
-.changelog-release span {
+@media(min-width: 1700px) {
+  .commit-id {
+    width: 13%;
+  }
+}
+
+@media(min-width: 2100px) {
+  .commit-id {
+    width: 10%;
+  }
+}
+
+@media(min-width: 2800px) {
+  .commit-id {
+    width: 6%;
+  };
+}
+
+.changelog-release span.text-muted {
   font-size: large;
+}
+
+.changelog-release span a {
+  font-size: medium;
+}
+
+.changelog.collapse.show {
+  transition: all 0.1s ease-in-out;
+  margin-bottom: 2rem;
+}
+
+.commit-id {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.commit-message {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.changelog-commit:hover .commit-message {
+  color: var(--bs-primary);
+}
+
+.changelog-commit:hover .commit-id {
+  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+}
+
+@media (max-width: 768px) {
+  .changelog-release span.text-muted {
+    display: block;
+    margin-left: 1.2rem;
+  }
 }
 
 @media (min-width: 1200px) {
