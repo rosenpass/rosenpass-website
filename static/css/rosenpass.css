@@ -456,8 +456,8 @@ button.btn.changelog:active {
   font-size: medium;
 }
 
-.changelog.collapse.show {
-  transition: all 0.1s ease-in-out;
+.changelog.collapse,
+.changelog.collapsing {
   margin-bottom: 2rem;
 }
 
