@@ -11,4 +11,4 @@
 	url = https://github.com/rosenpass/slides
 [submodule "submodules/rosenpass"]
 	path = submodules/rosenpass
-	url = https://github.com/rosenpass/rosenpass.git
+	url = https://github.com/rosenpass/rosenpass
