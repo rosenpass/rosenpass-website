@@ -456,10 +456,10 @@ button.btn.changelog:active {
   font-size: medium;
 }
 
-.changelog.collapse,
+/* .changelog.collapse,
 .changelog.collapsing {
   margin-bottom: 2rem;
-}
+} */
 
 .commit-id {
   padding-left: 0;
