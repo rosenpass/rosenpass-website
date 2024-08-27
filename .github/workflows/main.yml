@@ -1,53 +1,51 @@
-name: Hugo Website Deployment
-on: 
-    push:
-        branches:
-            - main
-    
+name: Build and Deploy Hugo Site with Nix
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive  # Fetch the Docsy theme
-          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+    - name: Checkout code with submodules
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+        fetch-depth: 0
 
-      - name: Setup hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.109.0"
-          extended: true
-          
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.12.1'
-          cache: 'npm'
-          # The action defaults to search for the dependency file (package-lock.json,
-          # npm-shrinkwrap.json or yarn.lock) in the repository root, and uses its
-          # hash as a part of the cache key.
-          # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
-          cache-dependency-path: '**/package-lock.json'
-      
-      - run: npm ci
+    - name: Install Nix
+      run: |
+        curl -L https://nixos.org/nix/install | sh
+        source /home/runner/.nix-profile/etc/profile.d/nix.sh
+        mkdir -p /home/runner/.config/nix/
+        echo "experimental-features = nix-command flakes" >> /home/runner/.config/nix/nix.conf
 
-      - name: Build
-        # remove --minify tag if you do not need it
-        # docs: https://gohugo.io/hugo-pipes/minification/
-        run: hugo
-        #run: hugo --minify
+    - name: Build Hugo Site
+      run: |
+        source /home/runner/.nix-profile/etc/profile.d/nix.sh
+        nix develop --extra-experimental-features nix-command --command website
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.TOKEN_FOR_HUGO }}
-          #external_repository: <username>/<username>.github.io
-          publish_dir: ./public
-          #  keep_files: true  <-- usually, all files in the deployment folder are replaced
-          #user_name: Mullana
-          #user_email: lisaschmidt@mullana.de
-          #publish_branch: main
-          #  cname: example.com  <-- necessary when a custom domain is used
+    - name: Ensure result directory exists and set permissions
+      run: |
+        mkdir -p result/
+        chmod -R 777 result/
 
+    - name: Deploy to FTP server
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: result/
+        server-dir: ./
+        protocol: ftp
+        exclude:  |
+          **/kaffeepause/**
+          **/whitepaper/**
+          **/scss/main.css
+          **/scss/main.css.map
