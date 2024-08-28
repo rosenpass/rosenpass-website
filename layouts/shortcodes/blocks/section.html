@@ -2,9 +2,10 @@
 {{ $col_id := .Get "color" | default .Ordinal }}
 {{ $height := .Get "height" | default "auto"  }}
 {{ $type   := .Get "type" | default "" }} 
-{{ $class   := .Get "class" | default "" }} 
+{{ $class   := .Get "class" | default "" }}
+{{ $background := .Get "background" | default "" }} 
 <a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
-<section class="row td-box td-box--{{ $col_id }} td-box--gradient td-box--height-{{ $height }} {{ $class }}">
+<section class="row td-box td-box--{{ $col_id }} td-box--gradient td-box--height-{{ $height }} {{ $class }}"{{ if $background }}style="background-image: url({{ $background }})"{{ end }}>
 	<div class="col">
 		<div class="row {{ $type }}">
 			{{ if eq .Page.File.Ext "md" }}
