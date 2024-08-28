@@ -5,6 +5,7 @@ description: "A presentation on Rosenpass, cryptographic security, ongoing proje
 talkLanguage: "EN"
 banner: "formosa2023.jpg"
 pdf_filename: "2023-07-10-FormosaRetreat/slides.pdf"
+presentation: true
 
 weight: 96
 menu: false

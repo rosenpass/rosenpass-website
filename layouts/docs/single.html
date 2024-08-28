@@ -4,22 +4,22 @@
 <section class="row block-lead td-box td-box--light position-relative td-box--gradient">
 		{{ if .Params.Rss }}
 			<div class="container text-center td-arrow-down d-flex">
-				{{ with .LinkTitle }} 
+				{{ with .Title }} 
 					<div class="h3 conference mb-0" id="release-title">
 						{{ . }}
 					</div>
 			{{ end }}
 		{{ else }}
 			<div class="container text-center td-arrow-down">
-				{{ with .LinkTitle }} 
+				{{ if .Params.presentation }} 
 					<div class="h3 conference mb-0">
-						{{ . }}
+						{{ .LinkTitle }}
 					</div>
 				{{ end }}
-		{{ end }}
 		<div class="h4 mb-0">
 			{{ .Title }}
 		</div>
+		{{ end }}
 		{{ with .Params.Rss }}
 		<div id="release-button">
 			<span class="td-blog">

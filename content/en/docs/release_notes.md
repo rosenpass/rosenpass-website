@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Release Notes"
 linkTitle: "Release Notes"
 weight: 5
 menu: false

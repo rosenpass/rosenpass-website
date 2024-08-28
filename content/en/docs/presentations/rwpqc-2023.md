@@ -5,6 +5,7 @@ description: "A presentation on Rosenpass' post-quantum WireGuard solutions, inc
 talkLanguage: "EN"
 banner: "rwpqc2023.jpg"
 pdf_filename: "2023-03-26-rwpqc/slides.pdf"
+presentation: true
 
 weight: 99
 menu: false

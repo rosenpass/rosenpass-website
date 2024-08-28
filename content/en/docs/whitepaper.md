@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Whitepaper"
 linkTitle: "Whitepaper"
 weight: 2
 menu: false

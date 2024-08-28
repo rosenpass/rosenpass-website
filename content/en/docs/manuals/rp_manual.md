@@ -1,7 +1,7 @@
 
 ---
 linkTitle: "Rosenpass Manual (rp)"
-title: ""
+title: "Rosenpass Manual"
 weight: 60
 menu: false
 type: docs
