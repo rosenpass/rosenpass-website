@@ -608,6 +608,14 @@ aside#sidebar-docs #td-sidebar-menu{
   background-color: var(--bs-secondary);
 }
 
+.external-link {
+  vertical-align: super;
+}
+
+.td-sidebar-nav a:hover .external-link {
+  color: var(--bs-white) !important;
+}
+
 @media (max-width: 767px) {
 
   #td-sidebar-menu {
