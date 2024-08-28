@@ -1053,9 +1053,57 @@ background-color: #00000095;
   }
 }
 
+.contact-buttons div .btn {
+  font-size: medium;
+  width: 11rem;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 60vw;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.contact-buttons .btn {
+  flex: 0 0 auto;
+  margin: 0 7px;
+  width: 186px;
+  font-size: 18px;
+}
+
+@media (max-width: 774px) {
+  .contact-buttons {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-buttons .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .contact .col {
 background-color: var(--bs-light);
 margin: 0.1rem;
+}
+
+
+.contact-icon {
+  color: #403F4C;
+}
+
+a:has(.github-svg){
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+}
+
+.github-svg {
+  width: 100px;
 }
 
 .contact-blerb {
@@ -1063,6 +1111,7 @@ margin: 0.1rem;
   padding-right: 5vw;
   text-align: center;
   margin-bottom: 1rem;
+  max-width: 1200px;
 }
 
 .contact .contact-box h5 {
@@ -1085,7 +1134,7 @@ margin: 0.1rem;
 
 #main-contributors {
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
 }
 
 #main-contributors .member {
@@ -1174,6 +1223,22 @@ margin: 0.1rem;
   }
 }
 
+.row:has(.codethanks-blerb) {
+  flex-direction: column;
+}
+
+.codethanks-blerb {
+  max-width: 956px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row.codethanks-list {
+  padding-right: calc(5vw + 2rem);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #main-contributors .github-pic {
   width: 120px;
