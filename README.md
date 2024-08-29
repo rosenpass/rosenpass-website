@@ -2,11 +2,15 @@
 Website for project Rosenpass (quantum secure VPN key exchange)
 
 
+## Information
+
+### Google Analytics
+As we use the Docsy theme with Hugo, which is produced by Google, the Docsy submodule has files relating to data gathering for Google Analytics. We have taken care to ensure that these components cannot be called in the built website.
+
 ## Website Components
 
 ### Hugo
 The website is built with Hugo, which generates a static site.
-There is a Github Action (= CI) is triggered every time there is a commit to the **main** branch, which generates the static files. 
 
 Commands to remember: 
 **Mullana (Windows)**
@@ -27,11 +31,6 @@ In Powershell 7(+) (with npm, node and chocolatey):
 **TODO**: Manuals are are currently not automatically pulled from the repo anymore. 
 - Source?
 - They go into the website main branch at rosenpass\content\en\docs\manuals
-
-### Conference Presentations
-- Conference PDFs are added manually. 
-- They're in https://github.com/rosenpass/slides
-- They need a title image (e.g. Screenshot from Conference banner or from slides) in 4:1, e.g 400x100px
 
 ### Release Notes
 - **TODO**: Release notes need to be added (automatically).
