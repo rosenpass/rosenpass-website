@@ -12,6 +12,14 @@ As we use the Docsy theme with Hugo, which is produced by Google, the Docsy subm
 ### Hugo
 The website is built with Hugo, which generates a static site.
 
+**General Installation**
+Prerequisites:
+Hugo (extended version), Git, Node.js
+
+After cloning:
+- git submodule update --init --recursive
+- npm ci
+
 Commands to remember: 
 **Mullana (Windows)**
 In Powershell 7(+) (with npm, node and chocolatey):
