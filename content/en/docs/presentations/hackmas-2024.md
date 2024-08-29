@@ -6,6 +6,7 @@ talkLanguage: "EN"
 banner: "hackmas2024.png"
 pdf_filename: "2024-08-29-hackmas/slides.pdf"
 presentation: true
+draft: true
 
 weight: 94
 menu: false

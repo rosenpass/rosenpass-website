@@ -568,7 +568,7 @@ In TLS 1.2, the usage of a PSK was still part of the ciphersuite choice, and it 
 
 ### Rosenpass Simple Example
 
-For this section, we assume that you have already installed Rosenpass on your system. You can do so by following the step-by-step [manual on our website](https://rosenpass.eu/docs/compilation/).
+For this section, we assume that you have already installed Rosenpass on your system. You can do so by following the step-by-step [manual on our website](/docs/compilation/).
 
 We needed two Rosenpass peers, and we set them up based on the two config files: `rp1` and `rp2`.
 
@@ -744,4 +744,4 @@ In the course of producing this tutorial, we were able to demonstrate that Rosen
 
 This work was [supported](https://nlnet.nl/project/Rosenpass-API/) by the [NLnet](https://nlnet.nl) foundation, through [NGI Assure](https://nlnet.nl/assure), a fund established with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program.
 
-We would love to hear from you if you have questions or comments, and also if you would like to explore working together on Rosenpass-related projects. Feel free to [reach out to us](https://rosenpass.eu/contributors/)!
+We would love to hear from you if you have questions or comments, and also if you would like to explore working together on Rosenpass-related projects. Feel free to [reach out to us](/contributors/)!

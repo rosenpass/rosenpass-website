@@ -19,7 +19,7 @@
             "name": "{{ .Params.schema.publisher.name | default "Rosenpass" }}",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://rosenpass.eu/RosenPass-Logo.svg"
+              "url": "{{ .Site.BaseURL }}/RosenPass-Logo.svg"
             }
           },
           "datePublished": "{{ .PublishDate | default .Date }}",
