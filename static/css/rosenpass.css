@@ -1085,6 +1085,10 @@ background-color: #00000095;
   }
 }
 
+.contact.row {
+  margin-top: 1.5rem;
+}
+
 .contact .col {
 background-color: var(--bs-light);
 margin: 0.1rem;
