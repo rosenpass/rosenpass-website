@@ -13,6 +13,8 @@ As we use the Docsy theme with Hugo, which is produced by Google, the Docsy subm
 The website is built with Hugo, which generates a static site.
 
 **General Installation**
+If you just want to serve the website locally:
+
 Prerequisites:
 Hugo (extended version), Git, Node.js
 
