@@ -1,5 +1,5 @@
 ---
-title: "Building Post-Quantum Cryptographic Protocls"
+title: "Building Post-Quantum Cryptographic Protocols"
 linkTitle: "Hackmas 2024"
 description: "How to build post-quantum cryptographic protocols and why wall clocks are not to be trusted."
 talkLanguage: "EN"
