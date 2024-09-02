@@ -1,5 +1,5 @@
 # rosenpass-website
-Website for project Rosenpass (quantum secure VPN key exchange)
+Website for project Rosenpass (quantum-secure VPN key exchange)
 
 
 ## Information
@@ -19,8 +19,8 @@ Prerequisites:
 Hugo (extended version), Git, Node.js
 
 After cloning:
-- git submodule update --init --recursive
-- npm ci
+- `git submodule update --init --recursive`
+- `npm ci`
 
 Commands to remember: 
 **Mullana (Windows)**
