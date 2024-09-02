@@ -1,0 +1,50 @@
+name: Build and Deploy Beta Hugo Site with Nix
+
+on:
+  push:
+    branches:
+      - beta
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code with submodules
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Install Nix
+      run: |
+        curl -L https://nixos.org/nix/install | sh
+        source /home/runner/.nix-profile/etc/profile.d/nix.sh
+        mkdir -p /home/runner/.config/nix/
+        echo "experimental-features = nix-command flakes" >> /home/runner/.config/nix/nix.conf
+
+    - name: Build Hugo Site
+      run: |
+        source /home/runner/.nix-profile/etc/profile.d/nix.sh
+        nix develop --extra-experimental-features nix-command --command website
+
+    - name: Set directory permissions for FTP Deploy
+      run: |
+        chmod -R 755 result/
+
+    - name: Deploy to FTP server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME_BETA }}
+        password: ${{ secrets.FTP_PASSWORD_BETA }}
+        local-dir: result/
+        server-dir: website/
+        state-name: ../.ftp-deploy-sync-state.json
+        protocol: ftps
+        security: strict
+        exclude:  |
+          **/kaffeepause/**
+          **/scss/main.css
+          **/scss/main.css.map
+

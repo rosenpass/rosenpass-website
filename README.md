@@ -91,3 +91,5 @@ If the result folder is not accessible, try:
 Even if required, these steps should only need to be used once, and may have just been a quirk of my (Alice) set up.
 
 
+## CI/CD Pipelin
+The website is built and deployed via GitHub Actions workflows. Therefore, any push to the main branch will trigger a rebuild of the website. Instead, please open a pull request for anything other than small content updates. If you are working on something larger than that, you can merge/push to the /beta branch, which will build and deploy to https://beta.rosenpass.eu where you can test your output before trying to merge into the main branch.
