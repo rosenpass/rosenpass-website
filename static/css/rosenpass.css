@@ -942,8 +942,9 @@ background-color: #00000095;
 
 #video-license {
   font-size: smaller;
-  text-align: end;
+  /* text-align: end; */
   margin-right: 1rem;
+  margin-left: auto;
   margin-top: auto;
 }
 
