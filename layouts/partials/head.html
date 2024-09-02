@@ -26,10 +26,6 @@
 {{ template "_internal/schema.html" . -}}
 {{ template "_internal/twitter_cards.html" . -}}
 {{ partialCached "head-css.html" . "asdf" -}}
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
-  crossorigin="anonymous"></script>
 {{ if .Site.Params.offlineSearch -}}
 <script defer
   src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
@@ -45,12 +41,4 @@
 
 {{ partial "hooks/head-end.html" . -}}
 
-{{/* To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled */ -}}
-{{ if hugo.IsProduction -}}
-  {{ $enableGtagForUniversalAnalytics := not .Site.Params.disableGtagForUniversalAnalytics -}}
-  {{ if (or $enableGtagForUniversalAnalytics (hasPrefix .Site.GoogleAnalytics "G-")) -}}
-    {{ template "_internal/google_analytics_gtag.html" . -}}
-  {{ else -}}
-    {{ template "_internal/google_analytics_async.html" . -}}
-  {{ end -}}
-{{ end -}}
+{{/* To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled. Instead, template is removed */ -}}

@@ -67,10 +67,23 @@
           };
           commands = [
             {
+              name = "website";
+              command = ''
+                ./changelog-check.sh
+                nix build '.?submodules=1#website'
+              '';
+              help = "Build the website with submodules included and export to the result folder.";
+            }
+            {
               name = "build";
               # dev dependencies include "hugo-extended", which fails to
               # install on NixOS due to shipping a not runnable hugo binary
               command = ''
+                git submodule update --init --recursive  # Ensure submodules are updated
+                cd themes/docsy
+                git fetch
+                git checkout ee99df66e218979c80b02d144f1aff0b32e52581  # Ensure specific Docsy commit
+                cd ../../
                 npm ci --omit=dev
                 hugo $@
               '';
@@ -79,6 +92,7 @@
             {
               name = "serve";
               command = ''
+                ./changelog-check.sh
                 npm ci --omit=dev
                 hugo server $@
               '';
