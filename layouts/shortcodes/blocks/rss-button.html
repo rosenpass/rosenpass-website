@@ -1,6 +1,6 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{ $col_id := .Get "color" | default .Ordinal }}
-{{ $href := .Get "href" | default "https://rosenpass.eu" }}
+{{ $href := .Get "href" }}
 {{ $text := .Get "text" | default " " }}
 <div class="row d-flex justify-content-center">
   <span class="td-blog d-flex px-3 py-3 mx-1 my-3 td-box--{{ $col_id }}" id="rss-button">
