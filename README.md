@@ -93,3 +93,8 @@ Even if required, these steps should only need to be used once, and may have jus
 
 ## CI/CD Pipeline
 The website is built and deployed via GitHub Actions workflows. Therefore, any push to the main branch will trigger a rebuild of the website. Instead, please open a pull request for anything other than small content updates. If you are working on something larger than that, you can merge/push to the /beta branch, which will build and deploy to https://beta.rosenpass.eu where you can test your output before trying to merge into the main branch.
+
+### beta.rosenpass.eu
+This beta subdomain is protected by a HTTP authentication request. This is purely to prevent search engine scrapers from noticing a (near) duplicate website and tanking our ranking as a result.
+Username: website
+Password: pleaseletmein
