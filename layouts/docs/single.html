@@ -1,45 +1,46 @@
 {{ define "main" }}
 
 <a id="td-block" class="td-offset-anchor"></a>
-<section class="row block-lead td-box td-box--light position-relative td-box--gradient">
-		{{ if .Params.Rss }}
-			<div class="container text-center td-arrow-down d-flex">
-				{{ with .Title }} 
-					<div class="h3 conference mb-0" id="release-title">
-						{{ . }}
-					</div>
-			{{ end }}
-		{{ else }}
-			<div class="container text-center td-arrow-down">
-				{{ if .Params.presentation }} 
-					<div class="h3 conference mb-0">
-						{{ .LinkTitle }}
-					</div>
+{{ if .Params.hideLead }}
+{{ else }}
+	<section class="row block-lead td-box td-box--light position-relative td-box--gradient">
+			{{ if .Params.Rss }}
+				<div class="container text-center td-arrow-down d-flex">
+					{{ with .Title }}
+						<div class="h3 conference mb-0" id="release-title">
+							{{ . }}
+						</div>
 				{{ end }}
-		<div class="h4 mb-0">
-			{{ .Title }}
+			{{ else }}
+				<div class="container text-center td-arrow-down">
+					{{ if .Params.presentation }} 
+						<div class="h3 conference mb-0">
+							{{ .LinkTitle }}
+						</div>
+					{{ end }}
+			<div class="h4 mb-0">
+				{{ .Title }}
+			</div>
+			{{ end }}
+			{{ with .Params.Rss }}
+			<div id="release-button">
+				<span class="td-blog">
+					<a class="td-rss-button rss-feed-button" title="RSS" href="{{ . }}" target="_blank" rel="noopener">
+						<i class="fa-solid fa-rss" aria-hidden="true"></i>
+					</a>
+					</span>
+			</div>
+			{{ end }}
 		</div>
-		{{ end }}
-		{{ with .Params.Rss }}
-		<div id="release-button">
-			<span class="td-blog">
-				<a class="td-rss-button rss-feed-button" title="RSS" href="{{ . }}" target="_blank" rel="noopener">
-					<i class="fa-solid fa-rss" aria-hidden="true"></i>
-				</a>
-				</span>
+	</section>
+	<section class="row td-box td-box--white td-box--gradient pt-5 pb-5">
+		<div class="col">
+			<div class="row">
+				{{ .Description }}
+			</div>
 		</div>
-		{{ end }}
-	</div>
-</section>
-
-<section class="row td-box td-box--white td-box--gradient pt-5 pb-5">
-	<div class="col">
-		<div class="row">
-			{{ .Description }}
-		</div>
-	</div>
-</section>
-
-{{ .Content }}
-
+	</section>
 {{ end }}
+	{{ .Content }}
+
+	{{ end }}
