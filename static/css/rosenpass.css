@@ -778,13 +778,19 @@ font-weight: inherit;
 }
 
 
-.new-update-bar button.btn-close {
+.new-update-bar button.btn.close {
   position: static;
-  padding: 0;
+  padding: 0 1rem 0 1rem;
   margin-left: auto;
   margin-top: auto;
   margin-bottom: auto;
   flex-shrink: 0;
+  background-color: inherit;
+  border: none;
+  background-image: unset;
+  box-shadow: none;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .td-cover-block .td-cover-logo {
