@@ -39,7 +39,11 @@ enableRobotsTXT = true
     name = "Quick Start"
 	#pre = "<i class='fas fa-arrow-alt-circle-down '></i>"
     weight = 15
-    url = "#start"
+    url = "/docs/start"
+[[menu.main]]
+    name = "What is Rosenpass?"
+    weight = 16
+    url = "/#what-is-rosenpass"    
 	
 # Everything below this are Site Params
 
@@ -51,6 +55,8 @@ section = ["HTML"]
 [params]
 #copyright = "The Docsy Authors"
 #privacy_policy = "https://policies.google.com/privacy"
+# Set to false to disable "latest update bar"
+new = true
 
 # First one is picked as the Twitter card image if not set on page.
 images = ["/img/rosenpass-preview.png"]
