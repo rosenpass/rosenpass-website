@@ -39,7 +39,7 @@ enableRobotsTXT = true
     name = "Quick Start"
 	#pre = "<i class='fas fa-arrow-alt-circle-down '></i>"
     weight = 15
-    url = "/docs/start"
+    url = "/docs/rosenpass-tool/start"
 [[menu.main]]
     name = "What is Rosenpass?"
     weight = 16

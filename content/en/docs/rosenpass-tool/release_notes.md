@@ -1,10 +1,11 @@
 ---
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 5
+weight: 2
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
+blerb: "A summary of the major changes and fixes across full Rosenpass tool releases."
 ---
 
 

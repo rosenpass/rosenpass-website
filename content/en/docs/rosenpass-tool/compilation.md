@@ -4,6 +4,7 @@ linkTitle: "Compilation and Installation"
 weight: 4
 menu: false
 type: docs
+blerb: "A guide on how to compile the Rosenpass tool yourself, including installation via the binary files. This is useful if you want to use the Rosenpass tool on systems we do not currently provide packages for."
 ---
 
 Below is a guide on how to compile Rosenpass yourself, including via the binary files. This can be used to compile Rosenpass for systems not yet fully supported, such as Debian, and provides a more customised experience.
