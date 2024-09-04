@@ -731,12 +731,12 @@ margin-left: 1rem;
   margin-top: -3rem;
   margin-bottom: 3rem;
   background-color: #FFA630;
-  padding: 0.3rem 1rem 0.3rem 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
   display: flex;
   border: 0;
 }
 
-@media(min-width: 721px){
+@media(min-width: 768px){
   .new-update-bar {
     margin-top: -1.5rem;
     margin-bottom: 1.5rem;
@@ -752,8 +752,8 @@ margin-left: 1rem;
 
 @media(min-width: 1200px){
   .new-update-bar {
-    margin-top: -4rem;
-    margin-bottom: 4rem;
+    margin-top: -3.5rem;
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -768,8 +768,14 @@ margin-left: 1rem;
 .update-text span a {
 color: #FFF;
 text-shadow: 1px 1px 1px #00000060;
-font-weight: inherit;
+/* font-weight: inherit; */
 }
+
+.update-text span a.quiet-link {
+  color: #000;
+  text-shadow: 1px 1px 1px #FFFFFF30;
+  font-weight: inherit;
+  }
 
 .update-text span a:hover {
 transition: all 0.5s;
