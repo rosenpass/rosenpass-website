@@ -297,9 +297,6 @@ div.col.lower-landing {
   min-width: 350px;
   padding-left: 5vw;
   padding-right: 5vw;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* padding-top: 1rem; */
 }
 
 .row:has(.doc-list-section.lower-landing){
@@ -333,6 +330,18 @@ div.doc-list-section-title p {
   flex-direction: column;
   padding-left: 5vw;
   padding-right: 5vw;
+}
+
+/* Important to override bootstrap's importants */
+@media(max-width:880px){
+  div.row.flex-nowrap{
+    flex-wrap: wrap !important;
+  }
+  div.col.col-6.lower-landing {
+    width: 100% !important;
+    padding-right: 5vw !important;
+    padding-left: 5vw !important;
+  }
 }
 
 @media (min-width: 1400px){
