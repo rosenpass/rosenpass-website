@@ -18,7 +18,7 @@
 		<section class="row td-box td-box--white td-box--gradient td-box--height-auto pb-0">
 			<div class="col">
 				<div class="row">
-					{{ .Params.Blerb | markdownify }}
+					{{ .Params.Introduction | markdownify }}
 				</div>
 			</div>
 		</section>
@@ -75,13 +75,6 @@
 						{{ end }}
 					{{ end }}
 				</section>
-				<!-- <div class="row ps-2 pt-2">
-					<div class="col">
-						{{ if .Pages }}
-							{{ template "_internal/pagination.html" . }}
-						{{ end }}
-					</div>
-				</div> -->
 				{{ end }}
 
 			{{ else }}
@@ -93,7 +86,7 @@
 					{{ if $currentSection.IsSection }}
 						<div class="col doc-list-section">
 							<div class="doc-list-section-title">
-								<h3>{{ $currentSection.Title }}</h3>
+								<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}</h3>
 								<p>{{ $currentSection.Params.Blerb | markdownify }}</p>
 							</div>
 								{{ range $currentSection.Pages }}
