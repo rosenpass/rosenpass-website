@@ -22,9 +22,12 @@
 				</div>
 			</div>
 		</section>
-			<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
+			<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row px-0 justify-content-center">
 				{{ $currentSection := .Page }}
-				<div class="col doc-list-section">
+				<div class="col doc-list-section lower-landing">
+					<div class="doc-list-section-title">
+						<h4> Section Directory</h4>
+					</div>
 					{{ range $currentSection.Pages }}
 						<div>
 							<a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -32,15 +35,16 @@
 						</div>
 					{{ end }}
 				</div>
+				{{ .Content }}
 			{{ end }}
 		</section>
 	{{ end }}
 {{ end }}
 
-{{ .Content }}
 
 {{ if not .Params.no_list }}
 	{{ if .Params.presentation_list}}
+		{{ .Content }}
 		<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
 			{{- if .Pages -}}
 				{{ if not .Params.no_list }}
@@ -71,19 +75,19 @@
 						{{ end }}
 					{{ end }}
 				</section>
-				<div class="row ps-2 pt-2">
+				<!-- <div class="row ps-2 pt-2">
 					<div class="col">
 						{{ if .Pages }}
 							{{ template "_internal/pagination.html" . }}
 						{{ end }}
 					</div>
-				</div>
+				</div> -->
 				{{ end }}
 
 			{{ else }}
-
-		<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
 			{{ if .Params.landing_page }}
+				{{ .Content }}
+				<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
 				{{ range .Pages}}
 					{{ $currentSection := .Page }}
 					{{ if $currentSection.IsSection }}

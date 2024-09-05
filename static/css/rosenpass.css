@@ -293,6 +293,26 @@ aside.d-none {
   max-width: fit-content;
 }
 
+div.col.lower-landing {
+  min-width: 350px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* padding-top: 1rem; */
+}
+
+.row:has(.doc-list-section.lower-landing){
+  padding-top: 0;
+}
+
+div.col.col-6.lower-landing:nth-child(even) {
+  padding-left: 0.5rem;
+}
+div.col.col-6.lower-landing:nth-child(odd) {
+  padding-right: 0.5rem;
+}
+
 .doc-list-section div p {
   font-size: smaller;
 }
@@ -326,6 +346,14 @@ div.doc-list-section-title p {
   
   .doc-list-section:nth-child(even) {
     margin-left: 1rem;
+  }
+}
+
+@media (min-width: 1450px) {
+  div.col.lower-landing {
+    max-width: 550px;
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    padding-right: calc(var(--bs-gutter-x) * .5);
   }
 }
 
