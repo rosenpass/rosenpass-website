@@ -1644,14 +1644,21 @@ align-self: center;
     background-color: var(--bs-gray-200);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
-    /* width: 3rem; */
     text-align: center;
-    /* position: absolute; */
-    /* right: 2rem;
-    top: 1.5rem; */
-    height: 2rem;
     max-width: fit-content;
+    height: 2rem;
+    font-size: inherit;
 }
+
+.language {
+  background-color: var(--bs-gray-400);
+  padding: 0rem 0.25rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  max-width: fit-content;
+  font-size: smaller;
+}
+
 #presentation-list .card-title {padding-top: 0.5rem;}
 #presentation-list .post-image {padding: 1rem 0;}
 

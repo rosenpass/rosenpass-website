@@ -13,7 +13,7 @@
 	<div class="container text-center td-arrow-down d-flex">
             <div class="col-3"></div>
 		<div class="h4 mb-0 col-6">
-			Presentation Video
+			{{ .Page.LinkTitle }} Video
 		</div>
 	</div>
 </section>
@@ -44,10 +44,11 @@
             {{ with $.Get "title" }}
             <h5 class="ps-3 pt-1 mb-0">
                 {{ if eq $.Page.File.Ext "md" }}
-                {{ $.Get "title" | markdownify }}
+                {{ $.Get "title" | markdownify }} 
                 {{ else }}
                 {{ $.Get "title" | htmlUnescape | safeHTML }}
-                {{ end }}
+                {{ end }} 
+                <span class="language">{{ $.Page.Params.talkLanguage }}</span>
             </h5>
             {{ end }}
             {{ with $.Get "subtitle" }}
