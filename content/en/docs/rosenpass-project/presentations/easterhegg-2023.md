@@ -6,6 +6,7 @@ talkLanguage: "DE"
 banner: "easterhegg2023.jpg"
 pdf_filename: "2023-04-08-easterhegg/slides.pdf"
 presentation: true
+video: true
 
 weight: 98
 menu: false

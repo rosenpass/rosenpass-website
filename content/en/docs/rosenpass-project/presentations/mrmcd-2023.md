@@ -5,6 +5,7 @@ description: "A recap on, and overview of, Rosenpass' progress since April prese
 talkLanguage: "DE"
 banner: "mrmcd2023.jpg"
 presentation: true
+video: true
 
 weight: 95
 menu: false
