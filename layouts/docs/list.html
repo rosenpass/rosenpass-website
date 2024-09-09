@@ -55,8 +55,8 @@
 								<li class="col-12 col-lg-6">
 									<div class="post-list-item card">
 										<div class="row px-0 justify-content-between">
-											<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }} </p>
-											<span class="language">{{ $p.Params.talkLanguage }}</span>
+											<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }}</p>
+											<span class="language">{{ if $p.Params.video }}<i class="fa-solid fa-video fa-xs"></i> {{ end }}{{ $p.Params.talkLanguage }}</span>
 										</div>
 										{{ with $p.Params.banner }}
 											<a href="{{ $p.RelPermalink }}">
