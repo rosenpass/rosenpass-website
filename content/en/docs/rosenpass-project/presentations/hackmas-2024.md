@@ -16,7 +16,7 @@ toc:
 ---
 
 
-{{< blocks/video-embed title="Video: Hack Ma's 2024" subtitle="How to build post-quantum cryptographic protocols and why wall clocks are not to be trusted." href="https://media.ccc.de/v/how-to-build-post-quantum-cryptographic-protocols-and-why-wall-clocks-are-not-to/oembed" hostPg="https://media.ccc.de/v/how-to-build-post-quantum-cryptographic-protocols-and-why-wall-clocks-are-not-to/playlist" host="Chaos Computer Club" privacy="https://media.ccc.de/about.html#privacy" license="CC BY-SA 4.0" screenshot="img/conferences/hackmas2024-screenshot.png">}}
+{{< blocks/video-embed title="Video: Hack Ma's 2024" subtitle="How to build post-quantum cryptographic protocols and why wall clocks are not to be trusted." href="https://media.ccc.de/v/how-to-build-post-quantum-cryptographic-protocols-and-why-wall-clocks-are-not-to/oembed" hostPg="https://media.ccc.de/v/how-to-build-post-quantum-cryptographic-protocols-and-why-wall-clocks-are-not-to" host="Chaos Computer Club" privacy="https://media.ccc.de/about.html#privacy" license="CC BY-SA 4.0" screenshot="img/conferences/hackmas2024-screenshot.png">}}
 
 {{< blocks/pdfembed >}}
 
