@@ -275,10 +275,6 @@ div.click-to-copy{
 
 /* DOCS */
 
-.ul-2 { /* Opens the sidebar menu to at least one nested dir level*/
-  display: block !important;
-}
-
 /* list production outside of preesentations */
 main.docs-main {
   margin-left: auto;
@@ -1607,7 +1603,6 @@ i.sidebar-docs-icon {
   margin-left: 0;
   margin-right: 0;
 }
-
 @media(min-width:992px){
   #presentation-list li {
     width: 48%;
