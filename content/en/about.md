@@ -23,7 +23,7 @@ type: community
 
 **Rosenpass** is also a **science communication** project that intends to make cryptography easy to understand for everyone. 
 
-#### "Explain it like I'm..."
+#### "Explain it like I'm …"
 
 On that note, we have provided a series in-depth of explanations about what **Rosenpass** does at different levels. 
 Pick whatever you feel suits you best! :D
