@@ -9,4 +9,4 @@ pdf_filename: "../../whitepaper.pdf"
 blerb: "This document is a guide for engineers and researchers implementing the protocol. It is a scientific paper discussing the secruity properties of Rosenpass as a work-in-progress."
 ---
 
-{{< blocks/pdfembed >}}
+{{< blocks/pdfembed orientation="portrait" >}}

@@ -1681,6 +1681,14 @@ i.sidebar-docs-icon {
     margin-left: auto;
 } 
 
+iframe.landscape { /* Set orientation of pdf box */
+  height: 40vh;
+}
+
+iframe.portrait {
+  height: 70vh;
+}
+
 .presentation-box {
   box-shadow: 0.25rem 0.25rem 0.25rem #00000050;
   border-radius: 1rem;
