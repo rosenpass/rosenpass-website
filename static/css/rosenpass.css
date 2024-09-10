@@ -293,6 +293,14 @@ aside.d-none {
   max-width: fit-content;
 }
 
+.lower-landing .row #rss-button {
+  font-size: smaller;
+}
+
+.lower-landing .row:has(#rss-button) {
+  padding-left: 1rem !important;
+}
+
 div.col.lower-landing {
   min-width: 350px;
   padding-left: 5vw;
