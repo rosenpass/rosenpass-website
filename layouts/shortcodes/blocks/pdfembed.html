@@ -1,4 +1,4 @@
-{{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdf_filename }}
+{{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdfFilename }}
 
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{ $col_id := .Get "color" | default "1" }}

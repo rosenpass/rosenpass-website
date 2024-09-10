@@ -5,7 +5,7 @@
 {{ else }}
 	{{$.Scratch.Set "blog-pages" .Pages }}
 {{ end }}
-{{ if not .Params.no_list }}
+{{ if not .Params.noList }}
 	{{ if not .Params.presentation_list}}
 		{{ if not .Params.landing_page }}
 		<section class="row block-lead td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
@@ -43,7 +43,7 @@
 		{{ .Content }}
 		<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
 			{{- if .Pages -}}
-				{{ if not .Params.no_list }}
+				{{ if not .Params.noList }}
 					{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" "asc")}}
 						{{ range $pag.PageGroups }}
 							<ul  id="presentation-list"  class="post-list list-unstyled row">

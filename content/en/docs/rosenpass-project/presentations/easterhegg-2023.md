@@ -4,7 +4,7 @@ linkTitle: "Easterhegg 2023"
 description: "A deeper dive into post-quantum cryptography, Rosenpass' approach to the issue, and a demonstration of Rosenpass' solution and integration with WireGuard."
 talkLanguage: "DE"
 banner: "easterhegg2023.jpg"
-pdf_filename: "2023-04-08-easterhegg/slides.pdf"
+pdfFilename: "2023-04-08-easterhegg/slides.pdf"
 presentation: true
 video: true
 

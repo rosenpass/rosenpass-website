@@ -48,7 +48,7 @@
                 {{ else }}
                 {{ $.Get "title" | htmlUnescape | safeHTML }}
                 {{ end }} 
-                <span class="language">{{ $.Page.Params.talkLanguage }}</span>
+                {{ $.Page.Params.talkLanguage }}
             </h5>
             {{ end }}
             {{ with $.Get "subtitle" }}
