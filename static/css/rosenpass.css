@@ -1494,6 +1494,10 @@ img.rp-supporter {
   display: flex;
 }
 
+.rosenpass-overview-links .col .row div div i {
+  color: #403F4C;
+}
+
 .td-box.eli5-images {
 	display: flex;
 	align-items: center;

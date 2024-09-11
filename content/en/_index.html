@@ -30,6 +30,20 @@ Source Code <i class="fab fa-github ml-2 "></i>
 {{< blocks/lead color="dark" >}}
 	<h3 id="what-is-rosenpass">What is Rosenpass?</h3>
 {{< /blocks/lead >}}
+
+{{< blocks/section color="white" class="rosenpass-overview-links pb-0">}}
+	{{< blocks/feature icon="fa-lock" title="Post-Quantum Secure" >}}
+		<strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
+		It achieves the same security guarantees as WireGuard, using two strong post-quantum key exchange methods – Classic McEliece and Kyber.
+		{{< /blocks/feature >}}
+		{{< blocks/feature icon="fa-dragon" title="Works with WireGuard" url="" >}}
+		<strong>Rosenpass</strong> keeps WireGuard security intact and adds on to it; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security.
+		{{< /blocks/feature >}}
+		{{< blocks/feature icon="fa-box-open" title="Free and Open Source" url="" >}}
+		<strong>Rosenpass</strong> is Free and Open Source Software under the Apache 2.0 and MIT license and developed by hackers and researchers.
+	{{< /blocks/feature >}}
+{{< /blocks/section >}}
+
 <div class="about">
 {{< blocks/section color="white" >}}
 	<p><strong>Rosenpass</strong> is free and <strong>open-source</strong> software based on the latest research in the field of <strong>cryptography</strong>. It is intended to be used with WireGuard VPN, but can work with all software that uses pre-shared keys. It uses two cryptographic methods (Classic McEliece and Kyber) to secure systems against attacks with <strong>quantum computers</strong>.</p>
@@ -42,18 +56,7 @@ Source Code <i class="fab fa-github ml-2 "></i>
 	{{% blocks/eli5-nav %}} 
 {{< /blocks/section >}}
 
-{{< blocks/section color="dark" class="rosenpass-overview-links">}}
-	{{< blocks/feature icon="fa-lock" title="Post-Quantum Secure" >}}
-		<strong>Rosenpass</strong> is a key-exchange protocol using techniques that are secure against attacks from quantum computers.
-		It achieves the same security guarantees as WireGuard, using two strong post-quantum key exchange methods – Classic McEliece and Kyber.
-		{{< /blocks/feature >}}
-		{{< blocks/feature icon="fa-dragon" title="Works with WireGuard" url="" >}}
-		<strong>Rosenpass</strong> keeps WireGuard security intact and adds on to it; Rosenpass handles post-quantum security, WireGuard handles pre-quantum security.
-		{{< /blocks/feature >}}
-		{{< blocks/feature icon="fa-box-open" title="Free and Open Source" url="" >}}
-		<strong>Rosenpass</strong> is Free and Open Source Software under the Apache 2.0 and MIT license and developed by hackers and researchers.
-	{{< /blocks/feature >}}
-{{< /blocks/section >}}
+
 
 {{< blocks/lead color="light" >}}
 <h3 id="explain-it-like-im-five">… I'm five!</h3>
