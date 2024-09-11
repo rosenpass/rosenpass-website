@@ -18,7 +18,7 @@
   "homepage": "https://github.com/rosenpass/rosenpass-website/",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.44",
+    "postcss": "^8.4.45",
     "postcss-cli": "^11.0.0"
   },
   "dependencies": {
