@@ -82,7 +82,7 @@ window.markmap = {
 {{ end -}}
 
 {{ $jsQuery := resources.Get "js/jquery-3-5-1-slim-min.js"}}
-{{ $jsBootstrap := resources.Get "js/bootstrap.bundle.min.js"}}
+{{ $jsBootstrap := resources.Get "js/bootstrap.bundle.js"}}
 
 <script src="{{ $jsQuery.RelPermalink }}"></script>
 <script src="{{ $jsBootstrap.RelPermalink }}"></script>

@@ -1,0 +1,88 @@
+---
+title: "The Rosenpass Tool"
+linkTitle: "The Rosenpass Tool"
+type: docs
+weight: 20
+menu: false
+
+introduction: "The Rosenpass tool is a daemon, written in Rust, that implements the Rosenpass protocol to create and exchange hybridised 
+post-quantum and classically secure keys between two peers. It uses two cryptographic methods, Classic McEliece and Kyber, to secure systems 
+against quantum attacks. It represents one of the most advanced open-source solutions for providing post-quantum security currently available.
+    
+
+While the Rosenpass tool is written in Rust, it currently relies on libsodium and liboqs, both of which are C libraries, enabling advanced 
+security features. We implement a number of techniques to ensure that the code is secure. For example, we use variable colouring (gating use of 
+a secret value through a .secret() method), and the code zeroises all key material.
+
+
+The Rosenpass tool works best and most natively with WireGuard. It can, however, be used to perform a stand-alone key exchange. Using this mode, 
+it can secure other protocols against attacks from quantum computers. To use this mode, the rosenpass binary must be used together with the outfile <FILE> parameter. Rosenpass will write a key to the given file 
+  every two minutes, and print a message on standard out to notify the user or the calling script that the key has changed.
+  
+
+This section contains links to user guides, installation guides, release notes, and other information on the Rosenpass Tool."
+
+blerb: "The Rosenpass tool is a daemon, written in Rust, that implements the Rosenpass protocol to create and exchange hybridised post-quantum and
+ classically secure keys between two peers. Using a hybrid security model allows us to preserve the reliability of battle-proven classical 
+ cryptography whilst still providing the necessary upgrade to secure against decryption of data by quantum computers (i.e., protect against 
+ “store-now decrypt-later attacks”).
+
+ 
+The Rosenpass tool works best and most natively with [WireGuard](https://www.wireguard.com/), as it was first envisioned specifically to inject post-quantum secured keys 
+into WireGuard using its Pre-Shared Key parameter. However, as the Rosenpass tool can export its shared secrets to a file, it can be implemented 
+in other use cases. We were able to demonstrate its potential for integration with Transport Layer Security (TLS), in [this tutorial](/blog/tlsrosenpass_july) on using 
+[OpenSSL](https://openssl.org/) with Rosenpass."
+---
+
+<div class="col" style="max-width: fit-content;">
+  <div class="row flex-nowrap px-0">
+    <div class="col col-6 lower-landing">
+      <h4>Packaging Status</h4>
+      <p class="px-3">Rosenpass currently provides packages and static binaries for several Linux distributions, as shown below: </p>
+      <img class="ps-3" src="https://repology.org/badge/vertical-allrepos/rosenpass.svg" style="width:auto;">
+
+      </div>
+      <div class="col col-6 lower-landing">
+        <h4>0.2.2 Release Notes</h4>
+        <ul class="pe-3 mb-0">
+          <li> Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.</li>
+          <li> This release has no impact for majority of users using Rosenpass with WireGuard</li>
+        </ul>
+        {{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" >}}
+      </div>
+    </div>
+</div>
+</section>
+
+
+{{< blocks/section color="white" class="pt-3 pb-0">}}
+
+<h2>What planned features are on the way?</h2>
+  <ul>
+    <li><b>Cunicu integration:</b> <a href="https://cunicu.li">Cunicu</a> is a user-space daemon for managing WireGuard connections for small devices. We intend to integrate post-quantum security into that daemon via Rosenpass</li>
+    <li><b>Docker and micro-VM implementations:</b> We are currently working on using micro-VMs to reduce the scope of system privileges Rosenpass needs to run</li>
+    <li><b>Hacspec integration:</b> Hackspec is a rust-based language designed by <a>Cryspen</a> to enable the use of several formal verification tools that enable high-assurance cryptography</li>
+    <li><b>Golang implementation of Rosenpass:</b> Our initial implementation of Rosenpass is written in Rust, but we are working on an alternative, compatible Golang-built implementation to increase diversity and reach new platforms. 	
+	It is called <a href="https://github.com/cunicu/go-rosenpass">go-rosenpass</a>. 	</li>
+  </ul>
+{{< /blocks/section >}}
+
+{{< blocks/lead color="light" >}}
+<h4 id="license">License</h4>
+
+{{< /blocks/lead >}}
+
+{{< blocks/section color="white" >}}
+<div class="text-center">
+<h3> </h3>
+<p>
+The <strong>Rosenpass</strong> tool is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
+</p>
+<p>
+The content of this website, except for photographic material, is published under a Creative Commons license:<br />
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0) <br />
+Photographic material is published under this separate Creative Commons License:<br />
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivs 4.0 International </a> (CC BY-NC-ND 4.0 Deed)
+</p>
+</div>
+{{< /blocks/section >}}

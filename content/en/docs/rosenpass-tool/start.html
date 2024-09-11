@@ -1,0 +1,183 @@
++++
+title = "Quick Start"
+linkTitle = "Quick Start"
+subtitle = "Build post-quantum-secure VPNs with WireGuard!"
+weight = 1
+hideLead = true
+blerb = "A quick start guide on downloading, configuring, and booting the Rosenpass tool for use with a WireGuard connection."
+
++++
+
+{{% blocks/lead color="secondary" %}}
+<h2>Quick Start</h2>
+{{% /blocks/lead %}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets" %}}
+
+<h3> Supported Systems</h3>
+
+<p>We provide packages for <strong>Nix</strong>, <strong>Arch Linux</strong>, and <strong>Alpine Linux</strong>. </p>
+<p>Since <strong>Rosenpass</strong> was released not too long ago, <strong>packaging is an ongoing process</strong>.
+You can find the latest information about all the Linux distributions we support on 
+<strong><a href="https://repology.org/project/rosenpass/versions" target="_blank">Repology</a></strong>.</p>
+<p>Even if your distribution is not listed here, you can always <strong>compile Rosenpass yourself</strong> or download a pre-built, statically linked <strong>binary</strong> from our
+<a href="https://github.com/rosenpass/rosenpass/releases/latest" target="_blank">GitHub release page</a>. You can also find 
+<a href="https://opencontainers.org/" target="_blank">OCI container images</a>
+(Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no principle reason limiting <strong>Rosenpass</strong> to x86_64, and you can compile it for any architecture in Linux, or MacOS, that is supported by 
+<a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
+
+<h3>How to install Rosenpass on your Linux distribution</h3>
+
+```shell
+(arch AUR)		$ aura -A rosenpass-git
+(arch pacman)	$ pacman -S rosenpass
+(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
+(cargo)			$ cargo install rosenpass
+(alpine)		$ apk add rosenpass
+```
+
+<p>To find more information on the available command line parameters, you can use these tools:<p>
+
+```sh
+rp help
+rosenpass help
+```
+
+<h3>How to set up your Rosenpass enhanced WireGuard VPN</h3>
+
+
+<p><strong>Note:</strong> Technically, there's no difference between both hosts, but we named them <span style="color: #d0006d;"><strong>server</strong> (pink)</span> and <span style="color: #bf7000;"><strong>client</strong> (orange)</span> in this example to make it easier to comprehend.</p>
+<ol class="howto">
+<li>Start by generating secret keys on both hosts.</li>
+<p><strong>Note:</strong> These will be stored in newly created server.rosenpass-secret and client.rosenpass-secret directories.</p>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> rp genkey server.rosenpass-secret
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> rp genkey client.rosenpass-secret
+```
+</p>
+
+<li>Extract the public keys</li>
+<p><strong>Note:</strong> As above, these will be stored in newly created server.rosenpass-public and client.rosenpass-public directories.</p>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> rp pubkey server.rosenpass-secret server.rosenpass-public
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> rp pubkey client.rosenpass-secret client.rosenpass-public
+```
+</p>
+
+<li>Copy each <code>-public</code> directory to the other peer</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> scp -r server.rosenpass-public user@client:/path/to/directory
+```
+</p>
+<p class="starter-code-client">
+    
+```sh
+<span>user@client:~$</span> scp -r client.rosenpass-public user@server:/path/to/directory
+```
+</p>
+
+ <strong>Congrats! Your basic setup is complete!</strong>
+
+
+<h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
+
+<li>Start the VPN</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
+peer client.rosenpass-public allowed-ips fe80::/64
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> sudo rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+```
+</p>
+
+<li>Assign IP addresses</li>
+
+<p class="starter-code-server">
+
+```sh
+<span>user@server:~$</span> sudo ip a add fe80::1/64 dev rosenpass0
+```
+</p>
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> sudo ip a add fe80::2/64 dev rosenpass0
+```
+</p>
+
+<h3>Just to be sure: Verify the magic!</h3>
+
+<li>Test the connection by pinging the server on the client machine</li>
+
+<p class="starter-code-client">
+
+```sh
+<span>user@client:~$</span> ping fe80::1%rosenpass0
+```
+</p>
+
+<li>You can watch how Rosenpass replaces the WireGuard PSK with the following command</li>
+
+```sh
+watch -n 0.2 'wg show all; wg show all preshared-keys'
+```
+<p><strong>All done!</strong></p>
+<p><strong>Rosenpass</strong> will now generate a new PSK key for WireGuard about every two minutes and <strong>keep your VPN connection secure</strong> against post-quantum computer attacks. </p>
+</ol>
+
+
+<span class="spacer"></span>
+						
+<p>If you have further questions, please feel free to get in touch. We maintain a public Rosenpass Matrix chatroom, as well as several inboxes, for public inquiries, development questions, and general interest. Feature requests can also be opened at our GitHub pages</p>
+
+<p class="pt-0 button-link bg-secondary"><a href="/contributors/#contact" aria-label="contact">Go to Contact Page</a></p>
+
+{{% /blocks/section %}}
+
+{{< blocks/lead color="dark" >}}
+<h4 id="license">License</h4>
+
+{{< /blocks/lead >}}
+
+{{< blocks/section color="light" >}}
+<div class="text-center">
+<h3> </h3>
+<p>
+The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004 and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution </a>
+</p>
+<p>
+The content of this website, except for photographic material, is published under a Creative Commons license:<br />
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0) <br />
+Photographic material is published under this separate Creative Commons License:<br />
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivs 4.0 International </a> (CC BY-NC-ND 4.0 Deed)
+</p>
+</div>
+{{< /blocks/section >}}

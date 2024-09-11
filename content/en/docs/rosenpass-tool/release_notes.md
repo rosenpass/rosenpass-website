@@ -1,16 +1,17 @@
 ---
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 5
+weight: 2
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
+blerb: "A summary of the major changes and fixes across full Rosenpass tool releases."
 ---
 
 
 ## 0.2.2
 - Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.
-- This release has no impact for majority of users using Rosenpass with Wireguard
+- This release has no impact for majority of users using Rosenpass with WireGuard
 
 
 ## 0.2.1

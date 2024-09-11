@@ -39,7 +39,11 @@ enableRobotsTXT = true
     name = "Quick Start"
 	#pre = "<i class='fas fa-arrow-alt-circle-down '></i>"
     weight = 15
-    url = "#start"
+    url = "/docs/rosenpass-tool/start"
+[[menu.main]]
+    name = "What is Rosenpass?"
+    weight = 16
+    url = "/#what-is-rosenpass"    
 	
 # Everything below this are Site Params
 
@@ -51,6 +55,8 @@ section = ["HTML"]
 [params]
 #copyright = "The Docsy Authors"
 #privacy_policy = "https://policies.google.com/privacy"
+# Set to false to disable "latest update bar"
+new = true
 
 # First one is picked as the Twitter card image if not set on page.
 images = ["/img/rosenpass-preview.png"]
@@ -69,7 +75,8 @@ navbar_logo = true
 # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
 navbar_translucent_over_cover_disable = false
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = true
+sidebar_menu_compact = false
 sidebar_menu_foldable = true
+ul_show = 3
 # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = false

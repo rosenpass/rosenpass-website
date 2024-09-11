@@ -1,52 +1,102 @@
 {{ define "main" }}
 
 {{ if (and .Parent .Parent.IsHome) }}
-{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+	{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
 {{ else }}
-{{$.Scratch.Set "blog-pages" .Pages }}
+	{{$.Scratch.Set "blog-pages" .Pages }}
 {{ end }}
-
-{{ .Content }}
-
-<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
-	{{- if .Pages -}}
-		{{ if not .Params.no_list }}
-			{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" "asc")}}
-				{{ range $pag.PageGroups }}
-				<ul  id="presentation-list"  class="post-list list-unstyled row">
-					
-					{{ range  $p := .Pages}}
-					<li class="col-12 col-lg-6">
-						<div class="post-list-item card">
-							<div class="row px-0 justify-content-between">
-								<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }} </p>
-								<span class="language">{{ $p.Params.talkLanguage }}</span>
-							</div>
-							{{ with $p.Params.banner }}
-								<a href="{{ $p.RelPermalink }}">
-									<img class="post-image card-img-top" 
-										 src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
-								</a>
-							{{ end }}
-							<h5 class="card-title"><a href="{{ .RelPermalink }}">  {{ $p.Title }}</a></h5>
-							<div class="card-text"><p class="pt-0 mt-0">{{ $p.Description }}</p>
-								<p class="pt-0 readmore"><a href="{{ .RelPermalink }}" aria-label="{{ T "ui_read_more"}} - {{ .LinkTitle }}">{{ T "ui_read_more"}}</a></p>
-							</div>
+{{ if not .Params.noList }}
+	{{ if not .Params.presentation_list}}
+		{{ if not .Params.landing_page }}
+		<section class="row block-lead td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
+			<div class="container text-center td-arrow-down">
+				<div class="h2">
+					{{ .Title | markdownify }}
+				</div>
+			</div>
+		</section>
+		<section class="row td-box td-box--white td-box--gradient td-box--height-auto pb-0">
+			<div class="col">
+				<div class="row">
+					{{ .Params.Introduction | markdownify }}
+				</div>
+			</div>
+		</section>
+			<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row px-0 justify-content-center">
+				{{ $currentSection := .Page }}
+				<div class="col doc-list-section lower-landing">
+					<div class="doc-list-section-title">
+						<h4> Section Directory</h4>
+					</div>
+					{{ range $currentSection.Pages }}
+						<div>
+							<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+							<p>{{ .Params.Blerb }}</p>
 						</div>
-					</li>
 					{{ end }}
-			
-				</ul>
+				</div>
+				{{ .Content }}
+		{{ end }}
+		</section>
+	{{ end }}
+	{{ if .Params.presentation_list}}
+		{{ .Content }}
+		<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
+			{{- if .Pages -}}
+				{{ if not .Params.noList }}
+					{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" "asc")}}
+						{{ range $pag.PageGroups }}
+							<ul  id="presentation-list"  class="post-list list-unstyled row">
+								{{ range  $p := .Pages}}
+								<li class="col-12 col-lg-6">
+									<div class="post-list-item card">
+										<div class="row px-0 justify-content-between">
+											<p class="h4 presentation-card-title col-8 pe-0">{{ $p.LinkTitle }}</p>
+											<span class="language">{{ if $p.Params.video }}<i class="fa-solid fa-video fa-xs"></i> {{ end }}{{ $p.Params.talkLanguage }}</span>
+										</div>
+										{{ with $p.Params.banner }}
+											<a href="{{ $p.RelPermalink }}">
+												<img class="post-image card-img-top" 
+													src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
+											</a>
+										{{ end }}
+										<h5 class="card-title"><a href="{{ .RelPermalink }}">  {{ $p.Title }}</a></h5>
+										<div class="card-text"><p class="pt-0 mt-0">{{ $p.Description }}</p>
+											<p class="pt-0 readmore"><a href="{{ .RelPermalink }}" aria-label="{{ T "ui_read_more"}} - {{ .LinkTitle }}">{{ T "ui_read_more"}}</a></p>
+										</div>
+									</div>
+								</li>
+								{{ end }}
+							</ul>
+						{{ end }}
+				{{ end }}
+				</section>
+			{{ end }}
+	{{ else }}
+		{{ if .Params.landing_page }}
+			{{ .Content }}
+			<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
+			{{ range .Pages}}
+				{{ $currentSection := .Page }}
+				{{ if $currentSection.IsSection }}
+					<div class="col doc-list-section">
+						<div class="doc-list-section-title">
+							<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}</h3>
+							<p>{{ $currentSection.Params.Blerb | markdownify }}</p>
+						</div>
+							{{ range $currentSection.Pages }}
+								<div>
+									<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<p>{{ .Params.Blerb }}</p>
+									</div>
+							{{ end }}
+					</div>
 				{{ end }}
 			{{ end }}
-		</section>
-		<div class="row ps-2 pt-2">
-			<div class="col">
-				{{ if .Pages }}
-					{{ template "_internal/pagination.html" . }}
-				{{ end }}
-			</div>
-		</div>
-
 		{{ end }}
+		</section>
 	{{ end }}
+	{{ else }}
+		{{ .Content }}	
+	{{ end }}
+{{ end }}

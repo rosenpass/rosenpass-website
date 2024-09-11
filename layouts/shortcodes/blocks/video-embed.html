@@ -13,7 +13,7 @@
 	<div class="container text-center td-arrow-down d-flex">
             <div class="col-3"></div>
 		<div class="h4 mb-0 col-6">
-			Presentation Video
+			{{ .Page.LinkTitle }} Video
 		</div>
 	</div>
 </section>
@@ -31,8 +31,8 @@
                         </div>
                       </div>
                       <div class="row justify-content-center">
-                        <div id="load-video" class="btn btn-primary video-permission-button col-md-3 col-xl-2 col-4">Load Video</div>
                         <div class="btn btn-secondary video-permission-button col-md-3 col-4 col-xl-2" id="cancel-load">Cancel</div>
+                        <div id="load-video" class="btn btn-primary video-permission-button col-md-3 col-xl-2 col-4">Load Video</div>
                       </div>
                     </div>
                   </div>
@@ -44,10 +44,11 @@
             {{ with $.Get "title" }}
             <h5 class="ps-3 pt-1 mb-0">
                 {{ if eq $.Page.File.Ext "md" }}
-                {{ $.Get "title" | markdownify }}
+                {{ $.Get "title" | markdownify }} 
                 {{ else }}
                 {{ $.Get "title" | htmlUnescape | safeHTML }}
-                {{ end }}
+                {{ end }} 
+                <span class="language">{{ $.Page.Params.talkLanguage }}</span>
             </h5>
             {{ end }}
             {{ with $.Get "subtitle" }}
