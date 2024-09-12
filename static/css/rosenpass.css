@@ -171,15 +171,33 @@ a.td-rss-button {
 	}
 }
 
+@media (max-width: 767px) {
+  #main_navbar.collapse:not(.show){
+    display: none !important;
+  }
+  .navbar.td-navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #main_navbar {
+    flex-basis: 100%;
+    display: block !important;
+  }
+  #navbar-custom {
+    flex-direction: column;
+  }
+}
+
 /* Navbar */
 
 @media (min-width: 768px) {
 .td-home .td-navbar { position: absolute} /* fixes scrolling issue on start page */
+.td-navbar button.navbar-toggler { display: none !important; }
 }
 
 .navbar button{ border:none;}
 
-.navbar-toggler {width:35px;	height:35px;	padding: 0.2rem; }
+.td-navbar button.navbar-toggler {width:35px;	height:35px;	padding: 0.2rem; display: block;}
 .navbar-toggler:focus { text-decoration: none; box-shadow: none;} /* Button fixes */
 
 .navbar-toggler .icon-bar {
@@ -192,6 +210,7 @@ a.td-rss-button {
     border-radius:2px;
 }
 .navbar-toggler.collapsed .icon-bar { width:20px; }
+
 
 /* Navbar Burger Animation to X */
 .navbar-toggler .icon-bar:nth-of-type(1) {transform: rotate(45deg); 	transform-origin: 10% 20%; }
