@@ -68,6 +68,7 @@ enableRobotsTXT = true
     target = "assets/vendor/bootstrap/dist"
 
   # Imports defined in the docsy theme's hugo.yaml
+  
   [[module.imports]]
     path = "./github.com/twbs/bootstrap"
     disable = false
