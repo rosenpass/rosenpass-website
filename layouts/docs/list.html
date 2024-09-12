@@ -81,7 +81,9 @@
 				{{ if $currentSection.IsSection }}
 					<div class="col doc-list-section">
 						<div class="doc-list-section-title">
-							<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}</h3>
+							<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}
+								<a class="td-heading-self-link" href='#{{ replace .Title " " ""}}' aria-label="Heading self-link"></a>
+							</h3>
 							<p>{{ $currentSection.Params.Blerb | markdownify }}</p>
 						</div>
 							{{ range $currentSection.Pages }}

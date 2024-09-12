@@ -11,9 +11,9 @@
 <section class="row td-box td-box--{{ $col_id }} position-relative td-box--height-{{ $height }} {{ $class }}">
 <div class="col-12">
 <div class="container text-center td-arrow-down">
-<div class="h4 mb-0">
+<div class="h4 lead mb-0">
 {{/* Do NOT remove this comment! It ends the HTML block above. See https://spec.commonmark.org/0.30/#html-blocks, 7. */}}
-{{ .Inner }}
+{{ .Inner | markdownify }}
 </div>
 </div>
 </div>
