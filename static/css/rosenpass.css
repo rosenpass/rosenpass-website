@@ -63,7 +63,7 @@
 }
 
 .unstyled-link {
-  color: inherit;
+  color: inherit !important;
   text-decoration: none;
   font-weight: inherit;
 }
@@ -126,6 +126,12 @@ li {margin-left:2rem;}
     }
     
 .button-link  a {  color: var(--bs-white)!important; }
+
+a.td-rss-button {
+  background-color: #ee802f !important;
+  border-width: 0 !important;
+  color: var(--bs-white) !important;
+}
 
 .td-rss-button.rss-feed-button{
   position: inherit;
@@ -1733,5 +1739,5 @@ iframe.portrait {
   box-shadow: 0.25rem 0.25rem 0.25rem #00000080;
 }
     
-.download-button a {  color: var(--bs-white); }
+.download-button a {  color: var(--bs-white) !important; }
 
