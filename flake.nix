@@ -69,7 +69,9 @@
               name = "website";
               command = ''
                 ./changelog-check.sh
-                nix build '.?submodules=1#website'
+                git submodule update --init --recursive
+                npm ci
+                hugo $@
               '';
               help = "Build the website with submodules included and export to the result folder.";
             }
