@@ -776,6 +776,7 @@ aside#sidebar-docs #td-sidebar-menu{
   margin-top: 2rem;
   border-radius: 0 1rem 1rem 0;
   height: 100%;
+  min-height: 85vh;
   }
   nav.foldable-nav#td-section-nav {
     position: sticky;
