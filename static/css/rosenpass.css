@@ -289,32 +289,27 @@ div.click-to-copy{
   overflow: auto;
 }
 
-.click-to-copy:has(button.code-copy) button{
-  color: var(--bs-gray-600);
-  width: 2rem;
-  height: 2rem;
+.click-to-copy:has(button.td-click-to-copy) button{
+  color: var(--bs-gray-800);
   border-radius: 1rem;
   background-color: inherit;
-  box-shadow: 0.1rem 0.1rem 0.1rem #00000030;
 }
 
-.click-to-copy:has(button.code-copy) button:hover{
+.click-to-copy:has(button.td-click-to-copy) button:hover{
   transition: all 1s;
-  color: var(--bs-gray-700);
-  width: 2rem;
-  height: 2rem;
+  color: var(--bs-link-color-rgb);
   border-radius: 1rem;
   background-color: inherit;
   box-shadow: 0.1rem 0.1rem 0.1rem #00000050;
 }
 
-.click-to-copy:has(button.code-copy) button:active{
+.click-to-copy:has(button.click-to-copy) button:active{
   border: 2px inset;
 }
 
 /* DOCS */
 
-/* list production outside of preesentations */
+/* list production outside of presentations */
 main.docs-main {
   margin-left: auto;
   margin-right: auto;
