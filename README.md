@@ -59,7 +59,7 @@ In Powershell 7(+) (with npm, node and chocolatey):
 ## Getting started with Nix
 
 ### Initialising
-One nix package manager is installed:
+Once nix package manager is installed:
 - clone the repo (if not already)
 - git submodule init (if not already)
 - git submodule update
@@ -73,23 +73,8 @@ plus a couple of handy commands, the list of which can be shown by invoking `men
 - Serve the website to a localhost, usually 1313
 ```serve```
 
-- Build the website
-```website```
-    - Note that the "build" command on its own does not work. The website command inputs "nix build 'submodules=1#website'" which is necessary to function
-
-- The built files are located in the "result" folder
-
-### Debugging
-If the result folder is not accessible, try:
-
-- Find the path info
-``` nix path-info 'submodules=1#website' ```
-
-- Using the path from the last command's output, manually add the root:
-``` nix-store --realise --add-root [output of last command]```
-
-Even if required, these steps should only need to be used once, and may have just been a quirk of my (Alice) set up.
-
+- Build the website, outputs to /public.
+```build```
 
 ## CI/CD Pipeline
 The website is built and deployed via GitHub Actions workflows. Therefore, any push to the main branch will trigger a rebuild of the website. Instead, please open a pull request for anything other than small content updates. If you are working on something larger than that, you can merge/push to the /beta branch, which will build and deploy to https://beta.rosenpass.eu where you can test your output before trying to merge into the main branch.
