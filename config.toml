@@ -16,7 +16,7 @@ enableRobotsTXT = true
   hugoVersion.min = "0.110.0"
   _merge = "override"
 
-  # Mounts as defined in the docsy theme's hugo.yaml
+  # Override Docsy's YAML
   [[module.mounts]]
     source = "assets"
     target = "assets"
@@ -92,6 +92,8 @@ enableRobotsTXT = true
     [[module.imports.mounts]]
       source = "webfonts"
       target = "static/webfonts"
+
+# Normal Site Configuration
 
 [params]
   time_format_blog = "Monday, January 02, 2006"
