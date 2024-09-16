@@ -777,9 +777,14 @@ aside#sidebar-docs #td-sidebar-menu{
 
 @media (min-width: 768px) {
 
-    #td-sidebar-menu {
-    margin-top: 2rem;
-    border-radius: 0 1rem 1rem 0;
+  #td-sidebar-menu {
+  margin-top: 2rem;
+  border-radius: 0 1rem 1rem 0;
+  height: 100%;
+  }
+  nav.foldable-nav#td-section-nav {
+    position: sticky;
+    top: 1rem;
   }
 
   #sidebar-docs {
