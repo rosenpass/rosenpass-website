@@ -26,11 +26,11 @@ jobs:
     - name: Build Hugo Site
       run: |
         source /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix develop --extra-experimental-features nix-command --command website
+        nix develop --extra-experimental-features nix-command --command build
 
     - name: Set directory permissions for FTP Deploy
       run: |
-        chmod -R 755 result/
+        chmod -R 755 public/
 
     - name: Deploy to FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -38,7 +38,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: result/
+        local-dir: public/
         server-dir: website/
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
