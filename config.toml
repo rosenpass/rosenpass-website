@@ -99,6 +99,7 @@ enableRobotsTXT = true
   time_format_blog = "Monday, January 02, 2006"
   time_format_default = "January 2, 2006"
   rss_sections = ["blog"]
+  offlineSearch = true
 
 [outputFormats]
   [outputFormats.PRINT]
@@ -149,5 +150,5 @@ enableRobotsTXT = true
   sidebar_menu_compact = false
   sidebar_menu_foldable = true
   ul_show = 3
-  sidebar_search_disable = false
+  sidebar_search_disable = true
   showLightDarkModeMenu = false

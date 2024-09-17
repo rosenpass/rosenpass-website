@@ -876,6 +876,58 @@ margin-left: 1rem;
   font-size: larger;
 }
 
+/* Search Bar */
+.navbar-nav:has(.td-search){
+  align-self: stretch;
+  align-content: center;
+  padding-bottom: 0 !important;
+}
+
+.navbar-nav:has(input.td-search__input:not(:hover, :focus)) {
+  transition: all 0.5s 1s;
+  max-height: 200px;
+
+
+  div.td-search input.td-search__input:not(:hover) {
+    width: 36px;
+  }
+
+  div.td-search div.td-search__icon {
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    display: block !important;
+  }
+  
+}
+
+.container-fluid:has(input.td-search__input:focus),
+.container-fluid:has(input.td-search__input:hover),
+body:has(.td-offline-search-results) {
+  .td-search__input {
+    transition: all 0.5s ease-in-out 0.2s;
+    width: 207px !important;
+    margin-left: 0.2rem;
+    margin-right: 0.1rem;
+  }
+  #main_navbar {
+  width: min-content !important;
+  }
+  #navbar-custom {
+    overflow: hidden !important;
+  }
+
+}
+.navbar-nav {
+  @media(min-width:768px){
+    max-height: 99px !important;
+    }
+  @media(min-width:947px){
+    max-height: 48px !important;
+    }
+  @media(min-width:1000px){
+    max-height: 40px !important;
+    }
+  }
+  
 /* MAIN COVER */
 
 .new-update-bar {
