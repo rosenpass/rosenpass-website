@@ -56,7 +56,8 @@ window.markmap = {
        {{ printf "onload='renderMathInElement(%s, %s);'" (( $.Page.Site.Params.katex.html_dom_element | default "document.body" ) | safeJS ) ( printf "%s" ( $.Page.Site.Params.katex.options | jsonify )) | safeHTMLAttr }}>
 </script>
 {{ end -}}
-
+{{ $jsQuery := resources.Get "js/jquery-3-7-1-min.js"}}
+<script src="{{ $jsQuery.RelPermalink }}"></script>
 {{ $jsBs := resources.Get "vendor/bootstrap/dist/js/bootstrap.bundle.js" -}}
 {{ $jsBase := resources.Get "js/base.js" -}}
 {{ $jsSearch := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" .Site.Home -}}
@@ -96,10 +97,6 @@ window.markmap = {
     integrity="{{ . }}" {{ end -}}
     crossorigin="anonymous"></script>
 {{ end -}}
-
-{{ $jsQuery := resources.Get "js/jquery-3-5-1-slim-min.js"}}
-
-<script src="{{ $jsQuery.RelPermalink }}"></script>
 
 {{ if and .Site.Params.search (isset .Site.Params.search "algolia") -}}
   {{ template "algolia/scripts" .Site.Params.search.algolia -}}
