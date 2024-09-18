@@ -3473,7 +3473,12 @@
       return lunr
     }))
   })();
-  
+
+//
+//
+//
+// DOCSY OFFLINE SEARCH
+
 // Adapted from code by Matt Walters https://www.mattwalters.net/posts/2018-03-28-hugo-and-lunr/
 
 (function ($) {
@@ -3481,7 +3486,6 @@
 
   $(document).ready(function () {
     const $searchInput = $('.td-search input');
-
     //
     // Register handler
     //
@@ -3509,23 +3513,24 @@
     $.ajax($searchInput.data('offline-search-index-json-src')).then((data) => {
       idx = lunr(function () {
         this.ref('ref');
-
         // If you added more searchable fields to the search index, list them here.
         // Here you can specify searchable fields to the search index - e.g. individual toxonomies for you project
         // With "boost" you can add weighting for specific (default weighting without boost: 1)
+        this.field('author', { boost: 10 });
         this.field('title', { boost: 5 });
         this.field('categories', { boost: 3 });
         this.field('tags', { boost: 3 });
         // this.field('projects', { boost: 3 }); // example for an individual toxonomy called projects
         this.field('description', { boost: 2 });
         this.field('body');
-
         data.forEach((doc) => {
           this.add(doc);
 
           resultDetails.set(doc.ref, {
             title: doc.title,
             excerpt: doc.excerpt,
+            body: doc.body,
+            description: doc.description
           });
         });
       });
@@ -3557,7 +3562,6 @@
       if (searchQuery === '') {
         return;
       }
-
       const results = idx
         .query((q) => {
           const tokens = lunr.tokenizer(searchQuery.toLowerCase());
@@ -3634,8 +3638,23 @@
               .text(doc.title)
           );
 
-          $entry.append($('<p>').text(doc.excerpt));
-
+          // Customised search result highlighting and display
+          if (doc.description){
+          $entry.append($('<h5 class="text-muted">').text(doc.description));
+          } else {
+            $entry.append($('<h5 class="text-muted">').text(doc.excerpt));
+          }
+          const bodyText = doc.body.toLowerCase();
+          const searchText = searchQuery.toLowerCase();
+          if(bodyText.indexOf(searchText) > -1) {
+            let searchHighlight = bodyText.slice(bodyText.indexOf(searchText) - 50, bodyText.indexOf(searchText) + 50).replace(/\n/g, '<br>');
+            const searchTerm = `<span class="search-term">${searchText}</span>`;
+            const deleteIndex = searchHighlight.indexOf(searchText);
+            searchHighlight = searchHighlight.split("");
+            searchHighlight.splice(deleteIndex, searchText.length, searchTerm);
+            searchHighlight = searchHighlight.join("");
+            $entry.append($('<p class="search-highlight text-muted">').html(`${searchHighlight}...`));
+            } 
           $searchResultBody.append($entry);
         });
       }

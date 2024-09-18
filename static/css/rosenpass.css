@@ -941,6 +941,26 @@ body:has(.td-offline-search-results) {
     }
   }
   
+  .search-highlight {
+  font-size: small;
+  /* background-color: var(--bs-gray-200); */
+  width: fit-content;
+  /* padding-right: 2rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; */
+  max-width: 80%;
+  text-wrap: auto;
+  margin-top: -0.5rem;
+  }
+
+  .search-term {
+    /* background-color: var(--bs); */
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline dotted;
+  }
+
 /* MAIN COVER */
 
 .new-update-bar {
