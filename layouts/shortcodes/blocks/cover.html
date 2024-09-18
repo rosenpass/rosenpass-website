@@ -3,6 +3,7 @@
 {{ $promo_image := (.Page.Resources.ByType "image").GetMatch "**background*" }}
 {{ $logo_image := (.Page.Resources.ByType "image").GetMatch "**logo*" }}
 {{ $col_id := .Get "color" | default "dark" }}
+{{ $class := .Get "class" | default "" }}
 {{ $image_anchor := .Get "image_anchor" | default "smart" }}
 {{ $logo_anchor := .Get "logo_anchor" | default "smart" }}
 {{/* Height can be one of: auto, min, med, max, full. */}}
@@ -24,7 +25,7 @@
 }
 </style>
 {{ end }}
-<section id="{{ $blockID }}" class="row td-cover-block td-cover-block--height-{{ $height }}{{ if not .Site.Params.ui.navbar_translucent_over_cover_disable }} js-td-cover{{ end }} /*td-overlay td-overlay--dark*/ -bg-{{ $col_id }}">
+<section id="{{ $blockID }}" class="row td-cover-block td-cover-block--height-{{ $height }}{{ if not .Site.Params.ui.navbar_translucent_over_cover_disable }} js-td-cover{{ end }} /*td-overlay td-overlay--dark*/ -bg-{{ $col_id }} {{ $class }}">
   {{ if .Page.Params.newUpdate }}
   {{ partial "frontpage-update.html"}}
   {{ end }}
