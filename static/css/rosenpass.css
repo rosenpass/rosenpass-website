@@ -1007,6 +1007,12 @@ font-weight: inherit;
   margin: 0 15%;
 }
 
+@media (min-width: 768px) and (max-width: 950px) {
+  .td-cover-block {
+    padding-top: 6rem !important;
+  }
+}
+
 @media (min-width: 992px) {
   .td-cover-block .td-cover-logo {
     margin: 0 35%;
