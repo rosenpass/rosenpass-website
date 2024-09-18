@@ -961,6 +961,20 @@ body:has(.td-offline-search-results) {
     text-decoration: underline dotted;
   }
 
+  .td-offline-search-results__close-button {
+    height: fit-content;
+    box-shadow: none;
+  }
+  .td-offline-search-results__close-button:hover,
+  .td-offline-search-results__close-button:focus {
+    color: var(--bs-primary);
+    border: none;
+  }
+
+  .td-offline-search-results__close-button:after {
+    font-size: x-large;
+  }
+
 /* MAIN COVER */
 
 .new-update-bar {
