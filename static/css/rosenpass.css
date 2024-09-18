@@ -881,12 +881,10 @@ margin-left: 1rem;
   align-self: stretch;
   align-content: center;
   padding-bottom: 0 !important;
+  overflow: clip;
 }
 
 .navbar-nav:has(input.td-search__input:not(:hover, :focus)) {
-  transition: all 0.5s 1s;
-  max-height: 200px;
-
 
   div.td-search input.td-search__input:not(:hover) {
     width: 36px;
@@ -918,10 +916,10 @@ body:has(.td-offline-search-results) {
 }
 .navbar-nav {
   @media(min-width:768px){
-    max-height: 99px !important;
+    max-height: 110px !important;
     }
   @media(min-width:947px){
-    max-height: 48px !important;
+    max-height: 60px !important;
     }
   @media(min-width:1000px){
     max-height: 40px !important;
