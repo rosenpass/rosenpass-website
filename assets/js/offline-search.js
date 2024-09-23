@@ -3642,18 +3642,19 @@
           $entry.append($('<h5 class="text-muted">').text(doc.description));
           } else {
             $entry.append($('<h5 class="text-muted">').text(doc.excerpt));
-          }
+          };
           const bodyText = doc.body.toLowerCase();
           const searchText = searchQuery.toLowerCase();
           if(bodyText.indexOf(searchText) > -1) {
-            let searchHighlight = bodyText.slice(bodyText.indexOf(searchText) - 50, bodyText.indexOf(searchText) + 50).replace(/\n/g, '<br>');
-            const searchTerm = `<span class="search-term">${searchText}</span>`;
-            const deleteIndex = searchHighlight.indexOf(searchText);
+            let searchHighlight = doc.body.slice(bodyText.indexOf(searchText) - 50, bodyText.indexOf(searchText) + 50).replace(/\n/g, '<br>');
+            let searchTerm = doc.body.slice(bodyText.indexOf(searchText), bodyText.indexOf(searchText) + searchText.length);
+            const searchBold = `<span class="search-term">${searchTerm}</span>`;
+            const deleteIndex = searchHighlight.toLowerCase().indexOf(searchText);
             searchHighlight = searchHighlight.split("");
-            searchHighlight.splice(deleteIndex, searchText.length, searchTerm);
+            searchHighlight.splice(deleteIndex, searchText.length, searchBold);
             searchHighlight = searchHighlight.join("");
             $entry.append($('<p class="search-highlight text-muted">').html(`${searchHighlight}...`));
-            } 
+            }; 
           $searchResultBody.append($entry);
         });
       }
