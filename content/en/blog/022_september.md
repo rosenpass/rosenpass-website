@@ -5,6 +5,7 @@ description: "A new version of Rosenpass to address a bug in the cookie mechanis
 author: "Alice Bowman"
 date: 2024-09-19
 blogpost: "true"
+draft: "true"
 ---
 
 Recently, we released version 0.2.2 of the Rosenpass tool. This release addresses a bug in the handling of message retransmissions in Rosenpass's cookie mechanism when under load. This posed only a low security risk: No information could be leaked, but the bug could interfere with the expected key exchange flow as the Pre-Shared Key (PSK) can be updated unnecessarily.
