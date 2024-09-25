@@ -1,7 +1,7 @@
 {{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdfFilename }}
 
 {{ $_hugo_config := `{ "version": 1 }` }}
-{{ $col_id := .Get "color" | default "1" }}
+{{ $col_id := .Get "color" | default "primary" }}
 {{ $height := .Get "height" | default "auto"  }}
 {{ $orientation := .Get "orientation" | default "landscape" }}
 {{/* Height can be one of: auto, min, med, max, full. */}}

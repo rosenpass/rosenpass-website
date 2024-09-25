@@ -1,5 +1,5 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
-{{ $col_id := .Get "color" | default "1" }}
+{{ $col_id := .Get "color" | default "primary" }}
 {{ $height := .Get "height" | default "auto"  }}
 {{/* Height can be one of: auto, min, med, max, full. */}}
 {{ $href := .Get "href" | default "" }}
