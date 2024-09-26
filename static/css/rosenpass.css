@@ -216,7 +216,16 @@ a.td-rss-button {
 
 .navbar button{ border:none;}
 
-.td-navbar button.navbar-toggler {width:35px;	height:35px;	padding: 0.2rem; display: block;}
+.td-navbar button.navbar-toggler {
+  width:35px;	
+  height:35px;	
+  padding: 0.2rem; 
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1.1rem;
+}
+
 .navbar-toggler:focus { text-decoration: none; box-shadow: none;} /* Button fixes */
 
 .navbar-toggler .icon-bar {
@@ -749,12 +758,14 @@ aside.td-sidebar {
 }
 
 aside#sidebar-blog #td-sidebar-menu{
-  background-color: var(--bs-primary);
+  background-color: #514447;
+  /* background-color: #ffb6cd; */
   margin-top: 0;
 }
 
 aside#sidebar-docs #td-sidebar-menu{
-  background-color: var(--bs-secondary);
+  background-color: #514a43;
+  /* background-color:  #ffdcb1 ; */
   margin-top: 0;
 }
 
@@ -892,6 +903,14 @@ margin-left: 1rem;
   position: relative;
 }
 
+@media(max-width: 768px){
+  .options-box {
+    position: absolute;
+    right: 4.4rem;
+    top: 0rem;
+  }
+}
+
 .td-light-dark-menu ul.dropdown-menu {
   position: absolute;
   top: min(100%, 60px);
@@ -966,17 +985,17 @@ body:has(.td-offline-search-results) {
 }
 
 /* Handles expansion of navbar. Not sure if best end result */
-/* .navbar-nav {
+.navbar-nav {
   @media(min-width:768px){
     max-height: 120px !important;
     }
-  @media(min-width:1090px){
-    max-height: 55px !important;
-    }
-  @media(min-width:1170px){
+  @media(min-width:1060px){
     max-height: 50px !important;
     }
-  } */
+  /* @media(min-width:1170px){
+    max-height: 50px !important;
+    } */
+  }
   
   .search-highlight {
   font-size: small;
@@ -1553,6 +1572,11 @@ background-color: #000000;
 background-color: var(--bs-light);
 margin: 0.1rem;
 }
+[data-bs-theme="dark"]{
+  .contact .col {
+    background-color: var(--bs-secondary-bg);
+  }
+}
 
 
 .contact-icon {
@@ -1611,6 +1635,12 @@ a:has(.github-svg){
 #main-contributors .member:nth-child(even) {
   background-color: var(--bs-light);
 }
+[data-bs-theme="dark"]{
+  #main-contributors .member:nth-child(even) {
+    background-color: var(--bs-gray-800);
+  }
+}
+
 
 #main-contributors .contribution {
   text-align: center;
@@ -1667,8 +1697,13 @@ a:has(.github-svg){
   #main-contributors .member:nth-child(4n-1){
     background-color: var(--bs-light) !important;
   }
+  [data-bs-theme="dark"]{
+    #main-contributors .member:nth-child(4n-2),
+    #main-contributors .member:nth-child(4n-1) {
+      background-color: var(--bs-gray-800) !important;
+    }
+  }
 }
-
 @media(min-width: 1200px){
   #main-contributors .member:last-child:nth-child(odd):not(:nth-child(3n)){
     background-color: var(--bs-light) !important;
@@ -1685,6 +1720,11 @@ a:has(.github-svg){
   }
   #main-contributors .infoblock {
     width: 100%;
+  }
+  [data-bs-theme="dark"]{
+    #main-contributors .member:last-child:nth-child(odd):not(:nth-child(3n)) {
+      background-color: var(--bs-gray-800) !important;
+    }
   }
 }
 
@@ -1833,6 +1873,12 @@ align-self: center;
   border-radius: 1rem;
   padding: 2rem; 
 }
+[data-bs-theme="dark"]{
+  .post-list .post-list-item {
+    background-color: var(--bs-gray-800);
+  }
+}
+
 
 #blog-list .post-list-item { padding-bottom: 4rem; }
 
