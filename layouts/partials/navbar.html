@@ -31,17 +31,55 @@
 			{{ $post := .Post -}}
 			{{ $url := urls.Parse .URL -}}
 			{{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-			<a {{/**/ -}}
-			  class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
-			  href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
-			  {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
-			>
-				{{- with .Pre }}{{ $pre }}{{ end -}}
-				<span {{- if $active }} class="active" {{- end }}>
-				  {{- .Name -}}
-				</span>
+
+				<div class="dropdown{{- if $active }} active{{- end }} d-flex">
+						<a {{/**/ -}}
+						class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+						href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+						{{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
+					  ><span {{- if $active }} class="active" {{- end }}>{{- .Name -}}
+					   </span>
+					</a>
+
+					{{ $menuTitle := .Title }}
+					{{ range $p.Site.Pages }}
+						{{ if eq .Title $menuTitle}}
+					 		{{ if .Pages }}
+					<button class="dropdown-toggle navbar-dropdown-button" href="#" role="button" id="dropdownNavbarLink" data-bs-toggle="dropdown" aria-expanded="false"></button>
+					</button>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+				  
+
+						{{ range $p.Site.Pages }}
+							{{ if eq .Title $menuTitle }}
+								{{ if .Pages }}
+								<ul class="dropdown-menu nest-ul" aria-labelledby="dropdownNavbarLink">
+									{{ range .Pages }}
+										{{ if .IsSection }}
+										<li><a class="dropdown-item" href="{{ .RelPermalink }}"><h5>{{ .Title }}</h5></a>
+
+											<ul class="nest-ul nested-ul">
+												{{ range .Pages }}
+													<li><a class="dropdown-item nested" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
+													<p>test test test</p></li>
+												{{ end }}
+											</ul>
+										</li>
+										{{ else }}
+										<li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
+											<p>test test test</p>
+											</li>
+										{{ end }}
+									{{ end }}
+								</ul>
+								{{ end }}
+						    {{ end }} 
+						{{ end }}
+
+				</div>
 				{{- with .Post }}{{ $post }}{{ end -}}
-			</a>
 		  </li>
 		  {{ end -}}
 		  {{ if .Site.Params.versions -}}
