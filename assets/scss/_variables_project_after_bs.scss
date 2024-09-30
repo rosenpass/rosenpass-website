@@ -215,6 +215,10 @@
     --#{$prefix}black-flip:    #{$white};
     --#{$prefix}white-flip:    #{$black};
     // Navbar
+    .dropdown-item.active {
+      --#{$prefix}dropdown-link-active-bg: #{$component-active-bg-dark};
+      --#{$prefix}dropdown-link-active-color: #{$component-active-color-dark};
+    }
     .td-navbar,
     .td-sidebar-nav {
     --#{$prefix}navbar-color: #{$navbar-dark-color};
