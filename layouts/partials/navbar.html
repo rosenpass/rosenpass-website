@@ -71,7 +71,7 @@
 												<ul class="nest-ul nested-ul">
 													{{ range .Pages }}
 														<li><a class="dropdown-item nested" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
-														<p>test test test</p></li>
+														<p>{{ .Params.shortBlerb }}</p></li>
 													{{ end }}
 												</ul>
 											</div>
