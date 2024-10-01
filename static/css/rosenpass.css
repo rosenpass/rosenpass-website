@@ -311,7 +311,7 @@ a.td-rss-button {
 }
 
 li.dropdown-section {
-  box-shadow: 0.1rem 0.1rem 0.1rem var(--bs-gray-200-flip);
+  box-shadow: 0.1rem 0.1rem 0.1rem var(--bs-gray-300-flip);
   margin-bottom: 1rem;
 }
 
@@ -1148,6 +1148,10 @@ footer.footer {
 }
 
 /* MAIN COVER */
+
+.td-cover-block{
+  color: var(--bs-body-color);
+}
 
 .new-update-bar {
   margin-top: -3rem;

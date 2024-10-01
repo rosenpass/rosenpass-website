@@ -52,7 +52,7 @@
       display: none;
     }
     .svg-light {
-      display: block;
+      display: inline-block;
     }
   // Fonts
 
@@ -228,19 +228,9 @@
     --#{$prefix}navbar-brand-color: #{$navbar-dark-brand-color};
     --#{$prefix}navbar-brand-hover-color: #{$navbar-dark-brand-hover-color};
     }
-      // Clear on clouds maybe remove if cover image updated
-      @media(min-width: 768px){
-      .td-navbar.td-navbar-cover {
-        --#{$prefix}navbar-color: #{$navbar-light-color};
-        --#{$prefix}navbar-hover-color: #{$navbar-light-hover-color};
-        --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
-        --#{$prefix}navbar-active-color: #{$navbar-light-active-color};
-        --#{$prefix}navbar-brand-color: #{$navbar-light-brand-color};
-        }
-      }
     // icons
     .svg-invert {
-      display: block;
+      display: inline-block;
     }
     .svg-light {
       display: none;

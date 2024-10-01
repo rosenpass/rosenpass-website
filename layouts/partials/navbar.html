@@ -7,13 +7,20 @@
    <div class="container-fluid">
 		<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
 		{{- /**/ -}}
-		<span class="navbar-brand__logo navbar-logo">
+		<span class="navbar-brand__logo navbar-logo svg-invert">
 		  {{- if ne .Site.Params.ui.navbar_logo false -}}
-			{{ with resources.Get "icons/logo.svg" -}}
+			{{ with resources.Get "icons/logo-dark.svg" -}}
 			  {{ ( . | minify).Content | safeHTML -}}
 			{{ end -}}
 		  {{ end -}}
 		</span>
+		<span class="navbar-brand__logo navbar-logo svg-light">
+			{{- if ne .Site.Params.ui.navbar_logo false -}}
+			  {{ with resources.Get "icons/logo.svg" -}}
+				{{ ( . | minify).Content | safeHTML -}}
+			  {{ end -}}
+			{{ end -}}
+		  </span>
 		{{- /**/ -}}
 		<span class="navbar-brand__name">
 		  {{- .Site.Title -}}
