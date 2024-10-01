@@ -58,14 +58,16 @@
 								<ul class="dropdown-menu nest-ul" aria-labelledby="dropdownNavbarLink">
 									{{ range .Pages }}
 										{{ if .IsSection }}
-										<li><a class="dropdown-item" href="{{ .RelPermalink }}"><h5>{{ .Title }}</h5></a>
+										<li class="dropdown-section"><a class="dropdown-item text-muted" href="{{ .RelPermalink }}">{{ .Title }}</a>
 
-											<ul class="nest-ul nested-ul">
-												{{ range .Pages }}
-													<li><a class="dropdown-item nested" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
-													<p>test test test</p></li>
-												{{ end }}
-											</ul>
+											<div class="row">
+												<ul class="nest-ul nested-ul">
+													{{ range .Pages }}
+														<li><a class="dropdown-item nested" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
+														<p>test test test</p></li>
+													{{ end }}
+												</ul>
+											</div>
 										</li>
 										{{ else }}
 										<li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
