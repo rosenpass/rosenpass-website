@@ -253,6 +253,9 @@ a.td-rss-button {
   border-width: 1px;
   border-top-width: 0;
   border-radius: 0;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+
   
   li {
     margin-left: 0;
@@ -261,6 +264,8 @@ a.td-rss-button {
   a {
     color: var(--bs-link-color);
     font-weight: bold;
+    text-wrap: auto;
+    min-width: 200px;
   }
 
   p {
