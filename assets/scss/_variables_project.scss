@@ -38,14 +38,23 @@ $code-color: darken($primary, 20%) !default;
 
 // Dark Mode
     // Theme colours
-$primary-dark:                      #ff95b8;
-$secondary-dark:                    #ffcd90;
-$success-dark:                      #a4aeff;
-$info-dark:                         #dceeed;
-$warning-dark:                      #fcaea0;
-$danger-dark:                       #fcaea0;
-$light-dark:                        #e7f8f6;
-$dark-dark:                         #8f8f97;
+// $primary-dark:                      #ff95b8;
+// $secondary-dark:                    #ffcd90;
+// $success-dark:                      #a4aeff;
+// $info-dark:                         #dceeed;
+// $warning-dark:                      #fcaea0;
+// $danger-dark:                       #fcaea0;
+// $light-dark:                        #e7f8f6;
+// $dark-dark:                         #8f8f97;
+
+$primary-dark:                      $primary;
+$secondary-dark:                    $secondary;
+$success-dark:                      $success;
+$info-dark:                         $info;
+$warning-dark:                      $warning;
+$danger-dark:                       $danger;
+$light-dark:                        $light;
+$dark-dark:                         $dark;
     // Text Emphasis
 $primary-text-emphasis-dark:        tint-color($primary-dark, 40%) !default;
 $secondary-text-emphasis-dark:      tint-color($secondary-dark, 40%) !default;
