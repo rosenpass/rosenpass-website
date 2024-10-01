@@ -2,18 +2,25 @@
 title: "Rosenpass v0.2.2 Release"
 linkTitle: "Rosenpass v0.2.2"
 description: "A new version of Rosenpass to address a bug in the cookie mechanism"
-author: "Alice Bowman"
-date: 2024-09-19
+author: "Benjamin Lipp & Alice Bowman"
+date: 2024-10-01
 blogpost: "true"
-draft: "true"
 ---
 
-Recently, we released version 0.2.2 of the Rosenpass tool. This release addresses a bug in the handling of message retransmissions in Rosenpass's cookie mechanism when under load. This posed only a low security risk: No information could be leaked, but the bug could interfere with the expected key exchange flow as the Pre-Shared Key (PSK) can be updated unnecessarily.
+Recently, we released version 0.2.2 of the Rosenpass tool. This release addresses a bug in the handling of message retransmissions. The bug could be triggered when Rosenpass peers are under load and discard messages.
 
-We use biscuits to store session state on a packet. In the protocol, a `InitConf` message includes these biscuits to validate whether a response is fresh or simply a retransmission. Prior to the fix, this message state was not properly communicated to the caller, who would thus believe that a new PSK event was triggered every time a `InitConf` message was received.
+**For the standard use case** of Rosenpass with WireGuard, and thus, for the majority of users, **this has no security impact**. 
 
-We addressed this issue thanks to the work of Preet, who introduced a check that would only set "exchanged" to true if the biscuit was valid and if the PSK generation was performed. This communicates to the Caller whether or not they should trigger a new session. We considered treating all new transmissions as new sessions, though this could lead to nonce misuse whereby the same number is used twice. Although this approach would not represent an actual security issue due Rosenpass' defensive design, and would only apply to non-WireGuard use cases, we discarded this approach in favour of introducing a check on the PSK generation.
+For specialised applications using the Output Shared Key (OSK) interface of Rosenpass, the bug could potentially have led to a nonce reuse, depending on how the higher-level protocol uses this shared key. We are currently not aware of applications using the OSK interface.
 
-The Rosenpass 0.2.2 update improves the protocol's handling of retransmissions by ensuring that the session state only changes when genuinely necessary. We are pleased to have discovered and addressed this flaw, and continually work to improve our security.
+**Which protocol messages were affected?** Specifically, the responder's handling of a retransmitted InitConf message was flawed. On reception of such a message, the responder would treat it as if a new session had to be started, not noticing that this message had already been processed, and that a session had already been started based on it. This would lead to the same PSK, or OSK, being installed again. An external application could then potentially use that same shared key again with, potentially, depending on the protocol design, the same nonce. This could, depending on the encryption algorithm being used, lead to a leak of the data transmitted by this higher-level protocol. Again, we are not aware of anyone currently building higher-level protocols based on Rosenpass' OSK interface. If you do so, please feel free to contact us, we would love to get in touch!
+
+**When would an InitConf message be retransmitted?** Rosenpass implements a mechanism that allows peers to discard messages that they receive while they are under load. A receiving peer signals this to the sending peer by responding with a cookie message instead of the usual protocol message that the sending peer would expect as a response. This mechanism is called *cookie mechanism*. We took it over from WireGuard.
+
+For this bug to trigger, the initiator has to be under load when receiving the last protocol message from the responder, the `EmptyData` message. At this point, the responder has processed the `InitConf` message and has set its pre-shared key (PSK). Because it is under load, the initiator discards the `EmptyData` message. After some time, it retransmits the `InitConf` message because it has not yet received the `EmptyData` message. In versions of Rosenpass before 0.2.2, the responder would then process the `InitConf` message again, and set its PSK again, and export an OSK again.
+
+**How was this issue addressed?** This bug was found and addressed by Preet. As of Rosenpass version 0.2.2, an `InitConf` message is only treated as starting a new session if it has not been seen before. This check is done via the biscuit number that was already part of the data transmitted in the `InitConf` message.
+
+**Summary** The Rosenpass 0.2.2 update improves the protocol’s handling of retransmissions by ensuring that the session state only changes when genuinely necessary. We are pleased to have discovered and addressed this flaw, and continually work to improve our security.
 
 {{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" class="highlight" >}}
