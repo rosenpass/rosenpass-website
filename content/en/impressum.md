@@ -7,7 +7,7 @@ weight: 70
 type: community
 ---
 
-{{< blocks/lead  >}}
+{{< blocks/lead color="dark" >}}
 ## Impressum / Terms and Conditions
 {{< /blocks/lead >}}
 

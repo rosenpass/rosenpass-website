@@ -127,6 +127,7 @@ enableRobotsTXT = true
     style = "tango"
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     # guessSyntax = "true"
+    noClasses = "false"
 
 [menu]
   [[menu.main]]
@@ -151,4 +152,4 @@ enableRobotsTXT = true
   sidebar_menu_foldable = true
   ul_show = 3
   sidebar_search_disable = true
-  showLightDarkModeMenu = false
+  showLightDarkModeMenu = true

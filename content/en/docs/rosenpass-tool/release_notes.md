@@ -5,16 +5,17 @@ weight: 2
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
+shortBlerb: "A summary of code changes on the tool"
 blerb: "A summary of the major changes and fixes across full Rosenpass tool releases."
 ---
 
 
-## 0.2.2
+## v0.2.2
 - Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.
 - This release has no impact for majority of users using Rosenpass with WireGuard
 
 
-## 0.2.1
+## v0.2.1
 
 - Improved code quality by applying clippy lints
 - Removed unnecessary unsafe keyword instances
@@ -26,7 +27,7 @@ blerb: "A summary of the major changes and fixes across full Rosenpass tool rele
 - Added a couple more unit tests
 
 
-## 0.2.0
+## v0.2.0
 
 - Refined CI for pre-release vs draft vs release artifacts
 - Added licensing information: MIT and Apache 2.0
@@ -61,7 +62,7 @@ blerb: "A summary of the major changes and fixes across full Rosenpass tool rele
 - Updated rust/Cargo.lock dependencies
 - Added freebsd support to rp script, prepared for other BSDs
 
-## 0.1.1
+## v0.1.1
 
 - Initial publication of the rosenpass tool, including associated whitepaper and artwork.
 - Proof-read the whitepaper

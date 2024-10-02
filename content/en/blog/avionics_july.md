@@ -5,6 +5,7 @@ description: "An intense in-person session to work on and improve the academic p
 author: "Alice Bowman"
 date: 2023-08-07
 blogpost: "true"
+shortBlerb: "Integrating Post-Quantum Security into Avionics"
 ---
 
 Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols. 
