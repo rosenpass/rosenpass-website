@@ -52,7 +52,7 @@
 					{{ range $p.Site.Pages }}
 						{{ if eq .Title $menuTitle}}
 					 		{{ if .Pages }}
-					<button class="dropdown-toggle navbar-dropdown-button" href="#" role="button" id="dropdownNavbarLink" data-bs-toggle="dropdown" aria-expanded="false"></button>
+					<button class="dropdown-toggle navbar-dropdown-button d-none d-md-block" href="#" role="button" id="dropdownNavbarLink" data-bs-toggle="dropdown" aria-expanded="false"></button>
 					</button>
 							{{ end }}
 						{{ end }}
@@ -65,19 +65,19 @@
 								<ul class="dropdown-menu nest-ul" aria-labelledby="dropdownNavbarLink">
 									{{ range .Pages }}
 										{{ if .IsSection }}
-										<li class="dropdown-section"><a class="dropdown-item text-muted" href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<li class="dropdown-section"><a class="dropdown-item text-muted {{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
 
 											<div class="row">
 												<ul class="nest-ul nested-ul">
 													{{ range .Pages }}
-														<li><a class="dropdown-item nested" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
+														<li><a class="dropdown-item nested{{ if eq $p.Path .Path }} active {{ end }}" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
 														<p>{{ .Params.shortBlerb }}</p></li>
 													{{ end }}
 												</ul>
 											</div>
 										</li>
 										{{ else }}
-										<li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<li><a class="dropdown-item{{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
 											<p>{{ .Params.shortBlerb }}</p>
 											</li>
 										{{ end }}
