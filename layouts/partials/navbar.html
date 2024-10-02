@@ -65,7 +65,7 @@
 								<ul class="dropdown-menu nest-ul" aria-labelledby="dropdownNavbarLink">
 									{{ range .Pages }}
 										{{ if .IsSection }}
-										<li class="dropdown-section"><a class="dropdown-item text-muted {{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<li class="dropdown-section"><a class="dropdown-item dropdown-section-header {{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
 
 											<div class="row">
 												<ul class="nest-ul nested-ul">
@@ -77,7 +77,7 @@
 											</div>
 										</li>
 										{{ else }}
-										<li><a class="dropdown-item{{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<li class="unnested"><a class="dropdown-item{{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
 											<p>{{ .Params.shortBlerb }}</p>
 											</li>
 										{{ end }}
