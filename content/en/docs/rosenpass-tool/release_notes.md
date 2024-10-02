@@ -5,6 +5,7 @@ weight: 2
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
+shortBlerb: "A summary of code changes on the tool"
 blerb: "A summary of the major changes and fixes across full Rosenpass tool releases."
 ---
 

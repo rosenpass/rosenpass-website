@@ -6,6 +6,7 @@ author: "Benjamin Lipp"
 date: 2024-07-29
 editor: "Alice Bowman"
 blogpost: "true"
+shortBlerb: "Using Rosenpass with OpenSSL over TLS"
 ---
 
 ## Introduction

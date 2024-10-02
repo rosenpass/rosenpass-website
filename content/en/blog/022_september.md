@@ -5,6 +5,7 @@ description: "A new version of Rosenpass to address a bug in the cookie mechanis
 author: "Benjamin Lipp & Alice Bowman"
 date: 2024-10-01
 blogpost: "true"
+shortBlerb: "Upgrading the cookie mechanism"
 ---
 
 Recently, we released version 0.2.2 of the Rosenpass tool. This release addresses a bug in the handling of message retransmissions. The bug could be triggered when Rosenpass peers are under load and discard messages.
@@ -24,3 +25,5 @@ For this bug to trigger, the initiator has to be under load when receiving the l
 **Summary** The Rosenpass 0.2.2 update improves the protocol’s handling of retransmissions by ensuring that the session state only changes when genuinely necessary. We are pleased to have discovered and addressed this flaw, and continually work to improve our security.
 
 {{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" class="highlight" >}}
+
+If you need additional colors, the dark version of light blue is #525E5C and the darker blueish gray is #212126

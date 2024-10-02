@@ -78,7 +78,7 @@
 										</li>
 										{{ else }}
 										<li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
-											<p>test test test</p>
+											<p>{{ .Params.shortBlerb }}</p>
 											</li>
 										{{ end }}
 									{{ end }}
