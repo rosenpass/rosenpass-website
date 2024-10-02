@@ -43,7 +43,7 @@ in other use cases. We were able to demonstrate its potential for integration wi
 
       </div>
       <div class="col col-6 lower-landing">
-        <h4>0.2.2 Release Notes</h4>
+        <h4>v0.2.2 Release Notes</h4>
         <ul class="pe-3 mb-0">
           <li> Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.</li>
           <li> This release has no impact for majority of users using Rosenpass with WireGuard</li>
@@ -86,3 +86,110 @@ Photographic material is published under this separate Creative Commons License:
 </p>
 </div>
 {{< /blocks/section >}}
+
+
+
+
+
+
+
+{{ $cover := and
+  (.HasShortcode "blocks/cover")
+  (not .Site.Params.ui.navbar_translucent_over_cover_disable)
+-}}
+<nav class="navbar navbar-expand-md navbar-light
+          {{- if $cover }} td-navbar-cover {{- end }} flex-column flex-md-row td-navbar"  role="navigation">
+ <div class="container-fluid">
+  <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+  {{- /**/ -}}
+  <span class="navbar-brand__logo navbar-logo">
+    {{- if ne .Site.Params.ui.navbar_logo false -}}
+    {{ with resources.Get "icons/logo.svg" -}}
+      {{ ( . | minify).Content | safeHTML -}}
+    {{ end -}}
+    {{ end -}}
+  </span>
+  {{- /**/ -}}
+  <span class="navbar-brand__name">
+    {{- .Site.Title -}}
+  </span>
+  {{- /**/ -}}
+  </a>
+  <div class="collapse navbar-collapse" id="main_navbar">
+  <ul class="navbar-nav mt-2 mt-lg-0" id="navbar-custom">
+    {{ $p := . -}}
+    {{ range .Site.Menus.main -}}
+    <li class="nav-item mr-4 mb-2 mb-lg-0 mx-auto">
+    {{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+    {{ with .Page }}{{ $active = or $active ( $.IsDescendant .) }}{{ end -}}
+    {{ $pre := .Pre -}}
+    {{ $post := .Post -}}
+    {{ $url := urls.Parse .URL -}}
+    {{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+      <div class="dropdown{{- if $active }} active{{- end }} d-flex">
+          <a {{/**/ -}}
+          class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+          href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+          {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
+          ><span {{- if $active }} class="active" {{- end }}>{{- .Name -}}
+           </span>
+        </a>
+
+        {{ $menuTitle := .Title }}
+        {{ range $p.Site.Pages }}
+          {{ if eq .Title $menuTitle}}
+           {{ if .Pages }}
+        <button class="dropdown-toggle navbar-dropdown-button d-none d-md-block" href="#" role="button" id="dropdownNavbarLink" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        </button>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        
+        <ul class="dropdown-menu" aria-labelledby="dropdownNavbarLink">
+          {{ range $p.Site.Pages }}
+           {{ if eq .Title $menuTitle}}
+             {{ range .Pages }}
+            <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ if .IsSection }}<h4>{{ .Title }}</h4>{{ else }}{{ .Title }}{{ end }}</a></li>
+              {{ range .Pages }}
+              <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Title }}</a></li>
+                {{end}}
+            {{ end }}
+            {{ end }} 
+          {{ end }}
+        </ul>
+      </div>
+      {{- with .Post }}{{ $post }}{{ end -}}
+    </li>
+    {{ end -}}
+    {{ if .Site.Params.versions -}}
+    <li class="nav-item dropdown mr-4 d-none d-lg-block">
+    {{ partial "navbar-version-selector.html" . -}}
+    </li>
+    {{ end -}}
+    {{ if (gt (len .Site.Home.Translations) 0) -}}
+    <li class="nav-item dropdown mr-4 d-none d-lg-block">
+    {{ partial "navbar-lang-selector.html" . -}}
+    </li>
+    {{ end -}}
+
+  </ul>
+  </div>
+  <div class="d-flex options-box">
+  {{ if .Site.Params.ui.showLightDarkModeMenu -}}
+  <ul class="navbar-nav mt-2 mt-lg-0 d-block">
+    <li class="td-light-dark-menu nav-item dropdown">
+    {{ partial "theme-toggler" . }}
+    </li>
+  </ul>
+  {{ end -}}
+  <div class="navbar-nav d-block">
+      {{ partial "search-input.html" . }}
+  </div>
+  </div>
+  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</button>
+ </div>
+</nav>
