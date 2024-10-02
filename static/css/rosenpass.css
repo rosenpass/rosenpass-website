@@ -262,7 +262,7 @@ a.td-rss-button {
   a {
     color: var(--bs-link-color);
     font-weight: bold;
-    text-wrap: auto;
+    text-wrap: wrap;
     min-width: 210px;
     background-image: none;
     background-color: inherit;
@@ -283,7 +283,7 @@ a.td-rss-button {
   p {
     padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
     font-size: smaller;
-    text-wrap: auto;
+    text-wrap: wrap;
     max-width: 290px;
   }
 }
@@ -1203,7 +1203,7 @@ body:has(.td-offline-search-results) {
   font-size: small;
   width: fit-content;
   max-width: 80%;
-  text-wrap: auto;
+  text-wrap: wrap;
   margin-top: -0.5rem;
   }
 
