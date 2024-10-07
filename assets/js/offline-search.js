@@ -3497,6 +3497,16 @@
       $searchInput.blur();
     });
 
+      // Allow enter to be used to re-trigger search
+    $searchInput.on('keydown', (event) => {
+      if (event.key === 'Enter' || event.which === 13) {
+      render($(event.target));
+
+      // Hide keyboard on mobile browser
+      $searchInput.blur();
+      }
+    });
+
     // Prevent reloading page by enter key on sidebar search.
     $searchInput.closest('form').on('submit', () => {
       return false;
@@ -3545,7 +3555,7 @@
 
       {
         let popover = bootstrap.Popover.getInstance($targetSearchInput[0]);
-        if (popover !== null) {
+        if (popover !== null ) {
           popover.dispose();
         }
       }
@@ -3661,8 +3671,12 @@
 
       $targetSearchInput.one('shown.bs.popover', () => {
         $('.td-offline-search-results__close-button').on('click', () => {
-          $targetSearchInput.val('');
+          $targetSearchInput.val(searchQuery);
           $targetSearchInput.trigger('change');
+          {
+            let popover = bootstrap.Popover.getInstance($targetSearchInput[0]);
+              popover.dispose();
+          }
         });
       });
 
