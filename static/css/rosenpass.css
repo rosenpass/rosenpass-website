@@ -25,6 +25,11 @@
 
 
 /* General, site-wide changes to the theme */
+body {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media (min-width: 768px) {
 
@@ -1555,7 +1560,7 @@ background-color: #000000;
   margin-right: 2rem;
   color: white;
   text-shadow: 1px 1px 4px black;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 768px){
@@ -1750,7 +1755,6 @@ background-color: #000000;
 .contact-buttons {
   display: flex;
   justify-content: space-evenly;
-  min-width: 60vw;
   width: auto;
   padding-left: 0;
   padding-right: 0;
