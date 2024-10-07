@@ -2,8 +2,7 @@
 {{ $blockID := printf "td-cover-block-%d" .Ordinal }}
 {{ $promo_image := (.Page.Resources.ByType "image").GetMatch "**background*" }}
 {{ $promo_image_dark := (.Page.Resources.ByType "image").GetMatch "**darkground*" -}}
-{{ $logo_image := (.Page.Resources.ByType "image").GetMatch "**logo*" }}
-{{ $logo_image_dark := (.Page.Resources.ByType "image").GetMatch "**darkogo*" }}
+{{ $logo_image := (.Page.Resources.ByType "image").GetMatch "**darkogo*" }}
 {{ $col_id := .Get "color" | default "dark" }}
 {{ $class := .Get "class" | default "" }}
 {{ $image_anchor := .Get "image_anchor" | default "smart" }}
@@ -32,12 +31,6 @@
         background-image: url({{ $promo_image_big.RelPermalink }}); 
     }
 }
-.cover-logo-light {
-  display: block;
-}
-.cover-logo-dark {
-  display: none;
-}
 [data-bs-theme="dark"]{
   #{{ $blockID }} {
   background-image: url({{ $promo_image_dark_small.RelPermalink }});
@@ -47,13 +40,6 @@
     background-image: url({{ $promo_image_dark_big.RelPermalink }});
   }
 }
-.cover-logo-light {
-  display: none;
-}
-.cover-logo-dark {
-  display: block;
-}
-
 }
 </style>
 {{ end }}
@@ -68,10 +54,7 @@
         <div class="text-center">
           {{ with .Get "title" }}<h1 class="display-1 mt-0">{{ $title := . }}
 			{{ with $logo_image }}
-      {{ with $logo_image_dark }}
 				<img class="td-cover-logo cover-logo-light" src="{{ $logo_image.RelPermalink }}" alt="{{ $title | html }} Logo">
-        <img class="td-cover-logo cover-logo-dark" src="{{ $logo_image_dark.RelPermalink }}" alt="{{ $title | html }} Logo">
-			{{ end }}
       {{ end }}
 			</h1>
 			{{ end }}
