@@ -1485,6 +1485,10 @@ main:has(.man-page-section) .pt-5{
     padding-left: 0.2rem;
     padding-right: 0.2rem;
   }
+
+  var {
+    font-style: normal;
+  }
 }
 
 /* Video Embed */
