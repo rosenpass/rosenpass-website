@@ -31,6 +31,16 @@ body {
   margin-right: auto;
 }
 
+div.row p,
+div.row h4,
+div.row ol li {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
 @media (min-width: 768px) {
 
   #rss-button-mobile{
@@ -2039,6 +2049,9 @@ img.rp-supporter {
 
 .rosenpass-overview-links {
   display: flex;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rosenpass-overview-links .col .row {
