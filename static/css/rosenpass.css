@@ -1148,11 +1148,52 @@ header {
 
 }
 
-.navbar-nav:has(input.td-search__input:not(:hover, :focus)) {
-  div.td-search input.td-search__input:not(:hover) {
-    transition: all 0.01s 0.1s;
-    width: 36px;
-    box-shadow: none;
+@media (max-width: 1500px){
+  .navbar-nav:has(input.td-search__input:not(:hover, :focus)) {
+    div.td-search input.td-search__input:not(:hover) {
+      transition: all 0.01s 0.1s;
+      width: 36px;
+      box-shadow: none;
+    }
+  }
+  .container-fluid:has(input.td-search__input:focus),
+  .container-fluid:has(input.td-search__input:hover),
+  body:has(.td-offline-search-results) {
+    .td-search__input {
+      transition: all 0.5s ease-in-out 0.2s;
+      width: 207px !important;
+      margin-left: 0.2rem;
+      margin-right: 0.1rem;
+    }
+    @media (max-width: 522px) {
+      .td-light-dark-menu {
+        transition: visibility 0s 0.5s ease-in-out;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.container-fluid:has(input.td-search__input:focus),
+.container-fluid:has(input.td-search__input:hover),
+body:has(.td-offline-search-results) {
+  .dropdown-menu {
+    transition: all 0s 0.2s;
+    visibility: hidden;
+  }
+  
+  .td-search__input {
+    transition: all 0.5s ease-in-out 0.2s;
+    background-color: var(--bs-white);
+  }
+  #main_navbar {
+  width: min-content !important;
+  }
+  #navbar-custom {
+    overflow: hidden !important;
+  }
+  .td-search__icon {
+    color: var(--bs-primary);
   }
 }
 @media (max-width: 522px) {
@@ -1169,37 +1210,7 @@ body:has(.td-offline-search-results) {
   }
 }
 
-.container-fluid:has(input.td-search__input:focus),
-.container-fluid:has(input.td-search__input:hover),
-body:has(.td-offline-search-results) {
-  .dropdown-menu {
-    transition: all 0s 0.2s;
-    visibility: hidden;
-  }
-  
-  .td-search__input {
-    transition: all 0.5s ease-in-out 0.2s;
-    width: 207px !important;
-    margin-left: 0.2rem;
-    margin-right: 0.1rem;
-    background-color: var(--bs-white);
-  }
-  #main_navbar {
-  width: min-content !important;
-  }
-  #navbar-custom {
-    overflow: hidden !important;
-  }
-  .td-search__icon {
-    color: var(--bs-primary);
-  }
-  @media (max-width: 522px) {
-    .td-light-dark-menu {
-      transition: visibility 0s 0.5s ease-in-out;
-      visibility: hidden;
-    }
-  }
-}
+
 
 /* Handles expansion of navbar. Not sure if best end result */
 .navbar-nav {
@@ -1209,9 +1220,6 @@ body:has(.td-offline-search-results) {
   @media(min-width:1038px){
     max-height: 50px !important;
     }
-  /* @media(min-width:1170px){
-    max-height: 50px !important;
-    } */
   }
   
   .search-highlight {
