@@ -1092,7 +1092,7 @@ margin-left: 1rem;
   position: relative;
 }
 
-@media(max-width: 768px){
+@media(max-width: 767px){
   .options-box {
     position: absolute;
     right: 4.4rem;
