@@ -631,12 +631,10 @@ div.doc-list-section-title p {
   margin-bottom: 2.5rem;
 }
 
-.presentation-card-title {
-  p.h4.presentation-card-title,
-  div.post-list-item.card .card-text p {
-    margin-left: unset;
-    margin-right: unset;
-  }
+p.h4.presentation-card-title,
+div.post-list-item.card .card-text p {
+  margin-left: unset;
+  margin-right: unset;
 }
 /* PDF styling */
 
