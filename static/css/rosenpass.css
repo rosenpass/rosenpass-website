@@ -632,7 +632,11 @@ div.doc-list-section-title p {
 }
 
 .presentation-card-title {
-  /* max-width: 75%; */
+  p.h4.presentation-card-title,
+  div.post-list-item.card .card-text p {
+    margin-left: unset;
+    margin-right: unset;
+  }
 }
 /* PDF styling */
 
