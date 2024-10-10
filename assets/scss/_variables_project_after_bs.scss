@@ -1,7 +1,6 @@
 :root,
 [data-bs-theme="light"] {
   // Note: Custom variable values only support SassScript inside `#{}`.
-
   // Colors
   //
   // Generate palettes for full colors, grays, and theme colors.
@@ -55,7 +54,6 @@
       display: inline-block;
     }
   // Fonts
-
   // Note: Use `inspect` for lists so that quoted items keep the quotes.
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
   --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
@@ -145,6 +143,36 @@
   --#{$prefix}form-invalid-color: #{$form-invalid-color};
   --#{$prefix}form-invalid-border-color: #{$form-invalid-border-color};
   // scss-docs-end root-form-validation-variables
+
+  // Offcanvas
+  .offcanvas {
+
+    --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
+    --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+    --#{$prefix}navbar-color: #{$navbar-light-color};
+    --#{$prefix}navbar-hover-color: #{$navbar-light-hover-color};
+    --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+    --#{$prefix}navbar-active-color: #{$navbar-light-active-color};
+    --#{$prefix}navbar-brand-padding-y: #{$navbar-brand-padding-y};
+    --#{$prefix}navbar-brand-margin-end: #{$navbar-brand-margin-end};
+    --#{$prefix}navbar-brand-font-size: #{$navbar-brand-font-size};
+    --#{$prefix}navbar-brand-color: #{$navbar-light-brand-color};
+    --#{$prefix}navbar-brand-hover-color: #{$navbar-light-brand-hover-color};
+    --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+    --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
+    --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
+    --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+    --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+    --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+    --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+    --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+    --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+    // --#{$prefix}navbar-icon-filter: #{rgb-to-filter($navbar-light-color)};
+    // --#{$prefix}navbar-icon-hover-filter: #{rgb-to-filter($navbar-light-hover-color)};
+    // --#{$prefix}navbar-icon-active-filter: #{rgb-to-filter($navbar-light-active-color)};
+
+
+  }
 }
 
 // Dark Mode Bootstrap
@@ -220,13 +248,17 @@
       --#{$prefix}dropdown-link-active-color: #{$component-active-color-dark};
     }
     .td-navbar,
-    .td-sidebar-nav {
+    .td-sidebar-nav,
+    .offcanvas {
     --#{$prefix}navbar-color: #{$navbar-dark-color};
     --#{$prefix}navbar-hover-color: #{$navbar-dark-hover-color};
     --#{$prefix}navbar-disabled-color: #{$navbar-dark-disabled-color};
     --#{$prefix}navbar-active-color: #{$navbar-dark-active-color};
     --#{$prefix}navbar-brand-color: #{$navbar-dark-brand-color};
     --#{$prefix}navbar-brand-hover-color: #{$navbar-dark-brand-hover-color};
+    // --#{$prefix}navbar-icon-filter: #{rgb-to-filter($navbar-dark-color)};
+    // --#{$prefix}navbar-icon-hover-filter: #{rgb-to-filter($navbar-dark-hover-color)};
+    // --#{$prefix}navbar-icon-active-filter: #{rgb-to-filter($navbar-dark-active-color)};
     }
     // icons
     .svg-invert {
