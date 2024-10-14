@@ -32,7 +32,7 @@
 {{/* Second layer Offcanvas */}}
                   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                     <div class="row d-flex">
-                      <h5 class="offcanvas-breadcrumb">Rosenpass/</h5>
+                      <h5 class="offcanvas-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/</h5>
                     </div>
                     <div class="offcanvas-header">
                       <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
@@ -62,7 +62,7 @@
 {{/* Third layer Offcanvas*/}}
                           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                             <div class="row d-flex">
-                              <h5 class="offcanvas-breadcrumb">Rosenpass/{{ .Parent.Title }}/</h5>
+                              <h5 class="offcanvas-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{ .Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/</h5>
                             </div>
                             <div class="offcanvas-header">
                               <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
@@ -85,7 +85,7 @@
 {{/* Fourth Layer Offcanvas */}}
                                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                                       <div class="row d-flex">
-                                        <h5 class="offcanvas-breadcrumb">Rosenpass/{{ .Parent.Parent.Title }}/{{ .Parent.Title }}/</h5>                                      </div>
+                                        <h5 class="offcanvas-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Parent.Title }}</a>/<a href="{{ .Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/</h5>                                      </div>
                                       <div class="offcanvas-header">
                                         <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
                                         <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
@@ -96,7 +96,7 @@
                                           {{ range .Pages }}
                                           <li class="offcanvas-li">
                                             <a href="{{ .RelPermalink }}">
-                                              <i class="fa-solid fa-minus"></i>
+                                              {{ if .Params.video}}<i class="fa-solid fa-video fa-2xs sidebar-docs-icon"></i> {{ else }}<i class="fa-solid fa-minus"></i> {{ end }}
                                               <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
                                               <p>{{ .Params.Shortblerb }}{{ .Params.Description }}</p>
                                             </a>

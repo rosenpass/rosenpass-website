@@ -1113,7 +1113,7 @@ div.offcanvas.offcanvas-end {
     justify-content: space-between;
 
     .offcanvas-breadcrumb {
-      font-size: x-small;
+      font-size: smaller;
       font-weight: lighter;
       max-width: 80%;
       width: fit-content;
@@ -1128,18 +1128,19 @@ div.offcanvas.offcanvas-end {
     padding-left: 0.25rem;
     padding-top: 0rem;
     padding-bottom: 0rem;
+    padding-right: 0;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: var(--bs-gray-400-flip);
-    margin-top: -0.5rem;
     
     h5 {
       margin-bottom: 0rem;
-      font-size: medium;
+      font-size: large;
       a {
         padding-bottom: 1rem;
-        margin-left: 0.25rem;
+        margin-left: 0.5rem;
         box-decoration-break: clone;
+        color: var(--bs-navbar-color);
       }
     }
   }
@@ -1148,6 +1149,7 @@ div.offcanvas.offcanvas-end {
     margin-top: calc(16.4px - 0.5rem);
     a {
       margin-left: 34px;
+      color: var(--bs-navbar-color);
       h5 {
       font-weight: bold;
       }
@@ -1188,7 +1190,7 @@ div.offcanvas.offcanvas-end {
     p {
       margin-bottom: 0;
       padding-left: 1rem;
-      font-size: x-small;
+      font-size: small;
       color: var(--bs-navbar-color);
       font-weight: var(--bs-body-font-weight);
     }
@@ -1199,7 +1201,7 @@ div.offcanvas.offcanvas-end {
 
     a,
     button span {
-      font-size: small;
+      font-size: medium;
     }
 
     span {
@@ -1234,6 +1236,7 @@ div.offcanvas.offcanvas-end {
 
   .offcanvas-close {
     padding: 1rem;
+    padding-top: 0.5rem;
     background-color: transparent;
     border: none;
     margin-left: auto;
@@ -1241,7 +1244,7 @@ div.offcanvas.offcanvas-end {
     color: var(--bs-navbar-color);
 
     i {
-      vertical-align: middle;
+      vertical-align: bottom;
     }
   }
 
