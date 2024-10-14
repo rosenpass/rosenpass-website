@@ -1,16 +1,15 @@
-<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+
+  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
-</button>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+  </button>
  </div>
 </nav>
 {{ $p := .Page }}
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header offcanvas-home">
       <a href="/"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
-      
       <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="offcanvas-body">
@@ -23,67 +22,125 @@
 {{/* First layer Offcanvas */}}
                   {{ if .Pages }}
                   {{ $canvasID := replace .LinkTitle " " "" }}
-                  <li><button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-right"></i><span>{{ $menuTitle }}</span></button></li>
+                  <li class="offcanvas-li">
+                    <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight">
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span>{{ $menuTitle }}</span>
+                      <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                    </button>
+                  </li>
 {{/* Second layer Offcanvas */}}
                   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                     <div class="row d-flex">
                       <h5 class="offcanvas-breadcrumb">Rosenpass/</h5>
-                      <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div class="offcanvas-header">
                       <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
                       <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                      <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div class="offcanvas-body">
                     <ul>
                       {{ range .Pages }}
+                      {{ $active := eq . $p -}}
                         {{ if .Pages }}
                           {{ $canvasID := replace .LinkTitle " " "" }}
-                          <li><button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-right"></i><span>{{ .Title }}</span></button></li>
+                          <li class="offcanvas-li">
+                            <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight">
+                              <i class="fa-solid fa-chevron-right"></i>
+                              <span>{{ .Title }}</span>
+                              <p>{{ .Params.Shortblerb }}</p>
+                            </button>
+                            {{ if $active -}}
+                            {{ if not .Params.notoc -}}
+                                  <div class="td-toc blog-toc">
+                                    {{ .TableOfContents }}
+                                  </div>
+                            {{ end -}}
+                          {{ end }}
+                          </li>
 {{/* Third layer Offcanvas*/}}
                           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                             <div class="row d-flex">
                               <h5 class="offcanvas-breadcrumb">Rosenpass/{{ .Parent.Title }}/</h5>
-                              <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <div class="offcanvas-header">
                               <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
                               <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                              <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <div class="offcanvas-body">
                             <ul>
                               {{ range.Pages }}
+                              {{ $active := eq . $p -}}
                                   {{ if .Pages }}
                                     {{ $canvasID := replace .LinkTitle " " "" }}
-                                    <li><button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-right"></i><span>{{ .Title }}</span></button></li>
+                                    <li class="offcanvas-li">
+                                      <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                        <span>{{ .Title }}</span>
+                                        <p>{{ .Params.Shortblerb }}</p>
+                                      </button>
+                                    </li>
 {{/* Fourth Layer Offcanvas */}}
                                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-{{ $canvasID }}" aria-labelledby="offcanvasRightLabel">
                                       <div class="row d-flex">
-                                        <h5 class="offcanvas-breadcrumb">Rosenpass/{{ .Parent.Parent.Title }}/{{ .Parent.Title }}/</h5>
-                                        <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                                      </div>
+                                        <h5 class="offcanvas-breadcrumb">Rosenpass/{{ .Parent.Parent.Title }}/{{ .Parent.Title }}/</h5>                                      </div>
                                       <div class="offcanvas-header">
                                         <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ $canvasID }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
                                         <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                                        <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                                       </div>
                                       <div class="offcanvas-body">
                                         <ul>
                                           {{ range .Pages }}
-                                          <li><a href="{{ .RelPermalink }}"><i class="fa-solid fa-minus"></i>{{ .Title }}</a></li>
+                                          <li class="offcanvas-li">
+                                            <a href="{{ .RelPermalink }}">
+                                              <i class="fa-solid fa-minus"></i>
+                                              <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                                              <p>{{ .Params.Shortblerb }}{{ .Params.Description }}</p>
+                                            </a>
+                                          </li>
                                           {{ end }}
                                         </ul>
                                       </div>
                                     </div>
 {{/* End Offcanvas layers*/}}
                                   {{ else }}
-                                  <li><a href="{{ .RelPermalink }}"><i class="fa-solid fa-minus"></i>{{ .Title }}</a></li>
+                                  <li class="offcanvas-li">
+                                    <a href="{{ .RelPermalink }}">
+                                      <i class="fa-solid fa-minus"></i>
+                                      <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                                      <p>{{ .Params.Shortblerb }}</p>
+                                    </a>
+                                    {{ if $active -}}
+                                      {{ if not .Params.notoc -}}
+                                            <div class="td-toc blog-toc">
+                                              {{ .TableOfContents }}
+                                            </div>
+                                      {{ end -}}
+                                    {{ end }}
+                                  </li>
                                   {{ end }}
                               {{ end }}
                             </ul>
                             </div>
                             </div>
                         {{ else }}
-                        <li><a href="{{ .RelPermalink }}"><i class="fa-solid fa-minus"></i>{{ .Title }}</a></li>
+                        <li class="offcanvas-li">
+                          <a href="{{ .RelPermalink }}">
+                            <i class="fa-solid fa-minus"></i>
+                            <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                            <p>{{ .Params.Shortblerb }}</p>
+                          </a>
+                          {{ if $active -}}
+                          {{ if not .Params.notoc -}}
+                                <div class="td-toc blog-toc">
+                                  {{ .TableOfContents }}
+                                </div>
+                          {{ end -}}
+                        {{ end }}
+                        </li>
                         {{ end }}
                       {{ end }}
                     </ul>
@@ -91,14 +148,25 @@
                   </div>
                   {{ else }}
 {{/* No Submenus */}}
-                  <li><a href="{{ .RelPermalink }}"><i class="fa-solid fa-minus"></i>{{ $menuTitle }}</a></li>
+                  <li class="offcanvas-li">
+                    <a href="{{ .RelPermalink }}">
+                      <i class="fa-solid fa-minus"></i>
+                      <span>{{ $menuTitle }}{{ if .Params.Menu.Main.Params.External }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                      <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                    </a>
+                  </li>
                   {{ end }}
                 {{ end }}
               {{ end }}
           {{ else }}
-          <li><a href="{{ .URL }}"><i class="fa-solid fa-minus"></i>{{ .Name }}</a></li>
+          <li class="offcanvas-li">
+            <a href="{{ .URL }}">
+              <i class="fa-solid fa-minus"></i>
+              <span>{{ .Name }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+              <p>{{ .Params.Shortblerb }}</p>
+            </a>
+          </li>
           {{ end }}
-
         {{ end }}
       </ul>
     
