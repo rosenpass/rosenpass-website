@@ -4587,38 +4587,46 @@
       // Public
       
       toggle(relatedTarget) {
+        const parentOffcanvas = SelectorEngine.find('.offcanvas.offcanvas-end:has(#offcanvasRight-Active');
+                parentOffcanvas.forEach((ele) => {
+                  Offcanvas.getOrCreateInstance(ele).show();
+                });
         return this._isShown ? console.log("why me") : this.show(relatedTarget);
       }
       show(relatedTarget) {
+
         if (this._isShown) {
-          return;
+            return;
         }
-        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$3, {
-          relatedTarget
-        });
+        
+        const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$3, { relatedTarget });
         if (showEvent.defaultPrevented) {
-          return;
+            return;
         }
+    
         this._isShown = true;
         this._backdrop.show();
+    
         if (!this._config.scroll) {
-          new ScrollBarHelper().hide();
+            new ScrollBarHelper().hide();
         }
+    
         this._element.setAttribute('aria-modal', true);
         this._element.setAttribute('role', 'dialog');
         this._element.classList.add(CLASS_NAME_SHOWING$1);
+    
         const completeCallBack = () => {
-          if (!this._config.scroll || this._config.backdrop) {
-            this._focustrap.activate();
-          }
-          this._element.classList.add(CLASS_NAME_SHOW$3);
-          this._element.classList.remove(CLASS_NAME_SHOWING$1);
-          EventHandler.trigger(this._element, EVENT_SHOWN$3, {
-            relatedTarget
-          });
+            if (!this._config.scroll || this._config.backdrop) {
+                this._focustrap.activate();
+            }
+            this._element.classList.add(CLASS_NAME_SHOW$3);
+            this._element.classList.remove(CLASS_NAME_SHOWING$1);
+            EventHandler.trigger(this._element, EVENT_SHOWN$3, { relatedTarget });
         };
+    
         this._queueCallback(completeCallBack, this._element, true);
-      }
+    }
+    
   
       // const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
       // if (alreadyOpen && alreadyOpen !== target) {
@@ -4755,9 +4763,7 @@
       }
     });
     EventHandler.on(document, EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE_BACK$1, function (event) {
-      console.log("WE@RE HEREASDASD")
       const target = SelectorEngine.getElementFromSelector(this);
-      console.log("TARGET:", target)
       if (['A', 'AREA'].includes(this.tagName)) {
         event.preventDefault();
       }
