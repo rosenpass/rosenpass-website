@@ -24,11 +24,11 @@ Since this website is hosted in Germany, we are legally bound to provide a so-ca
 Impressum
 
 Angaben gemäß § 5 TMG
-Project Rosenpass 
-Karolin Varner
-Ehrenbergstr. 16a
-Box 11685
-10245 Berlin
+Rosenpass e.V.
+Postfach 3212
+30032
+Hannover
+Deutschland
 Kontakt:
 Telefon: +49 (0) 1522 916 9045
 E-Mail: impressum@rosenpass.eu
