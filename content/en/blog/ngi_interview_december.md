@@ -1,11 +1,11 @@
 ---
-title: "Karolin Varner Interview with NLNet"
-linkTitle: "NLNet Interview"
-description: "An interview with NLNet as part of the NGI Assure grant"
+title: "Karolin Varner Interviewed by NLmet"
+linkTitle: "NLmet Interview"
+description: "An interview with NLmet as part of the NGI Assure grant"
 author: "Alice Bowman"
 date: 2024-12-09
 blogpost: "true"
-shortBlerb: "Karolin Varner Interview with NLNet"
+shortBlerb: "Karolin Varner Interview with NLmet"
 ---
 
 <div>
