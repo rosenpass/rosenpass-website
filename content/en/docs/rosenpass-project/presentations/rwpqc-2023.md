@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/presentations/rwpqc-2023]
 title: "Securing & Deploying Post-Quantum WireGuard"
 linkTitle: "RWPQC 2023"
 description: "A presentation on Rosenpass' post-quantum WireGuard solutions, including key-encapsulation mechanisms, Noise, and Proverif."

@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/changelog]
 title: ""
 linkTitle: "Changelog"
 weight: 5

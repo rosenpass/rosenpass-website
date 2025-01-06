@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/whitepaper]
 title: "Whitepaper"
 linkTitle: "Whitepaper"
 weight: 2
