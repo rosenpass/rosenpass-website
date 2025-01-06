@@ -69,6 +69,7 @@
               name = "build";
               command = ''
                 ./changelog-check.sh
+                ./redirects.sh
                 git submodule update --init --recursive
                 npm ci
                 hugo $@
