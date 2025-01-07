@@ -877,16 +877,20 @@ border: none;
   margin-bottom: 0;
 }
 
-.starter-code-server + div pre span span span{
-  color: var(--bs-primary);
-  display: inline;
-  font-weight: bold;
+.starter-code-server + div{
+  span.line:first-child::before{
+    content: "user@server:~$ ";
+    color: var(--bs-primary);
+    font-weight: bold;
+  }
 }
 
-.starter-code-client + div pre span span span{
-  color: var(--bs-secondary);
-  display: inline;
-  font-weight: bold;
+.starter-code-client + div{
+  span.line:first-child::before{
+    content: "user@client:~$ ";
+    color: var(--bs-secondary);
+    font-weight: bold;
+  }
 }
 
 .starter-code-server div {
@@ -895,13 +899,6 @@ border: none;
 
 #set-up-rosenpass-keys {
   margin-top: 20px;
-}
-
-section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
-  > div:nth-child(1)
-  > div:nth-child(1)
-  > p:nth-child(18) {
-  margin-top: 10px;
 }
 
 /* NAVIGATION */
