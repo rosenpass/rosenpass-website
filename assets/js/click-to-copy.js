@@ -43,10 +43,5 @@ for (let index = 0; index < codeListings.length; index++) {
 
 const copyCode = (codeSample) => {
   let codeText = codeSample.textContent.trim();
-  
-  // Remove the prompt from each line if it exists
-  // codeText = codeText.replace(/^user@server:~\$ /gm, '');
-  // codeText = codeText.replace(/^user@client:~\$ /gm, '');
-  
   navigator.clipboard.writeText(codeText);
 };
