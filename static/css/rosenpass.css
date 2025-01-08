@@ -873,11 +873,18 @@ margin: 0 0 15px 0;
 border: none;
 }
 
-.starter-code-server pre {
-  margin-bottom: 0;
+.code-block-list{
+  display: inline-block;
+
+  pre {
+    margin-bottom: 0;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    
+  }
 }
 
-.starter-code-server + div{
+.starter-code-server{
   span.line:first-child::before{
     content: "user@server:~$ ";
     color: var(--bs-primary);
@@ -885,7 +892,7 @@ border: none;
   }
 }
 
-.starter-code-client + div{
+.starter-code-client{
   span.line:first-child::before{
     content: "user@client:~$ ";
     color: var(--bs-secondary);
