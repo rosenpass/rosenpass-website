@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/compilation]
 title: "Compilation and Installation"
 linkTitle: "Compilation and Installation"
 weight: 4

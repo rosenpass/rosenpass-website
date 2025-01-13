@@ -1,13 +1,13 @@
-+++
-title = "Quick Start"
-linkTitle = "Quick Start"
-subtitle = "Build post-quantum-secure VPNs with WireGuard!"
-weight = 1
-hideLead = true
-shortBlerb = "Get Rosenpass installed and running"
-blerb = "A quick start guide on downloading, configuring, and booting the Rosenpass tool for use with a WireGuard connection."
-
-+++
+---
+aliases: [/docs/start]
+title: "Quick Start"
+linkTitle: "Quick Start"
+subtitle: "Build post-quantum-secure VPNs with WireGuard!"
+weight: 1
+hideLead: true
+shortBlerb: "Get Rosenpass installed and running"
+blerb: "A quick start guide on downloading, configuring, and booting the Rosenpass tool for use with a WireGuard connection."
+---
 
 {{% blocks/lead color="secondary" %}}
 <h2>Quick Start</h2>
@@ -28,20 +28,32 @@ You can find the latest information about all the Linux distributions we support
 <a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
 
 <h3>How to install Rosenpass on your Linux distribution</h3>
+<p>If your distrubition isn't listed below, you can compile to program yourself <a href="/docs/rosenpass-tool/compilation/">here</a>.</p>
 
-```shell
-(arch AUR)		$ aura -A rosenpass-git
-(arch pacman)	$ pacman -S rosenpass
-(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
-(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
-(cargo)			$ cargo install rosenpass
-(alpine)		$ apk add rosenpass
+
+```sh{class="code-block-list"}
+(arch pacman)		$ pacman -S rosenpass
 ```
+```sh{class="code-block-list"}
+(arch AUR)		$ aura -A rosenpass-git
+```
+```sh{class="code-block-list"}
+(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+```
+```sh{class="code-block-list"}
+(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
+```
+```sh{class="code-block-list"}
+(alpine (testing))	$ apk add rosenpass
+```
+<span class="spacer"></span>
 
 <p>To find more information on the available command line parameters, you can use these tools:<p>
 
 ```sh
 rp help
+```
+```sh
 rosenpass help
 ```
 
@@ -53,49 +65,31 @@ rosenpass help
 <li>Start by generating secret keys on both hosts.</li>
 <p><strong>Note:</strong> These will be stored in newly created server.rosenpass-secret and client.rosenpass-secret directories.</p>
 
-<p class="starter-code-server">
-
-```sh
-<span>user@server:~$</span> rp genkey server.rosenpass-secret
+```sh{class="starter-code-server"}
+rp genkey server.rosenpass-secret
 ```
-</p>
-<p class="starter-code-client">
-
-```sh
-<span>user@client:~$</span> rp genkey client.rosenpass-secret
+```sh{class="starter-code-client"}
+rp genkey client.rosenpass-secret
 ```
-</p>
 
 <li>Extract the public keys</li>
 <p><strong>Note:</strong> As above, these will be stored in newly created server.rosenpass-public and client.rosenpass-public directories.</p>
 
-<p class="starter-code-server">
-
-```sh
-<span>user@server:~$</span> rp pubkey server.rosenpass-secret server.rosenpass-public
+```sh{class="starter-code-server"}
+rp pubkey server.rosenpass-secret server.rosenpass-public
 ```
-</p>
-<p class="starter-code-client">
-
-```sh
-<span>user@client:~$</span> rp pubkey client.rosenpass-secret client.rosenpass-public
+```sh{class="starter-code-client"}
+rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
-</p>
 
 <li>Copy each <code>-public</code> directory to the other peer</li>
 
-<p class="starter-code-server">
-
-```sh
-<span>user@server:~$</span> scp -r server.rosenpass-public user@client:/path/to/directory
+```sh{class="starter-code-server"}
+scp -r server.rosenpass-public user@client:/path/to/directory
 ```
-</p>
-<p class="starter-code-client">
-    
-```sh
-<span>user@client:~$</span> scp -r client.rosenpass-public user@server:/path/to/directory
+```sh{class="starter-code-client"}
+scp -r client.rosenpass-public user@server:/path/to/directory
 ```
-</p>
 
  <strong>Congrats! Your basic setup is complete!</strong>
 
@@ -103,47 +97,33 @@ rosenpass help
 <h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
 
 <li>Start the VPN</li>
+<p><strong>Note:</strong> This may conflict with your firewall. In that case, you will need to configure your firewall to give rp access to the port numbers explicitly mentioned in these commands, as well its +1 for WireGuard. In this case, that would be 9999 and 10,000.
 
-<p class="starter-code-server">
-
-```sh
-<span>user@server:~$</span> sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 192.168.0.1:9999 \
+```sh{class="starter-code-server"}
+sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 127.0.0.1:9999 \
 peer client.rosenpass-public allowed-ips fe80::/64
 ```
-</p>
-<p class="starter-code-client">
-
-```sh
-<span>user@client:~$</span> sudo rp exchange client.rosenpass-secret dev rosenpass0 \
-peer server.rosenpass-public endpoint 192.168.0.1:9999 allowed-ips fe80::/64
+```sh{class="starter-code-client"}
+sudo rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint 127.0.0.1:9999 allowed-ips fe80::/64
 ```
-</p>
 
 <li>Assign IP addresses</li>
 
-<p class="starter-code-server">
-
-```sh
-<span>user@server:~$</span> sudo ip a add fe80::1/64 dev rosenpass0
+```sh{class="starter-code-server"}
+sudo ip a add fe80::1/64 dev rosenpass0
 ```
-</p>
-<p class="starter-code-client">
-
-```sh
-<span>user@client:~$</span> sudo ip a add fe80::2/64 dev rosenpass0
+```sh{class="starter-code-client"}
+sudo ip a add fe80::2/64 dev rosenpass0
 ```
-</p>
 
 <h3>Just to be sure: Verify the magic!</h3>
 
 <li>Test the connection by pinging the server on the client machine</li>
 
-<p class="starter-code-client">
-
-```sh
-<span>user@client:~$</span> ping fe80::1%rosenpass0
+```sh{class="starter-code-client"}
+ping fe80::1%rosenpass0
 ```
-</p>
 
 <li>You can watch how Rosenpass replaces the WireGuard PSK with the following command</li>
 

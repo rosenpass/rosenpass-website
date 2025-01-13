@@ -42,5 +42,6 @@ for (let index = 0; index < codeListings.length; index++) {
 }
 
 const copyCode = (codeSample) => {
-  navigator.clipboard.writeText(codeSample.textContent.trim());
+  let codeText = codeSample.textContent.trim();
+  navigator.clipboard.writeText(codeText);
 };

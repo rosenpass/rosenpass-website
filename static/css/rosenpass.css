@@ -873,20 +873,31 @@ margin: 0 0 15px 0;
 border: none;
 }
 
-.starter-code-server pre {
-  margin-bottom: 0;
+.code-block-list{
+  display: inline-block;
+
+  pre {
+    margin-bottom: 0;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    
+  }
 }
 
-.starter-code-server + div pre span span span{
-  color: var(--bs-primary);
-  display: inline;
-  font-weight: bold;
+.starter-code-server{
+  span.line:first-child::before{
+    content: "user@server:~$ ";
+    color: var(--bs-primary);
+    font-weight: bold;
+  }
 }
 
-.starter-code-client + div pre span span span{
-  color: var(--bs-secondary);
-  display: inline;
-  font-weight: bold;
+.starter-code-client{
+  span.line:first-child::before{
+    content: "user@client:~$ ";
+    color: var(--bs-secondary);
+    font-weight: bold;
+  }
 }
 
 .starter-code-server div {
@@ -895,13 +906,6 @@ border: none;
 
 #set-up-rosenpass-keys {
   margin-top: 20px;
-}
-
-section.row:nth-child(10)  /* Weakly selected! Change if content changes! */
-  > div:nth-child(1)
-  > div:nth-child(1)
-  > p:nth-child(18) {
-  margin-top: 10px;
 }
 
 /* NAVIGATION */

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SUBMODULE_FILE="submodules/rosenpass/CHANGELOG.md"
-SYMLINK="content/en/docs/changelog.md"
-CACHED_FILE=".cache/CHANGELOG-cached.md"
+SUBMODULE_FILE="./submodules/rosenpass/CHANGELOG.md"
+SYMLINK="./content/en/docs/changelog.md"
+CACHED_FILE="./.cache/CHANGELOG-cached.md"
 
 # Ensure the target directory exists (only for the target, not submodules)
 mkdir -p "$(dirname "$SYMLINK")"

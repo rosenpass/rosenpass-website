@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/release_notes]
 title: "Release Notes"
 linkTitle: "Release Notes"
 weight: 2

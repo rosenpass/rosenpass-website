@@ -122,6 +122,9 @@ enableRobotsTXT = true
     [markup.goldmark.renderer]
       unsafe = true
       hardWraps = true
+    [markup.goldmark.parser.attribute]
+      block = true
+      title = true
 
   [markup.highlight]
     style = "tango"
