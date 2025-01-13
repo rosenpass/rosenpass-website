@@ -317,9 +317,15 @@ a.td-rss-button {
   background-color: inherit;
   background-image: none;
 }
-
 .nest-ul .active:hover {
   color: var(--bs-dropdown-link-hover-color);
+}
+
+.active-mobile {
+  color: var(--bs-primary) !important;
+  i {
+    color: var(--bs-primary) !important;
+  }
 }
 
 .nested-ul {

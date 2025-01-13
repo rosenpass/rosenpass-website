@@ -27,7 +27,7 @@
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight{{ if $activeCanvas }}-Active{{ end }}" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header offcanvas-home">
-      <a href="/"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
+      <a href="/" class="{{ if eq $p.Title "Rosenpass" }}active-mobile{{ end }}"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
       <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="offcanvas-body">
@@ -45,7 +45,7 @@
                     {{ $activeCanvas = true }}
                   {{ end }}
                   <li class="offcanvas-li">
-                    <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
+                    <button class="btn btn-primary offcanvas-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
                       <i class="fa-solid fa-chevron-right"></i>
                       <span>{{ $menuTitle }}</span>
                       <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="offcanvas-header">
                       <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
-                      <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                      <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                       <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div class="offcanvas-body">
@@ -72,7 +72,7 @@
                               {{ $activeCanvas = true }}
                             {{ end }}
                           <li class="offcanvas-li">
-                            <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
+                            <button class="btn btn-primary offcanvas-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
                               <i class="fa-solid fa-chevron-right"></i>
                               <span>{{ .Title }}</span>
                               <p>{{ .Params.Shortblerb }}</p>
@@ -93,7 +93,7 @@
                             </div>
                             <div class="offcanvas-header">
                               <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
-                              <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                              <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                               <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <div class="offcanvas-body">
@@ -107,7 +107,7 @@
                               {{ $active := eq . $p -}}
                                   {{ if .Pages }}
                                     <li class="offcanvas-li">
-                                      <button class="btn btn-primary offcanvas-next" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
+                                      <button class="btn btn-primary offcanvas-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight">
                                         <i class="fa-solid fa-chevron-right"></i>
                                         <span>{{ .Title }}</span>
                                         <p>{{ .Params.Shortblerb }}</p>
@@ -119,7 +119,7 @@
                                         <h5 class="offcanvas-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Parent.Title }}</a>/<a href="{{ .Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/</h5>                                      </div>
                                       <div class="offcanvas-header">
                                         <button class="btn btn-primary offcanvas-back" type="button" data-bs-toggle="offcanvas-back" data-bs-target="#offcanvasRight-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="offcanvasRight"><i class="fa-solid fa-chevron-left"></i></button>
-                                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+                                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                                         <button type="button" class="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                                       </div>
                                       <div class="offcanvas-body">
@@ -127,7 +127,7 @@
                                           {{ $activeCanvas = false }}
                                           {{ range .Pages }}
                                           <li class="offcanvas-li">
-                                            <a href="{{ .RelPermalink }}">
+                                            <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
                                               {{ if .Params.video}}<i class="fa-solid fa-video fa-2xs sidebar-docs-icon"></i> {{ else }}<i class="fa-solid fa-minus"></i> {{ end }}
                                               <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
                                               <p>{{ .Params.Shortblerb }}{{ .Params.Description }}</p>
@@ -140,7 +140,7 @@
 {{/* End Offcanvas layers*/}}
                                   {{ else }}
                                   <li class="offcanvas-li">
-                                    <a href="{{ .RelPermalink }}">
+                                    <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
                                       <i class="fa-solid fa-minus"></i>
                                       <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
                                       <p>{{ .Params.Shortblerb }}</p>
