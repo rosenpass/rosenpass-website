@@ -1,6 +1,6 @@
 ---
 aliases: [/docs/presentations/formosa-2023]
-title: "Rosenpass"
+title: "Rosenpass and Cryptography"
 linkTitle: "Formosa 2023"
 description: "A presentation on Rosenpass, cryptographic security, ongoing projects and its relationship to Formosa projects."
 talkLanguage: "EN"
