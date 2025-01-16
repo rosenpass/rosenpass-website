@@ -328,6 +328,14 @@ a.td-rss-button {
   }
 }
 
+.mobile-nav-layers {
+  transition: transform 0.4s ease-out 0.4s !important;
+}
+
+.mobile-nav-layers-showing {
+  transition: transform 0s ease-out 0s !important;
+}
+
 .nested-ul {
   list-style-type: none;
 }

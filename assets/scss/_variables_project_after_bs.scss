@@ -14,7 +14,7 @@
   --#{$prefix}offcanvas-border-width: #{$offcanvas-border-width};
   --#{$prefix}offcanvas-border-color: #{$offcanvas-border-color};
   --#{$prefix}offcanvas-box-shadow: #{$offcanvas-box-shadow};
-  --#{$prefix}offcanvas-transition: #{transform $offcanvas-transition-duration ease-in-out};
+  --#{$prefix}offcanvas-transition: #{transform 0.4s ease-out};
   --#{$prefix}offcanvas-title-line-height: #{$offcanvas-title-line-height};
   // scss-docs-end offcanvas-css-vars
 }

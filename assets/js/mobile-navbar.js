@@ -113,13 +113,23 @@
       static get NAME() {
         return NAME$s99;
       }
-  
+      
       toggle(relatedTarget) {
         const parentMobileNavMenu = SelectorEngine.find('.mobileNav.mobileNav-end:has(#mobileNavMenu-Active)');
-        parentMobileNavMenu.forEach((ele) => {
-          MobileNavMenu.getOrCreateInstance(ele).show();
-        });
-        return this._isShown ? null : this.show(relatedTarget);
+        for (let i = 0; i < parentMobileNavMenu.length; i++) {
+          let ele = parentMobileNavMenu[i];
+          if ( i == 0 ){
+            MobileNavMenu.getOrCreateInstance(ele).show()  
+          } else {
+            let instance = MobileNavMenu.getOrCreateInstance(ele)
+            instance._element.classList.add("mobile-nav-layers-showing");
+            instance.show();
+            instance._element.classList.remove("mobile-nav-layers-showing");
+          }
+        }
+        this._element.classList.add("mobile-nav-layers-showing");
+        this.show(relatedTarget);
+        this._element.classList.remove("mobile-nav-layers-showing");
       }
   
       show(relatedTarget) {
@@ -182,9 +192,17 @@
   
       hideAll() {
         const allOpen = SelectorEngine.find(OPEN_SELECTOR$s99);
-        allOpen.forEach((ele) => {
-          MobileNavMenu.getInstance(ele).hide();
-        });
+          allOpen.reverse()
+        for (let i = 0; i < allOpen.length; i++) {
+          let ele = MobileNavMenu.getInstance(allOpen[i]);
+          if (i == allOpen.length - 1){
+            ele.hide();
+          } else {
+            ele._element.classList.add("mobile-nav-layers");
+            ele.hide();
+            ele._element.classList.remove("mobile-nav-layers");
+          }
+        }
       }
   
       dispose() {
