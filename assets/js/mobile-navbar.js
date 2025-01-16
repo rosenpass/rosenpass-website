@@ -113,7 +113,7 @@
       static get NAME() {
         return NAME$s99;
       }
-      
+
       toggle(relatedTarget) {
         const parentMobileNavMenu = SelectorEngine.find('.mobileNav.mobileNav-end:has(#mobileNavMenu-Active)');
         for (let i = 0; i < parentMobileNavMenu.length; i++) {
@@ -127,9 +127,13 @@
             instance._element.classList.remove("mobile-nav-layers-showing");
           }
         }
-        this._element.classList.add("mobile-nav-layers-showing");
-        this.show(relatedTarget);
-        this._element.classList.remove("mobile-nav-layers-showing");
+        if (parentMobileNavMenu.length){
+          this._element.classList.add("mobile-nav-layers-showing");
+          this.show(relatedTarget);
+          this._element.classList.remove("mobile-nav-layers-showing");
+        } else {
+          this.show(relatedTarget);
+        }
       }
   
       show(relatedTarget) {
