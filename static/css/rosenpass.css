@@ -1109,20 +1109,20 @@ margin-left: 1rem;
 
 
 /* Mobile Navbar */
-div.offcanvas.offcanvas-end {
+div.mobileNav.mobileNav-end {
   width: 80vw;
 
   ul {
     list-style-type: none;
   }
 
-  .row:has(.offcanvas-breadcrumb) {
+  .row:has(.mobileNav-breadcrumb) {
     padding-top: 0rem;
     padding-left: 0.5rem;
     margin: 0;
     justify-content: space-between;
 
-    .offcanvas-breadcrumb {
+    .mobileNav-breadcrumb {
       font-size: smaller;
       font-weight: lighter;
       max-width: 80%;
@@ -1134,7 +1134,7 @@ div.offcanvas.offcanvas-end {
     }
   }
   
-  .offcanvas-header {
+  .mobileNav-header {
     padding-left: 0.25rem;
     padding-top: 0rem;
     padding-bottom: 0rem;
@@ -1155,7 +1155,7 @@ div.offcanvas.offcanvas-end {
     }
   }
 
-  .offcanvas-header.offcanvas-home {
+  .mobileNav-header.mobileNav-home {
     margin-top: calc(16.4px - 0.5rem);
     a {
       margin-left: 34px;
@@ -1166,7 +1166,7 @@ div.offcanvas.offcanvas-end {
     }
   }
 
-  .offcanvas-next {
+  .mobileNav-next {
     background-color: inherit;
     background-image: none;
     border: none;
@@ -1178,14 +1178,14 @@ div.offcanvas.offcanvas-end {
     display: flex;
   }
 
-  .offcanvas-next:hover {
+  .mobileNav-next:hover {
     color: var(--bs-navbar-hover-color);
     i {
       color: var(--bs-navbar-hover-color);
     }
   }
 
-  .offcanvas-li {
+  .mobileNav-li {
     padding-bottom: 0.5rem;
 
     i {
@@ -1201,7 +1201,7 @@ div.offcanvas.offcanvas-end {
       margin-bottom: 0;
       padding-left: 1rem;
       font-size: small;
-      color: var(--bs-navbar-color);
+      color: var(--bs-black-flip);
       font-weight: var(--bs-body-font-weight);
     }
     button {
@@ -1227,7 +1227,7 @@ div.offcanvas.offcanvas-end {
     }
   }
 
-  .offcanvas-back {
+  .mobileNav-back {
     background-color: inherit;
     background-image: none;
     border: none;
@@ -1240,11 +1240,12 @@ div.offcanvas.offcanvas-end {
     }
   }
 
-  .offcanvas-back:hover {
+  .mobileNav-back:hover {
     color: var(--bs-navbar-hover-color);
   }
 
-  .offcanvas-close {
+  .offcanvas-close,
+  .mobileNavMenu {
     padding: 1rem;
     padding-top: 0.5rem;
     background-color: transparent;
@@ -1258,11 +1259,12 @@ div.offcanvas.offcanvas-end {
     }
   }
 
-  button.offcanvas-close:hover {
+  button.offcanvas-close:hover,
+  button.mobileNavMenu:hover {
     color: var(--bs-navbar-hover-color);
   }
 
-  .offcanvas-body {
+  .mobileNav-body {
     padding-top: 2rem;
     ul {
       padding-left: 0;
