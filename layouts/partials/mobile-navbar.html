@@ -160,7 +160,7 @@
                             </div>
                         {{ else }}
                         <li class="mobileNav-li">
-                          <a href="{{ .RelPermalink }}">
+                          <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
                             <i class="fa-solid fa-minus"></i>
                             <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
                             <p>{{ .Params.Shortblerb }}</p>
@@ -181,7 +181,7 @@
                   {{ else }}
 {{/* No Submenus */}}
                   <li class="mobileNav-li">
-                    <a href="{{ .RelPermalink }}">
+                    <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
                       <i class="fa-solid fa-minus"></i>
                       <span>{{ $menuTitle }}{{ if .Params.Menu.Main.Params.External }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
                       <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
@@ -192,7 +192,7 @@
               {{ end }}
           {{ else }}
           <li class="mobileNav-li">
-            <a href="{{ .URL }}">
+            <a href="{{ .URL }}" class="{{ if eq .Name $p.Title }}active-mobile{{ end }}">
               <i class="fa-solid fa-minus"></i>
               <span>{{ .Name }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
               <p>{{ .Params.Shortblerb }}</p>
