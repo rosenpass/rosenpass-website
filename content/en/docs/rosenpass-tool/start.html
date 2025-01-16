@@ -28,8 +28,7 @@ You can find the latest information about all the Linux distributions we support
 <a href="https://openquantumsafe.org/liboqs/#overview" target="_blank">liboqs</a>.</p>
 
 <h3>How to install Rosenpass on your Linux distribution</h3>
-<p>If your distrubition isn't listed below, you can compile to program yourself <a href="/docs/rosenpass-tool/compilation/">here</a>.</p>
-
+<p>If your distribution isn't listed below, you can <a href="/docs/rosenpass-tool/compilation/">compile and install Rosenpass</a> yourself in just a few steps.</p>
 
 ```sh{class="code-block-list"}
 (arch pacman)		$ pacman -S rosenpass
@@ -97,7 +96,7 @@ scp -r client.rosenpass-public user@server:/path/to/directory
 <h3>How to launch your Rosenpass-enhanced WireGuard VPN</h3>
 
 <li>Start the VPN</li>
-<p><strong>Note:</strong> This may conflict with your firewall. In that case, you will need to configure your firewall to give rp access to the port numbers explicitly mentioned in these commands, as well its +1 for WireGuard. In this case, that would be 9999 and 10,000.
+<p><strong>Note:</strong> This may conflict with your firewall. In that case, you will need to configure your firewall to give Rosenpass access to the port number explicitly mentioned in these commands, <i>9999</i> in this example, as well as give WireGuard access to this port number incremented by one, <i>10000</i> in this example.
 
 ```sh{class="starter-code-server"}
 sudo rp exchange server.rosenpass-secret dev rosenpass0 listen 127.0.0.1:9999 \
