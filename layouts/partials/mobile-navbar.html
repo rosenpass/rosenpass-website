@@ -33,7 +33,7 @@
       <div class="mobileNav-card mobileNav-lead">
         <a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
         <p>LANDING PAGE SPIEL</p>
-        <a href="/">view this page > </a>
+        <a href="/" class="text-muted text-xs">view this page > </a>
       </div>  
         <ul>
         {{ $activeCanvas = false }}
@@ -67,7 +67,7 @@
                       <div class="mobileNav-card mobileNav-lead">
                         <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                         <p>{{ .Params.ShortBlerb }}</p>
-                        <a href="{{ .RelPermalink }}">view this page > </a>
+                        <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                       </div>  
                     <ul>
                       {{ $activeCanvas = false }}
@@ -104,7 +104,7 @@
                               <div class="mobileNav-card mobileNav-lead">
                                 <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                                 <p>{{ .Params.ShortBlerb }}</p>
-                                <a href="{{ .RelPermalink }}">view this page > </a>
+                                <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                               </div>  
                             <ul>
                               {{ $activeCanvas = false }}
@@ -134,7 +134,7 @@
                                         <div class="mobileNav-card mobileNav-lead">
                                           <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
                                           <p>{{ .Params.ShortBlerb }}</p>
-                                          <a href="{{ .RelPermalink }}">view this page > </a>
+                                          <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                                         </div>  
                                         <ul>
                                           {{ $activeCanvas = false }}
@@ -240,5 +240,8 @@
       <div class="row d-flex">
         <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/</h5>
       </div>
+      <footer class="py-1 my-0 mx-0 row d-print-none footer">
+        <p class=" text-center mb-0 text-xs"><a href="/">Home</a> | <a href="/press/">Press</a> | <a href="/impressum/"  >Impressum</a> | <a href="/contributors/#contact">Contact</a></p>
+      </footer>
     </div>
   </div>

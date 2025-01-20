@@ -104,6 +104,8 @@ a {font-weight:bold;}
 
 .text-xs {font-size:smaller;}
 
+.text-2xs {font-size:small}
+
 .block-lead .td-arrow-down::before,
 .title-box-presentation .td-arrow-down::before {  
   bottom: -1.5rem;
@@ -1201,6 +1203,10 @@ div.mobileNav.mobileNav-end {
     margin-right: 2rem;
     margin-bottom: 1rem;
 
+    .mobileNav-li-content {
+      margin-right: 1rem;
+    }
+
     i {
       color: var(--bs-navbar-color);
       margin-left: auto;
@@ -1247,6 +1253,7 @@ div.mobileNav.mobileNav-end {
       box-decoration-break: clone;
 
     }
+
   }
 
   .mobileNav-back {
