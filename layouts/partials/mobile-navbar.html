@@ -26,12 +26,16 @@
 </nav>
 
 <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu{{ if $activeCanvas }}-Active{{ end }}" aria-labelledby="offcanvasRightLabel">
-    <div class="mobileNav-header mobileNav-home">
-      <a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
-      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="mobileNav-home">
+      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-2xl fa-xmark"></i></button>
     </div>
     <div class="mobileNav-body">
-      <ul>
+      <div class="mobileNav-card mobileNav-lead">
+        <a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
+        <p>LANDING PAGE SPIEL</p>
+        <a href="/">view this page > </a>
+      </div>  
+        <ul>
         {{ $activeCanvas = false }}
         {{ range .Site.Menus.main }}
           {{ if eq .Title .Name }}
@@ -44,24 +48,27 @@
                   {{ if eq $compTitle $menuTitle }}
                     {{ $activeCanvas = true }}
                   {{ end }}
-                  <li class="mobileNav-li">
+                  <li class="mobileNav-li mobileNav-card">
                     <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
-                      <i class="fa-solid fa-chevron-right"></i>
-                      <span>{{ $menuTitle }}</span>
-                      <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                      <div class="mobileNav-li-content">
+                        <span>{{ $menuTitle }}</span>
+                        <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                      </div>
+                        <i class="fa-solid fa-chevron-right fa-2xl"></i>
                     </button>
                   </li>
 {{/* Second layer Offcanvas */}}
                   <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
-                    <div class="row d-flex">
-                      <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/</h5>
-                    </div>
                     <div class="mobileNav-header">
-                      <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left"></i></button>
-                      <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                      <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
+                      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
                     </div>
                     <div class="mobileNav-body">
+                      <div class="mobileNav-card mobileNav-lead">
+                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
+                        <p>{{ .Params.ShortBlerb }}</p>
+                        <a href="{{ .RelPermalink }}">view this page > </a>
+                      </div>  
                     <ul>
                       {{ $activeCanvas = false }}
                       {{ range .Pages }}
@@ -71,11 +78,13 @@
                             {{ if eq $compTitle .Title }}
                               {{ $activeCanvas = true }}
                             {{ end }}
-                          <li class="mobileNav-li">
+                          <li class="mobileNav-li mobileNav-card">
                             <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
-                              <i class="fa-solid fa-chevron-right"></i>
-                              <span>{{ .Title }}</span>
-                              <p>{{ .Params.Shortblerb }}</p>
+                              <div class="mobileNav-li-content">
+                                <span>{{ .Title }}</span>
+                                <p>{{ .Params.Shortblerb }}</p>
+                              </div>
+                              <i class="fa-solid fa-chevron-right fa-2xl"></i>
                             </button>
                             {{ if $active -}}
                             {{ if not .Params.notoc -}}
@@ -84,19 +93,19 @@
                                   </div>
                             {{ end -}}
                           {{ end }}
-                          
                           </li>
 {{/* Third layer Offcanvas*/}}
                           <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
-                            <div class="row d-flex">
-                              <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{ .Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/</h5>
-                            </div>
                             <div class="mobileNav-header">
-                              <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left"></i></button>
-                              <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                              <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                              <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
+                              <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
                             </div>
                             <div class="mobileNav-body">
+                              <div class="mobileNav-card mobileNav-lead">
+                                <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
+                                <p>{{ .Params.ShortBlerb }}</p>
+                                <a href="{{ .RelPermalink }}">view this page > </a>
+                              </div>  
                             <ul>
                               {{ $activeCanvas = false }}
                               {{ range.Pages }}
@@ -106,44 +115,56 @@
                               {{ end }}
                               {{ $active := eq . $p -}}
                                   {{ if .Pages }}
-                                    <li class="mobileNav-li">
+                                    <li class="mobileNav-li mobileNav-card">
                                       <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        <span>{{ .Title }}</span>
-                                        <p>{{ .Params.Shortblerb }}</p>
+                                        <div class="mobileNav-li-content">  
+                                          <span>{{ .Title }}</span>
+                                          <p>{{ .Params.Shortblerb }}</p>
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right fa-2xl"></i>
                                       </button>
                                     </li>
 {{/* Fourth Layer Offcanvas */}}
                                     <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas}}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
-                                      <div class="row d-flex">
-                                        <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Parent.Title }}</a>/<a href="{{ .Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/</h5>                                      </div>
                                       <div class="mobileNav-header">
-                                        <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left"></i></button>
-                                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                                        <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                        <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
+                                        <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
                                       </div>
                                       <div class="mobileNav-body">
+                                        <div class="mobileNav-card mobileNav-lead">
+                                          <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
+                                          <p>{{ .Params.ShortBlerb }}</p>
+                                          <a href="{{ .RelPermalink }}">view this page > </a>
+                                        </div>  
                                         <ul>
                                           {{ $activeCanvas = false }}
                                           {{ range .Pages }}
-                                          <li class="mobileNav-li">
+                                          <li class="mobileNav-li mobileNav-card">
                                             <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
-                                              {{ if .Params.video}}<i class="fa-solid fa-video fa-2xs sidebar-docs-icon"></i> {{ else }}<i class="fa-solid fa-minus"></i> {{ end }}
-                                              <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
-                                              <p>{{ .Params.Shortblerb }}{{ .Params.Description }}</p>
+                                              <div class="mobileNav-li-content">
+                                                <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                                                <p>{{ .Params.Shortblerb }}</p>
+                                              </div>
+                                              {{ if .Params.video}}<i class="fa-solid fa-video fa-2xs sidebar-docs-icon"></i>{{ end }}
                                             </a>
                                           </li>
                                           {{ end }}
                                         </ul>
                                       </div>
+                                      <div class="mobileNav-footer">
+                                        <div class="row d-flex">
+                                          <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a>/</h5>                                      
+                                        </div>
+                                      </div>
                                     </div>
 {{/* End Offcanvas layers*/}}
                                   {{ else }}
-                                  <li class="mobileNav-li">
+                                  <li class="mobileNav-li mobileNav-card">
                                     <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
-                                      <i class="fa-solid fa-minus"></i>
-                                      <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
-                                      <p>{{ .Params.Shortblerb }}</p>
+                                      <div class="mobileNav-li-content">
+                                        <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                                        <p>{{ .Params.Shortblerb }}</p>
+                                      </div>
                                     </a>
                                     {{ if $active -}}
                                       {{ if not .Params.notoc -}}
@@ -157,13 +178,19 @@
                               {{ end }}
                             </ul>
                             </div>
+                            <div class="mobileNav-footer">
+                              <div class="row d-flex">
+                                <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a>/</h5>                                      
+                              </div>
+                            </div>
                             </div>
                         {{ else }}
-                        <li class="mobileNav-li">
+                        <li class="mobileNav-li mobileNav-card">
                           <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
-                            <i class="fa-solid fa-minus"></i>
-                            <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
-                            <p>{{ .Params.Shortblerb }}</p>
+                            <div class="mobileNav-li-content">
+                              <span>{{ .Title }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                              <p>{{ .Params.Shortblerb }}</p>
+                            </div>
                           </a>
                           {{ if $active -}}
                             {{ if not .Params.notoc -}}
@@ -177,31 +204,41 @@
                       {{ end }}
                     </ul>
                     </div>
+                    <div class="mobileNav-footer">
+                      <div class="row d-flex">
+                        <h5 class="mobileNav-breadcrumb"><a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a></h5>               
+                      </div>
+                    </div>
                   </div>
                   {{ else }}
 {{/* No Submenus */}}
-                  <li class="mobileNav-li">
+                  <li class="mobileNav-li mobileNav-card">
                     <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
-                      <i class="fa-solid fa-minus"></i>
-                      <span>{{ $menuTitle }}{{ if .Params.Menu.Main.Params.External }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
-                      <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                      <div class="mobileNav-li-content"> 
+                        <span>{{ $menuTitle }}{{ if .Params.Menu.Main.Params.External }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                        <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
+                      </div>
                     </a>
                   </li>
                   {{ end }}
                 {{ end }}
               {{ end }}
           {{ else }}
-          <li class="mobileNav-li">
+          <li class="mobileNav-li mobileNav-card">
             <a href="{{ .URL }}" class="{{ if eq .Name $p.Title }}active-mobile{{ end }}">
-              <i class="fa-solid fa-minus"></i>
-              <span>{{ .Name }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
-              <p>{{ .Params.Shortblerb }}</p>
+              <div class="mobileNav-li-content">
+                <span>{{ .Name }}{{ if .Params.external }}<i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</span>
+                <p>{{ .Params.Shortblerb }}</p>
+              </div>
             </a>
           </li>
           {{ end }}
         {{ end }}
       </ul>
-    
+    </div>
+    <div class="mobileNav-footer">
+      <div class="row d-flex">
+        <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/</h5>
+      </div>
     </div>
   </div>
-  

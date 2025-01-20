@@ -1114,11 +1114,21 @@ margin-left: 1rem;
   border-bottom: none;
   font-size: larger;
 }
-
-
 /* Mobile Navbar */
+
+/* Dark mode */
+[data-bs-theme="dark"]{
+  div.mobileNav div.mobileNav-body .mobileNav-card {
+    background-color: var(--bs-dark);
+  };
+  div.mobileNav.mobileNav-end {
+    background-color: var(--bs-body-bg);
+  }
+}
+
 div.mobileNav.mobileNav-end {
   width: 80vw;
+  background-color: var(--bs-light);
 
   ul {
     list-style-type: none;
@@ -1142,35 +1152,24 @@ div.mobileNav.mobileNav-end {
     }
   }
   
-  .mobileNav-header {
-    padding-left: 0.25rem;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding-right: 0;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--bs-gray-400-flip);
-    
-    h5 {
-      margin-bottom: 0rem;
-      font-size: large;
-      a {
-        padding-bottom: 1rem;
-        margin-left: 0.5rem;
-        box-decoration-break: clone;
-        color: var(--bs-navbar-color);
-      }
-    }
+  .mobileNav-home {
+    display: flex;
+    align-items: center;
   }
 
-  .mobileNav-header.mobileNav-home {
-    margin-top: calc(16.4px - 0.5rem);
-    a {
-      margin-left: 34px;
-      color: var(--bs-navbar-color);
-      h5 {
-      font-weight: bold;
-      }
+  .mobileNav-card {
+    background-color: var(--bs-white);
+    /* padding-top: 2rem;
+    padding-bottom: 2rem; */
+  }
+  .mobileNav-lead {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+
+    h5 {
+      font-weight: bolder;
     }
   }
 
@@ -1194,11 +1193,22 @@ div.mobileNav.mobileNav-end {
   }
 
   .mobileNav-li {
+    border-radius: 0.3rem;
     padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
 
     i {
       color: var(--bs-navbar-color);
-      margin-left: -1rem;
+      margin-left: auto;
+      padding-top: 1rem;
+    }
+
+    i::before {
+      vertical-align: sub;
     }
 
     i.external-link {
@@ -1213,8 +1223,10 @@ div.mobileNav.mobileNav-end {
       font-weight: var(--bs-body-font-weight);
     }
     button {
-      display: block;
+      display: flex;
       width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     a,
@@ -1228,7 +1240,9 @@ div.mobileNav.mobileNav-end {
     }
 
     a {
-      display: inline-block;
+      display: flex;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
       width: 100%;
       box-decoration-break: clone;
 
@@ -1273,10 +1287,15 @@ div.mobileNav.mobileNav-end {
   }
 
   .mobileNav-body {
-    padding-top: 2rem;
+    padding-top: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
     ul {
       padding-left: 0;
     }
+  }
+  .mobileNav-footer {
+    margin-top: auto;
   }
 }
 
@@ -2484,3 +2503,4 @@ iframe.portrait {
     
 .download-button a {  color: var(--bs-white) !important; }
 
+}
