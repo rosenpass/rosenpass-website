@@ -1120,6 +1120,9 @@ nav.foldable-nav .td-sidebar-nav__section, nav.foldable-nav .with-child ul{	marg
   div.mobileNav.mobileNav-end {
     background-color: var(--bs-body-bg);
   }
+  .mobileNav-footer footer {
+    background-color: var(--bs-body-bg) !important;
+  }
 }
 
 div.mobileNav.mobileNav-end {
@@ -1226,7 +1229,8 @@ div.mobileNav.mobileNav-end {
     }
   }
 
-  .mobileNav-li:has(a.active-mobile){
+  .mobileNav-li:has(a.active-mobile),
+  .mobileNav-lead:has(a.active-mobile){
     border-left: 1rem solid var(--bs-primary);
   }
 
@@ -1273,10 +1277,13 @@ div.mobileNav.mobileNav-end {
   }
   .mobileNav-footer {
     margin-top: auto;
-    footer p {
+    footer {
+      background-color: var(--bs-light);
+    }
+      footer p {
       display: flex;
       justify-content: space-around;
-      padding: 0rem 2rem 0rem 2rem;
+      padding: 0.2rem 2rem 0.2rem 2rem;
       a {
         color: var(--bs-primary);
       }
