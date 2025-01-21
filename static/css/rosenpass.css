@@ -323,13 +323,6 @@ a.td-rss-button {
   color: var(--bs-dropdown-link-hover-color);
 }
 
-.active-mobile {
-  color: var(--bs-primary) !important;
-  i {
-    color: var(--bs-primary) !important;
-  }
-}
-
 .mobile-nav-layers {
   transition: transform 0.4s ease-out 0.4s !important;
 }
@@ -1133,6 +1126,10 @@ div.mobileNav.mobileNav-end {
   width: 80vw;
   background-color: var(--bs-light);
 
+  .mobileNav-header {
+    padding: 0.25rem 1rem 0.25rem 1rem;
+  }
+
   ul {
     list-style-type: none;
   }
@@ -1166,8 +1163,8 @@ div.mobileNav.mobileNav-end {
     padding: 0;
     text-align: inherit;
     font-weight: bold;
-    color: var(--bs-link-color);
     display: flex;
+    color: var(--bs-primary);
   }
 
   .mobileNav-next:hover {
@@ -1180,7 +1177,7 @@ div.mobileNav.mobileNav-end {
   .mobileNav-li {
     border-radius: 0.3rem;
     padding: 0 1.5rem 0.5rem 1rem;
-    margin: 0 2rem 1rem 2rem;
+    margin: 0 1rem 1rem 1.5rem;
 
     .mobileNav-li-content {
       margin-right: 1rem;
@@ -1191,7 +1188,6 @@ div.mobileNav.mobileNav-end {
     }
 
     i {
-      color: var(--bs-navbar-color);
       margin-left: auto;
       padding-top: 1rem;
     }
