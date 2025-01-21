@@ -6,6 +6,7 @@ weight: 60
 menu: false
 type: docs
 htmlFilename: rosenpass.html
+shortBlerb: "Rosenpass General Manual"
 ---
 
 {{< blocks/htmlembed >}}

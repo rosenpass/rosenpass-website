@@ -31,8 +31,8 @@
     </div>
     <div class="mobileNav-body">
       <div class="mobileNav-card mobileNav-lead">
-        <h5 id="offcanvasRightLabel"><a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}">Rosenpass</a></h5>
-        <p>Rosenpass Homepage</p>
+        <h5 id="offcanvasRightLabel"><a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }} h4">Rosenpass</a></h5>
+        <p class="text-2xs">Rosenpass Homepage</p>
         <a href="/" class="text-muted text-xs">view this page > </a>
       </div>  
         <ul>
@@ -49,7 +49,7 @@
                     {{ $activeCanvas = true }}
                   {{ end }}
                   <li class="mobileNav-li mobileNav-card">
-                    <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
+                    <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu-next" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
                       <div class="mobileNav-li-content">
                         <span>{{ $menuTitle }}</span>
                         <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
@@ -65,8 +65,8 @@
                     </div>
                     <div class="mobileNav-body">
                       <div class="mobileNav-card mobileNav-lead">
-                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                        <p>{{ .Params.ShortBlerb }}</p>
+                        <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }} h4">{{ .Title }}</a></h5>
+                        <p class="text-2xs">{{ .Params.ShortBlerb }}</p>
                         <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                       </div>  
                     <ul>
@@ -79,7 +79,7 @@
                               {{ $activeCanvas = true }}
                             {{ end }}
                           <li class="mobileNav-li mobileNav-card">
-                            <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
+                            <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu-next" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
                               <div class="mobileNav-li-content">
                                 <span>{{ .Title }}</span>
                                 <p>{{ .Params.Shortblerb }}</p>
@@ -102,8 +102,8 @@
                             </div>
                             <div class="mobileNav-body">
                               <div class="mobileNav-card mobileNav-lead">
-                                <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                                <p>{{ .Params.ShortBlerb }}</p>
+                                <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }} h4">{{ .Title }}</a></h5>
+                                <p class="text-2xs">{{ .Params.ShortBlerb }}</p>
                                 <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                               </div>  
                             <ul>
@@ -116,7 +116,7 @@
                               {{ $active := eq . $p -}}
                                   {{ if .Pages }}
                                     <li class="mobileNav-li mobileNav-card">
-                                      <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
+                                      <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu-next" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
                                         <div class="mobileNav-li-content">  
                                           <span>{{ .Title }}</span>
                                           <p>{{ .Params.Shortblerb }}</p>
@@ -132,8 +132,8 @@
                                       </div>
                                       <div class="mobileNav-body">
                                         <div class="mobileNav-card mobileNav-lead">
-                                          <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">{{ .Title }}</a></h5>
-                                          <p>{{ .Params.ShortBlerb }}</p>
+                                          <h5 id="offcanvasRightLabel"><a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }} h4">{{ .Title }}</a></h5>
+                                          <p class="text-2xs">{{ .Params.ShortBlerb }}</p>
                                           <a href="{{ .RelPermalink }}" class="text-muted text-xs">view this page > </a>
                                         </div>  
                                         <ul>

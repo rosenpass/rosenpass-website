@@ -80,6 +80,7 @@
     const EVENT_KEYDOWN_DISMISS$s99 = `keydown.dismiss${EVENT_KEY$s99}`;
     const SELECTOR_DATA_TOGGLE$s99 = '[data-bs-toggle="mobileNavMenu"]';
     const SELECTOR_DATA_TOGGLE_BACK$s99 = '[data-bs-toggle="mobileNavMenu-back"]';
+    const SELECTOR_DATA_TOGGLE_NEXT$s99 = '[data-bs-toggle="mobileNavMenu-next"]';
     let touchStartX = 0;
     let touchEndX = 0;
     const Default$s99 = {
@@ -135,6 +136,34 @@
           this.show(relatedTarget);
         }
       }
+
+      open(relatedTarget) {
+        console.log(relatedTarget);
+        const relatedTargetSelector = relatedTarget.tagName.toLowerCase() + (relatedTarget.id ? `#${relatedTarget.id}` : '') + (relatedTarget.className ? `.${relatedTarget.className.replace(/\s+/g, '.')}` : '');
+        console.log("relatedTargetSelector: ", relatedTargetSelector);
+        const parentMobileNavMenu = SelectorEngine.find(`.mobileNav.mobileNav-end.show:has(${relatedTargetSelector})`);
+      
+        for (let i = 0; i < parentMobileNavMenu.length; i++) {
+          let ele = parentMobileNavMenu[i];
+          if (i === 0) {
+            MobileNavMenu.getOrCreateInstance(ele).show();
+          } else {
+            let instance = MobileNavMenu.getOrCreateInstance(ele);
+            instance._element.classList.add("mobile-nav-layers-showing");
+            instance.show();
+            instance._element.classList.remove("mobile-nav-layers-showing");
+          }
+        }
+      
+        if (parentMobileNavMenu.length) {
+          this._element.classList.add("mobile-nav-layers-showing");
+          this.show(relatedTarget);
+          this._element.classList.remove("mobile-nav-layers-showing");
+        } else {
+          this.show(relatedTarget);
+        }
+      }
+      
   
       show(relatedTarget) {
         if (this._isShown) {
@@ -315,10 +344,44 @@
       data.hide(this);
     });
 
+    EventHandler.on(document, EVENT_CLICK_DATA_API$s99, SELECTOR_DATA_TOGGLE_NEXT$s99, function (event) {
+      const target = SelectorEngine.getElementFromSelector(this);
+      if (['A', 'AREA'].includes(this.tagName)) {
+        event.preventDefault();
+      }
+      if (isDisabled(this)) {
+        return;
+      }
+      EventHandler.one(target, EVENT_HIDDEN$s99, () => {
+        if (isVisible(this)) {
+          this.focus();
+        }
+      });
+      const data = MobileNavMenu.getOrCreateInstance(target);
+      data.open(this);
+    });
+
     EventHandler.on(document, 'touchstart', function (event){
         touchStartX = 0;
         touchStartX = event.touches[0].clientX;
     });
+  //   EventHandler.on(document, 'touchmove', function (event){
+  //     // Fix logic to tie to width of screen and keep it there
+  //     // find and compute viewport width and then minus the touch x axis
+  //     // May have to grab the top layer as with hideAll and toggle
+  //     // Set a max amount it can be pulled out and in
+  //     if (touchStartX - event.touches[0].screenX > 15){
+  //       const target = document.querySelector('.mobileNav.mobileNav-end#mobileNavMenu-Active');
+  //       if (!target) return;
+  //       const data = MobileNavMenu.getOrCreateInstance(target);
+  //       data._element.animate([
+  //         { transform: `translateX(-${event.touches[0].screenX}px)`},
+  //       ],
+  //     {duration: 1000,
+  //     },)
+  //       data.toggle();
+  //     } 
+  // });
       EventHandler.on(document, 'touchend', function (event){
         touchEndX = 0;
         touchEndX = event.changedTouches[0].clientX;

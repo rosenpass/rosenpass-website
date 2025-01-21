@@ -6,6 +6,7 @@ weight: 70
 menu: false
 type: docs
 htmlFilename: rp1.html
+shortBlerb: "High-Level interface Manual"
 ---
 
 {{< blocks/htmlembed >}}
