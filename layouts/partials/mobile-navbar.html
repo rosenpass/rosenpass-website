@@ -27,12 +27,12 @@
 
 <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu{{ if $activeCanvas }}-Active{{ end }}" aria-labelledby="offcanvasRightLabel">
     <div class="mobileNav-home">
-      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-2xl fa-xmark"></i></button>
+      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xl fa-xmark"></i></button>
     </div>
     <div class="mobileNav-body">
       <div class="mobileNav-card mobileNav-lead">
-        <a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}"><h5 id="offcanvasRightLabel">Rosenpass</h5></a>
-        <p>LANDING PAGE SPIEL</p>
+        <h5 id="offcanvasRightLabel"><a href="/" class="{{ if eq $p.RelPermalink "/" }}active-mobile{{ end }}">Rosenpass</a></h5>
+        <p>{{ .Params.ShortBlerb }}</p>
         <a href="/" class="text-muted text-xs">view this page > </a>
       </div>  
         <ul>
@@ -54,14 +54,14 @@
                         <span>{{ $menuTitle }}</span>
                         <p>{{ .Params.Menu.Main.Params.ShortBlerb }}</p>
                       </div>
-                        <i class="fa-solid fa-chevron-right fa-2xl"></i>
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
                     </button>
                   </li>
 {{/* Second layer Offcanvas */}}
                   <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                     <div class="mobileNav-header">
-                      <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
-                      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+                      <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+                      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                     </div>
                     <div class="mobileNav-body">
                       <div class="mobileNav-card mobileNav-lead">
@@ -84,7 +84,7 @@
                                 <span>{{ .Title }}</span>
                                 <p>{{ .Params.Shortblerb }}</p>
                               </div>
-                              <i class="fa-solid fa-chevron-right fa-2xl"></i>
+                              <i class="fa-solid fa-chevron-right fa-xl"></i>
                             </button>
                             {{ if $active -}}
                             {{ if not .Params.notoc -}}
@@ -97,8 +97,8 @@
 {{/* Third layer Offcanvas*/}}
                           <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                             <div class="mobileNav-header">
-                              <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
-                              <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+                              <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+                              <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                             </div>
                             <div class="mobileNav-body">
                               <div class="mobileNav-card mobileNav-lead">
@@ -121,14 +121,14 @@
                                           <span>{{ .Title }}</span>
                                           <p>{{ .Params.Shortblerb }}</p>
                                         </div>
-                                        <i class="fa-solid fa-chevron-right fa-2xl"></i>
+                                        <i class="fa-solid fa-chevron-right fa-xl"></i>
                                       </button>
                                     </li>
 {{/* Fourth Layer Offcanvas */}}
                                     <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas}}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                                       <div class="mobileNav-header">
-                                        <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-2xl"></i></button>
-                                        <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-2xl"></i></button>
+                                        <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+                                        <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                                       </div>
                                       <div class="mobileNav-body">
                                         <div class="mobileNav-card mobileNav-lead">
@@ -151,11 +151,7 @@
                                           {{ end }}
                                         </ul>
                                       </div>
-                                      <div class="mobileNav-footer">
-                                        <div class="row d-flex">
-                                          <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a>/</h5>                                      
-                                        </div>
-                                      </div>
+                                      {{ partial "mobile-navbar-footer.html" .}}
                                     </div>
 {{/* End Offcanvas layers*/}}
                                   {{ else }}
@@ -178,11 +174,7 @@
                               {{ end }}
                             </ul>
                             </div>
-                            <div class="mobileNav-footer">
-                              <div class="row d-flex">
-                                <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/<a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a>/</h5>                                      
-                              </div>
-                            </div>
+                            {{ partial "mobile-navbar-footer.html" .}}
                             </div>
                         {{ else }}
                         <li class="mobileNav-li mobileNav-card">
@@ -204,11 +196,7 @@
                       {{ end }}
                     </ul>
                     </div>
-                    <div class="mobileNav-footer">
-                      <div class="row d-flex">
-                        <h5 class="mobileNav-breadcrumb"><a href="{{.Parent.RelPermalink }}" class="unstyled-link">{{ .Parent.Title }}</a>/<a href="{{ .RelPermalink }}" class="unstyled-link">{{ .Title }}</a></h5>               
-                      </div>
-                    </div>
+                    {{ partial "mobile-navbar-footer.html" .}}
                   </div>
                   {{ else }}
 {{/* No Submenus */}}
@@ -236,12 +224,5 @@
         {{ end }}
       </ul>
     </div>
-    <div class="mobileNav-footer">
-      <div class="row d-flex">
-        <h5 class="mobileNav-breadcrumb"><a href="/" class="unstyled-link">Rosenpass</a>/</h5>
-      </div>
-      <footer class="py-1 my-0 mx-0 row d-print-none footer">
-        <p class=" text-center mb-0 text-xs"><a href="/">Home</a> | <a href="/press/">Press</a> | <a href="/impressum/"  >Impressum</a> | <a href="/contributors/#contact">Contact</a></p>
-      </footer>
-    </div>
+    {{ partial "mobile-navbar-footer.html" .}}
   </div>
