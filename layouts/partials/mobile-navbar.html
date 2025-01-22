@@ -27,7 +27,7 @@
 
 <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu{{ if $activeCanvas }}-Active{{ end }}" aria-labelledby="offcanvasRightLabel">
     <div class="mobileNav-home">
-      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xl fa-xmark"></i></button>
+      <button type="button" class="mobileNavMenu mobileNavMenu-close" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xl fa-xmark"></i></button>
     </div>
     <div class="mobileNav-body">
       <div class="mobileNav-card mobileNav-lead">
@@ -48,6 +48,7 @@
                   {{ if eq $compTitle $menuTitle }}
                     {{ $activeCanvas = true }}
                   {{ end }}
+                  {{ $active := eq . $p -}}
                   <li class="mobileNav-li mobileNav-card">
                     <button class="btn btn-primary mobileNav-next{{ if $p.IsDescendant .}} active-mobile{{ end }}" type="button" data-bs-toggle="mobileNavMenu-next" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu">
                       <div class="mobileNav-li-content">
@@ -56,12 +57,19 @@
                       </div>
                         <i class="fa-solid fa-chevron-right fa-xl"></i>
                     </button>
+                    {{ if $active -}}
+                      {{ if not .Params.notoc -}}
+                        <div class="td-toc blog-toc mobile-toc">
+                          {{ .TableOfContents }}
+                        </div>
+                      {{ end -}}
+                    {{ end }}
                   </li>
 {{/* Second layer Offcanvas */}}
                   <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                     <div class="mobileNav-header">
                       <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{ else }}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
-                      <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                      <button type="button" class="mobileNavMenu mobileNavMenu-close" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                     </div>
                     <div class="mobileNav-body">
                       <div class="mobileNav-card mobileNav-lead">
@@ -86,19 +94,19 @@
                               </div>
                               <i class="fa-solid fa-chevron-right fa-xl"></i>
                             </button>
-                            {{ if $active -}}
-                            {{ if not .Params.notoc -}}
-                                  <div class="td-toc blog-toc">
+                              {{ if $active -}}
+                                {{ if not .Params.notoc -}}
+                                  <div class="td-toc blog-toc mobile-toc">
                                     {{ .TableOfContents }}
                                   </div>
-                            {{ end -}}
-                          {{ end }}
+                                {{ end -}}
+                              {{ end }}
                           </li>
 {{/* Third layer Offcanvas*/}}
                           <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                             <div class="mobileNav-header">
                               <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
-                              <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                              <button type="button" class="mobileNavMenu mobileNavMenu-close" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                             </div>
                             <div class="mobileNav-body">
                               <div class="mobileNav-card mobileNav-lead">
@@ -123,12 +131,19 @@
                                         </div>
                                         <i class="fa-solid fa-chevron-right fa-xl"></i>
                                       </button>
+                                    {{ if $active -}}
+                                      {{ if not .Params.notoc -}}
+                                        <div class="td-toc blog-toc mobile-toc">
+                                          {{ .TableOfContents }}
+                                        </div>
+                                      {{ end -}}
+                                    {{ end }}
                                     </li>
 {{/* Fourth Layer Offcanvas */}}
                                     <div class="mobileNav mobileNav-end" tabindex="-1" id="mobileNavMenu-{{ if $activeCanvas}}Active{{ else }}{{ $canvasID }}{{ end }}" aria-labelledby="offcanvasRightLabel">
                                       <div class="mobileNav-header">
                                         <button class="btn btn-primary mobileNav-back" type="button" data-bs-toggle="mobileNavMenu-back" data-bs-target="#mobileNavMenu-{{ if $activeCanvas }}Active{{else}}{{ $canvasID }}{{ end }}" aria-controls="mobileNavMenu"><i class="fa-solid fa-chevron-left fa-xl"></i></button>
-                                        <button type="button" class="mobileNavMenu" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                                        <button type="button" class="mobileNavMenu mobileNavMenu-close" data-bs-dismiss="mobileNavMenu" aria-label="Close"><i class="fa-solid fa-xmark fa-xl"></i></button>
                                       </div>
                                       <div class="mobileNav-body">
                                         <div class="mobileNav-card mobileNav-lead">
@@ -139,6 +154,7 @@
                                         <ul>
                                           {{ $activeCanvas = false }}
                                           {{ range .Pages }}
+                                          {{ $active := eq . $p -}}
                                           <li class="mobileNav-li mobileNav-card">
                                             <a href="{{ .RelPermalink }}" class="{{ if eq .Title $p.Title }}active-mobile{{ end }}">
                                               <div class="mobileNav-li-content">
@@ -148,7 +164,14 @@
                                               {{ if .Params.video}}<i class="fa-solid fa-video fa-2xs sidebar-docs-icon"></i>{{ end }}
                                             </a>
                                           </li>
+                                          {{ if $active -}}
+                                           {{ if not .Params.notoc -}}
+                                            <div class="td-toc blog-toc mobile-toc">
+                                              {{ .TableOfContents }}
+                                            </div>
+                                            {{ end -}}
                                           {{ end }}
+                                        {{ end }}
                                         </ul>
                                       </div>
                                       {{ partial "mobile-navbar-footer.html" .}}
@@ -162,9 +185,10 @@
                                         <p>{{ .Params.Shortblerb }}</p>
                                       </div>
                                     </a>
+                                    {{ $active := eq . $p -}}
                                     {{ if $active -}}
                                       {{ if not .Params.notoc -}}
-                                            <div class="td-toc blog-toc">
+                                            <div class="td-toc blog-toc mobile-toc">
                                               {{ .TableOfContents }}
                                             </div>
                                       {{ end -}}
@@ -184,9 +208,10 @@
                               <p>{{ .Params.Shortblerb }}</p>
                             </div>
                           </a>
+                          {{ $active := eq . $p -}}
                           {{ if $active -}}
                             {{ if not .Params.notoc -}}
-                                <div class="td-toc blog-toc">
+                                <div class="td-toc blog-toc mobile-toc">
                                   {{ .TableOfContents }}
                                 </div>
                             {{ end -}}
@@ -219,6 +244,14 @@
                 <p>{{ .Params.Shortblerb }}</p>
               </div>
             </a>
+            {{ $active := eq . $p -}}
+            {{ if $active -}}
+              {{ if not .Params.notoc -}}
+                  <div class="td-toc blog-toc mobile-toc">
+                    {{ .TableOfContents }}
+                  </div>
+              {{ end -}}
+            {{ end }}
           </li>
           {{ end }}
         {{ end }}

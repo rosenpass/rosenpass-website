@@ -1156,6 +1156,11 @@ div.mobileNav.mobileNav-end {
         color: var(--bs-primary);
       }
     }
+
+    p,
+    a.text-xs {
+      margin-left: 0.2rem;
+    }
   }
 
   .mobileNav-next {
@@ -1227,6 +1232,17 @@ div.mobileNav.mobileNav-end {
       width: 100%;
       box-decoration-break: clone;
     }
+    
+    .mobile-toc {
+
+      a {
+        padding: 0.3rem 0 0.3rem 0;
+      }
+      
+      a::before {
+        content: "-"
+      }
+    }
   }
 
   .mobileNav-li:has(a.active-mobile),
@@ -1241,6 +1257,7 @@ div.mobileNav.mobileNav-end {
     box-shadow: none;
     color: var(--bs-navbar-color);
     padding-bottom: 1rem;
+    padding-right: 3rem;
 
     i {
       vertical-align: bottom;
@@ -1249,6 +1266,10 @@ div.mobileNav.mobileNav-end {
 
   .mobileNav-back:hover {
     color: var(--bs-navbar-hover-color);
+  }
+
+  button.mobileNavMenu-close {
+    padding-left: 3rem;
   }
 
   .mobileNavMenu {
