@@ -893,6 +893,20 @@ border: none;
   }
 }
 
+.command-user {
+  span.line:first-child::before{
+    content: "$ ";
+    font-weight: bold;
+  }
+}
+
+.command-root {
+  span.line:first-child::before{
+    content: "# ";
+    font-weight: bold;
+  }
+}
+
 .starter-code-server{
   span.line:first-child::before{
     content: "user@server:~$ ";
@@ -904,6 +918,22 @@ border: none;
 .starter-code-client{
   span.line:first-child::before{
     content: "user@client:~$ ";
+    color: var(--bs-secondary);
+    font-weight: bold;
+  }
+}
+
+.starter-code-server-root{
+  span.line:first-child::before{
+    content: "root@server:~# ";
+    color: var(--bs-primary);
+    font-weight: bold;
+  }
+}
+
+.starter-code-client-root{
+  span.line:first-child::before{
+    content: "root@client:~# ";
     color: var(--bs-secondary);
     font-weight: bold;
   }
@@ -1064,7 +1094,6 @@ aside#sidebar-docs #td-sidebar-menu{
 }
 
 .td-sidebar-link.td-sidebar-link__page.active{
-  font-size: larger !important;
   color: var(--bs-black-flip);
 }
 
