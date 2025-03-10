@@ -1,16 +1,16 @@
 ---
-aliases: [/docs/compilation]
-title: "Compilation and Installation"
-linkTitle: "Compilation and Installation"
-weight: 4
+aliases: [/docs/guides/compilation]
+title: "Generic Linux"
+linkTitle: "Generic Linux"
+weight: 5
 menu: false
 type: docs
 shortBlerb: "Manually set up Rosenpass"
-blerb: "A guide on how to compile the Rosenpass tool yourself, including installation via the binary files. This is useful if you want to use the Rosenpass tool on systems we do not currently provide packages for."
+blerb: "A guide on how to install Rosenpass via pre-compiled binary files or manual compilation. This can be used on Linux systems for which Rosenpass does not yet provide a dedicated guide, nor a package."
 ---
 
-Below is a guide on how to compile Rosenpass yourself, including via the binary files. This can be used to compile Rosenpass for systems not yet fully supported, such as Debian, and provides a more customised experience.
-
+Below is a guide on how to install Rosenpass via pre-compiled binary files or manual compilation.
+This can be used on Linux systems for which Rosenpass does not yet provide a dedicated guide, nor a package.
 
 {{% blocks/comp-nav %}} 
 
