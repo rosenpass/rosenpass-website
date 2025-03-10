@@ -136,7 +136,7 @@ enableRobotsTXT = true
   [[menu.main]]
     name = "Quick Start"
     weight = 15
-    url = "/docs/rosenpass-tool/start"
+    url = "/docs/rosenpass-tool/guides"
     [[menu.main.params]]
       shortBlerb = "Get Rosenpass installed and running"
 
