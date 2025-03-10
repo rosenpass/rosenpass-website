@@ -1,5 +1,5 @@
 ---
-aliases: [/docs/manuals/rp1]
+aliases: [/docs/manuals/rp]
 linkTitle: "High-Level Interfaces (rp)"
 Title: "High-Level Interfaces"
 weight: 70
