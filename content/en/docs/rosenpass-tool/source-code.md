@@ -1,5 +1,5 @@
 ---
-aliases: [/docs/source_code]
+aliases: [/docs/source-code]
 title: "Source Code"
 linkTitle: "Source Code"
 weight: 50
