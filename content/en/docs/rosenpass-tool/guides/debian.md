@@ -86,7 +86,7 @@ rmdir bin
 ```
 <span class="spacer"></span>
 
-5. **Test**: For a quick test that the installation succeeded, run both tools with the `help` comand to show a short usage hint:
+5. **Test**: As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
 
 ```sh{class="code-block-list command-user"}
 rosenpass help
@@ -170,6 +170,15 @@ install rp /usr/local/bin
 The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it.
 <span class="spacer"></span>
 
+6. **Test**: As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
+
+```sh{class="code-block-list command-user"}
+rosenpass help
+```
+```sh{class="code-block-list command-user"}
+rp help
+```
+<span class="spacer"></span>
 **That's it! You have downloaded, compiled, and installed Rosenpass.** You can now proceed to [set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn).
 
 <span class="spacer"></span>
@@ -263,7 +272,7 @@ ping fe80::2%rosenpass0
 You can watch how Rosenpass replaces the WireGuard PSK with the following command:
 
 ```sh{class="command-root"}
-watch -n 0.2 'wg show all; wg show all preshared-keys'
+watch -n 2 'wg show all; wg show all preshared-keys'
 ```
 
 **All done!**

@@ -47,7 +47,7 @@ Rosenpass provides pre-built binary files for 64-bit Ubuntu. This is the most co
 
 <span class="codebox">
 
-```sh
+```sh{class="command-user"}
 wget https://github.com/rosenpass/rosenpass/releases/download/v0.2.2/rosenpass-x86_64-linux-0.2.2.tar
 ```
 
@@ -59,7 +59,7 @@ The archive contains a directory `bin` with the two binaries `rosenpass` and `rp
 
 <span class="codebox">
 
-```sh
+```sh{class="command-user"}
 tar xf rosenpass-x86_64-linux-0.2.2.tar
 ```
 
@@ -67,10 +67,10 @@ tar xf rosenpass-x86_64-linux-0.2.2.tar
 
 3. **Install** Rosenpass by copying its binaries to `/usr/local/bin` with root privileges:
 
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 sudo install bin/rosenpass /usr/local/bin
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 sudo install bin/rp /usr/local/bin
 ```
 <span class="spacer"></span>
@@ -78,20 +78,20 @@ The second binary, `rp`, is the Rosenpass helper. You can skip this step if you 
 
 4. **Delete**: You can delete the downloaded archive and the extracted `bin` directory, if you like:
 
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 rm -r rosenpass-x86_64-linux-0.2.2.tar bin/rosenpass bin/rp
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 rmdir bin
 ```
 <span class="spacer"></span>
 
-5. **Test**: For a quick test that the installation succeeded, run both tools with the `help` comand to show a short usage hint:
+5. **Test**: As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
 
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 rosenpass help
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 rp help
 ```
 <span class="spacer"></span>
@@ -123,7 +123,7 @@ The command also install `curl` in preparation of the Rustup installation in the
 
 <span class="codebox">
 
-```sh
+```sh{class="command-user"}
 sudo apt --yes install libsodium-dev libclang-dev cmake pkg-config git build-essential curl wireguard
 ```
 
@@ -134,13 +134,13 @@ sudo apt --yes install libsodium-dev libclang-dev cmake pkg-config git build-ess
 
 3. **Clone** the Rosenpass Git repository, change to the `rosenpass` directory, and switch to the branch of the latest release:
 
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 git clone https://github.com/rosenpass/rosenpass.git
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 cd rosenpass
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 git checkout v0.2.2
 ```
 
@@ -152,7 +152,7 @@ Without switching to a different branch, you will install and compile the develo
 
 <span class="codebox">
 
-```sh
+```sh{class="command-user"}
 cargo build --release
 ```
 
@@ -160,16 +160,25 @@ cargo build --release
 
 5. **Install:** If the compilation succeeded, proceed to install Rosenpass by copying its binaries to `/usr/local/bin` with root privileges:
 
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 sudo install target/release/rosenpass /usr/local/bin
 ```
-```sh{class="code-block-list"}
+```sh{class="code-block-list command-user"}
 sudo install rp /usr/local/bin
 ```
 <span class="spacer"></span>
 The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it.
 <span class="spacer"></span>
 
+6. **Test**: As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
+
+```sh{class="code-block-list command-user"}
+rosenpass help
+```
+```sh{class="code-block-list command-user"}
+rp help
+```
+<span class="spacer"></span>
 **That's it! You have downloaded, compiled, and installed Rosenpass.** You can now proceed to [set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn).
 
 <span class="spacer"></span>
@@ -191,10 +200,10 @@ In this section, we set up a Rosenpass-enhanced WireGuard connection between two
 
 **Note:** These will be stored in newly created `server.rosenpass-secret` and `client.rosenpass-secret` directories.
 
-```sh{class="starter-code-server"}
+```sh{class="starter-code-server command-user"}
 rp genkey server.rosenpass-secret
 ```
-```sh{class="starter-code-client"}
+```sh{class="starter-code-client command-user"}
 rp genkey client.rosenpass-secret
 ```
 
@@ -202,19 +211,19 @@ rp genkey client.rosenpass-secret
 
 **Note:** As above, these will be stored in newly created `server.rosenpass-public` and `client.rosenpass-public directories`.
 
-```sh{class="starter-code-server"}
+```sh{class="starter-code-server command-user"}
 rp pubkey server.rosenpass-secret server.rosenpass-public
 ```
-```sh{class="starter-code-client"}
+```sh{class="starter-code-client command-user"}
 rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
 
 #### 3. Copy each `-public` directory to the other peer
 
-```sh{class="starter-code-server"}
+```sh{class="starter-code-server command-user"}
 scp -r server.rosenpass-public user@client:/path/to/directory
 ```
-```sh{class="starter-code-client"}
+```sh{class="starter-code-client command-user"}
 scp -r client.rosenpass-public user@server:/path/to/directory
 ```
 
@@ -251,10 +260,10 @@ sudo ip a add fe80::2/64 dev rosenpass0
 
 You can test the connection by pinging the server from the client peer and vice versa:
 
-```sh{class="starter-code-client"}
+```sh{class="starter-code-client command-user"}
 ping fe80::1%rosenpass0
 ```
-```sh{class="starter-code-server"}
+```sh{class="starter-code-server command-user"}
 ping fe80::2%rosenpass0
 ```
 
@@ -262,8 +271,8 @@ ping fe80::2%rosenpass0
 
 You can watch how Rosenpass replaces the WireGuard PSK with the following command:
 
-```sh
-watch -n 0.2 'wg show all; wg show all preshared-keys'
+```sh{class="command-user"}
+sudo watch -n 2 'wg show all; wg show all preshared-keys'
 ```
 
 **All done!**
