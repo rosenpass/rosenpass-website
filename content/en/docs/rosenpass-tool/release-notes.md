@@ -1,5 +1,5 @@
 ---
-aliases: [/docs/release-notes]
+aliases: [/docs/release_notes, /docs/rosenpass-tool/release_notes]
 title: "Release Notes"
 linkTitle: "Release Notes"
 weight: 1

@@ -1,6 +1,6 @@
 ---
-aliases: [/docs/guides/compilation]
-title: "Generic Linux"
+aliases: [/docs/compilation, /docs/rosenpass-tool/compilation]
+title: "Rosenpass Installation and Usage on Linux"
 linkTitle: "Generic Linux"
 weight: 5
 menu: false

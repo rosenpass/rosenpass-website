@@ -1,5 +1,5 @@
 ---
-aliases: [/docs/manuals/rosenpass]
+aliases: [/docs/manuals/rp_manual, /docs/rosenpass-tool/manuals/rp_manual]
 linkTitle: "Rosenpass Manual (rosenpass)"
 title: "Rosenpass Manual"
 weight: 60
