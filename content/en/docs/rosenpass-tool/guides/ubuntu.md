@@ -1,5 +1,4 @@
 ---
-aliases: [/docs/guides/ubuntu]
 title: "Rosenpass Installation and Usage on Ubuntu"
 linkTitle: "Ubuntu"
 weight: 3

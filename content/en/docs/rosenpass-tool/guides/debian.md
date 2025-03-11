@@ -1,5 +1,4 @@
 ---
-aliases: [/docs/guides/debian]
 title: "Rosenpass Installation and Usage on Debian"
 linkTitle: "Debian"
 weight: 4
