@@ -3,10 +3,17 @@ title: "Rosenpass Installation and Usage on Debian"
 linkTitle: "Debian"
 weight: 4
 menu: false
+hideLead: true
 type: docs
 shortBlerb: "Set up and use Rosenpass on Debian"
 blerb: "A guide on different options to install the Rosenpass tool on Debian (including installation via binary files and manual compilation), and a usage example as enhancement of WireGuard."
 ---
+
+{{< blocks/lead color="secondary" class="title-box" >}}
+## Rosenpass Installation and Usage on Debian
+{{< /blocks/lead >}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
 
 Rosenpass is ready for use on Debian. This page provides you with installation and usage guides to get started with Rosenpass on Debian. Currently, most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
 
@@ -18,6 +25,7 @@ Table of Contents:
 
 This guide was last tested on March 10, 2025, under Debian 12.9 Bookworm.
 <span class="spacer"></span>
+{{% /blocks/section %}}
 
 {{< blocks/lead color="secondary" class="title-box" >}}
 ## Installation via the Package Manager

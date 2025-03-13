@@ -3,10 +3,17 @@ title: "Rosenpass Installation and Usage on Ubuntu"
 linkTitle: "Ubuntu"
 weight: 3
 menu: false
+hideLead: true
 type: docs
 shortBlerb: "Set up and use Rosenpass on Ubuntu"
 blerb: "A guide on different options to install the Rosenpass tool on Ubuntu (including installation via binary files and manual compilation), and a usage example as enhancement of WireGuard."
 ---
+
+{{< blocks/lead color="secondary" class="title-box" >}}
+## Rosenpass Installation and Usage on Ubuntu
+{{< /blocks/lead >}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
 
 Rosenpass is well tested on Ubuntu. This page provides you with installation and usage guides to get started with Rosenpass on Ubuntu. Currently, most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
 
@@ -18,6 +25,7 @@ Table of Contents:
 
 This guide was last tested on March 10, 2025, under Ubuntu 24.10 Mantic Minotaur.
 <span class="spacer"></span>
+{{% /blocks/section %}}
 
 {{< blocks/lead color="secondary" class="title-box" >}}
 ## Installation via the Package Manager
