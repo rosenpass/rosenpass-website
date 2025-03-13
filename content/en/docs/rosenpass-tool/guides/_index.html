@@ -30,29 +30,35 @@ Even if your distribution is not listed here, you can always **compile Rosenpass
 
 If your distribution isn't listed below, you can install Rosenpass manually in just a few steps, for example on **[Ubuntu](ubuntu)** and **[Debian](debian)**, or generically on **[Linux](linux)**.
 
-```sh{class="code-block-list"}
-(arch pacman)		$ pacman -S rosenpass
+{{< code-block-prompt-css-class class="arch-pacman" text="(arch pacman)      $ " >}}
+{{< code-block-prompt-css-class class="arch-aur"    text="(arch AUR)         $ " >}}
+{{< code-block-prompt-css-class class="nixos"       text="(NixOS)            $ " >}}
+{{< code-block-prompt-css-class class="nix-flake"   text="(nix-flake)        $ " >}}
+{{< code-block-prompt-css-class class="alpine"      text="(alpine (testing)) $ " >}}
+
+```sh{class="code-block-list arch-pacman"}
+pacman -S rosenpass
 ```
-```sh{class="code-block-list"}
-(arch AUR)		$ aura -A rosenpass-git
+```sh{class="code-block-list arch-aur"}
+aura -A rosenpass-git
 ```
-```sh{class="code-block-list"}
-(NixOS)			$ nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+```sh{class="code-block-list nixos"}
+nix-env -iA nixos.rosenpass nixos.rosenpass-tools
 ```
-```sh{class="code-block-list"}
-(nix-flake)		$ nix profile install github:rosenpass/rosenpass#rosenpass
+```sh{class="code-block-list nix-flake"}
+nix profile install github:rosenpass/rosenpass#rosenpass
 ```
-```sh{class="code-block-list"}
-(alpine (testing))	$ apk add rosenpass
+```sh{class="code-block-list alpine"}
+apk add rosenpass
 ```
 <span class="spacer"></span>
 
 As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
 
-```sh{class="command-user"}
+```sh{class="code-block-list command-user"}
 rosenpass help
 ```
-```sh{class="command-user"}
+```sh{class="code-block-list command-user"}
 rp help
 ```
 
