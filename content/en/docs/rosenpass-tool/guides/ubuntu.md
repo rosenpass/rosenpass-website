@@ -18,27 +18,13 @@ blerb: "A guide on different options to install the Rosenpass tool on Ubuntu (in
 Rosenpass is well tested on Ubuntu. This page provides you with installation and usage guides to get started with Rosenpass on Ubuntu. Currently, most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
 
 Table of Contents:
-* [Installation via the Package Manager](#installation-via-the-package-manager): A short note only, because this is not yet ready for use.
 * [Installation via the Binary Files](#installation-via-binary-files): Most users can start here.
 * [Compile Rosenpass from Source](#compile-it-from-source): Some users might need to go the manual way.
 * [Set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn): After installation, you can proceed here.
+* [Installation via the Package Manager](#installation-via-the-package-manager): A short note only, because this is not yet ready for use.
 
 This guide was last tested on March 10, 2025, under Ubuntu 24.10 Mantic Minotaur.
 <span class="spacer"></span>
-{{% /blocks/section %}}
-
-{{< blocks/lead color="secondary" class="title-box" >}}
-## Installation via the Package Manager
-{{< /blocks/lead >}}
-
-{{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
-
-**This is not ready, yet!** In the meanwhile, **you are advised to use the [installation via binary files](#installation-via-binary-files)**.
-
-For the current version v0.2.2, we unfortunately do not yet provide .deb packages. As of the next Rosenpass release, you will be able to download a .deb package and install Rosenpass via your package manager.
-
-For the technically inclined user, the work preparing for this has already been done with a [Nix package](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix) and a [CI workflow](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix).
-
 {{% /blocks/section %}}
 
 {{< blocks/lead color="secondary" class="title-box" >}}
@@ -289,3 +275,18 @@ Rosenpass will now generate a new PSK key for WireGuard about every two minutes 
 
 
 {{% /blocks/section %}}
+
+{{< blocks/lead color="secondary" class="title-box" >}}
+## Installation via the Package Manager
+{{< /blocks/lead >}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
+
+**This is not ready, yet!** In the meanwhile, **you are advised to use the [installation via binary files](#installation-via-binary-files)**.
+
+For the current version v0.2.2, we unfortunately do not yet provide .deb packages. As of the next Rosenpass release, you will be able to download a .deb package and install Rosenpass via your package manager.
+
+For the technically inclined user, the work preparing for this has already been done with a [Nix package](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix) and a [CI workflow](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix).
+
+{{% /blocks/section %}}
+
