@@ -228,7 +228,64 @@ scp -r client.rosenpass-public user@server:/path/to/directory
 
 ### Launch your Rosenpass-enhanced WireGuard VPN
 
-#### 4. Configure your firewall
+In the following two commands, replace `$SERVERIP` with the IP address under which the client can reach the server. This might be a publicly routable IP address, an IP address within your local network, or even the loopback address `127.0.0.1`.
+
+Equally, replace `$DEVICE` by the name of the network device on which the server receives packets for the `$SERVERIP`.
+
+You can find information about the network device and IP addresses using the command:
+
+```sh{class="starter-code-server command-user"}
+ip a
+```
+
+
+#### 4. Start the VPN
+
+Start the Rosenpass and WireGuard processes on both server and client. This creates a WireGuard network interface named `rosenpass0`, which allows us, in the next step, to assign an internal IP address and to add a route for the internal network.
+
+```sh{class="starter-code-server command-root"}
+rp exchange server.rosenpass-secret dev rosenpass0 listen $SERVERIP:9999 \
+peer client.rosenpass-public allowed-ips 192.168.21.0/24
+```
+```sh{class="starter-code-client command-root"}
+rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint $SERVERIP:9999 allowed-ips 192.168.21.0/24
+```
+
+If you like, you can already check if Rosenpass manages to exchange a shared secret by skipping to [Step 8 “Test the Rosenpass handshake”](#8-test-the-rosenpass-handshake), and coming back to Step 5 and following afterwards.
+
+#### 5. Assign IP addresses
+
+In this example, we use addresses from the internal network `192.168.21.0/24` within the VPN. Feel free to try something else, but make sure to adapt IP addresses and networks in all command where necessary.
+
+```sh{class="starter-code-server command-root"}
+ip a add 192.168.21.1 dev rosenpass0
+```
+```sh{class="starter-code-client command-root"}
+ip a add 192.168.21.2 dev rosenpass0
+```
+
+#### 6. Add routes for the WireGuard network
+
+Verify that the routing table containes an entry for the internal network `192.168.21.0/24`. You can do so with the following command:
+
+```sh{class="command-user"}
+ip route
+```
+Its output should contain a line about the `192.168.21.0/24` network, mentioning the interface `rosenpass0`:
+```bash
+…
+192.168.21.0/24 dev rosenpass0 scope link
+…
+```
+If such a line is not present, you can add a route using:
+```sh{class="command-root"}
+ip route add 192.168.21.0/24 dev rosenpass0
+```
+Remember to verify and do this on both server and client.
+
+
+#### 7. Configure your firewall
 
 **Not sure if you are behind a firewall?** You can skip this step and come back in case you cannot get a connection to work.
 
@@ -236,35 +293,15 @@ In this example, the server needs to be reachable on two ports: `9999` for the R
 
 **Configure your firewall(s)** such that new incoming connections on ports `9999` and `10000` are allowed.
 
-#### 5. Start the VPN
-
-In the following two commands, replace `$SERVERIP` as the IP address under which the client can reach the server. This might be a publicly routable IP address, an IP address within your local network, or even the loopback address `127.0.0.1`.
-
-```sh{class="starter-code-server-root"}
-rp exchange server.rosenpass-secret dev rosenpass0 listen $SERVERIP:9999 \
-peer client.rosenpass-public allowed-ips 192.168.21.0/24
-```
-```sh{class="starter-code-client-root"}
-rp exchange client.rosenpass-secret dev rosenpass0 \
-peer server.rosenpass-public endpoint $SERVERIP:9999 allowed-ips 192.168.21.0/24
-```
-
-#### 6. Assign IP addresses
-
-In this example, we use addresses from the network `192.168.21.0/24` within the VPN. Feel free to try something else!
-
-```sh{class="starter-code-server-root"}
-ip a add 192.168.21.1 dev rosenpass0
-```
-```sh{class="starter-code-client-root"}
-ip a add 192.168.21.2 dev rosenpass0
-```
 
 ### Just to be sure: Verify the magic!
 
-#### 7. Test the Rosenpass handshake
+#### 8. Test the Rosenpass handshake
 
-As a first test, check if Rosenpass manages to exchange a shared secret and to hand it over to WireGuard. On both the server and the client, you can run the following command to see which pre-shared key WireGuard is using for the connection:
+As a first test, check if Rosenpass manages to exchange a shared secret and to hand it over to WireGuard.
+You could also already check this when you finished Step 4, but skipped Steps 5, 6, and possibly 7. If you skipped Step 7 and the Rosenpass handshake does not work, make sure to go back to [Step 7 and check your firewall settings](#7-configure-your-firewall).
+
+On both the server and the client, you can run the following command to see which pre-shared key WireGuard is using for the connection:
 
 ```sh{class="command-root"}
 wg show rosenpass0 preshared-keys
@@ -318,9 +355,9 @@ You can watch how Rosenpass continuously replaces the WireGuard PSK with the fol
 watch -n 2 'wg show all; wg show all preshared-keys'
 ```
 
-#### 8. Test the connection
+#### 9. Test the WireGuard connection
 
-You can test the connection by pinging the server from the client peer and vice versa:
+You can test the WireGuard connection by pinging the server's internal IP address from the client peer and vice versa:
 
 ```sh{class="starter-code-server command-user"}
 ping 192.168.21.2
@@ -329,27 +366,10 @@ ping 192.168.21.2
 ping 192.168.21.1
 ```
 
-In case this does not work, verify that the routing table containes an entry for the internal network `192.168.21.0/24`. You can do so with the following command:
-
-```sh{class="command-user"}
-ip route
-```
-Its output should contain a line about the `192.168.21.0/24` network, mentioning the interface `rosenpass0`:
-```bash
-…
-192.168.21.0/24 dev rosenpass0 scope link
-…
-```
-If such a line is not present, you can add a route using:
-```sh{class="command-root"}
-ip route add 192.168.21.0/24 dev rosenpass0
-```
-Remember to verify and do this on both server and client.
-
 
 **All done and the ping test works?**
 
-Rosenpass will now generate a new PSK key for WireGuard about every two minutes and keep your VPN connection secure against post-quantum computer attacks.
+Rosenpass will now generate a new PSK key for WireGuard about every two minutes and keep your WireGuard VPN connection secure against post-quantum computer attacks.
 
 
 {{% /blocks/section %}}
