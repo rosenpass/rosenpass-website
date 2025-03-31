@@ -4,19 +4,33 @@ title: "Rosenpass Installation and Usage on Linux"
 linkTitle: "Generic Linux"
 weight: 5
 menu: false
+hideLead: true
 type: docs
 shortBlerb: "Manually set up Rosenpass"
 blerb: "A guide on how to install Rosenpass via pre-compiled binary files or manual compilation. This can be used on Linux systems for which Rosenpass does not yet provide a dedicated guide, nor a package."
 ---
 
+{{< blocks/lead color="secondary" class="title-box" >}}
+## Rosenpass Installation and Usage on Linux
+{{< /blocks/lead >}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
+
 Below is a guide on how to install Rosenpass via pre-compiled binary files or manual compilation.
 This can be used on Linux systems for which Rosenpass does not yet provide a dedicated guide, nor a package.
+Currently, most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
+If you are using [Ubuntu](ubuntu) or [Debian](debian), please follow our dedicated guides for these distributions.
 
-{{% blocks/comp-nav %}} 
+Table of Contents:
+* [Installation via the Binary Files](#installation-via-binary-files): Most users can start here.
+* [Compile Rosenpass from Source](#compile-it-from-source): Some users might need to go the manual way.
+* [Set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn): After installation, you can proceed here.
 
+<span class="spacer"></span>
+{{% /blocks/section %}}
 
 {{< blocks/lead color="secondary" class="title-box" >}}
-## Compile it yourself
+## Compile it from source
 {{< /blocks/lead >}}
 
 {{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
@@ -191,5 +205,101 @@ rm -r rosenpass-x86_64-linux-0.2.2.tar bin/
 **That's it! You have now downloaded and installed Rosenpass.**
 
 <span class="spacer"></span>
+
+{{< /blocks/section >}}
+
+{{< blocks/lead color="secondary" class="title-box" >}}
+## Set up a Rosenpass-enhanced WireGuard VPN
+{{< /blocks/lead >}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
+
+In this section, we set up a Rosenpass-enhanced WireGuard connection between two peers. Technically, there's no difference between the two peers. However, for clarity, we name them <span class="primary-highlight"><strong>server</strong> (pink)</span> and <span class="secondary-highlight"><strong>client</strong> (orange)</span>.
+
+### Prepare the Key Pairs
+
+#### 1. Start by generating secret keys for both peers
+
+**Note:** These will be stored in newly created `server.rosenpass-secret` and `client.rosenpass-secret` directories.
+
+```sh{class="starter-code-server command-user"}
+rp genkey server.rosenpass-secret
+```
+```sh{class="starter-code-client command-user"}
+rp genkey client.rosenpass-secret
+```
+
+#### 2. Extract the public keys
+
+**Note:** As above, these will be stored in newly created `server.rosenpass-public` and `client.rosenpass-public directories`.
+
+```sh{class="starter-code-server command-user"}
+rp pubkey server.rosenpass-secret server.rosenpass-public
+```
+```sh{class="starter-code-client command-user"}
+rp pubkey client.rosenpass-secret client.rosenpass-public
+```
+
+#### 3. Copy each `-public` directory to the other peer
+
+```sh{class="starter-code-server command-user"}
+scp -r server.rosenpass-public user@client:/path/to/directory
+```
+```sh{class="starter-code-client command-user"}
+scp -r client.rosenpass-public user@server:/path/to/directory
+```
+
+**Congrats! This completes the setup of the key pairs.**
+
+
+### Launch your Rosenpass-enhanced WireGuard VPN
+
+#### 4. Start the VPN
+
+**Note:** This may conflict with your firewall. In that case, you will need to configure your firewall to give Rosenpass access to the port number explicitly mentioned in these commands, `9999` in this example, as well as give WireGuard access to this port number incremented by one, `10000` in this example.
+
+```sh{class="starter-code-server-root"}
+rp exchange server.rosenpass-secret dev rosenpass0 listen 127.0.0.1:9999 \
+peer client.rosenpass-public allowed-ips fe80::/64
+```
+```sh{class="starter-code-client-root"}
+rp exchange client.rosenpass-secret dev rosenpass0 \
+peer server.rosenpass-public endpoint 127.0.0.1:9999 allowed-ips fe80::/64
+```
+
+#### 5. Assign IP addresses
+
+```sh{class="starter-code-server-root"}
+ip a add fe80::1/64 dev rosenpass0
+```
+```sh{class="starter-code-client-root"}
+ip a add fe80::2/64 dev rosenpass0
+```
+
+### Just to be sure: Verify the magic!
+
+#### 6. Test the connection
+
+You can test the connection by pinging the server from the client peer and vice versa:
+
+```sh{class="starter-code-client command-user"}
+ping fe80::1%rosenpass0
+```
+```sh{class="starter-code-server command-user"}
+ping fe80::2%rosenpass0
+```
+
+#### 7. Watch how Rosenpass replaces the WireGuard PSK
+
+You can watch how Rosenpass replaces the WireGuard PSK with the following command:
+
+```sh{class="command-root"}
+watch -n 2 'wg show all; wg show all preshared-keys'
+```
+
+**All done!**
+
+Rosenpass will now generate a new PSK key for WireGuard about every two minutes and keep your VPN connection secure against post-quantum computer attacks.
+
 
 {{< /blocks/section >}}
