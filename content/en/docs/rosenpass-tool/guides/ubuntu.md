@@ -68,7 +68,7 @@ sudo install bin/rosenpass /usr/local/bin
 sudo install bin/rp /usr/local/bin
 ```
 <span class="spacer"></span>
-The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it.
+The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it. The [setup guide](#set-up-a-rosenpass-enhanced-wireguard-vpn) uses `rp`, though, so we recommend installing it.
 
 4. **Delete**: You can delete the downloaded archive and the extracted `bin` directory, if you like:
 
@@ -109,7 +109,7 @@ rp help
 
 If you cannot or do not want to use the pre-build binaries, you can compile Rosenpass from source.
 
-1. **Install** the build dependencies necessary for compiling Rosenpass. Also, install WireGuard, if you want to use Rosenpass with WireGuard.
+1. **Install the build dependencies** necessary for compiling Rosenpass. Also, install WireGuard, if you want to use Rosenpass with WireGuard.
 
 The following command installs WireGuard and the build dependencies. You can remove WireGuard from this list if you do not want it to be installed.
 
@@ -123,7 +123,7 @@ sudo apt --yes install libsodium-dev libclang-dev cmake pkg-config git build-ess
 
 </span>
 
-2. **Install** Rust. The preferred way to do this is by using [Rustup](https://rustup.rs/) (the website should show a straightforward command to install Rustup). If possible, install the latest release. In July 2023, the minimum required Rust version for Rosenpass was 1.64.0.
+2. **Install** Rust. The preferred way to do this is by using [Rustup](https://rustup.rs/) (the website should show a straightforward command to install Rustup). During installation, Rustup asks you about your installation preferences; if you are unsure you can just proceed with the standard installation. If possible, install the latest release. In July 2023, the minimum required Rust version for Rosenpass was 1.64.0.
 <span class="spacer"></span>
 
 3. **Clone** the Rosenpass Git repository, change to the `rosenpass` directory, and switch to the branch of the latest release:
@@ -213,6 +213,8 @@ rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
 
 #### 3. Copy each `-public` directory to the other peer
+
+Both peers need the `-public` directory of other peer, respectively, and it needs to be placed next to the `-secret` and `-public` directories that already exist. If you have SSH access to both machines, you can use the following commands:
 
 ```sh{class="starter-code-server command-user"}
 scp -r server.rosenpass-public user@client:/path/to/directory
