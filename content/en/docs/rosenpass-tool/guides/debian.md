@@ -243,11 +243,13 @@ ip a
 
 Start the Rosenpass and WireGuard processes on both server and client. This creates a WireGuard network interface named `rosenpass0`, which allows us, in the next step, to assign an internal IP address and to add a route for the internal network.
 
-```sh{class="starter-code-server command-root"}
+In the following two commands, remember to replace `$SERVERIP` with the IP address under which the client can reach the server.
+
+```sh{class="starter-code-server-root"}
 rp exchange server.rosenpass-secret dev rosenpass0 listen $SERVERIP:9999 \
 peer client.rosenpass-public allowed-ips 192.168.21.0/24
 ```
-```sh{class="starter-code-client command-root"}
+```sh{class="starter-code-client-root"}
 rp exchange client.rosenpass-secret dev rosenpass0 \
 peer server.rosenpass-public endpoint $SERVERIP:9999 allowed-ips 192.168.21.0/24
 ```
@@ -258,10 +260,10 @@ If you like, you can already check if Rosenpass manages to exchange a shared sec
 
 In this example, we use addresses from the internal network `192.168.21.0/24` within the VPN. Feel free to try something else, but make sure to adapt IP addresses and networks in all command where necessary.
 
-```sh{class="starter-code-server command-root"}
+```sh{class="starter-code-server-root"}
 ip a add 192.168.21.1 dev rosenpass0
 ```
-```sh{class="starter-code-client command-root"}
+```sh{class="starter-code-client-root"}
 ip a add 192.168.21.2 dev rosenpass0
 ```
 
@@ -291,8 +293,17 @@ Remember to verify and do this on both server and client.
 
 In this example, the server needs to be reachable on two ports: `9999` for the Rosenpass connection, and `10000` for the WireGuard connection. Port `9999` is explicitly configured in the command used in the next step. The WireGuard port is implicitly set by the `rp` tool to the Rosenpass port number incremented by one, `10000` in this example.
 
-**Configure your firewall(s)** such that new incoming connections on ports `9999` and `10000` are allowed.
+**Configure your firewall(s)** such that incoming UDP packets on ports `9999` and `10000` are allowed.
 
+If you use `ufw`, you can follow the [firewall guidance in our Ubuntu guide](ubuntu/#7-configure-your-firewall).
+
+If you use `nft`/nftables, you can use the following command to add a rule that satisfies Rosenpass' requirements. This command assumes that the appropriate firewall table and chain are called `filter` and `input`; both are the standard names used in nftables' example configuration. Remember to replace `$SERVERIP` with the IP address under which the client can reach the server, and `$DEVICE` by the name of the network device on which the server receives packets for the `$SERVERIP`.
+
+```sh{class="starter-code-server-root"}
+nft add rule inet filter input iif $DEVICE udp dport { 9999, 10000 } ip daddr $SERVERIP accept
+```
+
+Make sure to save this rule such that it persists across reboots. One way is to add it to `/etc/nftables.conf`.
 
 ### Just to be sure: Verify the magic!
 
@@ -387,4 +398,3 @@ For the current version v0.2.2, we unfortunately do not yet provide .deb package
 For the technically inclined user, the work preparing for this has already been done with a [Nix package](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix) and a [CI workflow](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix).
 
 {{% /blocks/section %}}
-
