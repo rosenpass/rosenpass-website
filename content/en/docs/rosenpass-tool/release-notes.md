@@ -2,7 +2,7 @@
 aliases: [/docs/release_notes, /docs/rosenpass-tool/release_notes]
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 1
+weight: 60
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
