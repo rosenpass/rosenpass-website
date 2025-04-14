@@ -303,6 +303,7 @@ sudo ufw allow in on $DEVICE from any to $SERVERIP port 9999 proto udp comment '
 ```sh{class="code-block-list starter-code-server command-user"}
 sudo ufw allow in on $DEVICE from any to $SERVERIP port 10000 proto udp comment 'WireGuard'
 ```
+<span class="spacer"></span>
 
 The new firewall rules should look like this:
 
