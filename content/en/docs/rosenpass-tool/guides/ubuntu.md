@@ -243,6 +243,8 @@ ip a
 
 Start the Rosenpass and WireGuard processes on both server and client. This creates a WireGuard network interface named `rosenpass0`, which allows us, in the next step, to assign an internal IP address and to add a route for the internal network.
 
+In the following two commands, remember to replace `$SERVERIP` with the IP address under which the client can reach the server.
+
 ```sh{class="starter-code-server command-user"}
 sudo rp exchange server.rosenpass-secret dev rosenpass0 listen $SERVERIP:9999 \
 peer client.rosenpass-public allowed-ips 192.168.21.0/24
@@ -291,9 +293,9 @@ Remember to verify and do this on both server and client.
 
 In this example, the server needs to be reachable on two ports: `9999` for the Rosenpass connection, and `10000` for the WireGuard connection. Port `9999` is explicitly configured in the command used in the next step. The WireGuard port is implicitly set by the `rp` tool to the Rosenpass port number incremented by one, `10000` in this example.
 
-**Configure your firewall(s)** such that new incoming connections on ports `9999` and `10000` are allowed.
+**Configure your firewall(s)** such that incoming UDP packets on ports `9999` and `10000` are allowed.
 
-The standard firewall under Ubuntu is ufw. In case it is enabled on your server, you can use the following commands to add rules that allow the necessary incoming connections for this example setup:
+The standard firewall under Ubuntu is ufw. In case it is enabled on your server, you can use the following commands to add rules that allow the necessary incoming connections for this example setup. Remember to replace `$SERVERIP` with the IP address under which the client can reach the server, and `$DEVICE` by the name of the network device on which the server receives packets for the `$SERVERIP`.
 
 ```sh{class="code-block-list starter-code-server command-user"}
 sudo ufw allow in on $DEVICE from any to $SERVERIP port 9999 proto udp comment 'Rosenpass'
@@ -409,4 +411,3 @@ For the current version v0.2.2, we unfortunately do not yet provide .deb package
 For the technically inclined user, the work preparing for this has already been done with a [Nix package](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix) and a [CI workflow](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix).
 
 {{% /blocks/section %}}
-
