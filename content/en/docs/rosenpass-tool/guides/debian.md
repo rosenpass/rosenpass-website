@@ -194,10 +194,10 @@ In this section, we set up a Rosenpass-enhanced WireGuard connection between two
 
 **Note:** These will be stored in newly created `server.rosenpass-secret` and `client.rosenpass-secret` directories.
 
-```sh{class="starter-code-server command-user"}
+```sh{class="starter-code-server-user"}
 rp genkey server.rosenpass-secret
 ```
-```sh{class="starter-code-client command-user"}
+```sh{class="starter-code-client-user"}
 rp genkey client.rosenpass-secret
 ```
 
@@ -205,10 +205,10 @@ rp genkey client.rosenpass-secret
 
 **Note:** As above, these will be stored in newly created `server.rosenpass-public` and `client.rosenpass-public directories`.
 
-```sh{class="starter-code-server command-user"}
+```sh{class="starter-code-server-user"}
 rp pubkey server.rosenpass-secret server.rosenpass-public
 ```
-```sh{class="starter-code-client command-user"}
+```sh{class="starter-code-client-user"}
 rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
 
@@ -216,10 +216,10 @@ rp pubkey client.rosenpass-secret client.rosenpass-public
 
 Both peers need the `-public` directory of other peer, respectively, and it needs to be placed next to the `-secret` and `-public` directories that already exist. If you have SSH access to both machines, you can use the following commands:
 
-```sh{class="starter-code-server command-user"}
+```sh{class="starter-code-server-user"}
 scp -r server.rosenpass-public user@client:/path/to/directory
 ```
-```sh{class="starter-code-client command-user"}
+```sh{class="starter-code-client-user"}
 scp -r client.rosenpass-public user@server:/path/to/directory
 ```
 
@@ -234,7 +234,7 @@ Equally, replace `$DEVICE` by the name of the network device on which the server
 
 You can find information about the network device and IP addresses using the command:
 
-```sh{class="starter-code-server command-user"}
+```sh{class="starter-code-server-user"}
 ip a
 ```
 
@@ -370,10 +370,10 @@ watch -n 2 'wg show all; wg show all preshared-keys'
 
 You can test the WireGuard connection by pinging the server's internal IP address from the client peer and vice versa:
 
-```sh{class="starter-code-server command-user"}
+```sh{class="starter-code-server-user"}
 ping 192.168.21.2
 ```
-```sh{class="starter-code-client command-user"}
+```sh{class="starter-code-client-user"}
 ping 192.168.21.1
 ```
 

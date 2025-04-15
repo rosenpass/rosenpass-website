@@ -882,61 +882,67 @@ margin: 0 0 15px 0;
 border: none;
 }
 
-.code-block-list{
+.code-block-list {
   display: inline-block;
 
   pre {
     margin-bottom: 0;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
-    
+
   }
 }
 
 .command-user {
-  span.line:first-child::before{
+  span.line:first-child::before {
     content: "$ ";
     font-weight: bold;
   }
 }
 
 .command-root {
-  span.line:first-child::before{
+  span.line:first-child::before {
     content: "# ";
     font-weight: bold;
   }
 }
 
-.starter-code-server{
-  span.line:first-child::before{
+.starter-code-server-user {
+  span.line:first-child::before {
     content: "user@server:~$ ";
     color: var(--bs-primary);
     font-weight: bold;
   }
 }
 
-.starter-code-client{
-  span.line:first-child::before{
+.starter-code-client-user {
+  span.line:first-child::before {
     content: "user@client:~$ ";
     color: var(--bs-secondary);
     font-weight: bold;
   }
 }
 
-.starter-code-server-root{
-  span.line:first-child::before{
-    content: "root@server:~# ";
-    color: var(--bs-primary);
-    font-weight: bold;
-  }
+.starter-code-server-root {
+    div {
+        margin-bottom: 5px;
+    }
+    span.line:first-child::before {
+        content: "root@server:~# ";
+        color: var(--bs-primary);
+        font-weight: bold;
+    }
 }
 
-.starter-code-client-root{
-  span.line:first-child::before{
-    content: "root@client:~# ";
-    color: var(--bs-secondary);
-    font-weight: bold;
-  }
+.starter-code-client-root {
+    div {
+        margin-bottom: 5px;
+    }
+    span.line:first-child::before {
+      content: "root@client:~# ";
+      color: var(--bs-secondary);
+      font-weight: bold;
+    }
 }
 
 .starter-code-server div {
