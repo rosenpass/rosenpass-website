@@ -1,5 +1,5 @@
 ---
-title: "Rosenpass Installation and Usage on Ubuntu"
+title: "Rosenpass on Ubuntu"
 linkTitle: "Ubuntu"
 weight: 3
 menu: false
@@ -15,16 +15,14 @@ blerb: "A guide on different options to install the Rosenpass tool on Ubuntu (in
 
 {{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
 
-Rosenpass is well tested on Ubuntu. This page provides you with installation and usage guides to get started with Rosenpass on Ubuntu. Currently, most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
+This page provides you with installation and usage guides to get started with Rosenpass on Ubuntu. Most users should start with the [Installation via the Binary Files](#installation-via-binary-files).
 
 Table of Contents:
-* [Installation via the Binary Files](#installation-via-binary-files): Most users can start here.
-* [Compile Rosenpass from Source](#compile-it-from-source): Some users might need to go the manual way.
-* [Set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn): After installation, you can proceed here.
+* [Installation via the Binary Files](#installation-via-binary-files): Start here if you aren't sure or just want to try out Rosenpass.
+* [Compile Rosenpass from Source](#compile-it-from-source) if you need to create your own binaries.
+* [Set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn): Proceed here once you’ve installed Rosenpass on your system.
 * [Installation via the Package Manager](#installation-via-the-package-manager): A short note only, because this is not yet ready for use.
 
-This guide was last tested on March 10, 2025, under Ubuntu 24.10 Mantic Minotaur.
-<span class="spacer"></span>
 {{% /blocks/section %}}
 
 {{< blocks/lead color="secondary" class="title-box" >}}
@@ -35,48 +33,40 @@ This guide was last tested on March 10, 2025, under Ubuntu 24.10 Mantic Minotaur
 
 <span class="spacer"></span>
 
-Rosenpass provides pre-built binary files for 64-bit Ubuntu. This is the most common architecture. If you need something else, you are advised to [compile Rosenpass from source](#compile-it-from-source).
+Rosenpass provides pre-built binary files for x86 64-bit Ubuntu. This is the most common architecture. If you need something else, you are advised to [compile Rosenpass from source](#compile-it-from-source).
 
-1. **Download** the Rosenpass binary. The following command gets you the [latest version](https://github.com/rosenpass/rosenpass/releases/latest). If you need a different one, have a look at the [releases page](https://github.com/rosenpass/rosenpass/releases/).
+1. **Install the dependencies** necessary for running Rosenpass. This is just WireGuard:
 
-<span class="codebox">
+```sh{class="command-user"}
+sudo apt --yes install wireguard
+```
+<span class="spacer"></span>
+
+2. **Download** the Rosenpass binary. The following command gets you the [latest version](https://github.com/rosenpass/rosenpass/releases/latest). If you need a different one, have a look at the [releases page](https://github.com/rosenpass/rosenpass/releases/).
+
 
 ```sh{class="command-user"}
 wget https://github.com/rosenpass/rosenpass/releases/download/v0.2.2/rosenpass-x86_64-linux-0.2.2.tar
 ```
+<span class="spacer"></span>
 
-</span>
+3. **Unzip** the file. You can use the following command, or use the file explorer and “Extract Here” (or similar) from the context menu.
 
-2. **Unzip** the file. You can use the following command, or use the file explorer and “Extract Here” (or similar) from the context menu.
+The archive contains a directory `bin` with the main binary `rosenpass` <small>([link to its manual](/docs/rosenpass-tool/manuals/rosenpass/))</small> and the helper `rp` <small>([link to its manual](/docs/rosenpass-tool/manuals/rp/))</small>.
 
-The archive contains a directory `bin` with the two binaries `rosenpass` and `rp`.
-
-<span class="codebox">
 
 ```sh{class="command-user"}
 tar xf rosenpass-x86_64-linux-0.2.2.tar
 ```
+<span class="spacer"></span>
 
-</span>
-
-3. **Install** Rosenpass by copying its binaries to `/usr/local/bin` with root privileges:
+4. **Install** Rosenpass by copying its binaries to `/usr/local/bin` with root privileges:
 
 ```sh{class="code-block-list command-user"}
 sudo install bin/rosenpass /usr/local/bin
 ```
 ```sh{class="code-block-list command-user"}
 sudo install bin/rp /usr/local/bin
-```
-<span class="spacer"></span>
-The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it. The [setup guide](#set-up-a-rosenpass-enhanced-wireguard-vpn) uses `rp`, though, so we recommend installing it.
-
-4. **Delete**: You can delete the downloaded archive and the extracted `bin` directory, if you like:
-
-```sh{class="code-block-list command-user"}
-rm -r rosenpass-x86_64-linux-0.2.2.tar bin/rosenpass bin/rp
-```
-```sh{class="code-block-list command-user"}
-rmdir bin
 ```
 <span class="spacer"></span>
 
@@ -107,13 +97,9 @@ rp help
 
 <span class="spacer"></span>
 
-If you cannot or do not want to use the pre-build binaries, you can compile Rosenpass from source.
+If you cannot or do not want to use the pre-built binaries, you can compile Rosenpass from source.
 
-1. **Install the build dependencies** necessary for compiling Rosenpass. Also, install WireGuard, if you want to use Rosenpass with WireGuard.
-
-The following command installs WireGuard and the build dependencies. You can remove WireGuard from this list if you do not want it to be installed.
-
-The command also install `curl` in preparation of the Rustup installation in the next point.
+1. **Install the dependencies** necessary for compiling and running Rosenpass. The following command also installs `curl` in preparation for the Rustup installation in the next point:
 
 <span class="codebox">
 
@@ -123,7 +109,7 @@ sudo apt --yes install libsodium-dev libclang-dev cmake pkg-config git build-ess
 
 </span>
 
-2. **Install** Rust. The preferred way to do this is by using [Rustup](https://rustup.rs/) (the website should show a straightforward command to install Rustup). During installation, Rustup asks you about your installation preferences; if you are unsure you can just proceed with the standard installation. If possible, install the latest release. In July 2023, the minimum required Rust version for Rosenpass was 1.64.0.
+2. **Install** Rust. The preferred way to do this is by using [Rustup](https://rustup.rs/) (the website should show a straightforward command to install Rustup). During installation, Rustup asks you about your installation preferences; if you are unsure you can just proceed with the standard installation.
 <span class="spacer"></span>
 
 3. **Clone** the Rosenpass Git repository, change to the `rosenpass` directory, and switch to the branch of the latest release:
@@ -139,7 +125,7 @@ git checkout v0.2.2
 ```
 
 <span class="spacer"></span>
-Without switching to a different branch, you will install and compile the development version. If you would like to compile an ancient version, find its Git tag name by browsing the [releases page](https://github.com/rosenpass/rosenpass/releases) and use `git checkout` accordingly.
+Without switching to a different branch, you will install and compile the development version from the `main` branch. If you would like to compile a released version, find its Git tag name by browsing the [releases page](https://github.com/rosenpass/rosenpass/releases) and use `git checkout` accordingly. If you would like to compile the version from a specific branch, you can find a [branches overview on GitHub](https://github.com/rosenpass/rosenpass/branches).
 <span class="spacer"></span>
 
 4. **Compile:** This is the actual compilation step and may take a while:
@@ -160,8 +146,6 @@ sudo install target/release/rosenpass /usr/local/bin
 ```sh{class="code-block-list command-user"}
 sudo install rp /usr/local/bin
 ```
-<span class="spacer"></span>
-The second binary, `rp`, is the Rosenpass helper. You can skip this step if you do not want to use it.
 <span class="spacer"></span>
 
 6. **Test**: As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
@@ -246,19 +230,24 @@ Start the Rosenpass and WireGuard processes on both server and client. This crea
 In the following two commands, remember to replace `$SERVERIP` with the IP address under which the client can reach the server.
 
 ```sh{class="starter-code-server-user"}
-sudo rp exchange server.rosenpass-secret dev rosenpass0 listen $SERVERIP:9999 \
-peer client.rosenpass-public allowed-ips 192.168.21.0/24
+sudo rp exchange server.rosenpass-secret \
+  dev rosenpass0 \
+  listen $SERVERIP:9999 \
+  peer client.rosenpass-public \
+  allowed-ips 192.168.21.0/24
 ```
 ```sh{class="starter-code-client-user"}
-sudo rp exchange client.rosenpass-secret dev rosenpass0 \
-peer server.rosenpass-public endpoint $SERVERIP:9999 allowed-ips 192.168.21.0/24
+sudo rp exchange client.rosenpass-secret \
+  dev rosenpass0 \
+  peer server.rosenpass-public \
+  endpoint $SERVERIP:9999 \
+  allowed-ips 192.168.21.0/24
 ```
 
-If you like, you can already check if Rosenpass manages to exchange a shared secret by skipping to [Step 8 “Test the Rosenpass handshake”](#8-test-the-rosenpass-handshake), and coming back to Step 5 and following afterwards.
 
 #### 5. Assign IP addresses
 
-In this example, we use addresses from the internal network `192.168.21.0/24` within the VPN. Feel free to try something else, but make sure to adapt IP addresses and networks in all command where necessary.
+In this example, we use addresses from the internal network `192.168.21.0/24` within the VPN. Feel free to try something else, but make sure to adapt IP addresses and networks in all commands where necessary.
 
 ```sh{class="starter-code-server-user"}
 sudo ip a add 192.168.21.1 dev rosenpass0
@@ -298,10 +287,18 @@ In this example, the server needs to be reachable on two ports: `9999` for the R
 The standard firewall under Ubuntu is ufw. In case it is enabled on your server, you can use the following commands to add rules that allow the necessary incoming connections for this example setup. Remember to replace `$SERVERIP` with the IP address under which the client can reach the server, and `$DEVICE` by the name of the network device on which the server receives packets for the `$SERVERIP`.
 
 ```sh{class="code-block-list starter-code-server-user"}
-sudo ufw allow in on $DEVICE from any to $SERVERIP port 9999 proto udp comment 'Rosenpass'
+sudo ufw allow in on $DEVICE \
+  from any to $SERVERIP \
+  port 9999 \
+  proto udp \
+  comment 'Rosenpass'
 ```
 ```sh{class="code-block-list starter-code-server-user"}
-sudo ufw allow in on $DEVICE from any to $SERVERIP port 10000 proto udp comment 'WireGuard'
+sudo ufw allow in on $DEVICE \
+  from any to $SERVERIP \
+  port 10000 \
+  proto udp \
+  comment 'WireGuard'
 ```
 <span class="spacer"></span>
 
@@ -319,20 +316,19 @@ $SERVERIP 9999/udp on $DEVICE ALLOW       Anywhere                   # Rosenpass
 $SERVERIP 10000/udp on $DEVICE ALLOW       Anywhere                   # WireGuard
 ```
 
-### Just to be sure: Verify the magic!
+### Steps to verify your setup
 
 #### 8. Test the Rosenpass handshake
 
-As a first test, check if Rosenpass manages to exchange a shared secret and to hand it over to WireGuard.
-You could also already check this when you finished Step 4, but skipped Steps 5, 6, and possibly 7. If you skipped Step 7 and the Rosenpass handshake does not work, make sure to go back to [Step 7 and check your firewall settings](#7-configure-your-firewall).
+As a first test, check if Rosenpass manages to exchange a shared secret and to hand it over to WireGuard as pre-shared key (PSK).
 
-On both the server and the client, you can run the following command to see which pre-shared key WireGuard is using for the connection:
+On both the server and the client, you can run the following command to see which pre-shared key WireGuard is using for the connection. Be aware that this shows meant-to-be-secret cryptographic key material, and pay attention to who is able to see your computer's screen:
 
 ```sh{class="command-user"}
 sudo wg show rosenpass0 preshared-keys
 ```
 
-The output should show one line consisting of two base64-encoded strings, separated by a space. The second string is the pre-shared key. This should be the same on both machines. It changes approximately every two minutes:
+The output should show one line consisting of two base64-encoded strings, separated by a space. The second string is the pre-shared key. This should be the same on both machines. Rosenpass changes it approximately every two minutes:
 
 ```bash
 q1ySvWXjsS2l0Apu2f9YZLw7pLT4+QXfIZVTpMBO01I=    (redacted)
@@ -371,13 +367,13 @@ peer: 1NQJ1iObOnkkWlqDU6bhqGPEjCIIvKTKjI10XE0t7DA=
   allowed ips: 192.168.21.0/24
 ```
 
-The public key and the peer should match each other, respectively.
+The displayed public key of the server should be listed as the ID of the peer on the client, and vice versa.
 
+If you want to continuously watch the current state of the WireGuard tunnel and its pre-shared key, you can use the following command on both client and server; this can be useful during debugging, e.g., to see if both sides keep using the same pre-shared key and exchange it synchronously. This combines the two above commands repeats and them every 2 seconds:
 
-You can watch how Rosenpass continuously replaces the WireGuard PSK with the following command that combines the two above commands and repeats them every 2 seconds:
 
 ```sh{class="command-user"}
-sudo watch -n 2 'wg show all; wg show all preshared-keys'
+sudo watch 'wg show all; wg show all preshared-keys'
 ```
 
 #### 9. Test the WireGuard connection
@@ -407,8 +403,13 @@ Rosenpass will now generate a new PSK key for WireGuard about every two minutes 
 
 **This is not ready, yet!** In the meanwhile, **you are advised to use the [installation via binary files](#installation-via-binary-files)**.
 
-For the current version v0.2.2, we unfortunately do not yet provide .deb packages. As of the next Rosenpass release, you will be able to download a .deb package and install Rosenpass via your package manager.
+For the current version v0.2.2, we unfortunately do not provide .deb packages. As of the next Rosenpass release, you will be able to download a .deb package and install Rosenpass via your package manager.
 
 For the technically inclined user, the work preparing for this has already been done with a [Nix package](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix) and a [CI workflow](https://github.com/rosenpass/rosenpass/blob/main/pkgs/package-deb.nix).
+
+
+<span class="spacer"></span>
+
+<small>Version notice: This guide was last tested on March 10, 2025, under Ubuntu 24.10 Mantic Minotaur.</small>
 
 {{% /blocks/section %}}
