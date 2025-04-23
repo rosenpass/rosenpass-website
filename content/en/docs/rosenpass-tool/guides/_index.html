@@ -1,0 +1,97 @@
+---
+aliases: [/docs/start, /docs/rosenpass-tool/start]
+title: "Quick Start: Installation and Usage Guides"
+linkTitle: "Quick Start"
+subtitle: "Build post-quantum-secure VPNs with WireGuard!"
+weight: 2
+hideLead: true
+type: docs
+menu: false
+noList: true
+shortBlerb: "Installation and Usage Guides for Rosenpass"
+blerb: "A quick start guide on downloading, configuring, and using the Rosenpass tool together with a WireGuard connection."
+---
+
+{{% blocks/lead color="secondary" %}}
+## Quick Start: Installation and Usage Guides
+{{% /blocks/lead %}}
+
+{{% blocks/section color="light" class="no-flex contains-code-snippets" %}}
+
+
+### Supported Systems
+
+We provide packages for **Nix**, **Arch Linux**, and **Alpine Linux**, as well as dedicated guides for manual installation on **[Ubuntu](ubuntu)** or **[Debian](debian)**.
+
+Since Rosenpass was released not too long ago, **packaging is an ongoing process**. You can find the latest information about all the Linux distributions we support on **[Repology](https://repology.org/project/rosenpass/versions)**.
+
+Even if your distribution is not listed here, you can always **[compile Rosenpass yourself](linux#compile-it-from-source)** or download a pre-built, statically linked **binary** from our [GitHub release page](https://github.com/rosenpass/rosenpass/releases/latest). You can also find OCI container images (Docker, Podman, etc.) there. While we only offer x86_64 builds, there's no technical reason limiting Rosenpass to x86_64. Although we are not officially supporting it, you can try to compile Rosenpass for any architecture that is supported by [liboqs](https://openquantumsafe.org/liboqs/#overview) and running Linux (or macOS).
+
+
+### How to install Rosenpass on your Linux distribution
+
+If your distribution isn't listed below, you can install Rosenpass manually in just a few steps. We provide detailed installation instructions for **[Ubuntu](ubuntu)**, **[Debian](debian)**, **[Arch Linux](arch)**, and generic **[Linux](linux)** systems.
+
+{{< code-block-prompt-css-class class="arch-pacman" text="Arch via pacman    # " >}}
+{{< code-block-prompt-css-class class="arch-aur"    text="Arch via the AUR   $ " >}}
+{{< code-block-prompt-css-class class="nixos"       text="NixOS              $ " >}}
+{{< code-block-prompt-css-class class="nix-flake"   text="nix-flake          $ " >}}
+{{< code-block-prompt-css-class class="alpine"      text="Alpine (testing)   $ " >}}
+
+```sh{class="code-block-list arch-pacman"}
+pacman -S rosenpass
+```
+```sh{class="code-block-list nixos"}
+nix-env -iA nixos.rosenpass nixos.rosenpass-tools
+```
+```sh{class="code-block-list nix-flake"}
+nix profile install github:rosenpass/rosenpass#rosenpass
+```
+```sh{class="code-block-list alpine"}
+apk add rosenpass
+```
+<span class="spacer"></span>
+
+As a quick test that the installation succeeded, run both tools with the `help` command to show a short usage hint:
+
+```sh{class="code-block-list command-user"}
+rosenpass help
+```
+```sh{class="code-block-list command-user"}
+rp help
+```
+
+### How to set up a Rosenpass-enhanced WireGuard VPN
+
+Please follow our guides for [Ubuntu](ubuntu#set-up-a-rosenpass-enhanced-wireguard-vpn), [Debian](debian#set-up-a-rosenpass-enhanced-wireguard-vpn), or generic [Linux](linux#set-up-a-rosenpass-enhanced-wireguard-vpn).
+
+
+### Any open questions?
+
+If you have further questions, please feel free to get in touch. We maintain a public Rosenpass Matrix chatroom, as well as several inboxes, for public inquiries, development questions, and general interest. Feature requests can also be opened at our GitHub pages.
+
+<p class="pt-0 button-link bg-secondary"><a href="/contributors/#contact" aria-label="contact">Go to Contact Page</a></p>
+
+
+{{% /blocks/section %}}
+
+
+{{< blocks/lead color="dark" >}}
+<h4 id="license">License</h4>
+
+{{< /blocks/lead >}}
+
+{{< blocks/section color="light" >}}
+<div class="text-center">
+<h3> </h3>
+<p>
+The <strong>Rosenpass</strong> software is subject to the <a href="http://www.apache.org/licenses/">Apache License Version 2.0</a>, January 2004, and the <a href="https://spdx.org/licenses/MIT.html">MIT License with attribution</a>.
+</p>
+<p>
+The content of this website, except for photographic material, is published under a Creative Commons license:<br />
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0) <br />
+Photographic material is published under this separate Creative Commons License:<br />
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivs 4.0 International </a> (CC BY-NC-ND 4.0 Deed)
+</p>
+</div>
+{{< /blocks/section >}}

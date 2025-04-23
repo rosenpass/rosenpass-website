@@ -1,5 +1,5 @@
 ---
-aliases: [/docs/source_code]
+aliases: [/docs/source_code, /docs/rosenpass-tool/source_code]
 title: "Source Code"
 linkTitle: "Source Code"
 weight: 50
