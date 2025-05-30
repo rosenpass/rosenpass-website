@@ -18,9 +18,8 @@ blerb: "A guide on running Rosenpass+WireGuard inside a Docker container, using 
 This page provides you with a usage guide for running Rosenpass and WireGuard inside a Docker container, and shows how to route the host's traffic through the VPN that the container provides.
 
 Table of Contents:
-* [WireGuard on the hosts, Rosenpass in containers](#wireguard-on-the-hosts-rosenpass-in-containers)
-* [Rosenpass and WireGuard both in containers (on the same host)](#rosenpass-and-wireguard-both-in-containers-on-the-same-host)
-* [Further reading](#further-reading)
+* [WireGuard on the hosts, Rosenpass in containers](#wireguard-on-the-hosts-rosenpass-in-containers): Connect two hosts through a Rosenpass-enhanced WireGuard connection, Rosenpass running inside a container, respectively.
+* [Rosenpass and WireGuard both in containers (on the same host)](#rosenpass-and-wireguard-both-in-containers-on-the-same-host): Connect two containers through a Rosenpass-enhanced WireGuard.
 
 {{% /blocks/section %}}
 
@@ -30,8 +29,9 @@ Table of Contents:
 
 {{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
 
-This example assumes that you want to connect two hosts `server` and `client` via a Rosenpass-enhanced WireGuard VPN,
-and that you want to run WireGuard directly on the hosts, and Rosenpass in a container, respectively. This can make sense when you trust WireGuard because it is integrated into the Linux kernel, and do not want to run Rosenpass directly on your host.
+This example assumes that you want to connect two hosts `server` and `client` via a Rosenpass-enhanced WireGuard VPN, and that you want to run WireGuard directly on the hosts, and Rosenpass in a container, respectively. This can make sense when you trust WireGuard because it is integrated into the Linux kernel since the year 2020, and do not want to run Rosenpass directly on your host.
+
+In this part of the guide, we use the image `ghcr.io/rosenpass/rosenpass:edge`. In the following, you will also need to know under which IP addresses client and server can reach each other. Furthermore, we assume that you use 192.168.21.1 and 192.168.21.2 for the IP addresses internal to the VPN.
 
 ### Preparations
 
@@ -46,7 +46,7 @@ mkdir -p ./workdir-client
 
 #### Export environment variables
 
-We will use the following environment variables, please export them on both server and client:
+We will use the following environment variables, please export them on *both* server *and* client:
 
 ```sh{class="code-block-list command-user"}
 export NET=rp            # Docker network name
@@ -57,10 +57,19 @@ export SERVERIP=a.b.c.d  # insert the IP under which the client can reach the se
 ```sh{class="code-block-list command-user"}
 export CLIENTIP=a.b.c.d  # insert the IP under which the server can reach the client
 ```
+```sh{class="code-block-list command-user"}
+export SERVERIP_VPN=192.168.21.1  # insert the IP the server should have within the VPN
+```
+```sh{class="code-block-list command-user"}
+export CLIENTIP_VPN=192.168.21.2  # insert the IP the client should have within the VPN
+```
+```sh{class="code-block-list command-user"}
+export CIDR_VPN=192.168.21.0/24   # CIDR of the VPN subnet 
+```
 
 #### Create a Docker Bridge Network
 
-On both server and client, create a Docker network:
+On *both* server *and* client, create a Docker network by executing the following command, respectively:
 ```sh{class="command-user"}
 docker network create -d bridge $NET
 ```
@@ -124,14 +133,10 @@ scp \
 
 #### 4. Start Rosenpass
 
-Make sure that the environment variable `$SERVERIP` is set to the IP address under which the
-client can reach the server, `$CLIENTIP` to the IP address under which the server can reach
-the client.
-
 Make sure that UDP packets are left through by your firewall on port 9999 on both server and client.
 You can find guidance for this in our [Ubuntu](/docs/rosenpass-tool/guides/ubuntu/#7-configure-your-firewall), [Debian](/docs/rosenpass-tool/guides/debian/#7-configure-your-firewall), and [Arch Linux](/docs/rosenpass-tool/guides/arch/#7-configure-your-firewall) guides.
 
-
+The Rosenpass endpoints will listen and contact each other on port 9999, respectively, which we publish from the Docker containers.
 
 Start the server container:
 ```sh{class="starter-code-server-user"}
@@ -164,14 +169,23 @@ Now the containers will exchange shared keys and each put them into their respec
 
 #### 5. Start WireGuard
 
+The WireGuard endpoints will run directly on the hosts and listen on port 10000, respectively. Make sure that UDP packets are left through by your firewall on port 10000 on both server and client.
+As a reminder, you can find guidance for this in our [Ubuntu](/docs/rosenpass-tool/guides/ubuntu/#7-configure-your-firewall), [Debian](/docs/rosenpass-tool/guides/debian/#7-configure-your-firewall), and [Arch Linux](/docs/rosenpass-tool/guides/arch/#7-configure-your-firewall) guides.
+
 ```sh{class="starter-code-server-user"}
 sudo ip link add dev rosenpass0 type wireguard
 ```
 ```sh{class="starter-code-server-user"}
-sudo ip a add dev rosenpass0 192.168.21.1 peer 192.168.21.2
+sudo ip a add dev rosenpass0 $SERVERIP_VPN peer $CLIENTIP_VPN
 ```
 ```sh{class="starter-code-server-user"}
-sudo wg set rosenpass0 listen-port 10000 private-key ./workdir-server/wg-server-secret peer $(cat ./workdir-server/wg-client-public) allowed-ips 192.168.21.0/24 persistent-keepalive 25 preshared-key ./workdir-server/server-sharedkey
+sudo wg set rosenpass0 \
+    listen-port 10000 \
+    private-key ./workdir-server/wg-server-secret \
+    peer $(cat ./workdir-server/wg-client-public) \
+    allowed-ips $CIDR_VPN \
+    persistent-keepalive 25 \
+    preshared-key ./workdir-server/server-sharedkey
 ```
 ```sh{class="starter-code-server-user"}
 sudo ip link set up dev rosenpass0
@@ -183,10 +197,17 @@ sudo ip link set up dev rosenpass0
 sudo ip link add dev rosenpass0 type wireguard
 ```
 ```sh{class="starter-code-client-user"}
-sudo ip a add dev rosenpass0 192.168.21.2 peer 192.168.21.1
+sudo ip a add dev rosenpass0 $CLIENTIP_VPN peer $SERVERIP_VPN
 ```
 ```sh{class="starter-code-client-user"}
-sudo wg set rosenpass0 listen-port 10000 private-key ./workdir-client/wg-client-secret peer $(cat ./workdir-client/wg-server-public) allowed-ips 192.168.21.0/24 endpoint $SERVER_IP:10000 persistent-keepalive 25 preshared-key ./workdir-client/client-sharedkey
+sudo wg set rosenpass0 \
+    listen-port 10000 \
+    private-key ./workdir-client/wg-client-secret \
+    peer $(cat ./workdir-client/wg-server-public) \
+    allowed-ips $CIDR_VPN \
+    endpoint $SERVER_IP:10000 \
+    persistent-keepalive 25 \
+    preshared-key ./workdir-client/client-sharedkey
 ```
 ```sh{class="starter-code-client-user"}
 sudo ip link set up dev rosenpass0
@@ -204,16 +225,53 @@ cat workdir-server/server-sharedkey
 cat workdir-client/client-sharedkey
 ```
 
-It is now possible to set this key as pre-shared key within a WireGuard interface. For example as the server,
+It is now possible to set this key as pre-shared key of the WireGuard interface. You can use the following script on the server, to update the pre-shared key whenever it changes. Make sure to install `inotify-tools` beforehand:
 
 ```sh{class="command-user"}
-PREKEY=$(cat workdir-server/server-sharedkey)
-wg set <server-interface> peer <client-peer-public-key> preshared-key <(echo "$PREKEY")
+sudo apt install inotify-tools
 ```
 
+```bash
+#!/bin/bash
 
+# Path to the pre-shared key files
+SERVER_SHARED_KEY="workdir-server/server-sharedkey"
 
+# Function to update the pre-shared key
+update_preshared_key() {
+    # Update the WireGuard configuration with the new pre-shared key
+    sudo wg set rosenpass0 peer $(cat workdir-server/wg-client-public) preshared-key <("$SERVER_SHARED_KEY")
+    echo "Updated pre-shared key for the server peer."
+}
 
+# Monitor the pre-shared key files for changes
+inotifywait -m -e close_write "$SERVER_SHARED_KEY" | while read -r directory events filename; do
+    echo "Detected change in $filename"
+    update_preshared_key
+done
+```
+
+and the following script on the client:
+
+```bash
+#!/bin/bash
+
+# Paths to the pre-shared key files
+CLIENT_SHARED_KEY="workdir-client/client-sharedkey"
+
+# Function to update the pre-shared key
+update_preshared_key() {
+    # Update the WireGuard configuration with the new pre-shared key
+    sudo wg set rosenpass0 peer $(cat workdir-client/wg-server-public) preshared-key <(echo "$CLIENT_SHARED_KEY")
+    echo "Updated pre-shared key for the client peer."
+}
+
+# Monitor the pre-shared key files for changes
+inotifywait -m -e close_write "$CLIENT_SHARED_KEY" | while read -r directory events filename; do
+    echo "Detected change in $filename"
+    update_preshared_key
+done
+```
 
 
 {{% /blocks/section %}}
@@ -375,32 +433,11 @@ While the ping is running, you may stop the server container, and verify that th
 docker stop -t 1 rpserver
 ```
 
-
 {{% /blocks/section %}}
 
-{{< blocks/lead color="secondary" class="title-box" >}}
-## Other Ideas
-{{< /blocks/lead >}}
-
-{{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
-
-
-
-
-{{% /blocks/section %}}
-
-{{< blocks/lead color="secondary" class="title-box" >}}
-## Further Reading
-{{< /blocks/lead >}}
-
-{{% blocks/section color="light" class="no-flex contains-code-snippets compilation" %}}
-
-[Test case: Client and server inside Docker on the same host](https://github.com/rosenpass/rosenpass/blob/main/docker/USAGE.md)
-
-{{% /blocks/section %}}
 
 {{% blocks/section color="light" class="no-flex contains-code-snippets package" %}}
 
-<small>Version notice: This guide was last tested on May 21, 2025, under Ubuntu 24.10 Mantic Minotaur.</small>
+<small>Version notice: This guide was last tested on May 30, 2025, under Ubuntu 24.10 Mantic Minotaur.</small>
 
 {{% /blocks/section %}}
