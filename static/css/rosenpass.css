@@ -507,8 +507,7 @@ div.click-to-copy{
 }
 
 .highlight:has(pre):has(div):has(code) code{
-  text-overflow: auto;
-  max-width: 100%;
+  width: 100%;
   overflow: auto;
 }
 
