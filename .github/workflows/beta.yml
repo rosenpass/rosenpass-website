@@ -59,7 +59,7 @@ jobs:
         username: ${{ secrets.FLOKINET_FTP_USERNAME_BETA }}
         password: ${{ secrets.FLOKINET_FTP_PASSWORD_BETA }}
         local-dir: public/
-        server-dir: ${{ secrets.FLOKINET_FTP_DIR_BETA }}/
+        server-dir: ${{ secrets.FLOKINET_FTP_DIR_BETA }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
