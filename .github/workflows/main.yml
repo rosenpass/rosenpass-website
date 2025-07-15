@@ -43,7 +43,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: public/
-        server-dir: website/
+        server-dir: ${{ secrets.FTP_DIR }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
@@ -59,7 +59,7 @@ jobs:
         username: ${{ secrets.FLOKINET_FTP_USERNAME }}
         password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
         local-dir: public/
-        server-dir: ${{ secrets.FLOKINET_FTP_DIR }}/
+        server-dir: ${{ secrets.FLOKINET_FTP_DIR }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
