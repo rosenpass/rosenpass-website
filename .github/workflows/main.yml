@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Use PAT for all GitHub access
+      run: |
+        git config --global url."https://${{ secrets.RPLATEX }}:@github.com/".insteadOf "https://github.com/"
+
     - name: Checkout code with submodules
       uses: actions/checkout@v3
       with:
@@ -26,20 +30,20 @@ jobs:
     - name: Build Hugo Site
       run: |
         source /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix develop --extra-experimental-features nix-command --command website
+        nix develop --extra-experimental-features nix-command --command build
 
     - name: Set directory permissions for FTP Deploy
       run: |
-        chmod -R 755 result/
+        chmod -R 755 public/
 
     - name: Deploy to FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ${{ vars.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: result/
-        server-dir: website/
+        local-dir: public/
+        server-dir: ${{ vars.FTP_DIR }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
@@ -48,3 +52,18 @@ jobs:
           **/scss/main.css
           **/scss/main.css.map
 
+    - name: Deploy to new FTP server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ vars.FLOKINET_FTP_SERVER }}
+        username: ${{ secrets.FLOKINET_FTP_USERNAME }}
+        password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
+        local-dir: public/
+        server-dir: ${{ vars.FLOKINET_FTP_DIR }}
+        state-name: ../.ftp-deploy-sync-state.json
+        protocol: ftps
+        security: strict
+        exclude:  |
+          **/kaffeepause/**
+          **/scss/main.css
+          **/scss/main.css.map
