@@ -1,8 +1,9 @@
-{{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdf_filename }}
+{{ $pdfFile := printf "/presentations/slides/%s" .Page.Params.pdfFilename }}
 
 {{ $_hugo_config := `{ "version": 1 }` }}
-{{ $col_id := .Get "color" | default "1" }}
+{{ $col_id := .Get "color" | default "primary" }}
 {{ $height := .Get "height" | default "auto"  }}
+{{ $orientation := .Get "orientation" | default "landscape" }}
 {{/* Height can be one of: auto, min, med, max, full. */}}
 <a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
 <section class="td-box td-box--{{ $col_id }} position-relative td-box--gradient td-box--height-{{ $height }} title-box title-box-presentation">
@@ -15,7 +16,7 @@
 	</div>
 </section>
 
-<object data="{{ $pdfFile }}" type="application/pdf" width="100%" style="height:40vh;" class="presentation-box mt-1">
+<iframe src="{{ $pdfFile }}#view=Fit" width="100%" class="presentation-box mt-1 {{ $orientation }}">
 	<div class="pdf-load-fail">
 		<div class="pdf-fail-text">
 			<p><i class="fa-solid fa-file-pdf fa-2xl"></i></p>
@@ -24,4 +25,4 @@
 			<p class="chrome-pdf">Chrome on mobile devices does not currently include an in-browser PDF reader. This is the most common reason to see this error.</p>
 		</div>
 	</div>
-</object>
+</iframe>

@@ -43,18 +43,18 @@
 <section class="Sh">
 <h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
 <p class="Pp"><code class="Nm">rosenpass</code> performs cryptographic key
-    exchanges that are secure against quantum-computers and outputs the keys.
-    These keys can then be passed to various services such as wireguard or other
-    vpn services as pre-shared-keys to achieve security against attackers with
-    quantum computers.</p>
+    exchanges that are secure against quantum-computers and then outputs the
+    keys. These keys can then be passed to various services, such as wireguard
+    or other vpn services, as pre-shared-keys to achieve security against
+    attackers with quantum computers.</p>
 <p class="Pp">This is a research project and quantum computers are not thought
-    to become practical in less than ten years. If you are not specifically
+    to become practical in fewer than ten years. If you are not specifically
     tasked with developing post-quantum secure systems, you probably do not need
     this tool.</p>
 <section class="Ss">
 <h2 class="Ss" id="COMMANDS"><a class="permalink" href="#COMMANDS">COMMANDS</a></h2>
 <dl class="Bl-tag">
-  <dt><var class="Ar">keygen private-key &lt;file-path&gt; public-key
+  <dt><var class="Ar">gen-keys --secret-key &lt;file-path&gt; --public-key
     &lt;file-path&gt;</var></dt>
   <dd>Generate a keypair to use in the exchange command later. Send the
       public-key file to your communication partner and keep the private-key
@@ -64,11 +64,11 @@
     <var class="Ar">PEERS</var></dt>
   <dd>Start a process to exchange keys with the specified peers. You should
       specify at least one peer.
-    <p class="Pp">It's <var class="Ar">OPTIONS</var> are as follows:</p>
+    <p class="Pp">Its <var class="Ar">OPTIONS</var> are as follows:</p>
     <dl class="Bl-tag">
       <dt><var class="Ar">listen &lt;ip&gt;[:&lt;port&gt;]</var></dt>
       <dd>Instructs <code class="Nm">rosenpass</code> to listen on the specified
-          interface and port. By default <code class="Nm">rosenpass</code> will
+          interface and port. By default, <code class="Nm">rosenpass</code> will
           listen on all interfaces and select a random port.</dd>
       <dt><var class="Ar">verbose</var></dt>
       <dd>Extra logging.</dd>
@@ -119,18 +119,23 @@
 <h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
   ALSO</a></h1>
 <p class="Pp"><a class="Xr">rp(1)</a>, <a class="Xr">wg(1)</a></p>
+<p class="Pp"><cite class="Rs"><span class="RsA">Karolin Varner</span>,
+    <span class="RsA">Benjamin Lipp</span>, <span class="RsA">Wanja
+    Zaeske</span>, and <span class="RsA">Lisa Schmidt</span>,
+    <span class="RsT">Rosenpass</span>,
+    <a class="RsU" href="https://rosenpass.eu/whitepaper.pdf">https://rosenpass.eu/whitepaper.pdf</a>,
+    <span class="RsD">2023</span>.</cite></p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="STANDARDS"><a class="permalink" href="#STANDARDS">STANDARDS</a></h1>
 <p class="Pp">This tool is the reference implementation of the Rosenpass
-    protocol, written by Karolin Varner, Benjamin Lipp, Wanja Zaeske, and Lisa
-    Schmidt.</p>
+    protocol, as specified within the whitepaper referenced above.</p>
 </section>
 <section class="Sh">
 <h1 class="Sh" id="AUTHORS"><a class="permalink" href="#AUTHORS">AUTHORS</a></h1>
 <p class="Pp">Rosenpass was created by Karolin Varner, Benjamin Lipp, Wanja
     Zaeske, Marei Peischl, Stephan Ajuvo, and Lisa Schmidt.</p>
-<p class="Pp">This manual page was written by <span class="An">Emil
+<p class="Pp">This manual page was written by <span class="An">Clara
     Engler</span></p>
 </section>
 <section class="Sh">
@@ -141,7 +146,7 @@
 </div>
 <table class="foot">
   <tr>
-    <td class="foot-date">April 17, 2023</td>
+    <td class="foot-date">September 16, 2024</td>
     <td class="foot-os">Debian</td>
   </tr>
 </table>

@@ -1,6 +1,11 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="{{ .Site.Language.Lang }}" class="no-js">
   <head>
+    {{ if .Params.mastodon }}
+    <meta name="fediverse:creator" content="{{ .Params.mastodon }}">
+      {{ else }}
+    <meta name="fediverse:creator" content="@rosenpass@chaos.social">
+    {{ end }}
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} td-blog {{- with .Page.Params.body_class }} {{ . }}{{ end }}">
@@ -10,7 +15,7 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none " id="sidebar-blog">
+          <aside class="col-12 col-md-3 col-xxl-2 td-sidebar d-print-none " id="sidebar-blog">
             {{ partial "sidebar-blog.html" . }}
           </aside>
           <main class="col-12 col-md-9 col-xxl-8 ps-md-5 pe-md-4" role="main">
@@ -26,13 +31,5 @@
       </div>
       {{ partial "footer.html" . }}
     </div>
-    {{ partial "scripts.html" . }}
-    <script>
-      const toggleButton = document.querySelector('.td-sidebar__toggle');
-      const targetCollapse = document.querySelector('#td-section-nav');
-      toggleButton.addEventListener('click', function () {
-        $(targetCollapse).collapse('toggle');
-      });
-    </script>
   </body>
 </html>

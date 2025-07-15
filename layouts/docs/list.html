@@ -1,11 +1,11 @@
 {{ define "main" }}
 
 {{ if (and .Parent .Parent.IsHome) }}
-{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+	{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
 {{ else }}
-{{$.Scratch.Set "blog-pages" .Pages }}
+	{{$.Scratch.Set "blog-pages" .Pages }}
 {{ end }}
-{{ if not .Params.no_list }}
+{{ if not .Params.noList }}
 	{{ if not .Params.presentation_list}}
 		{{ if not .Params.landing_page }}
 		<section class="row block-lead td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
@@ -36,18 +36,14 @@
 					{{ end }}
 				</div>
 				{{ .Content }}
-			{{ end }}
+		{{ end }}
 		</section>
 	{{ end }}
-{{ end }}
-
-
-{{ if not .Params.no_list }}
 	{{ if .Params.presentation_list}}
 		{{ .Content }}
 		<section class="row td-box td-box--light td-box--gradient td-box--height-auto mb-3">
 			{{- if .Pages -}}
-				{{ if not .Params.no_list }}
+				{{ if not .Params.noList }}
 					{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" "asc")}}
 						{{ range $pag.PageGroups }}
 							<ul  id="presentation-list"  class="post-list list-unstyled row">
@@ -70,38 +66,39 @@
 										</div>
 									</div>
 								</li>
-							{{ end }}
+								{{ end }}
 							</ul>
 						{{ end }}
-					{{ end }}
+				{{ end }}
 				</section>
-				{{ end }}
-
-			{{ else }}
-			{{ if .Params.landing_page }}
-				{{ .Content }}
-				<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
-				{{ range .Pages}}
-					{{ $currentSection := .Page }}
-					{{ if $currentSection.IsSection }}
-						<div class="col doc-list-section">
-							<div class="doc-list-section-title">
-								<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}</h3>
-								<p>{{ $currentSection.Params.Blerb | markdownify }}</p>
-							</div>
-								{{ range $currentSection.Pages }}
-										<div>
-											<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-											<p>{{ .Params.Blerb }}</p>
-										</div>
-								{{ end }}
-						</div>
-					{{ end }}
-				{{ end }}
-
 			{{ end }}
-		</section>
-
+	{{ else }}
+		{{ if .Params.landing_page }}
+			{{ .Content }}
+			<section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">	
+			{{ range .Pages}}
+				{{ $currentSection := .Page }}
+				{{ if $currentSection.IsSection }}
+					<div class="col doc-list-section">
+						<div class="doc-list-section-title">
+							<h3 id="{{ replace .Title " " ""}}">{{ $currentSection.Title }}
+								<a class="td-heading-self-link" href='#{{ replace .Title " " ""}}' aria-label="Heading self-link"></a>
+							</h3>
+							<p>{{ $currentSection.Params.Blerb | markdownify }}</p>
+						</div>
+							{{ range $currentSection.Pages }}
+								<div>
+									<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+										<p>{{ .Params.Blerb }}</p>
+									</div>
+							{{ end }}
+					</div>
+				{{ end }}
+			{{ end }}
 		{{ end }}
-	{{ end }}	
+		</section>
+	{{ end }}
+	{{ else }}
+		{{ .Content }}	
+	{{ end }}
 {{ end }}

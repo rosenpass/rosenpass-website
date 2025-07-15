@@ -5,6 +5,7 @@ description: "An informal meet-up to grow the scope of our collaboration"
 author: "Alice Bowman"
 date: 2023-07-27
 blogpost: "true"
+shortBlerb: "Collaborating with NetBird"
 ---
 
 Hello everyone and welcome to Rosenpass' very first blog post in what we hope to become a regular journal. This week, members of Rosenpass (Karolin, Ajuvo, and Alice) traveled to Berlin to meet up with NetBird, where we sought to build on the promising outcomes of our previous video conferences and establish a structure for deeper collaboration between our organizations along with a clear pathway to implementations of post-quantum security within NetBird's services.

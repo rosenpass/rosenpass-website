@@ -1,27 +1,29 @@
-
 ---
 title: "Contributors & Contact"
 linkTitle: "Contributors & Contact"
 weight: 50
 menu:
   main:
+    params:
+      ShortBlerb: "The Rosenpass team, contributors, our partners, and how to reach us"
     weight: 50
 type: community
---- 
+---
+
 {{< blocks/lead color="dark" >}}
 <h3>Contributors & Contact</h3>
 {{< /blocks/lead >}}
 {{< blocks/section color="white">}}
-	<img src="/icons/RosenPass-Logo.svg" height="300px"></img>
+	<img src="/icons/rosenpass-darkogo.svg" height="300px"></img>
 	<p class="text-center">Find out more about the Rosenpass team, Rosenpass contributors, our partners, and how to reach us!</p>
 	<div class="rp-buttonrow mx-auto contact-buttons">
-			<a class="btn btn-lg btn-light mr-3 mb-4" href="#team"">
+			<a class="btn btn-lg btn-light mr-3 mb-4" href="#team">
 			<span>Team</span>
 			</a>
-			<a class="btn btn-lg btn-primary mr-3 mb-4" href="#codethanks">
+			<a class="btn btn-lg btn-primary mr-3 mb-4" href="#code-contributors">
 				<span>Code Contributors</span> 
 			</a>
-			<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#supportfrom">
+			<a class="btn btn-lg btn-secondary mr-3 mb-4" href="#with-support-from">
 			<span>Funding Partners</span>
 			</a>
 			<a class="btn btn-lg btn-dark mr-3 mb-4" href="#contact">
@@ -31,7 +33,7 @@ type: community
 {{< /blocks/section >}}
 
 {{< blocks/lead color="light" >}}
-	<h3 id="team">Team</h3>
+### Team
 {{< /blocks/lead >}}
 <div id="main-contributors" class="row">
 {{< blocks/member 
@@ -53,12 +55,19 @@ type: community
 
 {{< blocks/member 
 	contribution="Engineering" 
+	name="Paul “aparcar” Spooren" 
+	mail="paul@rosenpass.eu" 
+	github="aparcar"
+	>}}
+
+{{< blocks/member 
+	contribution="Engineering" 
 	name="Wanja “wucke13” Zaeske" 
 	mail="wucke13@rosenpass.eu" 
 	github="wucke13"
 	color="ff7900" 
 	>}}
-
+	
 {{< blocks/member 
 	contribution="LaTeX" 
 	name="Marei “TeXhackse” Peischl" 
@@ -68,7 +77,7 @@ type: community
 	>}}
 
 {{< blocks/member 
-	contribution="Science Illustration, Web Design and Development" 
+	contribution="Science Illustration, Web Design, and Development" 
 	name="Lisa “Mullana” Schmidt" 
 	mail="mullana@rosenpass.eu" 
 	web="mullana.de" 
@@ -91,13 +100,13 @@ type: community
 </div>
 
 {{< blocks/lead color="primary" >}}
-<h3 id="codethanks">Code Contributors</h3>
+### Code Contributors
 {{< /blocks/lead >}}
 {{< blocks/section color="white" >}}
 <p class="text-center codethanks-blerb">
 The Rosenpass tool is only made possible due to the contributions of a wide variety of people, inside and outside the core team, ranging from academic crytographers to Rust enthusiasts. Their wealth of experience, knowledge, and perspectives have driven the code we present today. We are grateful for their commitment to a secure, free, open source internet, as well as the contributions of each and every one.
 </p>
-<a href="https://github.com/rosenpass/rosenpass/graphs/contributors" alt="Link to Rosenpass' GitHub contributor page"><img src="/icons/github-mark.svg" class="github-svg"></img></a>
+<a href="https://github.com/rosenpass/rosenpass/graphs/contributors" alt="Link to Rosenpass' GitHub contributor page"><img src="/icons/github-mark.svg" class="github-svg svg-light"></img><img src="/icons/github-mark-white.svg" class="github-svg svg-invert"></img></a>
 <div class="row contributors codethanks-list">
 	{{< blocks/contributor github="koraa">}}
 	{{< blocks/contributor github="prabhpreet">}}
@@ -127,7 +136,7 @@ The Rosenpass tool is only made possible due to the contributions of a wide vari
 {{< /blocks/section >}}
 
 {{< blocks/lead color="secondary" >}}
-<h3 id="supportfrom">With support from</h3>
+### With support from
 {{< /blocks/lead >}}
 {{< blocks/section color="light" >}}
 <div class="container mobile-display">
@@ -187,7 +196,7 @@ The Rosenpass tool is only made possible due to the contributions of a wide vari
 {{< /blocks/section >}}
 
 {{< blocks/lead color="dark" >}}
-<h3 id="contact">Contact</h3>
+### Contact
 {{< /blocks/lead >}}
 {{< blocks/section color="white" >}}
 <div class="container">
@@ -235,7 +244,7 @@ The Rosenpass tool is only made possible due to the contributions of a wide vari
 				<p>
 					<a href="https://matrix.to/#/#rosenpass:matrix.org">
 						<div class="row social-container">
-							<img src="/icons/Matrix.svg" class="social-svg">
+							<img src="/icons/Matrix.svg" class="social-svg matrix">
 							<p>Click here to join the Rosenpass room on Matrix</p>
 						</div>
 					</a>

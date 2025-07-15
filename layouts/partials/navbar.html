@@ -7,24 +7,26 @@
    <div class="container-fluid">
 		<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
 		{{- /**/ -}}
-		<span class="navbar-brand__logo navbar-logo">
+		<span class="navbar-brand__logo navbar-logo svg-invert">
 		  {{- if ne .Site.Params.ui.navbar_logo false -}}
-			{{ with resources.Get "icons/logo.svg" -}}
+			{{ with resources.Get "icons/logo-dark.svg" -}}
 			  {{ ( . | minify).Content | safeHTML -}}
 			{{ end -}}
 		  {{ end -}}
 		</span>
+		<span class="navbar-brand__logo navbar-logo svg-light">
+			{{- if ne .Site.Params.ui.navbar_logo false -}}
+			  {{ with resources.Get "icons/logo.svg" -}}
+				{{ ( . | minify).Content | safeHTML -}}
+			  {{ end -}}
+			{{ end -}}
+		  </span>
 		{{- /**/ -}}
 		<span class="navbar-brand__name">
 		  {{- .Site.Title -}}
 		</span>
 		{{- /**/ -}}
 	  </a>
-	  	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
 	  <div class="collapse navbar-collapse" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0" id="navbar-custom">
 		  {{ $p := . -}}
@@ -36,17 +38,56 @@
 			{{ $post := .Post -}}
 			{{ $url := urls.Parse .URL -}}
 			{{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
-			<a {{/**/ -}}
-			  class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
-			  href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
-			  {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
-			>
-				{{- with .Pre }}{{ $pre }}{{ end -}}
-				<span {{- if $active }} class="active" {{- end }}>
-				  {{- .Name -}}
-				</span>
+
+				<div class="dropdown{{- if $active }} active{{- end }} d-flex">
+						<a {{/**/ -}}
+						class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+						href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
+						{{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
+					  ><span {{- if $active }} class="active" {{- end }}>{{- .Name -}}
+					   </span>
+					</a>
+					{{ $menuTitle := .Title }}
+					{{ range $p.Site.Pages }}
+						{{ if eq .Title $menuTitle}}
+					 		{{ if .Pages }}
+					<button class="dropdown-toggle navbar-dropdown-button d-none d-md-block" href="#" role="button" id="dropdownNavbarLink" data-bs-toggle="dropdown" aria-expanded="false"></button>
+					</button>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+				  
+
+						{{ range $p.Site.Pages }}
+							{{ if eq .Title $menuTitle }}
+								{{ if .Pages }}
+								<ul class="dropdown-menu nest-ul" aria-labelledby="dropdownNavbarLink">
+									{{ range .Pages }}
+										{{ if .IsSection }}
+										<li class="dropdown-section"><a class="dropdown-item dropdown-section-header {{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+											<div class="row">
+												<ul class="nest-ul nested-ul">
+													{{ range .Pages }}
+														<li><a class="dropdown-item nested{{ if eq $p.Path .Path }} active {{ end }}" href="{{if .Params.manualLink }}{{ .Params.manualLink }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Title }}{{ if .Params.external }} <i class="fa-solid fa-up-right-from-square fa-2xs external-link text-muted"></i>{{ end }}</a>
+														<p>{{ .Params.shortBlerb }}</p></li>
+													{{ end }}
+												</ul>
+											</div>
+										</li>
+										{{ else }}
+										<li class="unnested"><a class="dropdown-item{{ if eq $p.Path .Path }} active {{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+											<p>{{ .Params.shortBlerb }}</p>
+											</li>
+										{{ end }}
+									{{ end }}
+								</ul>
+								{{ end }}
+						    {{ end }} 
+						{{ end }}
+
+				</div>
 				{{- with .Post }}{{ $post }}{{ end -}}
-			</a>
 		  </li>
 		  {{ end -}}
 		  {{ if .Site.Params.versions -}}
@@ -59,10 +100,19 @@
 			{{ partial "navbar-lang-selector.html" . -}}
 		  </li>
 		  {{ end -}}
+
 		</ul>
 	  </div>
-	  <div class="navbar-nav d-none d-lg-block">
-		{{ partial "search-input.html" . }}
+	  <div class="d-flex options-box">
+		{{ if .Site.Params.ui.showLightDarkModeMenu -}}
+		<ul class="navbar-nav mt-2 mt-lg-0 d-block">
+			<li class="td-light-dark-menu nav-item dropdown">
+			{{ partial "theme-toggler" . }}
+			</li>
+		</ul>
+		{{ end -}}
+		<div class="navbar-nav d-block">
+				{{ partial "search-input.html" . }}
+		</div>
 	  </div>
-	 </div>
-</nav>
+{{ partial "mobile-navbar.html" . }}

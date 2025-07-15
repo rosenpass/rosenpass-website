@@ -1,4 +1,5 @@
 ---
+aliases: [/docs/]
 title: "The Rosenpass Tool"
 linkTitle: "The Rosenpass Tool"
 type: docs
@@ -15,7 +16,7 @@ security features. We implement a number of techniques to ensure that the code i
 a secret value through a .secret() method), and the code zeroises all key material.
 
 
-The Rosenpass tool works best and most natively with WireGuard. It can, however, be used to performe a stand-alone key exchange. Using this mode, 
+The Rosenpass tool works best and most natively with WireGuard. It can, however, be used to perform a stand-alone key exchange. Using this mode, 
 it can secure other protocols against attacks from quantum computers. To use this mode, the rosenpass binary must be used together with the outfile <FILE> parameter. Rosenpass will write a key to the given file 
   every two minutes, and print a message on standard out to notify the user or the calling script that the key has changed.
   
@@ -32,6 +33,8 @@ The Rosenpass tool works best and most natively with [WireGuard](https://www.wir
 into WireGuard using its Pre-Shared Key parameter. However, as the Rosenpass tool can export its shared secrets to a file, it can be implemented 
 in other use cases. We were able to demonstrate its potential for integration with Transport Layer Security (TLS), in [this tutorial](/blog/tlsrosenpass_july) on using 
 [OpenSSL](https://openssl.org/) with Rosenpass."
+
+ShortBlerb: "Documentation on the Rosenpass tool"
 ---
 
 <div class="col" style="max-width: fit-content;">
@@ -40,13 +43,15 @@ in other use cases. We were able to demonstrate its potential for integration wi
       <h4>Packaging Status</h4>
       <p class="px-3">Rosenpass currently provides packages and static binaries for several Linux distributions, as shown below: </p>
       <img class="ps-3" src="https://repology.org/badge/vertical-allrepos/rosenpass.svg" style="width:auto;">
+
       </div>
       <div class="col col-6 lower-landing">
-        <h4>0.2.2 Release Notes</h4>
-        <ul class="pe-3">
+        <h4>v0.2.2 Release Notes</h4>
+        <ul class="pe-3 mb-0">
           <li> Fixes vulnerability to prevent output shared key (OSK) to be set or written again on a responder receiving the same InitConf message during a handshake.</li>
-          <li> This release has no impact for majority of users using Rosenpass with Wireguard</li>
+          <li> This release has no impact for majority of users using Rosenpass with WireGuard</li>
         </ul>
+        {{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" >}}
       </div>
     </div>
 </div>
@@ -65,7 +70,6 @@ in other use cases. We were able to demonstrate its potential for integration wi
   </ul>
 {{< /blocks/section >}}
 
-{{< blocks/rss-button href="https://github.com/rosenpass/rosenpass/releases.atom" color="dark" text="Stay up to date with Rosenpass releases by subscribing to the GitHub Release Atom feed!" >}}
 {{< blocks/lead color="light" >}}
 <h4 id="license">License</h4>
 

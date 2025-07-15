@@ -1,5 +1,5 @@
-{{ $filename := printf "static/docs/%s" .Page.Params.html_filename }}
-<section class="row td-box td-box--white">
+{{ $filename := printf "static/docs/%s" .Page.Params.htmlFilename }}
+<section class="row td-box td-box--light man-page-section">
   <div class="col">
     <div class="row">
       {{ $filebytes := readFile $filename }}

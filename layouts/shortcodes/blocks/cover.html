@@ -1,8 +1,10 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{ $blockID := printf "td-cover-block-%d" .Ordinal }}
 {{ $promo_image := (.Page.Resources.ByType "image").GetMatch "**background*" }}
-{{ $logo_image := (.Page.Resources.ByType "image").GetMatch "**logo*" }}
+{{ $promo_image_dark := (.Page.Resources.ByType "image").GetMatch "**darkground*" -}}
+{{ $logo_image := (.Page.Resources.ByType "image").GetMatch "**darkogo*" }}
 {{ $col_id := .Get "color" | default "dark" }}
+{{ $class := .Get "class" | default "" }}
 {{ $image_anchor := .Get "image_anchor" | default "smart" }}
 {{ $logo_anchor := .Get "logo_anchor" | default "smart" }}
 {{/* Height can be one of: auto, min, med, max, full. */}}
@@ -11,6 +13,13 @@
 {{ with $promo_image }}
 {{ $promo_image_big := (.Fill (printf "1920x1080 %s" $image_anchor)) }}
 {{ $promo_image_small := (.Fill (printf "960x540 %s" $image_anchor)) }}
+{{ with $promo_image_dark }}
+{{ $promo_image_dark_big := . -}}
+{{ $promo_image_dark_small := . -}}
+{{ if ne $promo_image_dark.MediaType.SubType "svg" -}}
+  {{ $promo_image_dark_big = .Fill (printf "1920x1080 %s" $image_anchor) -}}
+  {{ $promo_image_dark_small = .Fill (printf "960x540 %s" $image_anchor) -}}
+{{ end -}}
 <link rel="preload" as="image" href="{{ $promo_image_small.RelPermalink }}" media="(max-width: 1200px)">
 <link rel="preload" as="image" href="{{ $promo_image_big.RelPermalink }}" media="(min-width: 1200px)">
 <style>
@@ -22,9 +31,20 @@
         background-image: url({{ $promo_image_big.RelPermalink }}); 
     }
 }
+[data-bs-theme="dark"]{
+  #{{ $blockID }} {
+  background-image: url({{ $promo_image_dark_small.RelPermalink }});
+}
+@media only screen and (min-width: 1200px) {
+  #{{ $blockID }} {
+    background-image: url({{ $promo_image_dark_big.RelPermalink }});
+  }
+}
+}
 </style>
 {{ end }}
-<section id="{{ $blockID }}" class="row td-cover-block td-cover-block--height-{{ $height }}{{ if not .Site.Params.ui.navbar_translucent_over_cover_disable }} js-td-cover{{ end }} /*td-overlay td-overlay--dark*/ -bg-{{ $col_id }}">
+{{ end }}
+<section id="{{ $blockID }}" class="row td-cover-block td-cover-block--height-{{ $height }}{{ if not .Site.Params.ui.navbar_translucent_over_cover_disable }} js-td-cover{{ end }} /*td-overlay td-overlay--dark*/ -bg-{{ $col_id }} {{ $class }}">
   {{ if .Page.Params.newUpdate }}
   {{ partial "frontpage-update.html"}}
   {{ end }}
@@ -34,8 +54,8 @@
         <div class="text-center">
           {{ with .Get "title" }}<h1 class="display-1 mt-0">{{ $title := . }}
 			{{ with $logo_image }}
-				<img class="td-cover-logo" src="{{ $logo_image.RelPermalink }}" alt="{{ $title | html }} Logo">
-			{{ end }}
+				<img class="td-cover-logo cover-logo-light" src="{{ $logo_image.RelPermalink }}" alt="{{ $title | html }} Logo">
+      {{ end }}
 			</h1>
 			{{ end }}
 			{{ with .Get "subtitle" }}

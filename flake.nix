@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, devshell, ... }@inputs:
+  outputs = { self, nixpkgs, flake-utils, devshell, npmlock2nix, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -22,20 +22,18 @@
           ];
         };
       in
-      rec
-      {
-        # build node_modules including bin/ from the npm json files
+      rec {
         packages.node_modules = pkgs.npmlock2nix.v2.node_modules {
-          src = "dummy";
+          src = ./.;  # This should point to your source folder
           packageJson = ./package.json;
           packageLockJson = ./package-lock.json;
+          nodejs = pkgs.nodejs_20;  # Explicitly use Node.js 20
         };
 
-        # build the actual website
         packages.website = pkgs.stdenvNoCC.mkDerivation {
           name = "rosenpass-website";
           src = ./.;
-          nativeBuildInputs = with pkgs; [ hugo groff packages.node_modules ];
+          nativeBuildInputs = with pkgs; [ hugo groff packages.node_modules go git which ];
           buildPhase = ''
             runHook preBuild
             ln --symbolic -- ${packages.node_modules}/node_modules ./
@@ -48,7 +46,8 @@
             runHook postInstall
           '';
         };
-          packages.default = packages.website;
+
+        packages.default = packages.website;
 
         devShells.default = (pkgs.devshell.mkShell {
           imports = [ "${devshell}/extra/git/hooks.nix" ];
@@ -56,7 +55,7 @@
           packages = with pkgs; [
             groff
             hugo
-            nodejs
+            nodejs_20
             nodePackages.prettier
           ];
           git.hooks = {
@@ -67,24 +66,11 @@
           };
           commands = [
             {
-              name = "website";
-              command = ''
-                ./changelog-check.sh
-                nix build '.?submodules=1#website'
-              '';
-              help = "Build the website with submodules included and export to the result folder.";
-            }
-            {
               name = "build";
-              # dev dependencies include "hugo-extended", which fails to
-              # install on NixOS due to shipping a not runnable hugo binary
               command = ''
-                git submodule update --init --recursive  # Ensure submodules are updated
-                cd themes/docsy
-                git fetch
-                git checkout ee99df66e218979c80b02d144f1aff0b32e52581  # Ensure specific Docsy commit
-                cd ../../
-                npm ci --omit=dev
+                ./scripts/changelog-check.sh
+                git submodule update --init --recursive
+                npm ci
                 hugo $@
               '';
               help = "build the website";
@@ -92,11 +78,18 @@
             {
               name = "serve";
               command = ''
-                ./changelog-check.sh
-                npm ci --omit=dev
+                ./scripts/changelog-check.sh
+                npm ci
                 hugo server $@
               '';
               help = "run hugo in server mode";
+            }
+            {
+              name = "redirects";
+              command = ''
+                ./scripts/redirects.sh
+              '';
+              help = "update the alias list for the website";
             }
             {
               name = "clean";
