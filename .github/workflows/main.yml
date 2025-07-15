@@ -52,3 +52,18 @@ jobs:
           **/scss/main.css
           **/scss/main.css.map
 
+    - name: Deploy to new FTP server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FLOKINET_FTP_SERVER }}
+        username: ${{ secrets.FLOKINET_FTP_USERNAME }}
+        password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
+        local-dir: public/
+        server-dir: ${{ secrets.FLOKINET_FTP_DIR }}/
+        state-name: ../.ftp-deploy-sync-state.json
+        protocol: ftps
+        security: strict
+        exclude:  |
+          **/kaffeepause/**
+          **/scss/main.css
+          **/scss/main.css.map
