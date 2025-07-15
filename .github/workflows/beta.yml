@@ -39,11 +39,11 @@ jobs:
     - name: Deploy to FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ${{ vars.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME_BETA }}
         password: ${{ secrets.FTP_PASSWORD_BETA }}
         local-dir: public/
-        server-dir: ${{ secrets.FTP_DIR_BETA }}
+        server-dir: ${{ vars.FTP_DIR_BETA }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
@@ -55,11 +55,11 @@ jobs:
     - name: Deploy to new FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FLOKINET_FTP_SERVER }}
+        server: ${{ vars.FLOKINET_FTP_SERVER }}
         username: ${{ secrets.FLOKINET_FTP_USERNAME_BETA }}
         password: ${{ secrets.FLOKINET_FTP_PASSWORD_BETA }}
         local-dir: public/
-        server-dir: ${{ secrets.FLOKINET_FTP_DIR_BETA }}
+        server-dir: ${{ vars.FLOKINET_FTP_DIR_BETA }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
