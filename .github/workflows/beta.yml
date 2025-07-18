@@ -39,16 +39,33 @@ jobs:
     - name: Deploy to FTP server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ${{ vars.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME_BETA }}
         password: ${{ secrets.FTP_PASSWORD_BETA }}
         local-dir: public/
-        server-dir: website/
+        server-dir: ${{ vars.FTP_DIR_BETA }}
         state-name: ../.ftp-deploy-sync-state.json
         protocol: ftps
         security: strict
         exclude:  |
+          **/presentations/slides/**/!(slides.pdf)
           **/kaffeepause/**
           **/scss/main.css
           **/scss/main.css.map
 
+    - name: Deploy to new FTP server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ vars.FLOKINET_FTP_SERVER }}
+        username: ${{ secrets.FLOKINET_FTP_USERNAME_BETA }}
+        password: ${{ secrets.FLOKINET_FTP_PASSWORD_BETA }}
+        local-dir: public/
+        server-dir: ${{ vars.FLOKINET_FTP_DIR_BETA }}
+        state-name: ../.ftp-deploy-sync-state.json
+        protocol: ftps
+        security: strict
+        exclude:  |
+          **/presentations/slides/**/!(slides.pdf)
+          **/kaffeepause/**
+          **/scss/main.css
+          **/scss/main.css.map
