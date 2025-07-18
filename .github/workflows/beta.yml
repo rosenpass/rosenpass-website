@@ -48,6 +48,7 @@ jobs:
         protocol: ftps
         security: strict
         exclude:  |
+          **/presentations/slides/**/!(slides.pdf)
           **/kaffeepause/**
           **/scss/main.css
           **/scss/main.css.map
@@ -64,6 +65,7 @@ jobs:
         protocol: ftps
         security: strict
         exclude:  |
+          **/presentations/slides/**/!(slides.pdf)
           **/kaffeepause/**
           **/scss/main.css
           **/scss/main.css.map
