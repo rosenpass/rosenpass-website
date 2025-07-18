@@ -1,3 +1,4 @@
 # actual website runs on NGINX, this is here just in case that changes back to Apache
 
 Redirect "/whitepaper.pdf" "https://github.com/rosenpass/rosenpass/raw/papers-pdf/whitepaper.pdf"
+Redirect "/whitepaper" "https://github.com/rosenpass/rosenpass/raw/papers-pdf/whitepaper.pdf"
