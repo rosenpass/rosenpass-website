@@ -13,8 +13,7 @@ enableRobotsTXT = true
 
 [module]
   hugoVersion.extended = true
-  hugoVersion.min = "0.110.0"
-  _merge = "override"
+  hugoVersion.min = "0.146.0" #see https://github.com/google/docsy/pull/2246
 
   # Override Docsy's YAML
   [[module.mounts]]
