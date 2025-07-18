@@ -122,6 +122,9 @@ enableRobotsTXT = true
     [markup.goldmark.renderer]
       unsafe = true
       hardWraps = true
+    [markup.goldmark.parser.attribute]
+      block = true
+      title = true
 
   [markup.highlight]
     style = "tango"
@@ -133,12 +136,16 @@ enableRobotsTXT = true
   [[menu.main]]
     name = "Quick Start"
     weight = 15
-    url = "/docs/rosenpass-tool/start"
+    url = "/docs/rosenpass-tool/guides"
+    [[menu.main.params]]
+      shortBlerb = "Get Rosenpass installed and running"
 
   [[menu.main]]
     name = "What is Rosenpass?"
     weight = 16
     url = "/#what-is-rosenpass"
+    [[menu.main.params]]
+      shortBlerb = "An explainer on Quantum Security and the Rosenpass tool"
 
 [outputs]
   section = ["HTML"]

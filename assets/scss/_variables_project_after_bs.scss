@@ -1,7 +1,150 @@
 :root,
+
+// stylelint-disable function-disallowed-list
+
+%offcanvas-css-vars {
+  // scss-docs-start offcanvas-css-vars
+  --#{$prefix}offcanvas-zindex: #{$zindex-offcanvas};
+  --#{$prefix}offcanvas-width: #{$offcanvas-horizontal-width};
+  --#{$prefix}offcanvas-height: #{$offcanvas-vertical-height};
+  --#{$prefix}offcanvas-padding-x: #{$offcanvas-padding-x};
+  --#{$prefix}offcanvas-padding-y: #{$offcanvas-padding-y};
+  --#{$prefix}offcanvas-color: #{$offcanvas-color};
+  --#{$prefix}offcanvas-bg: #{$offcanvas-bg-color};
+  --#{$prefix}offcanvas-border-width: #{$offcanvas-border-width};
+  --#{$prefix}offcanvas-border-color: #{$offcanvas-border-color};
+  --#{$prefix}offcanvas-box-shadow: #{$offcanvas-box-shadow};
+  --#{$prefix}offcanvas-transition: #{transform 0.4s ease-out};
+  --#{$prefix}offcanvas-title-line-height: #{$offcanvas-title-line-height};
+  // scss-docs-end offcanvas-css-vars
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .mobileNav#{$infix} {
+    @extend %offcanvas-css-vars;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .mobileNav#{$infix} {
+    @include media-breakpoint-down($next) {
+      position: fixed;
+      bottom: 0;
+      z-index: var(--#{$prefix}offcanvas-zindex);
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      color: var(--#{$prefix}offcanvas-color);
+      visibility: hidden;
+      background-color: var(--#{$prefix}offcanvas-bg);
+      background-clip: padding-box;
+      outline: 0;
+      @include box-shadow(var(--#{$prefix}offcanvas-box-shadow));
+      @include transition(var(--#{$prefix}offcanvas-transition));
+
+      &.mobileNav-start {
+        top: 0;
+        left: 0;
+        width: var(--#{$prefix}offcanvas-width);
+        border-right: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
+        transform: translateX(-100%);
+      }
+
+      &.mobileNav-end {
+        top: 0;
+        right: 0;
+        width: var(--#{$prefix}offcanvas-width);
+        border-left: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
+        transform: translateX(100%);
+      }
+
+      &.mobileNav-top {
+        top: 0;
+        right: 0;
+        left: 0;
+        height: var(--#{$prefix}offcanvas-height);
+        max-height: 100%;
+        border-bottom: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
+        transform: translateY(-100%);
+      }
+
+      &.mobileNav-bottom {
+        right: 0;
+        left: 0;
+        height: var(--#{$prefix}offcanvas-height);
+        max-height: 100%;
+        border-top: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
+        transform: translateY(100%);
+      }
+
+      &.showing,
+      &.show:not(.hiding) {
+        transform: none;
+      }
+
+      &.showing,
+      &.hiding,
+      &.show {
+        visibility: visible;
+      }
+    }
+
+    @if not ($infix == "") {
+      @include media-breakpoint-up($next) {
+        --#{$prefix}offcanvas-height: auto;
+        --#{$prefix}offcanvas-border-width: 0;
+        background-color: transparent !important; // stylelint-disable-line declaration-no-important
+
+        .mobileNav-header {
+          display: none;
+        }
+
+        .mobileNav-body {
+          display: flex;
+          flex-grow: 0;
+          padding: 0;
+          overflow-y: visible;
+          // Reset `background-color` in case `.bg-*` classes are used in offcanvas
+          background-color: transparent !important; // stylelint-disable-line declaration-no-important
+        }
+      }
+    }
+  }
+}
+
+.mobileNav-backdrop {
+  @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, $offcanvas-backdrop-opacity);
+}
+
+.mobileNav-header {
+  display: flex;
+  align-items: center;
+  padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
+
+  .btn-close {
+    padding: calc(var(--#{$prefix}offcanvas-padding-y) * .5) calc(var(--#{$prefix}offcanvas-padding-x) * .5);
+    margin: calc(-.5 * var(--#{$prefix}offcanvas-padding-y)) calc(-.5 * var(--#{$prefix}offcanvas-padding-x)) calc(-.5 * var(--#{$prefix}offcanvas-padding-y)) auto;
+  }
+}
+
+.mobileNav-title {
+  margin-bottom: 0;
+  line-height: var(--#{$prefix}offcanvas-title-line-height);
+}
+
+.mobileNav-body {
+  flex-grow: 1;
+  padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
+  overflow-y: auto;
+}
 [data-bs-theme="light"] {
   // Note: Custom variable values only support SassScript inside `#{}`.
-
   // Colors
   //
   // Generate palettes for full colors, grays, and theme colors.
@@ -55,7 +198,6 @@
       display: inline-block;
     }
   // Fonts
-
   // Note: Use `inspect` for lists so that quoted items keep the quotes.
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
   --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
@@ -145,6 +287,36 @@
   --#{$prefix}form-invalid-color: #{$form-invalid-color};
   --#{$prefix}form-invalid-border-color: #{$form-invalid-border-color};
   // scss-docs-end root-form-validation-variables
+
+  // Offcanvas
+  .offcanvas {
+
+    --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
+    --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
+    --#{$prefix}navbar-color: #{$navbar-light-color};
+    --#{$prefix}navbar-hover-color: #{$navbar-light-hover-color};
+    --#{$prefix}navbar-disabled-color: #{$navbar-light-disabled-color};
+    --#{$prefix}navbar-active-color: #{$navbar-light-active-color};
+    --#{$prefix}navbar-brand-padding-y: #{$navbar-brand-padding-y};
+    --#{$prefix}navbar-brand-margin-end: #{$navbar-brand-margin-end};
+    --#{$prefix}navbar-brand-font-size: #{$navbar-brand-font-size};
+    --#{$prefix}navbar-brand-color: #{$navbar-light-brand-color};
+    --#{$prefix}navbar-brand-hover-color: #{$navbar-light-brand-hover-color};
+    --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+    --#{$prefix}navbar-toggler-padding-y: #{$navbar-toggler-padding-y};
+    --#{$prefix}navbar-toggler-padding-x: #{$navbar-toggler-padding-x};
+    --#{$prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+    --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+    --#{$prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+    --#{$prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+    --#{$prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+    --#{$prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+    // --#{$prefix}navbar-icon-filter: #{rgb-to-filter($navbar-light-color)};
+    // --#{$prefix}navbar-icon-hover-filter: #{rgb-to-filter($navbar-light-hover-color)};
+    // --#{$prefix}navbar-icon-active-filter: #{rgb-to-filter($navbar-light-active-color)};
+
+
+  }
 }
 
 // Dark Mode Bootstrap
@@ -220,13 +392,17 @@
       --#{$prefix}dropdown-link-active-color: #{$component-active-color-dark};
     }
     .td-navbar,
-    .td-sidebar-nav {
+    .td-sidebar-nav,
+    .offcanvas {
     --#{$prefix}navbar-color: #{$navbar-dark-color};
     --#{$prefix}navbar-hover-color: #{$navbar-dark-hover-color};
     --#{$prefix}navbar-disabled-color: #{$navbar-dark-disabled-color};
     --#{$prefix}navbar-active-color: #{$navbar-dark-active-color};
     --#{$prefix}navbar-brand-color: #{$navbar-dark-brand-color};
     --#{$prefix}navbar-brand-hover-color: #{$navbar-dark-brand-hover-color};
+    // --#{$prefix}navbar-icon-filter: #{rgb-to-filter($navbar-dark-color)};
+    // --#{$prefix}navbar-icon-hover-filter: #{rgb-to-filter($navbar-dark-hover-color)};
+    // --#{$prefix}navbar-icon-active-filter: #{rgb-to-filter($navbar-dark-active-color)};
     }
     // icons
     .svg-invert {

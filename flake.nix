@@ -68,7 +68,7 @@
             {
               name = "build";
               command = ''
-                ./changelog-check.sh
+                ./scripts/changelog-check.sh
                 git submodule update --init --recursive
                 npm ci
                 hugo $@
@@ -78,11 +78,18 @@
             {
               name = "serve";
               command = ''
-                ./changelog-check.sh
+                ./scripts/changelog-check.sh
                 npm ci
                 hugo server $@
               '';
               help = "run hugo in server mode";
+            }
+            {
+              name = "redirects";
+              command = ''
+                ./scripts/redirects.sh
+              '';
+              help = "update the alias list for the website";
             }
             {
               name = "clean";

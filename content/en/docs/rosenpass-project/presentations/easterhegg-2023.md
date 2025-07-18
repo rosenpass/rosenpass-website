@@ -1,7 +1,9 @@
 ---
+aliases: [/docs/presentations/easterhegg-2023]
 title: "Ein VPN zum Schutz vor Quantencomputern"
 linkTitle: "Easterhegg 2023"
 description: "A deeper dive into post-quantum cryptography, Rosenpass' approach to the issue, and a demonstration of Rosenpass' solution and integration with WireGuard."
+shortBlerb: "A deeper dive into post-quantum cryptography and Rosenpass' approach to the issue"
 talkLanguage: "DE"
 banner: "easterhegg2023.jpg"
 pdfFilename: "2023-04-08-easterhegg/slides.pdf"

@@ -1,7 +1,9 @@
 ---
+aliases: [/docs/presentations/mrmcd-2023]
 title: "Sichere Kryptografie trotz Quantencomputern: Projektupdate"
 linkTitle: "MRMCD 2023"
 description: "A recap on, and overview of, Rosenpass' progress since April presented to the MetaRheinMainChaosDays conference in Darmstadt."
+shortBlerb: "Rosenpass' progress since April presented to the MetaRheinMainChaosDays conference"
 talkLanguage: "DE"
 banner: "mrmcd2023.jpg"
 presentation: true

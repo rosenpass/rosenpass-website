@@ -1,0 +1,7 @@
+<style>
+.{{ .Get "class" }} {
+    span.line:first-child::before {
+        content: "{{ .Get "text" }}";
+    }
+}
+</style>

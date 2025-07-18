@@ -1,11 +1,12 @@
 ---
+aliases: [/docs/release_notes, /docs/rosenpass-tool/release_notes]
 title: "Release Notes"
 linkTitle: "Release Notes"
-weight: 2
+weight: 60
 menu: false
 type: docs
 rss: "https://github.com/rosenpass/rosenpass/releases.atom"
-shortBlerb: "A summary of code changes on the tool"
+shortBlerb: "Summary of code changes on the tool"
 blerb: "A summary of the major changes and fixes across full Rosenpass tool releases."
 ---
 

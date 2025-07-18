@@ -1,7 +1,9 @@
 ---
+aliases: [/docs/presentations/hackmas-2024]
 title: "Building Post-Quantum Cryptographic Protocols"
 linkTitle: "Hack Ma's 2024"
 description: "How to build post-quantum cryptographic protocols and why wall clocks are not to be trusted."
+shortBlerb: "How to build post-quantum cryptographic protocols"
 talkLanguage: "EN"
 banner: "hackmas2024.png"
 pdfFilename: "2024-08-29-hackmas/slides.pdf"
