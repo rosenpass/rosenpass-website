@@ -1,0 +1,27 @@
+@startuml
+skinparam dpi 400
+
+skinparam defaultTextAlignment center
+skinparam RectangleBackgroundColor #5277C3/7EBAE4
+skinparam RectangleFontColor white
+skinparam RectangleShadowing true
+skinparam DatabaseShadowing true
+skinparam NoteFontSize 8
+
+node "Intranet A" {
+  rectangle "Wireguard\nhost 1" as wgh1
+  rectangle "Rosenpass\nhost 1" as rph1
+}
+
+node "Intranet B" {
+  rectangle "Wireguard\nhost 2" as wgh2
+  rectangle "Rosenpass\nhost 2" as rph2
+}
+
+rph1 <--> rph2 #line:red;line.bold : "<:1f511:> <:1f503:>\nKey\nexchange\n (Rosenpass)"
+wgh1 <--> wgh2 #line:blue;line.bold : "<:1f510:>\n Post-quantum secure\n encrypted connection\n(Wireguard)"
+
+wgh1 <- rph1 : <:1f511:> Pull exchanged key
+wgh2 <- rph2 : <:1f511:> Pull exchanged key
+
+@enduml
