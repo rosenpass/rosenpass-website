@@ -1,9 +1,9 @@
 ---
 aliases: [/docs/presentations/hannover-meetup-2025]
-title: "Quantumcomputing und Rosenpass"
+title: "Quantencomputer gefährden IT-Systeme? Nicht mit uns."
 linkTitle: "Hannover Tech Meetup 2025"
-description: "Quantemcomputer Gefährden IT-Systeme? Nicht mit uns."
-shortBlerb: "Quantemcomputer Gefährden IT-Systeme? Nicht mit uns"
+description: "Was ist Postquantenkryptografie und warum brauchen wir sie? - Einfach erklärt!"
+shortBlerb: "Was ist Postquantenkryptografie und warum brauchen wir sie? - Einfach erklärt!"
 talkLanguage: "DE"
 banner: "hannover-tech-meetup2025.png"
 pdfFilename: "2025-06-03-hannover-tech-meetup/slides.pdf"
