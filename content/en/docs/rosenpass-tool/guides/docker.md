@@ -417,7 +417,7 @@ ping 10.0.0.1
 ```
 <span class="spacer"></span>
 
-The ping command should continuously show ping logs:
+The `ping` log should continuously update as new packets arrive over the VPN:
 
 ```
 PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
