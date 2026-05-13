@@ -1,5 +1,6 @@
 {
   inputs = {
+    self.submodules = true;
     flake-utils.url = "github:numtide/flake-utils";
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixpkgs";
@@ -69,7 +70,6 @@
               name = "build";
               command = ''
                 ./scripts/changelog-check.sh
-                git submodule update --init --recursive
                 npm ci
                 hugo $@
               '';
