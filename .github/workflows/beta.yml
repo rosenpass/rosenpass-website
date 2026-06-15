@@ -15,7 +15,7 @@ jobs:
         git config --global url."https://${{ secrets.RPLATEX }}:@github.com/".insteadOf "https://github.com/"
 
     - name: Checkout code with submodules
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
       with:
         submodules: true
         fetch-depth: 0
