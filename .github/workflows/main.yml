@@ -43,7 +43,7 @@ jobs:
           chmod -R 755 public/
 
       - name: Deploy to Flokinet FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ vars.FLOKINET_FTP_SERVER }}
           username: ${{ secrets.FLOKINET_FTP_USERNAME }}
