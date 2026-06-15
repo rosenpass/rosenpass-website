@@ -5,50 +5,56 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Use PAT for all GitHub access
-      run: |
-        git config --global url."https://${{ secrets.RPLATEX }}:@github.com/".insteadOf "https://github.com/"
+      - name: Use PAT for all GitHub access
+        env:
+          RPLATEX: ${{ secrets.RPLATEX }}
+        run: |
+          test -n "$RPLATEX"
+          git config --global url."https://rosenpass:${RPLATEX}:@github.com/".insteadOf "https://github.com/"
 
-    - name: Checkout code with submodules
-      uses: actions/checkout@v6
-      with:
-        submodules: true
-        fetch-depth: 0
+      - name: Checkout code with submodules
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.RPLATEX }}
+          submodules: recursive
+          fetch-depth: 0
 
-    - name: Install Nix
-      run: |
-        curl -L https://nixos.org/nix/install | sh
-        source /home/runner/.nix-profile/etc/profile.d/nix.sh
-        mkdir -p /home/runner/.config/nix/
-        echo "experimental-features = nix-command flakes" >> /home/runner/.config/nix/nix.conf
+      - name: Install Nix
+        run: |
+          curl -L https://nixos.org/nix/install | sh
+          source /home/runner/.nix-profile/etc/profile.d/nix.sh
+          mkdir -p /home/runner/.config/nix/
+          echo "experimental-features = nix-command flakes" >> /home/runner/.config/nix/nix.conf
 
-    - name: Build Hugo Site
-      run: |
-        source /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix develop --extra-experimental-features nix-command --command build
+      - name: Build Hugo Site
+        run: |
+          source /home/runner/.nix-profile/etc/profile.d/nix.sh
+          nix develop --extra-experimental-features nix-command --command build
 
-    - name: Set directory permissions for FTP Deploy
-      run: |
-        chmod -R 755 public/
+      - name: Set directory permissions for FTP Deploy
+        run: |
+          chmod -R 755 public/
 
-    - name: Deploy to Flokinet FTP server
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ vars.FLOKINET_FTP_SERVER }}
-        username: ${{ secrets.FLOKINET_FTP_USERNAME }}
-        password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
-        local-dir: public/
-        server-dir: ${{ vars.FLOKINET_FTP_DIR }}
-        state-name: ../.ftp-deploy-sync-state.json
-        protocol: ftps
-        security: strict
-        exclude:  |
-          **/presentations/slides/**/!(slides.pdf)
-          **/kaffeepause/**
-          **/scss/main.css
-          **/scss/main.css.map
+      - name: Deploy to Flokinet FTP server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ vars.FLOKINET_FTP_SERVER }}
+          username: ${{ secrets.FLOKINET_FTP_USERNAME }}
+          password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
+          local-dir: public/
+          server-dir: ${{ vars.FLOKINET_FTP_DIR }}
+          state-name: ../.ftp-deploy-sync-state.json
+          protocol: ftps
+          security: strict
+          exclude: |
+            **/presentations/slides/**/!(slides.pdf)
+            **/kaffeepause/**
+            **/scss/main.css
+            **/scss/main.css.map
