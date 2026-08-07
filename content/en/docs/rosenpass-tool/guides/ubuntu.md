@@ -196,6 +196,32 @@ rp pubkey server.rosenpass-secret server.rosenpass-public
 rp pubkey client.rosenpass-secret client.rosenpass-public
 ```
 
+#### Ubuntu 25.10 AppArmor note
+
+On Ubuntu systems where the WireGuard `wg` command is confined by AppArmor, `wg` may only be allowed to read private key files below `/etc/wireguard`. After extracting the public keys, keep the Rosenpass keys (`pqsk` and `pqpk`) in the generated secret directory, but move only the WireGuard secret key to `/etc/wireguard/rosenpass` and symlink it back to the name expected by `rp`.
+
+On the server:
+
+```sh{class="starter-code-server-user"}
+sudo install -d -m 0700 /etc/wireguard/rosenpass
+sudo mv server.rosenpass-secret/wgsk /etc/wireguard/rosenpass/server-wgsk
+sudo chown root:root /etc/wireguard/rosenpass/server-wgsk
+sudo chmod 0600 /etc/wireguard/rosenpass/server-wgsk
+ln -s /etc/wireguard/rosenpass/server-wgsk server.rosenpass-secret/wgsk
+```
+
+On the client:
+
+```sh{class="starter-code-client-user"}
+sudo install -d -m 0700 /etc/wireguard/rosenpass
+sudo mv client.rosenpass-secret/wgsk /etc/wireguard/rosenpass/client-wgsk
+sudo chown root:root /etc/wireguard/rosenpass/client-wgsk
+sudo chmod 0600 /etc/wireguard/rosenpass/client-wgsk
+ln -s /etc/wireguard/rosenpass/client-wgsk client.rosenpass-secret/wgsk
+```
+
+The file moved here is WireGuard's static private key. It is separate from the WireGuard pre-shared key that Rosenpass installs into the tunnel; Rosenpass refreshes that pre-shared key approximately every two minutes, so no pre-shared key file needs to be moved for this AppArmor workaround.
+
 #### 3. Copy each `-public` directory to the other peer
 
 Both peers need the `-public` directory of other peer, respectively, and it needs to be placed next to the `-secret` and `-public` directories that already exist. If you have SSH access to both machines, you can use the following commands:
