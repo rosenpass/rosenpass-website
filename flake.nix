@@ -57,7 +57,7 @@
             hugo
             nodejs
             go
-            nodePackages.prettier
+            prettier
           ];
           git.hooks = {
             enable = true;
