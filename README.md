@@ -37,8 +37,8 @@ The website is built with Hugo, which generates a static site.
 - **TODO**: Release notes need to be added (automatically).
 
 ## Hosting
-- The website is hosted on servercow. 
-- There is currently no automated rollout. You have to move the files via FTP. 
+- The website is hosted at Flokinet. 
+- The rollout is automated via GitHub Actions: every push to `main` (or `beta`) builds the site with Nix and uploads it via FTPS. 
 - The website runs on nginx instead of apache for security reasons, so no .htaccess etc.
 - **CAUTION**: Don't delete the folders "whitepaper" and "kaffeepause", as they are not in the github repository!
 
