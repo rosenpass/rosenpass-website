@@ -9,7 +9,7 @@ shortBlerb: "Karolin Varner Interview with NLnet"
 ---
 
 <div>
-	<a href="https://nlnet.nl/project/Rosenpass/interview.html" >
+    <a href="https://nlnet.nl/project/Rosenpass/interview.html" >
         <img src="/icons/nlnet.svg" class="rp-supporter" alt="Logo NLnet: abstract logo of four people seen from above">
         <img src="/icons/ngiassure.svg" class="rp-supporter" alt="Logo NGI Assure: letterlogo shaped like a tag">
     </a>

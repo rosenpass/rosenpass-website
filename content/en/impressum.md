@@ -37,17 +37,17 @@ Rechtsanwaltskanzlei Hubrig
 Husemannstraße 22
 10435 Berlin
 
-						
-			  
-			 
-	 
-		
-		   
-		
-							  
+                        
+              
+             
+     
+        
+           
+        
+                              
 E-Mail: impressum@rosenpass.eu
 
-			  
+              
 
 #### Eintragung im Vereinsregister
 Der Rosenpass e.V. ist im Vereinsregister des **Amtsgerichtes Hannover** unter der Registernummer **VR 20 38 97** eingetragen.
@@ -55,7 +55,7 @@ Der Rosenpass e.V. ist im Vereinsregister des **Amtsgerichtes Hannover** unter d
 
 {{< /blocks/section >}}
 
-									 
+                                     
 
 {{< blocks/lead   color="secondary">}}
 ## Datenschutzerklärung / Data Protection Policy
@@ -134,7 +134,7 @@ personenbezogenen Daten:
 
 Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
 
-### 2. Hosting													 
+### 2. Hosting                                                     
 Die Erfassung von Daten durch unseren Hoster erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. 
 Wir haben einen Vertrag über Auftragsverarbeitung (AVV) mit unserem Hoster geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.
 Mehr dazu hier: https://flokinet.is/privacy

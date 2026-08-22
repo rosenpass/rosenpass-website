@@ -2,59 +2,59 @@
 <footer class="py-5 row d-print-none footer">
  
   <div class=" text-center mb-1">
-	  <a href="/press/">Press</a> 
-	  &nbsp;&nbsp; | &nbsp;&nbsp; 
-	  <a href="/impressum/"  >Legal Notice (Impressum)</a> 
-	  &nbsp;&nbsp; | &nbsp;&nbsp;
-	  <a href="/impressum/#datenschutzerklärung--data-protection-policy"  >Privacy Statement</a> 
-	  &nbsp;&nbsp; | &nbsp;&nbsp;
-	  <a href="/contributors/#contact">Contact</a></p>
-	   <p class=" text-center text-xs mb-1">
-		   Funded through 
-		   <a href="https://nlnet.nl/">NLNet</a> 
-		   with financial support from the European Commission's 
-		   <a href="https://nlnet.nl/assure">NGI Assure</a> program <br/>
-		   and ProtoType Fund of the 
-		   <a href="https://okfn.de/en/">Open Knowledge Foundation Germany</a>
-		   , financed by the 
-		   <a href="https://www.bmftr.bund.de/">Federal Ministry of Education and Research (BMBF).</a>
-		   </p>
-	  <p class=" text-center text-xs">Mail hosting sponsored by 
-	  <a href="https://servercow.de/">Servercow</a>.
-	  Website hosted by <a href="https://flokinet.is/">Flokinet</a>.</p>
-	  
-	  <div class="container-fluid mx-sm-5 text-center text-xs">
-	 
-		<div class="row">
-		  <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-			{{ with $links }}
-			{{ with index . "user"}}
-			{{ template "footer-links-block"  . }}
-			{{ end }}
-			{{ end }}
-		  </div>
-		  <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-			{{ with $links }}
-			{{ with index . "developer"}}
-			{{ template "footer-links-block"  . }}
-			{{ end }}
-			{{ end }}
-		  </div>
-		  <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-			{{ with .Site.Params.copyright }}<small class="text-white">&copy; {{ now.Year}} {{ .}} {{ T "footer_all_rights_reserved" }}</small>{{ end }}
-			{{ with .Site.Params.privacy_policy }}<small class="md-1"><a href="{{ . }}" target="_blank" rel="noopener">{{ T "footer_privacy_policy" }}</a></small>{{ end }}
-			
-			
-		{{ if .Site.Params.ui.footer_about_enable}}
-		  {{ with .Site.GetPage "about" -}}
-			<p class="td-footer__about mt-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-		  {{- end -}}
-		{{ end -}}
+      <a href="/press/">Press</a> 
+      &nbsp;&nbsp; | &nbsp;&nbsp; 
+      <a href="/impressum/"  >Legal Notice (Impressum)</a> 
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a href="/impressum/#datenschutzerklärung--data-protection-policy"  >Privacy Statement</a> 
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a href="/contributors/#contact">Contact</a></p>
+       <p class=" text-center text-xs mb-1">
+           Funded through 
+           <a href="https://nlnet.nl/">NLNet</a> 
+           with financial support from the European Commission's 
+           <a href="https://nlnet.nl/assure">NGI Assure</a> program <br/>
+           and ProtoType Fund of the 
+           <a href="https://okfn.de/en/">Open Knowledge Foundation Germany</a>
+           , financed by the 
+           <a href="https://www.bmftr.bund.de/">Federal Ministry of Education and Research (BMBF).</a>
+           </p>
+      <p class=" text-center text-xs">Mail hosting sponsored by 
+      <a href="https://servercow.de/">Servercow</a>.
+      Website hosted by <a href="https://flokinet.is/">Flokinet</a>.</p>
+      
+      <div class="container-fluid mx-sm-5 text-center text-xs">
+     
+        <div class="row">
+          <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+            {{ with $links }}
+            {{ with index . "user"}}
+            {{ template "footer-links-block"  . }}
+            {{ end }}
+            {{ end }}
+          </div>
+          <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+            {{ with $links }}
+            {{ with index . "developer"}}
+            {{ template "footer-links-block"  . }}
+            {{ end }}
+            {{ end }}
+          </div>
+          <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+            {{ with .Site.Params.copyright }}<small class="text-white">&copy; {{ now.Year}} {{ .}} {{ T "footer_all_rights_reserved" }}</small>{{ end }}
+            {{ with .Site.Params.privacy_policy }}<small class="md-1"><a href="{{ . }}" target="_blank" rel="noopener">{{ T "footer_privacy_policy" }}</a></small>{{ end }}
+            
+            
+        {{ if .Site.Params.ui.footer_about_enable}}
+          {{ with .Site.GetPage "about" -}}
+            <p class="td-footer__about mt-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+          {{- end -}}
+        {{ end -}}
 
-		  </div>
-		  
-		</div>
-	  </div>
+          </div>
+          
+        </div>
+      </div>
   </div>
 </footer>
 
@@ -65,7 +65,7 @@
     <a class="text-white" target="_blank" rel="noopener" href="{{ .url }}" aria-label="{{ .name }}">
       <i class="{{ .icon }}"></i>
     </a>
-	
+    
   </li>
   {{ end }}
 </ul>
