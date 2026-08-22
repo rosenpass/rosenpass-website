@@ -27,7 +27,7 @@
           src = ./.;  # This should point to your source folder
           packageJson = ./package.json;
           packageLockJson = ./package-lock.json;
-          nodejs = pkgs.nodejs_20;  # Explicitly use Node.js 20
+          nodejs = pkgs.nodejs;
         };
 
         packages.website = pkgs.stdenvNoCC.mkDerivation {
@@ -55,7 +55,7 @@
           packages = with pkgs; [
             groff
             hugo
-            nodejs_20
+            nodejs
             nodePackages.prettier
           ];
           git.hooks = {
