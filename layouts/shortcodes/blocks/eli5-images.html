@@ -10,16 +10,16 @@
 
 <section class="eli5-images td-box td-box--white " >
 
-		{{ with .Get "src1" }} 
-			<img class="eli5-image col" src="{{ $src1 | absURL  }}" alt="{{ $alt1 }}" />
-		{{ end }}
-		
-		{{ with .Get "src2" }} 
-			<img class="eli5-image col" src="{{ $src2 | absURL  }}" alt="{{ $alt2 }}" />
-		{{ end }}
-		
-		{{ with .Get "src3" }} 
-			<img class="eli5-image col" src="{{ $src3 | absURL  }}" alt="{{ $alt3 }}" />
-		{{ end }}
+        {{ with .Get "src1" }}
+            <img class="eli5-image col" src="{{ $src1 | absURL  }}" alt="{{ $alt1 }}" />
+        {{ end }}
+
+        {{ with .Get "src2" }}
+            <img class="eli5-image col" src="{{ $src2 | absURL  }}" alt="{{ $alt2 }}" />
+        {{ end }}
+
+        {{ with .Get "src3" }}
+            <img class="eli5-image col" src="{{ $src3 | absURL  }}" alt="{{ $alt3 }}" />
+        {{ end }}
 
 </section>

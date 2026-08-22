@@ -23,7 +23,7 @@ Rosenpass e.V. (a German registered association) made this website and here is h
 
 {{< blocks/section  color="white">}}
 
-Diese Seite wird betrieben durch den 
+Diese Seite wird betrieben durch den
 
 #### Rosenpass e.V.
 Erste Vorsitzende: **Karolin Varner**
@@ -31,23 +31,23 @@ Zweiter Vorsitzender: **Benjamin Lipp**
 
 Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV: **Karolin Varner**
 
-vertreten durch 
+vertreten durch
 **Beata-Konstanze Hubrig**
 Rechtsanwaltskanzlei Hubrig
 Husemannstraße 22
 10435 Berlin
 
-						
-			  
-			 
-	 
-		
-		   
-		
-							  
+
+
+
+
+
+
+
+
 E-Mail: impressum@rosenpass.eu
 
-			  
+
 
 #### Eintragung im Vereinsregister
 Der Rosenpass e.V. ist im Vereinsregister des **Amtsgerichtes Hannover** unter der Registernummer **VR 20 38 97** eingetragen.
@@ -55,7 +55,7 @@ Der Rosenpass e.V. ist im Vereinsregister des **Amtsgerichtes Hannover** unter d
 
 {{< /blocks/section >}}
 
-									 
+
 
 {{< blocks/lead   color="secondary">}}
 ## Datenschutzerklärung / Data Protection Policy
@@ -75,7 +75,7 @@ Any third-party services, that would require the user to consent to data sharing
 
 We link to third-party websites/services whose data protection policies we do not have any control or influence over. Please consult their respective data protection statements as appropriate. We do not accept any responsibility for content or data usage by external websites linked on this site.
 
-If you still have concerns about your personal data, please contact us at datenschutz@rosenpass.eu  
+If you still have concerns about your personal data, please contact us at datenschutz@rosenpass.eu
 We are a research project with limited ressources and can't always reply super fast. Please give us a few days before you file a complaint with the responsible Data Protection Autorities!
 
 {{< /blocks/section >}}
@@ -134,8 +134,8 @@ personenbezogenen Daten:
 
 Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
 
-### 2. Hosting													 
-Die Erfassung von Daten durch unseren Hoster erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. 
+### 2. Hosting
+Die Erfassung von Daten durch unseren Hoster erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.
 Wir haben einen Vertrag über Auftragsverarbeitung (AVV) mit unserem Hoster geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.
 Mehr dazu hier: https://flokinet.is/privacy
 
@@ -157,7 +157,7 @@ Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 Erste Vorsitzende: **Karolin Varner**
 Zweiter Vorsitzender: **Benjamin Lipp**
 
-vertreten durch 
+vertreten durch
 **Beata-Konstanze Hubrig**
 Rechtsanwaltskanzlei Hubrig
 Husemannstraße 22

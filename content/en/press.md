@@ -13,7 +13,7 @@ Press
 
 {{< blocks/section color="light" >}}
 
-This site contains press releases in both German (white background) and English (light blue background), sorted from new to old. 
+This site contains press releases in both German (white background) and English (light blue background), sorted from new to old.
 {{< /blocks/section >}}
 
 {{< blocks/section color="white" >}}
@@ -28,7 +28,7 @@ Das Projekt ist ein wesentlicher Fortschritt in der Internetsicherheit und betri
 
 Rosenpass ist eine freie und offene Software, die von Sicherheitsforschern aus aller Welt begutachtet, geprüft und weiterentwickelt werden kann und kostenlos im Internet zur Verfügung steht.
 
-Rosenpass ist eine Zusatzsoftware zum bekannten VPN-Protokoll WireGuard, das sehr häufig genutzt wird, um verschlüsselte Kommunikation im Internet zu ermöglichen. VPNs sorgen nicht nur für sichere Homeoffices, sondern z.B. auch für freien Zugang zum Internet in Ländern mit Internetzensur. 
+Rosenpass ist eine Zusatzsoftware zum bekannten VPN-Protokoll WireGuard, das sehr häufig genutzt wird, um verschlüsselte Kommunikation im Internet zu ermöglichen. VPNs sorgen nicht nur für sichere Homeoffices, sondern z.B. auch für freien Zugang zum Internet in Ländern mit Internetzensur.
 
 Rosenpass soll in den nächsten Jahren weiterentwickelt werden, um auch in anderen Bereichen zum Einsatz zu kommen, damit auch in Zukunft Online-Banking oder Online-Shopping sicher funktionieren können.
 

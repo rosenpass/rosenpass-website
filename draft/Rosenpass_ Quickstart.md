@@ -2,7 +2,7 @@
 
 Rosenpass is a deamon, that given a private key and a list of peers performs a key exchange with each peer. The resulting keys are given to WireGuard using it's PSK feature – WireGuard remains as secure as it was, Rosenpass adds protection against quantum computers. Rosenpass can also write the keys to files; this can be used to integrate Rosenpass with tools other than WireGuard.
 
-The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag. 
+The `rp` bash program is used to build a VPN with WireGuard and Rosenpass. You can inspect how the tool integrates the `wg` WireGuard frontend and the `rosenpass` tool that implements our cryptography using the `explain` flag.
 
 ```sh
 $ rp explain genkey mykey

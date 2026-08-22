@@ -5,7 +5,7 @@
 Impressum
 
 Angaben gemäß § 5 TMG
-Project Rosenpass 
+Project Rosenpass
 Karolin Varner
 Ehrenbergstr. 16a
 Box 11685
@@ -31,7 +31,7 @@ Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons
 
 ### Datenschutzerklärung / Data Protection Policy Statement
 
-Our Data Protection Policy (Datenschutzerklärung) is stated hereunto, in German, as Germany is our legal lieu de affaires. The German text is legally binding. We provide a summary for our English-speaking audience here: 
+Our Data Protection Policy (Datenschutzerklärung) is stated hereunto, in German, as Germany is our legal lieu de affaires. The German text is legally binding. We provide a summary for our English-speaking audience here:
 
 You may always direct your inquiries regarding your personal data to impressum@rosenpass.eu
 Note that we are a non-commercial research project. We try to answer any such mail with priority. This does not affect your rights to complain with the responsible Data Protection Autorities. We would, however, encourage you to e-mail us first in case of any complaint or uncertainty.
@@ -87,7 +87,7 @@ Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
 Servercow
 Anbieter ist die The Infrastructure Company GmbH
 Parkstrasse 42
-47877 Willich (nachfolgend „Servercow“). 
+47877 Willich (nachfolgend „Servercow“).
 
 Wenn Sie unsere Website besuchen, erfasst Servercow verschiedene Logfiles inklusive Ihrer IP-Adressen.
 
