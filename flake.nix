@@ -66,6 +66,39 @@
               homepage = "https://rosenpass.eu";
             };
           };
+          server = pkgs.writeShellApplication {
+            name = "rosenpass-website-server";
+            runtimeInputs = [
+              nodejs
+              pkgs.coreutils
+              pkgs.groff
+              pkgs.hugo
+            ];
+            text = ''
+              if [[ ! -f flake.nix || ! -f config.toml ]]; then
+                echo >&2 "error: server must be run from the repository root"
+                exit 1
+              fi
+              # Use exactly the node dependencies pinned by package-lock.json.
+              if [[ -e node_modules && ! -L node_modules ]]; then
+                echo >&2 "error: ./node_modules exists but is not managed by Nix"
+                echo >&2 "remove it before running the development server"
+                exit 1
+              fi
+              ln -sfn ${nodeModules}/node_modules node_modules
+
+              # Docsy normally creates these in its npm postinstall hook when used
+              # as a Git submodule.
+              mkdir -p \
+                themes/github.com/twbs/bootstrap \
+                themes/github.com/FortAwesome/Font-Awesome
+
+              export HUGO_CACHEDIR="''${XDG_CACHE_HOME:-$HOME/.cache}/hugo/rosenpass-website"
+              mkdir -p "$HUGO_CACHEDIR"
+              ${pkgs.bash}/bin/bash ./scripts/changelog-check.sh
+              exec hugo server "$@"
+            '';
+          };
         in
         {
           inherit
@@ -73,6 +106,7 @@
             nodejs
             nodeModules
             website
+            server
             ;
         }
       );
@@ -84,6 +118,13 @@
       });
       checks = forAllSystems (system: {
         website = perSystem.${system}.website;
+      });
+      apps = forAllSystems (system: {
+        server = {
+          type = "app";
+          program = "${perSystem.${system}.server}/bin/rosenpass-website-server";
+          meta.description = "run the Rosenpass website development server";
+        };
       });
       devShells = forAllSystems (
         system:
