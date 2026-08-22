@@ -36,14 +36,20 @@
             strictDeps = true;
             nativeBuildInputs = [
               nodejs
-              pkgs.go
               pkgs.groff
               pkgs.hugo
-              pkgs.which
             ];
             buildPhase = ''
               runHook preBuild
               ln -s ${nodeModules}/node_modules node_modules
+
+              # Docsy expects these placeholder module directories when it is used as a
+              # theme/submodule instead of as a Hugo module. Its npm postinstall hook
+              # normally creates them.
+              mkdir -p \
+                themes/github.com/twbs/bootstrap \
+                themes/github.com/FortAwesome/Font-Awesome
+
               export HUGO_CACHEDIR="$TMPDIR/hugo-cache"
               bash ./scripts/changelog-check.sh
               hugo
