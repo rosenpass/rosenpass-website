@@ -131,6 +131,12 @@ enableRobotsTXT = true
     # guessSyntax = "true"
     noClasses = "false"
 
+[security]
+  allowContent = [
+    '^text/html$',
+    '^text/markdown$',
+  ]
+
 #[menu]
 #  [[menu.main]]
 #    name = "Quick Start"
