@@ -56,6 +56,7 @@
             groff
             hugo
             nodejs
+            go
             nodePackages.prettier
           ];
           git.hooks = {
