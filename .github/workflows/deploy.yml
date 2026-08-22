@@ -1,0 +1,89 @@
+name: build and deploy website (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      deploy:
+        description: Upload the built site to the FTP server
+        required: false
+        type: boolean
+        default: false
+      server-dir:
+        description: Target directory on the FTP server (required when deploy is true)
+        required: false
+        type: string
+        default: ""
+    secrets:
+      RPLATEX:
+        description: PAT used to check out the private submodules
+        required: true
+      FLOKINET_FTP_USERNAME:
+        required: false
+      FLOKINET_FTP_PASSWORD:
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: validate inputs
+        if: inputs.deploy && inputs.server-dir == ''
+        run: |
+          echo "error: input 'server-dir' must be set when input 'deploy' is true"
+          exit 1
+
+      - name: checkout code with submodules
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.RPLATEX }}
+          # recursive checkout is not required as the true checkout happens below in `nix build`
+          # submodules: recursive
+          # fetch-depth: 0
+
+      - name: install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: cache Nix store
+        uses: nix-community/cache-nix-action@v7
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.lock', 'package-lock.json') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+
+      - name: build Hugo site
+        env:
+          RPLATEX: ${{ secrets.RPLATEX }}
+          GIT_TERMINAL_PROMPT: "0"
+          GIT_CONFIG_COUNT: "2"
+          GIT_CONFIG_KEY_0: credential.https://github.com.username
+          GIT_CONFIG_VALUE_0: x-access-token
+          GIT_CONFIG_KEY_1: credential.https://github.com.helper
+          GIT_CONFIG_VALUE_1: '!f() { if [ "$1" = get ]; then printf "%s\n" "password=$RPLATEX"; fi; }; f'
+        run: |
+          cp -rL --no-preserve=mode "$(nix build --no-link --print-out-paths)" ./public
+
+      - name: set directory permissions for FTP deploy
+        if: inputs.deploy
+        run: |
+          chmod -R 775 ./public
+
+      - name: deploy to Flokinet FTP server
+        if: inputs.deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ vars.FLOKINET_FTP_SERVER }}
+          username: ${{ secrets.FLOKINET_FTP_USERNAME }}
+          password: ${{ secrets.FLOKINET_FTP_PASSWORD }}
+          local-dir: public/
+          server-dir: ${{ inputs.server-dir }}
+          state-name: ../.ftp-deploy-sync-state.json
+          protocol: ftps
+          security: strict
+          exclude: |
+            **/presentations/slides/**/!(slides.pdf)
+            **/kaffeepause/**
+            **/scss/main.css
+            **/scss/main.css.map

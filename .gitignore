@@ -1,8 +1,14 @@
-public/
-resources/
-node_modules/
-package-lock.json
-.hugo_build.lock
-.direnv/
-result
-/resources/_gen/assets/scss/scss/
+# Hugo output
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Node.JS
+/node_modules
+
+# Nix
+/result
+/result-*
+
+# Direnv
+/.direnv/
