@@ -1,107 +1,114 @@
 {
+  description = "Rosenpass website";
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-    devshell.url = "github:numtide/devshell";
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
-    npmlock2nix = {
-      url = "github:nix-community/npmlock2nix";
-      flake = false;
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    self.submodules = true; # the website depends on the Docsy, Rosenpass and slides submodules – submodules supported by Nix >= 2.27.
   };
 
-  outputs = { self, nixpkgs, flake-utils, devshell, npmlock2nix, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            devshell.overlays.default
-            (final: prev: {
-              npmlock2nix = import inputs.npmlock2nix { pkgs = prev; };
-            })
-          ];
-        };
-      in
-      rec {
-        packages.node_modules = pkgs.npmlock2nix.v2.node_modules {
-          src = ./.;  # This should point to your source folder
-          packageJson = ./package.json;
-          packageLockJson = ./package-lock.json;
+  outputs =
+    { self, nixpkgs }:
+    let
+      inherit (nixpkgs) lib;
+
+      systems = [
+        "x86_64-linux"
+        # "aarch64-linux"
+        # "x86_64-darwin"
+        # "aarch64-darwin"
+      ];
+      forAllSystems = lib.genAttrs systems;
+      package_json_file = lib.importJSON ./package.json;
+      perSystem = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
           nodejs = pkgs.nodejs;
-        };
 
-        packages.website = pkgs.stdenvNoCC.mkDerivation {
-          name = "rosenpass-website";
-          src = ./.;
-          nativeBuildInputs = with pkgs; [ hugo groff packages.node_modules go git which ];
-          buildPhase = ''
-            runHook preBuild
-            ln --symbolic -- ${packages.node_modules}/node_modules ./
-            hugo
-            runHook postBuild
-          '';
-          installPhase = ''
-            runHook preInstall
-            cp --recursive -- public $out/
-            runHook postInstall
-          '';
-        };
-
-        packages.default = packages.website;
-
-        devShells.default = (pkgs.devshell.mkShell {
-          imports = [ "${devshell}/extra/git/hooks.nix" ];
-          name = "rosenpass-website-dev-shell";
-          packages = with pkgs; [
-            groff
-            hugo
-            nodejs
-            go
-            nodePackages.prettier
-          ];
-          git.hooks = {
-            enable = true;
-            pre-commit.text = ''
-              nix flake check
-            '';
+          nodeModules = pkgs.importNpmLock.buildNodeModules {
+            npmRoot = ./.;
+            inherit nodejs;
           };
-          commands = [
-            {
-              name = "build";
-              command = ''
-                ./scripts/changelog-check.sh
-                git submodule update --init --recursive
-                npm ci
-                hugo $@
-              '';
-              help = "build the website";
-            }
-            {
-              name = "serve";
-              command = ''
-                ./scripts/changelog-check.sh
-                npm ci
-                hugo server $@
-              '';
-              help = "run hugo in server mode";
-            }
-            {
-              name = "redirects";
-              command = ''
-                ./scripts/redirects.sh
-              '';
-              help = "update the alias list for the website";
-            }
-            {
-              name = "clean";
-              command = ''
-                cd "$PRJ_ROOT"
-                rm --force --recursive -- node_modules public
-              '';
-              help = "remove public/ and node_modules/";
-            }
-          ];
-        });
-      }
-    );
+
+          website = pkgs.stdenvNoCC.mkDerivation {
+            pname = package_json_file.name;
+            inherit (package_json_file) version;
+            src = self.outPath;
+            strictDeps = true;
+            nativeBuildInputs = [
+              nodejs
+              pkgs.go
+              pkgs.groff
+              pkgs.hugo
+              pkgs.which
+            ];
+            buildPhase = ''
+              runHook preBuild
+              ln -s ${nodeModules}/node_modules node_modules
+              export HUGO_CACHEDIR="$TMPDIR/hugo-cache"
+              bash ./scripts/changelog-check.sh
+              hugo
+              runHook postBuild
+            '';
+            installPhase = ''
+              runHook preInstall
+              mkdir -p "$out"
+              cp -r public/. "$out/"
+              runHook postInstall
+            '';
+            meta = {
+              inherit (package_json_file) description;
+              homepage = "https://rosenpass.eu";
+            };
+          };
+        in
+        {
+          inherit
+            pkgs
+            nodejs
+            nodeModules
+            website
+            ;
+        }
+      );
+    in
+    {
+      packages = forAllSystems (system: {
+        inherit (perSystem.${system}) website;
+        default = perSystem.${system}.website;
+      });
+      checks = forAllSystems (system: {
+        website = perSystem.${system}.website;
+      });
+      devShells = forAllSystems (
+        system:
+        let
+          inherit (perSystem.${system})
+            pkgs
+            nodejs
+            nodeModules
+            ;
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              nodejs
+
+              pkgs.git
+              pkgs.go
+              pkgs.groff
+              pkgs.hugo
+              pkgs.prettier
+              pkgs.which
+
+              pkgs.importNpmLock.hooks.linkNodeModulesHook
+            ];
+
+            npmDeps = nodeModules;
+          };
+        }
+      );
+      formatter = forAllSystems (
+        system: perSystem.${system}.pkgs.nixfmt
+      );
+    };
 }

@@ -36,7 +36,7 @@ jobs:
       - name: Build Hugo Site
         run: |
           source /home/runner/.nix-profile/etc/profile.d/nix.sh
-          nix develop --extra-experimental-features nix-command --command build
+          cp -rL --no-preserve=mode "$(nix build --no-link --print-out-paths)" public
 
       - name: Set directory permissions for FTP Deploy
         run: |
