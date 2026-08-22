@@ -10,7 +10,7 @@ shortBlerb: "Upgrading the cookie mechanism"
 
 Recently, we released version 0.2.2 of the Rosenpass tool. This release addresses a bug in the handling of message retransmissions. The bug could be triggered when Rosenpass peers are under load and discard messages.
 
-**For the standard use case** of Rosenpass with WireGuard, and thus, for the majority of users, **this has no security impact**. 
+**For the standard use case** of Rosenpass with WireGuard, and thus, for the majority of users, **this has no security impact**.
 
 For specialised applications using the Output Shared Key (OSK) interface of Rosenpass, the bug could potentially have led to a nonce reuse, depending on how the higher-level protocol uses this shared key. We are currently not aware of applications using the OSK interface.
 

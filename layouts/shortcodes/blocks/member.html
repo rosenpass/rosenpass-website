@@ -1,19 +1,19 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
-{{ $type   := .Get "type" | default "" }} 
+{{ $type   := .Get "type" | default "" }}
 
-{{ $contribution    := .Get "contribution" | default "" }} 
-{{ $name            := .Get "name" | default "" }} 
+{{ $contribution    := .Get "contribution" | default "" }}
+{{ $name            := .Get "name" | default "" }}
 
-{{ $affiliation     := .Get "affiliation" }} 
-{{ $institute       := .Get "institute" }} 
-{{ $institutetitle  := .Get "institutetitle" | default ""  }} 
+{{ $affiliation     := .Get "affiliation" }}
+{{ $institute       := .Get "institute" }}
+{{ $institutetitle  := .Get "institutetitle" | default ""  }}
 {{ $instituteweb    := .Get "instituteweb" }}
 
 
-{{ $mail   := .Get "mail" | default "info@rosenpass.eu" }} 
-{{ $key   := .Get "key" }} 
-{{ $web   := .Get "web" }} 
-{{ $github   := .Get "github" | default "" }} 
+{{ $mail   := .Get "mail" | default "info@rosenpass.eu" }}
+{{ $key   := .Get "key" }}
+{{ $web   := .Get "web" }}
+{{ $github   := .Get "github" | default "" }}
 
     <div class="col-12 col-lg-6 col-xl-6 member td-box td-box--gradient">
         <div class="row {{ $type }}">
@@ -23,9 +23,9 @@
             </div>
             <div class="col">
                 <div class="infoblock">
-                    <p class="member-name">{{ $name }}</p>                    
+                    <p class="member-name">{{ $name }}</p>
                 {{ if $affiliation }}
-                    <p>{{ $affiliation }}, 
+                    <p>{{ $affiliation }},
                     {{ if $institute }}
                         {{ if $instituteweb }}
                             <a href="https://{{ $instituteweb }}" title="{{ $institutetitle }}">{{ $institute }}</a>

@@ -11,7 +11,7 @@ Now, you can:
 - **run** the website locally by running `nix run .#server`
 - **install** a development environment by running `nix develop`
 
-You do *not* need to worry about this repo's git submodules – they are already handled by Nix. 
+You do *not* need to worry about this repo's git submodules – they are already handled by Nix.
 
 ## Information
 
@@ -24,12 +24,12 @@ As we use the Docsy theme with Hugo, which is produced by Google, the Docsy subm
 The website is built with Hugo, which generates a static site.
 
 ### Whitepaper
-**TODO**: The Whitepaper is currently not automatically pulled from the repo anymore. 
+**TODO**: The Whitepaper is currently not automatically pulled from the repo anymore.
 - it comes from https://github.com/rosenpass/rosenpass/blob/papers-pdf/whitepaper.pdf
 - and goes into the website root (htdocs/rosenpass on servercow)
 
 ### Manuals
-**TODO**: Manuals are are currently not automatically pulled from the repo anymore. 
+**TODO**: Manuals are are currently not automatically pulled from the repo anymore.
 - Source?
 - They go into the website main branch at rosenpass\content\en\docs\manuals
 
@@ -37,8 +37,8 @@ The website is built with Hugo, which generates a static site.
 - **TODO**: Release notes need to be added (automatically).
 
 ## Hosting
-- The website is hosted at Flokinet. 
-- The rollout is automated via GitHub Actions: every push to `main` (or `beta`) builds the site with Nix and uploads it via FTPS. 
+- The website is hosted at Flokinet.
+- The rollout is automated via GitHub Actions: every push to `main` (or `beta`) builds the site with Nix and uploads it via FTPS.
 - The website runs on nginx instead of apache for security reasons, so no .htaccess etc.
 - **CAUTION**: Don't delete the folders "whitepaper" and "kaffeepause", as they are not in the github repository!
 

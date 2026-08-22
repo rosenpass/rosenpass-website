@@ -1,6 +1,6 @@
 {{ $col_id := .Get "color" | default .Ordinal -}}
 {{ $height := .Get "height" | default "auto" -}}
-{{ $class   := .Get "class" | default "" }} 
+{{ $class   := .Get "class" | default "" }}
 {{ with .Get "height" -}}
   {{ if not ( or ( eq . "auto" ) ( eq . "min" ) ( eq . "med" ) ( eq . "max" ) ( eq . "full" ) ) -}}
     {{ errorf "shortcode 'lead': parameter height is %q, must be one of 'auto', 'min', 'med', 'max' or 'full'." . -}}

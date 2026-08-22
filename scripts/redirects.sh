@@ -10,11 +10,11 @@ directories_to_alias["./content/en/docs/rosenpass-tool/"]="/docs/"
 # Loop through each directory for aliasing
 for dir in "${!directories_to_alias[@]}"; do
     base_paths=(${directories_to_alias[$dir]})
-    
+
     # Find all .md and .html files in directory
     find "$dir" -type f \( -iname "*.md" -o -iname "*.html" \) | while read file; do
         [ -e "$file" ] || continue
-        
+
         test=""
         # Check if file is _index.html
         if [[ "$(basename "$file")" == "_index.html" ]]; then
@@ -27,10 +27,10 @@ for dir in "${!directories_to_alias[@]}"; do
             # Strip the extension (.md or .html)
             relative_path="${relative_path%.*}"
         fi
-        
+
         # Remove leading slash
         relative_path="${relative_path#/}"
-        
+
         # Create the alias
         alias_paths=()
         for base_path in "${base_paths[@]}"; do

@@ -44,10 +44,10 @@
             {{ with $.Get "title" }}
             <h5 class="ps-3 pt-1 mb-0">
                 {{ if eq $.Page.File.Ext "md" }}
-                {{ $.Get "title" | markdownify }} 
+                {{ $.Get "title" | markdownify }}
                 {{ else }}
                 {{ $.Get "title" | htmlUnescape | safeHTML }}
-                {{ end }} 
+                {{ end }}
                 <span class="language">{{ $.Page.Params.talkLanguage }}</span>
             </h5>
             {{ end }}
@@ -68,7 +68,7 @@
             <a href="{{ $hostpg }}" target="_blank"><i class="fa-solid fa-up-right-from-square video-info" data-toggle="tooltip" title="Rosenpass is not liable for externally hosted content."></i></a>
         {{ with $license }}
             <p class="text-muted mb-1" id="video-license">License:<br>{{ $license }}</p>
-        {{ end }}  
+        {{ end }}
           </div>
     </div>
   </div>

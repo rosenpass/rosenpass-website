@@ -56,7 +56,7 @@
                                         </div>
                                         {{ with $p.Params.banner }}
                                             <a href="{{ $p.RelPermalink }}">
-                                                <img class="post-image card-img-top" 
+                                                <img class="post-image card-img-top"
                                                     src="/img/conferences/{{ $p.Params.banner }}" alt="Featured Image for {{ $p.LinkTitle }}" >
                                             </a>
                                         {{ end }}
@@ -75,7 +75,7 @@
     {{ else }}
         {{ if .Params.landing_page }}
             {{ .Content }}
-            <section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">    
+            <section class="row td-box td-box--white td-box--gradient td-box--height-auto doc-list-row">
             {{ range .Pages}}
                 {{ $currentSection := .Page }}
                 {{ if $currentSection.IsSection }}
@@ -99,6 +99,6 @@
         </section>
     {{ end }}
     {{ else }}
-        {{ .Content }}    
+        {{ .Content }}
     {{ end }}
 {{ end }}

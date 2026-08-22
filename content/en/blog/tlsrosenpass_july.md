@@ -74,57 +74,57 @@ $ openssl s_client -connect localhost:4433 -psk 1a2b3c4d5e6f -psk_identity rosen
 This command tells the client to connect to the port and server indicated above, and provide it with the same pre-shared key. The client produces a lot of output, giving details about the TLS channel, and then waiting for input that shall be sent on the channel:
 
 ```bash
-CONNECTED(00000003)                                                                                                                                               
-Can't use SSL_get_servername                                                                                                                                      
----                                                                                                                                                               
-no peer certificate available                                                                                                                                     
----                                                                                                                                                               
-No client certificate CA names sent                                                                                                                               
-Server Temp Key: X25519, 253 bits                                                                                                                                 
----                                                                                                                                                               
-SSL handshake has read 225 bytes and written 465 bytes                                                                                                            
-Verification: OK                                                                                                                                                  
----                                                                                                                                                               
-Reused, TLSv1.3, Cipher is TLS_CHACHA20_POLY1305_SHA256                                                                                                           
-Secure Renegotiation IS NOT supported                                                                                                                             
-Compression: NONE                                                                                                                                                 
-Expansion: NONE                                                                                                                                                   
-No ALPN negotiated                                                                                                                                                
-Early data was not sent                                                                                                                                           
-Verify return code: 0 (ok)                                                                                                                                        
----                                                                                                                                                               
----                                                                                                                                                               
-Post-Handshake New Session Ticket arrived:                                                                                                                        
-SSL-Session:                                                                                                                                                      
-    Protocol  : TLSv1.3                                                                                                                                           
-    Cipher    : TLS_CHACHA20_POLY1305_SHA256                                                                                                                      
-    Session-ID: 3F45E9CD0E643A96B92BB0379DD656B2533ED1CF5419AAED4B42018121E95B89                                                                                  
-    Session-ID-ctx:                                                                                                                                               
-    Resumption PSK: 435E82BE9A44F9EFCB056B5D600A8C5D5400CD4F5C1571197F476CF8803CFD2D                                                                              
-    PSK identity: None                                                                                                                                            
-    PSK identity hint: None                                                                                                                                       
-    SRP username: None                                                                                                                                            
-    TLS session ticket lifetime hint: 304 (seconds)                                                                                                               
-    TLS session ticket:                                                                                                                                           
-    0000 - 25 36 db ec 3a b0 1b ae-09 f1 08 6e 3c 05 06 97   %6..:......n<...                                                                                     
-    0010 - 62 01 2e 07 4a e9 65 91-90 31 29 77 95 12 34 70   b...J.e..1)w..4p                                                                                     
-    0020 - 36 c2 da d5 3e 0c 3a bf-71 9e ea bc be 73 92 53   6...>.:.q....s.S                                                                                     
-    0030 - 62 06 29 07 c0 8d 31 3e-6c c6 92 c6 f1 73 6c ac   b.)...1>l....sl.                                                                                     
-    0040 - 58 b6 04 0f ae f9 7d e3-f5 50 78 d4 62 a0 09 ff   X.....}..Px.b...                                                                                     
-    0050 - c9 78 7d 31 0b ef e3 10-07 e2 83 31 f1 c7 5c 2f   .x}1.......1..\/                                                                                     
-    0060 - 68 8a 47 bc 27 50 01 59-cc 98 dc cd 39 04 9b 5d   h.G.'P.Y....9..]                                                                                     
-    0070 - bd b6 bb c8 e2 95 57 fa-26 8c 0e ae 95 1f 83 48   ......W.&......H                                                                                     
-    0080 - 27 c3 aa 07 c4 55 cb d0-1f ae 24 93 75 b8 27 cf   '....U....$.u.'.                                                                                     
-    0090 - 80 ab 7a f9 95 4d 63 8b-40 ba 71 9e 3a aa c8 a3   ..z..Mc.@.q.:...                                                                                     
-    00a0 - 42 13 d4 1f b0 0f 1d dd-d0 67 82 89 62 27 57 19   B........g..b'W.                                                                                     
-    00b0 - 2d 32 f7 bd 84 57 c3 1b-79 50 75 87 cc 5e c9 49   -2...W..yPu..^.I                                                                                     
-                                                                                                                                                                  
-    Start Time: 1721301066                                                                                                                                        
-    Timeout   : 304 (sec)                                                                                                                                         
-    Verify return code: 1 (unspecified certificate verification error)                                                                                            
-    Extended master secret: no                                                                                                                                    
-    Max Early Data: 0                                                                                                                                             
----                                                                                                                                                               
+CONNECTED(00000003)
+Can't use SSL_get_servername
+---
+no peer certificate available
+---
+No client certificate CA names sent
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 225 bytes and written 465 bytes
+Verification: OK
+---
+Reused, TLSv1.3, Cipher is TLS_CHACHA20_POLY1305_SHA256
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_CHACHA20_POLY1305_SHA256
+    Session-ID: 3F45E9CD0E643A96B92BB0379DD656B2533ED1CF5419AAED4B42018121E95B89
+    Session-ID-ctx:
+    Resumption PSK: 435E82BE9A44F9EFCB056B5D600A8C5D5400CD4F5C1571197F476CF8803CFD2D
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 304 (seconds)
+    TLS session ticket:
+    0000 - 25 36 db ec 3a b0 1b ae-09 f1 08 6e 3c 05 06 97   %6..:......n<...
+    0010 - 62 01 2e 07 4a e9 65 91-90 31 29 77 95 12 34 70   b...J.e..1)w..4p
+    0020 - 36 c2 da d5 3e 0c 3a bf-71 9e ea bc be 73 92 53   6...>.:.q....s.S
+    0030 - 62 06 29 07 c0 8d 31 3e-6c c6 92 c6 f1 73 6c ac   b.)...1>l....sl.
+    0040 - 58 b6 04 0f ae f9 7d e3-f5 50 78 d4 62 a0 09 ff   X.....}..Px.b...
+    0050 - c9 78 7d 31 0b ef e3 10-07 e2 83 31 f1 c7 5c 2f   .x}1.......1..\/
+    0060 - 68 8a 47 bc 27 50 01 59-cc 98 dc cd 39 04 9b 5d   h.G.'P.Y....9..]
+    0070 - bd b6 bb c8 e2 95 57 fa-26 8c 0e ae 95 1f 83 48   ......W.&......H
+    0080 - 27 c3 aa 07 c4 55 cb d0-1f ae 24 93 75 b8 27 cf   '....U....$.u.'.
+    0090 - 80 ab 7a f9 95 4d 63 8b-40 ba 71 9e 3a aa c8 a3   ..z..Mc.@.q.:...
+    00a0 - 42 13 d4 1f b0 0f 1d dd-d0 67 82 89 62 27 57 19   B........g..b'W.
+    00b0 - 2d 32 f7 bd 84 57 c3 1b-79 50 75 87 cc 5e c9 49   -2...W..yPu..^.I
+
+    Start Time: 1721301066
+    Timeout   : 304 (sec)
+    Verify return code: 1 (unspecified certificate verification error)
+    Extended master secret: no
+    Max Early Data: 0
+---
 read R BLOCK
 ```
 
@@ -138,59 +138,59 @@ Content-type: text/html
 <HTML><BODY BGCOLOR="#ffffff">
 <pre>
 
-s_server -accept localhost:4433 -www -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass -naccept 1 -trace 
+s_server -accept localhost:4433 -www -nocert -psk 1a2b3c4d5e6f -psk_identity rosenpass -naccept 1 -trace
 Secure Renegotiation IS supported
 Ciphers supported in s_server binary
-TLSv1.3    :TLS_AES_256_GCM_SHA384    TLSv1.3    :TLS_CHACHA20_POLY1305_SHA256 
-TLSv1.3    :TLS_AES_128_GCM_SHA256    TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 
-TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 
-TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 
-TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 
-TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 
-TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   
-TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 
-TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     
-TLSv1.0    :ECDHE-ECDSA-AES256-SHA    TLSv1.0    :ECDHE-RSA-AES256-SHA      
-SSLv3      :DHE-RSA-AES256-SHA        TLSv1.0    :ECDHE-ECDSA-AES128-SHA    
-TLSv1.0    :ECDHE-RSA-AES128-SHA      SSLv3      :DHE-RSA-AES128-SHA        
-TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 
-TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 
-TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 TLSv1.2    :AES256-GCM-SHA384         
-TLSv1.2    :PSK-AES256-GCM-SHA384     TLSv1.2    :PSK-CHACHA20-POLY1305     
-TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 
-TLSv1.2    :AES128-GCM-SHA256         TLSv1.2    :PSK-AES128-GCM-SHA256     
-TLSv1.2    :AES256-SHA256             TLSv1.2    :AES128-SHA256             
-TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA  
-SSLv3      :SRP-RSA-AES-256-CBC-SHA   SSLv3      :SRP-AES-256-CBC-SHA       
-TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 
-SSLv3      :RSA-PSK-AES256-CBC-SHA    SSLv3      :DHE-PSK-AES256-CBC-SHA    
-SSLv3      :AES256-SHA                TLSv1.0    :PSK-AES256-CBC-SHA384     
-SSLv3      :PSK-AES256-CBC-SHA        TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 
-TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA  SSLv3      :SRP-RSA-AES-128-CBC-SHA   
-SSLv3      :SRP-AES-128-CBC-SHA       TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 
-TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 SSLv3      :RSA-PSK-AES128-CBC-SHA    
-SSLv3      :DHE-PSK-AES128-CBC-SHA    SSLv3      :AES128-SHA                
-TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        
+TLSv1.3    :TLS_AES_256_GCM_SHA384    TLSv1.3    :TLS_CHACHA20_POLY1305_SHA256
+TLSv1.3    :TLS_AES_128_GCM_SHA256    TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384
+TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2    :DHE-RSA-AES256-GCM-SHA384
+TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305
+TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256
+TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2    :DHE-RSA-AES128-GCM-SHA256
+TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384
+TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256
+TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256
+TLSv1.0    :ECDHE-ECDSA-AES256-SHA    TLSv1.0    :ECDHE-RSA-AES256-SHA
+SSLv3      :DHE-RSA-AES256-SHA        TLSv1.0    :ECDHE-ECDSA-AES128-SHA
+TLSv1.0    :ECDHE-RSA-AES128-SHA      SSLv3      :DHE-RSA-AES128-SHA
+TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 TLSv1.2    :DHE-PSK-AES256-GCM-SHA384
+TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 TLSv1.2    :DHE-PSK-CHACHA20-POLY1305
+TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 TLSv1.2    :AES256-GCM-SHA384
+TLSv1.2    :PSK-AES256-GCM-SHA384     TLSv1.2    :PSK-CHACHA20-POLY1305
+TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 TLSv1.2    :DHE-PSK-AES128-GCM-SHA256
+TLSv1.2    :AES128-GCM-SHA256         TLSv1.2    :PSK-AES128-GCM-SHA256
+TLSv1.2    :AES256-SHA256             TLSv1.2    :AES128-SHA256
+TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA
+SSLv3      :SRP-RSA-AES-256-CBC-SHA   SSLv3      :SRP-AES-256-CBC-SHA
+TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 TLSv1.0    :DHE-PSK-AES256-CBC-SHA384
+SSLv3      :RSA-PSK-AES256-CBC-SHA    SSLv3      :DHE-PSK-AES256-CBC-SHA
+SSLv3      :AES256-SHA                TLSv1.0    :PSK-AES256-CBC-SHA384
+SSLv3      :PSK-AES256-CBC-SHA        TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256
+TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA  SSLv3      :SRP-RSA-AES-128-CBC-SHA
+SSLv3      :SRP-AES-128-CBC-SHA       TLSv1.0    :RSA-PSK-AES128-CBC-SHA256
+TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 SSLv3      :RSA-PSK-AES128-CBC-SHA
+SSLv3      :DHE-PSK-AES128-CBC-SHA    SSLv3      :AES128-SHA
+TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA
 ---
 Ciphers common between both SSL end points:
-TLS_AES_256_GCM_SHA384     TLS_CHACHA20_POLY1305_SHA256 TLS_AES_128_GCM_SHA256    
-ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384 
-ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305 DHE-RSA-CHACHA20-POLY1305 
-ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256 
-ECDHE-ECDSA-AES256-SHA384  ECDHE-RSA-AES256-SHA384    DHE-RSA-AES256-SHA256     
-ECDHE-ECDSA-AES128-SHA256  ECDHE-RSA-AES128-SHA256    DHE-RSA-AES128-SHA256     
-ECDHE-ECDSA-AES256-SHA     ECDHE-RSA-AES256-SHA       DHE-RSA-AES256-SHA        
-ECDHE-ECDSA-AES128-SHA     ECDHE-RSA-AES128-SHA       DHE-RSA-AES128-SHA        
-RSA-PSK-AES256-GCM-SHA384  DHE-PSK-AES256-GCM-SHA384  RSA-PSK-CHACHA20-POLY1305 
-DHE-PSK-CHACHA20-POLY1305  ECDHE-PSK-CHACHA20-POLY1305 AES256-GCM-SHA384         
-PSK-AES256-GCM-SHA384      PSK-CHACHA20-POLY1305      RSA-PSK-AES128-GCM-SHA256 
-DHE-PSK-AES128-GCM-SHA256  AES128-GCM-SHA256          PSK-AES128-GCM-SHA256     
+TLS_AES_256_GCM_SHA384     TLS_CHACHA20_POLY1305_SHA256 TLS_AES_128_GCM_SHA256
+ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384
+ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305 DHE-RSA-CHACHA20-POLY1305
+ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256
+ECDHE-ECDSA-AES256-SHA384  ECDHE-RSA-AES256-SHA384    DHE-RSA-AES256-SHA256
+ECDHE-ECDSA-AES128-SHA256  ECDHE-RSA-AES128-SHA256    DHE-RSA-AES128-SHA256
+ECDHE-ECDSA-AES256-SHA     ECDHE-RSA-AES256-SHA       DHE-RSA-AES256-SHA
+ECDHE-ECDSA-AES128-SHA     ECDHE-RSA-AES128-SHA       DHE-RSA-AES128-SHA
+RSA-PSK-AES256-GCM-SHA384  DHE-PSK-AES256-GCM-SHA384  RSA-PSK-CHACHA20-POLY1305
+DHE-PSK-CHACHA20-POLY1305  ECDHE-PSK-CHACHA20-POLY1305 AES256-GCM-SHA384
+PSK-AES256-GCM-SHA384      PSK-CHACHA20-POLY1305      RSA-PSK-AES128-GCM-SHA256
+DHE-PSK-AES128-GCM-SHA256  AES128-GCM-SHA256          PSK-AES128-GCM-SHA256
 AES256-SHA256              AES128-SHA256              ECDHE-PSK-AES256-CBC-SHA384
-ECDHE-PSK-AES256-CBC-SHA   RSA-PSK-AES256-CBC-SHA384  DHE-PSK-AES256-CBC-SHA384 
-RSA-PSK-AES256-CBC-SHA     DHE-PSK-AES256-CBC-SHA     AES256-SHA                
+ECDHE-PSK-AES256-CBC-SHA   RSA-PSK-AES256-CBC-SHA384  DHE-PSK-AES256-CBC-SHA384
+RSA-PSK-AES256-CBC-SHA     DHE-PSK-AES256-CBC-SHA     AES256-SHA
 PSK-AES256-CBC-SHA384      PSK-AES256-CBC-SHA         ECDHE-PSK-AES128-CBC-SHA256
-ECDHE-PSK-AES128-CBC-SHA   RSA-PSK-AES128-CBC-SHA256  DHE-PSK-AES128-CBC-SHA256 
-RSA-PSK-AES128-CBC-SHA     DHE-PSK-AES128-CBC-SHA     AES128-SHA                
+ECDHE-PSK-AES128-CBC-SHA   RSA-PSK-AES128-CBC-SHA256  DHE-PSK-AES128-CBC-SHA256
+RSA-PSK-AES128-CBC-SHA     DHE-PSK-AES128-CBC-SHA     AES128-SHA
 PSK-AES128-CBC-SHA256      PSK-AES128-CBC-SHA
 Supported groups: x25519:secp256r1:x448:secp521r1:secp384r1:ffdhe2048:ffdhe3072:ffdhe4096:ffdhe6144:ffdhe8192
 Shared groups: x25519:secp256r1:x448:secp521r1:secp384r1:ffdhe2048:ffdhe3072:ffdhe4096:ffdhe6144:ffdhe8192
@@ -235,168 +235,168 @@ The last line, `closed`, indicates that the secure channel has been closed. On t
 
 
 ```bash
-Received Record                                                                                                                                                   
-Header:                                                                                                                                                           
-  Version = TLS 1.0 (0x301)                                                                                                                                       
-  Content Type = Handshake (22)                                                                                                                                   
-  Length = 396                                                                                                                                                    
-    ClientHello, Length=392                                                                                                                                       
-      client_version=0x303 (TLS 1.2)                                                                                                                              
-      Random:                                                                                                                                                     
-        gmt_unix_time=0xB5D63ECD                                                                                                                                  
-        random_bytes (len=28): 4477B06A7A1D3A3E305AD869EF2D0B351A3D1B69C1DFA32FB0E7F9E7                                                                           
-      session_id (len=32): 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB                                                                       
-      cipher_suites (len=114)                                                                                                                                     
-        {0x13, 0x02} TLS_AES_256_GCM_SHA384                                                                                                                       
-        {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256                                                                                                                 
-        {0x13, 0x01} TLS_AES_128_GCM_SHA256                                                                                                                       
-        {0xC0, 0x2C} TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384                                                                                                      
-        {0xC0, 0x30} TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384                                                                                                        
-        {0x00, 0x9F} TLS_DHE_RSA_WITH_AES_256_GCM_SHA384                                                                                                          
-        {0xCC, 0xA9} TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                
-        {0xCC, 0xA8} TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                  
-        {0xCC, 0xAA} TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
-        {0xC0, 0x2B} TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256                                                                                                      
-        {0xC0, 0x2F} TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256                                                                                                        
-        {0x00, 0x9E} TLS_DHE_RSA_WITH_AES_128_GCM_SHA256                                                                                                          
-        {0xC0, 0x24} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384                                                                                                      
-        {0xC0, 0x28} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384                                                                                                        
-        {0x00, 0x6B} TLS_DHE_RSA_WITH_AES_256_CBC_SHA256                                                                                                          
-        {0xC0, 0x23} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256                                                                                                      
-        {0xC0, 0x27} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256                                                                                                        
-        {0x00, 0x67} TLS_DHE_RSA_WITH_AES_128_CBC_SHA256                                                                                                          
-        {0xC0, 0x0A} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA                                                                                                         
-        {0xC0, 0x14} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA                                                                                                           
-        {0x00, 0x39} TLS_DHE_RSA_WITH_AES_256_CBC_SHA                                                                                                             
-        {0xC0, 0x09} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA                                                                                                         
-        {0xC0, 0x13} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA                                                                                                           
-        {0x00, 0x33} TLS_DHE_RSA_WITH_AES_128_CBC_SHA                                                                                                             
-        {0x00, 0xAD} TLS_RSA_PSK_WITH_AES_256_GCM_SHA384                                                                                                          
-        {0x00, 0xAB} TLS_DHE_PSK_WITH_AES_256_GCM_SHA384                                                                                                          
-        {0xCC, 0xAE} TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
-        {0xCC, 0xAD} TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                    
-        {0xCC, 0xAC} TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                  
-        {0x00, 0x9D} TLS_RSA_WITH_AES_256_GCM_SHA384                                                                                                              
-        {0x00, 0xA9} TLS_PSK_WITH_AES_256_GCM_SHA384                                                                                                              
-        {0xCC, 0xAB} TLS_PSK_WITH_CHACHA20_POLY1305_SHA256                                                                                                        
-        {0x00, 0xAC} TLS_RSA_PSK_WITH_AES_128_GCM_SHA256                                                                                                          
-        {0x00, 0xAA} TLS_DHE_PSK_WITH_AES_128_GCM_SHA256                                                                                                          
-        {0x00, 0x9C} TLS_RSA_WITH_AES_128_GCM_SHA256                                                                                                              
-        {0x00, 0xA8} TLS_PSK_WITH_AES_128_GCM_SHA256                                                                                                              
-        {0x00, 0x3D} TLS_RSA_WITH_AES_256_CBC_SHA256                                                                                                              
-        {0x00, 0x3C} TLS_RSA_WITH_AES_128_CBC_SHA256                                                                                                              
-        {0xC0, 0x38} TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384                                                                                                        
-        {0xC0, 0x36} TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA                                                                                                           
-        {0x00, 0xB7} TLS_RSA_PSK_WITH_AES_256_CBC_SHA384                                                                                                          
-        {0x00, 0xB3} TLS_DHE_PSK_WITH_AES_256_CBC_SHA384                                                                                                          
-        {0x00, 0x95} TLS_RSA_PSK_WITH_AES_256_CBC_SHA                                                                                                             
-        {0x00, 0x91} TLS_DHE_PSK_WITH_AES_256_CBC_SHA                                                                                                             
-        {0x00, 0x35} TLS_RSA_WITH_AES_256_CBC_SHA                                                                                                                 
-        {0x00, 0xAF} TLS_PSK_WITH_AES_256_CBC_SHA384                                                                                                              
-        {0x00, 0x8D} TLS_PSK_WITH_AES_256_CBC_SHA                                                                                                                 
-        {0xC0, 0x37} TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256                                                                                                        
-        {0xC0, 0x35} TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA                                                                                                           
-        {0x00, 0xB6} TLS_RSA_PSK_WITH_AES_128_CBC_SHA256                                                                                                          
-        {0x00, 0xB2} TLS_DHE_PSK_WITH_AES_128_CBC_SHA256                                                                                                          
-        {0x00, 0x94} TLS_RSA_PSK_WITH_AES_128_CBC_SHA                                                                                                             
-        {0x00, 0x90} TLS_DHE_PSK_WITH_AES_128_CBC_SHA                                                                                                             
-        {0x00, 0x2F} TLS_RSA_WITH_AES_128_CBC_SHA                                                                                                                 
-        {0x00, 0xAE} TLS_PSK_WITH_AES_128_CBC_SHA256                                                                                                              
-        {0x00, 0x8C} TLS_PSK_WITH_AES_128_CBC_SHA                                                                                                                 
+Received Record
+Header:
+  Version = TLS 1.0 (0x301)
+  Content Type = Handshake (22)
+  Length = 396
+    ClientHello, Length=392
+      client_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0xB5D63ECD
+        random_bytes (len=28): 4477B06A7A1D3A3E305AD869EF2D0B351A3D1B69C1DFA32FB0E7F9E7
+      session_id (len=32): 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB
+      cipher_suites (len=114)
+        {0x13, 0x02} TLS_AES_256_GCM_SHA384
+        {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256
+        {0x13, 0x01} TLS_AES_128_GCM_SHA256
+        {0xC0, 0x2C} TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        {0xC0, 0x30} TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        {0x00, 0x9F} TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+        {0xCC, 0xA9} TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+        {0xCC, 0xA8} TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+        {0xCC, 0xAA} TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+        {0xC0, 0x2B} TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        {0xC0, 0x2F} TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        {0x00, 0x9E} TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+        {0xC0, 0x24} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+        {0xC0, 0x28} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        {0x00, 0x6B} TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+        {0xC0, 0x23} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x27} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+        {0x00, 0x67} TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x0A} TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+        {0xC0, 0x14} TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+        {0x00, 0x39} TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+        {0xC0, 0x09} TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+        {0xC0, 0x13} TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+        {0x00, 0x33} TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+        {0x00, 0xAD} TLS_RSA_PSK_WITH_AES_256_GCM_SHA384
+        {0x00, 0xAB} TLS_DHE_PSK_WITH_AES_256_GCM_SHA384
+        {0xCC, 0xAE} TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256
+        {0xCC, 0xAD} TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256
+        {0xCC, 0xAC} TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256
+        {0x00, 0x9D} TLS_RSA_WITH_AES_256_GCM_SHA384
+        {0x00, 0xA9} TLS_PSK_WITH_AES_256_GCM_SHA384
+        {0xCC, 0xAB} TLS_PSK_WITH_CHACHA20_POLY1305_SHA256
+        {0x00, 0xAC} TLS_RSA_PSK_WITH_AES_128_GCM_SHA256
+        {0x00, 0xAA} TLS_DHE_PSK_WITH_AES_128_GCM_SHA256
+        {0x00, 0x9C} TLS_RSA_WITH_AES_128_GCM_SHA256
+        {0x00, 0xA8} TLS_PSK_WITH_AES_128_GCM_SHA256
+        {0x00, 0x3D} TLS_RSA_WITH_AES_256_CBC_SHA256
+        {0x00, 0x3C} TLS_RSA_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x38} TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384
+        {0xC0, 0x36} TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA
+        {0x00, 0xB7} TLS_RSA_PSK_WITH_AES_256_CBC_SHA384
+        {0x00, 0xB3} TLS_DHE_PSK_WITH_AES_256_CBC_SHA384
+        {0x00, 0x95} TLS_RSA_PSK_WITH_AES_256_CBC_SHA
+        {0x00, 0x91} TLS_DHE_PSK_WITH_AES_256_CBC_SHA
+        {0x00, 0x35} TLS_RSA_WITH_AES_256_CBC_SHA
+        {0x00, 0xAF} TLS_PSK_WITH_AES_256_CBC_SHA384
+        {0x00, 0x8D} TLS_PSK_WITH_AES_256_CBC_SHA
+        {0xC0, 0x37} TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256
+        {0xC0, 0x35} TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA
+        {0x00, 0xB6} TLS_RSA_PSK_WITH_AES_128_CBC_SHA256
+        {0x00, 0xB2} TLS_DHE_PSK_WITH_AES_128_CBC_SHA256
+        {0x00, 0x94} TLS_RSA_PSK_WITH_AES_128_CBC_SHA
+        {0x00, 0x90} TLS_DHE_PSK_WITH_AES_128_CBC_SHA
+        {0x00, 0x2F} TLS_RSA_WITH_AES_128_CBC_SHA
+        {0x00, 0xAE} TLS_PSK_WITH_AES_128_CBC_SHA256
+        {0x00, 0x8C} TLS_PSK_WITH_AES_128_CBC_SHA
         {0x00, 0xFF} TLS_EMPTY_RENEGOTIATION_INFO_SCSV
-      compression_methods (len=1)                                                                                                                                 
-        No Compression (0x00)                                                                                                                                     
-      extensions, length = 205                                                                                                                                    
-        extension_type=ec_point_formats(11), length=4                                                                                                             
-          uncompressed (0)                                                                                                                                        
-          ansiX962_compressed_prime (1)                                                                                                                           
-          ansiX962_compressed_char2 (2)                                                                                                                           
-        extension_type=supported_groups(10), length=22                                                                                                            
-          ecdh_x25519 (29)                                                                                                                                        
-          secp256r1 (P-256) (23)                                                                                                                                  
-          ecdh_x448 (30)                                                                                                                                          
-          secp521r1 (P-521) (25)                                                                                                                                  
-          secp384r1 (P-384) (24)                                                                                                                                  
-          ffdhe2048 (256)                                                                                                                                         
-          ffdhe3072 (257)                                                                                                                                         
-          ffdhe4096 (258)                                                                                                                                         
-          ffdhe6144 (259)                                                                                                                                         
-          ffdhe8192 (260)                                                                                                                                         
-        extension_type=session_ticket(35), length=0                                                                                                               
-        extension_type=encrypt_then_mac(22), length=0                                                                                                             
-        extension_type=extended_master_secret(23), length=0                                                                                                       
-        extension_type=signature_algorithms(13), length=42                                                                                                        
-          ecdsa_secp256r1_sha256 (0x0403)                                                                                                                         
-          ecdsa_secp384r1_sha384 (0x0503)                                        
-          ecdsa_secp521r1_sha512 (0x0603)                                        
-          ed25519 (0x0807)                                                       
-          ed448 (0x0808)                                                         
-          rsa_pss_pss_sha256 (0x0809)                                            
-          rsa_pss_pss_sha384 (0x080a)                                            
-          rsa_pss_pss_sha512 (0x080b)                                            
-          rsa_pss_rsae_sha256 (0x0804)                                           
-          rsa_pss_rsae_sha384 (0x0805)                                           
-          rsa_pss_rsae_sha512 (0x0806)                                           
-          rsa_pkcs1_sha256 (0x0401)                                              
-          rsa_pkcs1_sha384 (0x0501)                                              
-          rsa_pkcs1_sha512 (0x0601)                                              
-          ecdsa_sha224 (0x0303)                                                  
-          rsa_pkcs1_sha224 (0x0301)                                              
-          dsa_sha224 (0x0302)                                                    
-          dsa_sha256 (0x0402)                                                    
-          dsa_sha384 (0x0502)                                                    
-          dsa_sha512 (0x0602)                                                    
-        extension_type=supported_versions(43), length=5                                                                                                           
-          TLS 1.3 (772)                 
-          TLS 1.2 (771)                 
-        extension_type=psk_key_exchange_modes(45), length=2                                                                                                       
-          psk_dhe_ke (1)                                                         
-        extension_type=key_share(51), length=38                                  
-            NamedGroup: ecdh_x25519 (29)                                         
-            key_exchange:  (len=32): 5D6910ECD062F3F039BAE0408F958A09B294E24FEE94E2A695DE794E8F3B170B                                                             
-        extension_type=psk(41), length=52                                        
-          0000 - 00 0f 00 09 72 6f 73 65-6e 70 61 73 73 00 00   ....rosenpass..                                                                                   
-          000f - 00 00 00 21 20 1c 7a 65-4b 77 67 fb 5f 05 ea   ...! .zeKwg._..                                                                                   
-          001e - af 2c 8c 57 45 4e 36 00-5a e2 17 fa ee 58 c3   .,.WEN6.Z....X.                                                                                   
-          002d - ac 83 c2 45 52 33 75                           ...ER3u                                                                                           
+      compression_methods (len=1)
+        No Compression (0x00)
+      extensions, length = 205
+        extension_type=ec_point_formats(11), length=4
+          uncompressed (0)
+          ansiX962_compressed_prime (1)
+          ansiX962_compressed_char2 (2)
+        extension_type=supported_groups(10), length=22
+          ecdh_x25519 (29)
+          secp256r1 (P-256) (23)
+          ecdh_x448 (30)
+          secp521r1 (P-521) (25)
+          secp384r1 (P-384) (24)
+          ffdhe2048 (256)
+          ffdhe3072 (257)
+          ffdhe4096 (258)
+          ffdhe6144 (259)
+          ffdhe8192 (260)
+        extension_type=session_ticket(35), length=0
+        extension_type=encrypt_then_mac(22), length=0
+        extension_type=extended_master_secret(23), length=0
+        extension_type=signature_algorithms(13), length=42
+          ecdsa_secp256r1_sha256 (0x0403)
+          ecdsa_secp384r1_sha384 (0x0503)
+          ecdsa_secp521r1_sha512 (0x0603)
+          ed25519 (0x0807)
+          ed448 (0x0808)
+          rsa_pss_pss_sha256 (0x0809)
+          rsa_pss_pss_sha384 (0x080a)
+          rsa_pss_pss_sha512 (0x080b)
+          rsa_pss_rsae_sha256 (0x0804)
+          rsa_pss_rsae_sha384 (0x0805)
+          rsa_pss_rsae_sha512 (0x0806)
+          rsa_pkcs1_sha256 (0x0401)
+          rsa_pkcs1_sha384 (0x0501)
+          rsa_pkcs1_sha512 (0x0601)
+          ecdsa_sha224 (0x0303)
+          rsa_pkcs1_sha224 (0x0301)
+          dsa_sha224 (0x0302)
+          dsa_sha256 (0x0402)
+          dsa_sha384 (0x0502)
+          dsa_sha512 (0x0602)
+        extension_type=supported_versions(43), length=5
+          TLS 1.3 (772)
+          TLS 1.2 (771)
+        extension_type=psk_key_exchange_modes(45), length=2
+          psk_dhe_ke (1)
+        extension_type=key_share(51), length=38
+            NamedGroup: ecdh_x25519 (29)
+            key_exchange:  (len=32): 5D6910ECD062F3F039BAE0408F958A09B294E24FEE94E2A695DE794E8F3B170B
+        extension_type=psk(41), length=52
+          0000 - 00 0f 00 09 72 6f 73 65-6e 70 61 73 73 00 00   ....rosenpass..
+          000f - 00 00 00 21 20 1c 7a 65-4b 77 67 fb 5f 05 ea   ...! .zeKwg._..
+          001e - af 2c 8c 57 45 4e 36 00-5a e2 17 fa ee 58 c3   .,.WEN6.Z....X.
+          002d - ac 83 c2 45 52 33 75                           ...ER3u
 
-Sent Record                             
-Header:                                 
-  Version = TLS 1.2 (0x303)                                                      
-  Content Type = Handshake (22)                                                  
-  Length = 128                          
-    ServerHello, Length=124                                                      
-      server_version=0x303 (TLS 1.2)                                             
-      Random:                           
-        gmt_unix_time=0x67909183                                                 
-        random_bytes (len=28): 983F9CDF3B45917CD2D4AB4AC77F162C332CEBE036CF6E9B63E3C52D                                                                           
-      session_id (len=32): 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB                                                                       
-      cipher_suite {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256                                                                                                      
-      compression_method: No Compression (0x00)                                  
-      extensions, length = 52                                                    
-        extension_type=supported_versions(43), length=2                                                                                                           
-            TLS 1.3 (772)                                                        
-        extension_type=key_share(51), length=36                                  
-            NamedGroup: ecdh_x25519 (29)                                         
-            key_exchange:  (len=32): D4A82CB37846403182A733E065DB2CA53B45F54970B24380EB146CB4F5BBD948                                                             
-        extension_type=psk(41), length=2                                         
-          0000 - 00 00                                          ..                                                                                                
+Sent Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = Handshake (22)
+  Length = 128
+    ServerHello, Length=124
+      server_version=0x303 (TLS 1.2)
+      Random:
+        gmt_unix_time=0x67909183
+        random_bytes (len=28): 983F9CDF3B45917CD2D4AB4AC77F162C332CEBE036CF6E9B63E3C52D
+      session_id (len=32): 8BB25C4CD7DEDDC1105DC229A079FB1DAD14CF7F45954C7B6B5FE6F653438FBB
+      cipher_suite {0x13, 0x03} TLS_CHACHA20_POLY1305_SHA256
+      compression_method: No Compression (0x00)
+      extensions, length = 52
+        extension_type=supported_versions(43), length=2
+            TLS 1.3 (772)
+        extension_type=key_share(51), length=36
+            NamedGroup: ecdh_x25519 (29)
+            key_exchange:  (len=32): D4A82CB37846403182A733E065DB2CA53B45F54970B24380EB146CB4F5BBD948
+        extension_type=psk(41), length=2
+          0000 - 00 00                                          ..
 
-Sent Record                             
-Header:                                 
-  Version = TLS 1.2 (0x303)                                                      
-  Content Type = ChangeCipherSpec (20)                                           
-  Length = 1                            
-    change_cipher_spec (1)                                                       
+Sent Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ChangeCipherSpec (20)
+  Length = 1
+    change_cipher_spec (1)
 
-Sent Record                             
-Header:                                 
-  Version = TLS 1.2 (0x303)                                                      
-  Content Type = ApplicationData (23)                                            
-  Length = 23                           
-  Inner Content Type = Handshake (22)                                            
-    EncryptedExtensions, Length=2                                                
-      No extensions                     
+Sent Record
+Header:
+  Version = TLS 1.2 (0x303)
+  Content Type = ApplicationData (23)
+  Length = 23
+  Inner Content Type = Handshake (22)
+    EncryptedExtensions, Length=2
+      No extensions
 
 Sent Record
 Header:
@@ -495,13 +495,13 @@ We wanted to confirm that the PSK and the PSK identity are actually being used f
 In the trace output of the server, we can see that the client signals a PSK key exchange extension, and sends the PSK identity:
 ```bash
 […]
-        extension_type=psk_key_exchange_modes(45), length=2                                                                                                       
-          psk_dhe_ke (1)                                                         
+        extension_type=psk_key_exchange_modes(45), length=2
+          psk_dhe_ke (1)
 […]
-        extension_type=psk(41), length=52                                        
-          0000 - 00 0f 00 09 72 6f 73 65-6e 70 61 73 73 00 00   ....rosenpass..                                                                                   
-          000f - 00 00 00 21 20 1c 7a 65-4b 77 67 fb 5f 05 ea   ...! .zeKwg._..                                                                                   
-          001e - af 2c 8c 57 45 4e 36 00-5a e2 17 fa ee 58 c3   .,.WEN6.Z....X.                                                                                   
+        extension_type=psk(41), length=52
+          0000 - 00 0f 00 09 72 6f 73 65-6e 70 61 73 73 00 00   ....rosenpass..
+          000f - 00 00 00 21 20 1c 7a 65-4b 77 67 fb 5f 05 ea   ...! .zeKwg._..
+          001e - af 2c 8c 57 45 4e 36 00-5a e2 17 fa ee 58 c3   .,.WEN6.Z....X.
           002d - ac 83 c2 45 52 33 75                           ...ER3u
 […]
 ```
@@ -719,26 +719,26 @@ On the client side, the user still needs to input `GET /` manually. We also test
 The general idea of hybrid post-quantum security is that:
 
 1) We retain classic security in the case that the post-quantum cryptographic building blocks turn out to be vulnerable, be it to attacks by classical or quantum computers.
-2) We still maintain security when quantum computers inevitably begin to break the building blocks of classical cryptography. 
+2) We still maintain security when quantum computers inevitably begin to break the building blocks of classical cryptography.
 
 The second point is especially relevant for confidentiality, as adversaries can start storing encrypted communication today and wait until a quantum computer capable of breaking it becomes available. By starting to employ post-quantum cryptography today, we improve our chances of protecting against “store-now decrypt-later” attacks.
 
 Both TLS 1.2 and TLS 1.3 employ a key schedule that hashes together different cryptographic key material to produce a symmetric session key. In our case, the cryptographic key material is comprised of:
 
 1) The shared secret from the ephemeral Diffie-Hellman (DH) key exchange executed within the TLS handshake.
-2) The PSK. 
+2) The PSK.
 
 The key schedule is built in a way such that the symmetric session key remains secure even if the adversary knows either the DH shared secret or the PSK. The rough idea is that the key schedule is a key derivation function `KDF(dh, psk)` depending on both the DH shared secret and the PSK. This function produces a secure uniformly random symmetric key as long as one of the two parameters `dh` and `psk` is not known to the adversary.
 
 There are two cryptography papers formally analysing the security of the PSK ciphersuites of TLS 1.2 and TLS 1.3. The analyses were done assuming a classical adversary, but still give indications that this security also holds against a quantum adversary. For more assurance and more precise security bounds, these analyses would need to be repeated with the consideration of a quantum adversary. At least in the case of TLS 1.3, this might necessitate the Quantum Random Oracle Model, which is a more involved way of analysing security of hash functions against a quantum adversary.
 
 For TLS 1.2, more details can be found in *Section 3* and *Theorem 2* of [ia.cr/2014/037](https://eprint.iacr.org/2014/037) relating to the “TLS_DHE_PSK protocol”. For TLS 1.3, there are *Theorem 7.1* and *Figure 1* of [ia.cr/2022/246](https://eprint.iacr.org/2022/246).
-    
+
 ## Conclusion
 
 In the course of producing this tutorial, we were able to demonstrate that Rosenpass can be used to achieve hybrid post-quantum security with both a TLS 1.2 and a TLS 1.3 channel. Although we have made our scripts available in [rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial), it is worth noting that this is meant as a proof-of-concept. The reader should be aware that this tutorial's implentation is not as secure as it should be for production use. The immediately known flaws in this method are:
 
-1) We were only able to reach hybrid confidentiality. As explained in the tutorial, we were not able to do the same for authentication which, rather than being hybrid, is only post-quantum secure. 
+1) We were only able to reach hybrid confidentiality. As explained in the tutorial, we were not able to do the same for authentication which, rather than being hybrid, is only post-quantum secure.
 2) Ephemeral keys are not freshly sampled random values, as mentioned above.
 3) The pre-shared key is leaked in the process list, as reported in a feature request to OpenSSL.
 4) There should be a binding of the Rosenpass key exchange to information about the TLS peers, ideally the server certificate. For this, we would need to add an interface to Rosenpass that accepts such an additional input to be incorporated into the key exchange.
