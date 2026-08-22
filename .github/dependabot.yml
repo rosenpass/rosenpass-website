@@ -39,3 +39,13 @@ updates:
         update-types:
           - "patch"
     open-pull-requests-limit: 10
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "cron"
+      cronjob: "12 4 * * MON" # 4:12 in the morning once per week
+      timezone: "Europe/Berlin"
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 10
