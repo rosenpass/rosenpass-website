@@ -1,14 +1,41 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: '20:00'
-  open-pull-requests-limit: 10
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-    time: '20:00'
-  open-pull-requests-limit: 10
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "cron"
+      cronjob: "12 4 * * MON" # 4:12 in the morning once per week
+      timezone: "Europe/Berlin"
+    allow:
+      - dependency-type: "all" # update both package.json and package-lock.json
+    cooldown:
+      default-days: 3
+    groups:
+      # group patches for better visibility
+      weekly-node-patches:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: "nix"
+    directory: "/"
+    schedule:
+      interval: "cron"
+      cronjob: "12 4 * * MON" # 4:12 in the morning once per week
+      timezone: "Europe/Berlin"
+    allow:
+      - dependency-type: "all"
+    cooldown:
+      default-days: 3
+    groups:
+      # group patches for better visibility
+      weekly-nix-patches:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    open-pull-requests-limit: 10
