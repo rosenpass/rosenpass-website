@@ -80,7 +80,7 @@ rp help
 ```
 <span class="spacer"></span>
 
-**Note:** In version the current version v0.2.2, `rp` shows an error message if Git is not installed. You can safely use `rp` without Git.
+**Note:** In the current version v0.2.2, `rp` shows an error message if Git is not installed. You can safely use `rp` without Git.
 <span class="spacer"></span>
 
 **That's it! You have now downloaded and installed Rosenpass.** You can now proceed to [set up a Rosenpass-enhanced WireGuard VPN](#set-up-a-rosenpass-enhanced-wireguard-vpn).
@@ -258,7 +258,7 @@ sudo ip a add 192.168.21.2 dev rosenpass0
 
 #### 6. Add routes for the WireGuard network
 
-Verify that the routing table containes an entry for the internal network `192.168.21.0/24`. You can do so with the following command:
+Verify that the routing table contains an entry for the internal network `192.168.21.0/24`. You can do so with the following command:
 
 ```sh{class="command-user"}
 ip route
@@ -369,7 +369,7 @@ peer: 1NQJ1iObOnkkWlqDU6bhqGPEjCIIvKTKjI10XE0t7DA=
 
 The displayed public key of the server should be listed as the ID of the peer on the client, and vice versa.
 
-If you want to continuously watch the current state of the WireGuard tunnel and its pre-shared key, you can use the following command on both client and server; this can be useful during debugging, e.g., to see if both sides keep using the same pre-shared key and exchange it synchronously. This combines the two above commands repeats and them every 2 seconds:
+If you want to continuously watch the current state of the WireGuard tunnel and its pre-shared key, you can use the following command on both client and server; this can be useful during debugging, e.g., to see if both sides keep using the same pre-shared key and exchange it synchronously. This combines the two above commands and repeats them every 2 seconds:
 
 
 ```sh{class="command-user"}

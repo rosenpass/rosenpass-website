@@ -25,7 +25,7 @@ TLS relies on certificates, provided by an authority, to establish authenticatio
 
 Another approach is to use a pre-shared key to allow two parties to authenticate each other independently of a certification authority. If a symmetric secret is successfully exchanged, there is no need for a public-key infrastructure (PKI) to solve the problem of key distribution.
 
-Thus, at a glance, it would appear redundant to use certificates in addition to a PSK ciphersuite with TLS. However, that redundancy is an end in of itself, as it is what hybrid security relies on, as we do not yet want to rely soley on post-quantum-secure PSKs that have not seen the same degree of real-world stress testing as classical cyrptographic solutions. Forced to choose between classical, albeit non-post-quantum-secure, crytography and post-quantum cryptography, it would be prudent to choose the better analysed cryptography for auythentication, especially given that quantum computers are not currently known to be in use. Fortunately, using hybrid schemes allow us to rely on the strengths of both methods.
+Thus, at a glance, it would appear redundant to use certificates in addition to a PSK ciphersuite with TLS. However, that redundancy is an end in of itself, as it is what hybrid security relies on, as we do not yet want to rely solely on post-quantum-secure PSKs that have not seen the same degree of real-world stress testing as classical cryptographic solutions. Forced to choose between classical, albeit non-post-quantum-secure, cryptography and post-quantum cryptography, it would be prudent to choose the better analysed cryptography for authentication, especially given that quantum computers are not currently known to be in use. Fortunately, using hybrid schemes allow us to rely on the strengths of both methods.
 
 Unfortunately, the TLS standards do not support combining certificates with PSK ciphersuites, as they were written without such a hybrid use case in mind. Indeed, OpenSSL s_client and s_server do not support using both certificates and a PSK. In testing, when we specified a certificate on the command line, the s_server proceeded to ignore our specified PSK. We could see this by giving the client and the server non-matching PSKs and PSK identities without causing the channel establishment to fail.
 
@@ -34,11 +34,11 @@ Unfortunately, the TLS standards do not support combining certificates with PSK 
 
 For this tutorial, we used two of the OpenSSL project's command line tools, `s_client` and `s_server`, that respectively implement a TLS client and server. The tools' man pages did not reveal to us what the `s` stands for. Is it “simple”? Or just a shorthand for the old “SSL”? In any case, `s_client`'s man page claims, “[i]t is a _very_ useful diagnostic tool for SSL servers”, so how could we resist? Regardless, one of this tutorial's co-authors has indeed already used `s_client` many times to test and debug TLS connections.
 
-In the following sections, we build up the final show case step-by-step, retracing the steps we took:
+In the following sections, we build up the final showcase step-by-step, retracing the steps we took:
 * As a first step, we showed how to use OpenSSL's `s_client` and `s_server` to establish a TLS channel using a dummy pre-shared key.
 * Then, we demonstrated the set up of two Rosenpass peers on localhost, having them exchange a post-quantum-secure key.
 * As a last step, we plugged the first two steps together and used `s_client` and `s_server` to establish a TLS channel using a key exchanged by Rosenpass as pre-shared key.
-* Finally, we include an informal discusssion of the cryptographic security of this approach.
+* Finally, we include an informal discussion of the cryptographic security of this approach.
 * The conclusion contains an overview the issues we encountered on the way, as well as a discussion on the direction of future potential work.
 
 All commands, config files, and scripts described in this tutorial are available in the [repository rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial).
@@ -55,7 +55,7 @@ $ openssl s_server -accept localhost:4433 -www -naccept 1 -trace -nocert -psk 1a
 
 We told the server to accept connections on port 4433 on localhost (`-accept localhost:4433`). The `-www` parameter starts a simple HTTP server providing an HTML page with information about the TLS session. The client can request it by sending the `GET /` HTTP command. In our test case, we usually only ran each command once and then switched to another one, which is why the option `-naccept 1` is useful, which kills the server after one connection. We used `-trace` to display the TLS protocol messages received and sent by the server. This is not necessary for simple tests, however, we wanted to be able to explain what is going on based on this output.
 
-And now for the cryptographically revelant parameters: As described above, we did not use certificates in our example (`-nocert`). The parameter `-psk` is used to provide a pre-shared key. Here, we just gave an unsecure short example key. TLS uses a so-called PSK identity bitstring to help the client and server communicate which PSK they use. In OpenSSL, it has a default value of `Client_identity`, and we set it to `rosenpass` using the `-psk_identity` parameter.
+And now for the cryptographically relevant parameters: As described above, we did not use certificates in our example (`-nocert`). The parameter `-psk` is used to provide a pre-shared key. Here, we just gave an unsecure short example key. TLS uses a so-called PSK identity bitstring to help the client and server communicate which PSK they use. In OpenSSL, it has a default value of `Client_identity`, and we set it to `rosenpass` using the `-psk_identity` parameter.
 
 With OpenSSL version 3.0.10, this command displays the following to indicate that the server is listening for connections:
 ```bash
@@ -573,7 +573,7 @@ For this section, we assume that you have already installed Rosenpass on your sy
 
 We needed two Rosenpass peers, and we set them up based on the two config files: `rp1` and `rp2`.
 
-They are written such that the two peers are talking to each other, respectively. Each peer reads its public key and secret key from files `public_key` and `secret_key`, and writes the Rosenpass shared key into a `key_out` file. After a successful key exchange, the files `rp1-key-out` and `rp2-key-out` will be be exactly equal. This key is what we then handed over to OpenSSL in the following section.
+They are written such that the two peers are talking to each other, respectively. Each peer reads its public key and secret key from files `public_key` and `secret_key`, and writes the Rosenpass shared key into a `key_out` file. After a successful key exchange, the files `rp1-key-out` and `rp2-key-out` will be exactly equal. This key is what we then handed over to OpenSSL in the following section.
 
  rp1:
 ```bash
@@ -736,7 +736,7 @@ For TLS 1.2, more details can be found in *Section 3* and *Theorem 2* of [ia.cr/
 
 ## Conclusion
 
-In the course of producing this tutorial, we were able to demonstrate that Rosenpass can be used to achieve hybrid post-quantum security with both a TLS 1.2 and a TLS 1.3 channel. Although we have made our scripts available in [rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial), it is worth noting that this is meant as a proof-of-concept. The reader should be aware that this tutorial's implentation is not as secure as it should be for production use. The immediately known flaws in this method are:
+In the course of producing this tutorial, we were able to demonstrate that Rosenpass can be used to achieve hybrid post-quantum security with both a TLS 1.2 and a TLS 1.3 channel. Although we have made our scripts available in [rosenpass/openssl-tutorial](https://github.com/rosenpass/openssl-tutorial), it is worth noting that this is meant as a proof-of-concept. The reader should be aware that this tutorial's implementation is not as secure as it should be for production use. The immediately known flaws in this method are:
 
 1) We were only able to reach hybrid confidentiality. As explained in the tutorial, we were not able to do the same for authentication which, rather than being hybrid, is only post-quantum secure.
 2) Ephemeral keys are not freshly sampled random values, as mentioned above.

@@ -76,7 +76,7 @@ Any third-party services, that would require the user to consent to data sharing
 We link to third-party websites/services whose data protection policies we do not have any control or influence over. Please consult their respective data protection statements as appropriate. We do not accept any responsibility for content or data usage by external websites linked on this site.
 
 If you still have concerns about your personal data, please contact us at datenschutz@rosenpass.eu
-We are a research project with limited ressources and can't always reply super fast. Please give us a few days before you file a complaint with the responsible Data Protection Autorities!
+We are a research project with limited resources and can't always reply super fast. Please give us a few days before you file a complaint with the responsible Data Protection Authorities!
 
 {{< /blocks/section >}}
 

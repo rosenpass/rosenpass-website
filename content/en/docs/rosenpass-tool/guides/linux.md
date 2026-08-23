@@ -121,7 +121,7 @@ rp
 
 </span>
 
-It can be installed it with:
+It can be installed with:
 
 <span class="codebox">
 
@@ -180,7 +180,7 @@ rp
 
 </span>
 
-It can be installed it with:
+It can be installed with:
 
 <span class="codebox">
 
