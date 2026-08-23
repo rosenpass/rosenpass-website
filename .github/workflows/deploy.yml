@@ -37,7 +37,7 @@ jobs:
           exit 1
 
       - name: checkout code with submodules
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.RPLATEX }}
           # recursive checkout is not required as the true checkout happens below in `nix build`
