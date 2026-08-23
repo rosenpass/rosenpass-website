@@ -43,6 +43,8 @@ jobs:
           # recursive checkout is not required as the true checkout happens below in `nix build`
           # submodules: recursive
           # fetch-depth: 0
+          submodules: false
+          fetch-depth: 1
 
       - name: install Nix
         uses: cachix/install-nix-action@v31
