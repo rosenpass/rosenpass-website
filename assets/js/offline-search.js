@@ -127,7 +127,7 @@ import lunr from 'lunr'
             justifyContent: 'space-between',
           })
           .append(
-            $('<span>').html('<h2>Search results</h2><span class="">Powered by <a href="https://lunrjs.com/">Lunr.js</a></span><br><span class="text-muted">Search results are served via local indexing</span>').css({ fontWeight: 'bold' })
+            $('<span>').html('<h2>Search results</h2>').css({ fontWeight: 'bold' })
           )
           .append(
             $('<span>').addClass('td-offline-search-results__close-button btn')
