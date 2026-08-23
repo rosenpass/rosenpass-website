@@ -42,7 +42,7 @@
 
 // (() => {
     'use strict';
-  
+
     const {
       BaseComponent,
       EventHandler,
@@ -93,7 +93,7 @@
       keyboard: 'boolean',
       scroll: 'boolean'
     };
-  
+
     class MobileNavMenu extends BaseComponent {
       constructor(element, config) {
         super(element, config);
@@ -102,15 +102,15 @@
         this._focustrap = this._initializeFocusTrap();
         this._addEventListeners();
       }
-  
+
       static get Default() {
         return Default$s99;
       }
-  
+
       static get DefaultType() {
         return DefaultType$s99;
       }
-  
+
       static get NAME() {
         return NAME$s99;
       }
@@ -120,7 +120,7 @@
         for (let i = 0; i < parentMobileNavMenu.length; i++) {
           let ele = parentMobileNavMenu[i];
           if ( i == 0 ){
-            MobileNavMenu.getOrCreateInstance(ele).show()  
+            MobileNavMenu.getOrCreateInstance(ele).show()
           } else {
             let instance = MobileNavMenu.getOrCreateInstance(ele)
             instance._element.classList.add("mobile-nav-layers-showing");
@@ -142,7 +142,7 @@
         const relatedTargetSelector = relatedTarget.tagName.toLowerCase() + (relatedTarget.id ? `#${relatedTarget.id}` : '') + (relatedTarget.className ? `.${relatedTarget.className.replace(/\s+/g, '.')}` : '');
         console.log("relatedTargetSelector: ", relatedTargetSelector);
         const parentMobileNavMenu = SelectorEngine.find(`.mobileNav.mobileNav-end.show:has(${relatedTargetSelector})`);
-      
+
         for (let i = 0; i < parentMobileNavMenu.length; i++) {
           let ele = parentMobileNavMenu[i];
           if (i === 0) {
@@ -154,7 +154,7 @@
             instance._element.classList.remove("mobile-nav-layers-showing");
           }
         }
-      
+
         if (parentMobileNavMenu.length) {
           this._element.classList.add("mobile-nav-layers-showing");
           this.show(relatedTarget);
@@ -163,29 +163,29 @@
           this.show(relatedTarget);
         }
       }
-      
-  
+
+
       show(relatedTarget) {
         if (this._isShown) {
             return;
         }
-        
+
         const showEvent = EventHandler.trigger(this._element, EVENT_SHOW$s99, { relatedTarget });
         if (showEvent.defaultPrevented) {
             return;
         }
-  
+
         this._isShown = true;
         this._backdrop.show();
-  
+
         if (!this._config.scroll) {
             new ScrollBarHelper().hide();
         }
-  
+
         this._element.setAttribute('aria-modal', true);
         this._element.setAttribute('role', 'dialog');
         this._element.classList.add(CLASS_NAME_SHOWING$s99);
-  
+
         const completeCallBack = () => {
             if (!this._config.scroll || this._config.backdrop) {
                 this._focustrap.activate();
@@ -194,10 +194,10 @@
             this._element.classList.remove(CLASS_NAME_SHOWING$s99);
             EventHandler.trigger(this._element, EVENT_SHOWN$s99, { relatedTarget });
         };
-  
+
         this._queueCallback(completeCallBack, this._element, true);
       }
-  
+
       hide() {
         if (!this._isShown) {
           return;
@@ -222,7 +222,7 @@
         };
         this._queueCallback(completeCallback, this._element, true);
       }
-  
+
       hideAll() {
         const allOpen = SelectorEngine.find(OPEN_SELECTOR$s99);
           allOpen.reverse()
@@ -237,13 +237,13 @@
           }
         }
       }
-  
+
       dispose() {
         this._backdrop.dispose();
         this._focustrap.deactivate();
         super.dispose();
       }
-  
+
       _initializeBackDrop() {
         const clickCallback = () => {
           if (this._config.backdrop === 'static') {
@@ -252,7 +252,7 @@
           }
           this.hide();
         };
-  
+
         const isVisible = Boolean(this._config.backdrop);
         return new Backdrop({
           className: CLASS_NAME_BACKDROP$s99,
@@ -262,13 +262,13 @@
           clickCallback: isVisible ? clickCallback : null
         });
       }
-  
+
       _initializeFocusTrap() {
         return new FocusTrap({
           trapElement: this._element
         });
       }
-  
+
       _addEventListeners() {
         EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS$s99, event => {
           if (event.key !== ESCAPE_KEY$s99) {
@@ -295,7 +295,7 @@
         });
       }
     }
-  
+
     EventHandler.on(document, EVENT_CLICK_DATA_API$s99, SELECTOR_DATA_TOGGLE$s99, function (event) {
       const target = SelectorEngine.getElementFromSelector(this);
       if (['A', 'AREA'].includes(this.tagName)) {
@@ -312,13 +312,13 @@
       const data = MobileNavMenu.getOrCreateInstance(target);
       data.toggle(this);
     });
-  
+
     EventHandler.on(window, EVENT_LOAD_DATA_API$s99, () => {
       for (const selector of SelectorEngine.find(OPEN_SELECTOR$s99)) {
         MobileNavMenu.getOrCreateInstance(selector).show();
       }
     });
-  
+
     EventHandler.on(window, EVENT_RESIZE$s99, () => {
       for (const element of SelectorEngine.find('[aria-modal][class*=show][class*=mobileNav-]')) {
         if (getComputedStyle(element).position !== 'fixed') {
@@ -326,7 +326,7 @@
         }
       }
     });
-  
+
     EventHandler.on(document, EVENT_CLICK_DATA_API$s99, SELECTOR_DATA_TOGGLE_BACK$s99, function (event) {
       const target = SelectorEngine.getElementFromSelector(this);
       if (['A', 'AREA'].includes(this.tagName)) {
@@ -380,7 +380,7 @@
   //     {duration: 1000,
   //     },)
   //       data.toggle();
-  //     } 
+  //     }
   // });
       EventHandler.on(document, 'touchend', function (event){
         touchEndX = 0;
@@ -400,4 +400,3 @@
     enableDismissTrigger(MobileNavMenu, 'hideAll');
     defineJQueryPlugin(MobileNavMenu);
   // })();
-  

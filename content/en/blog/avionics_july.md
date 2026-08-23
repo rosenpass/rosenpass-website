@@ -8,7 +8,7 @@ blogpost: "true"
 shortBlerb: "Integrating Post-Quantum Security into Avionics"
 ---
 
-Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols. 
+Another week, another challenge. This time, Karolin, Wanja, and myself have spent the end of last week intensely working on a collaborative paper on improving the efficiency, security, and safety of Avionics cryptographic protocols.
 
 As it currently stands, the process for updating the security of aircraft is a slow and labourious one. Certification of new standards can take years, and roll-out longer. This is, naturally, a problem in relation to faster-moving threats, such as those posed to cryptographic security. This academic paper, a joint collaboration between members of Rosenpass and the DLR (German Aerospace Center), proposes a method for significantly improving that situation by leveraging the partitioning principles already in use on aircraft to create a swappable, almost "plug and play" module to provide cryptographic functions on aeroplanes. The hope is to create a more responsive landscape for Avionics security, and help build closer ties between itself and Cryptography as a whole.
 

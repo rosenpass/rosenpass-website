@@ -83,6 +83,6 @@ https://eprint.iacr.org/2016/1017
 
 ###  Reference
 
-https://eprint.iacr.org/2020/379.pdf 
+https://eprint.iacr.org/2020/379.pdf
 
 

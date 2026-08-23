@@ -40,7 +40,7 @@ Table of Contents:
 
 - You can compile Rosenpass yourself. This gives you the advantage of ensuring that you use Rosenpass as exactly as the source code is in Git.
 
-1. Install the dependencies. Under Debian, you can do this with the following command: 
+1. Install the dependencies. Under Debian, you can do this with the following command:
 
 <span class="codebox">
 
@@ -50,18 +50,18 @@ sudo apt-get --yes install libsodium-dev libclang-dev cmake pkg-config git build
 
 </span>
 
-2. If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command: 
+2. If you want to use Rosenpass with WireGuard, install WireGuard. On Debian, you can do this with the following command:
 
 <span class="codebox">
 
-```sh 
+```sh
 sudo apt-get --yes install wireguard
 ```
 </span>
 
 3. Install Rust >= 1.64.0 (as of 2023-07-01). This can be achieved using [Rustup](https://rustup.rs/), for example.
 <span class="spacer"></span>
-4. Clone the Git Repository: 
+4. Clone the Git Repository:
 
 <span class="codebox">
 
@@ -71,7 +71,7 @@ git clone https://github.com/rosenpass/rosenpass.git
 
 </span>
 
-5. Change to the Rosenpass directory: 
+5. Change to the Rosenpass directory:
 
 <span class="codebox">
 
@@ -81,7 +81,7 @@ cd rosenpass
 
 </span>
 
-6. Switch to the version you want to install. Without switching, you will install and compile the dev version. Find the name of the version that you would like to install on the [releases page](https://github.com/rosenpass/rosenpass/releases), or [find the name of the latest release](https://github.com/rosenpass/rosenpass/releases/latest). Use the following command to switch to version, e.g., 0.2.2: 
+6. Switch to the version you want to install. Without switching, you will install and compile the dev version. Find the name of the version that you would like to install on the [releases page](https://github.com/rosenpass/rosenpass/releases), or [find the name of the latest release](https://github.com/rosenpass/rosenpass/releases/latest). Use the following command to switch to version, e.g., 0.2.2:
 
 <span class="codebox">
 
@@ -101,7 +101,7 @@ cargo build --release
 
 </span>
 
-8. Install Rosenpass: 
+8. Install Rosenpass:
 
 <span class="codebox">
 
@@ -121,7 +121,7 @@ rp
 
 </span>
 
-It can be installed it with: 
+It can be installed with:
 
 <span class="codebox">
 
@@ -150,7 +150,7 @@ sudo install rp /usr/local/bin
 
 1. Download the desired version for your operating system from the [releases page](https://github.com/rosenpass/rosenpass/releases/), or directly jump to the [latest version](https://github.com/rosenpass/rosenpass/releases/latest).
 <span class="spacer"></span>
-2. Unzip the file. On Linux you can use tar for this: 
+2. Unzip the file. On Linux you can use tar for this:
 
 <span class="codebox">
 
@@ -160,7 +160,7 @@ tar xf rosenpass-x86_64-linux-0.2.2.tar
 
 </span>
 
-3. Install Rosenpass: 
+3. Install Rosenpass:
 
 <span class="codebox">
 
@@ -176,11 +176,11 @@ sudo install bin/rosenpass /usr/local/bin
 
 ```sh
 rp
-``` 
+```
 
 </span>
 
-It can be installed it with: 
+It can be installed with:
 
 <span class="codebox">
 

@@ -1,4 +1,4 @@
-# GeneralPublic 
+# GeneralPublic
 
 (How it works)
 
