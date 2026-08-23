@@ -1,23 +1,8 @@
-:root,
-
-// stylelint-disable function-disallowed-list
-
-%offcanvas-css-vars {
-  // scss-docs-start offcanvas-css-vars
-  --#{$prefix}offcanvas-zindex: #{$zindex-offcanvas};
-  --#{$prefix}offcanvas-width: #{$offcanvas-horizontal-width};
-  --#{$prefix}offcanvas-height: #{$offcanvas-vertical-height};
-  --#{$prefix}offcanvas-padding-x: #{$offcanvas-padding-x};
-  --#{$prefix}offcanvas-padding-y: #{$offcanvas-padding-y};
-  --#{$prefix}offcanvas-color: #{$offcanvas-color};
-  --#{$prefix}offcanvas-bg: #{$offcanvas-bg-color};
-  --#{$prefix}offcanvas-border-width: #{$offcanvas-border-width};
-  --#{$prefix}offcanvas-border-color: #{$offcanvas-border-color};
-  --#{$prefix}offcanvas-box-shadow: #{$offcanvas-box-shadow};
-  --#{$prefix}offcanvas-transition: #{transform 0.4s ease-out};
-  --#{$prefix}offcanvas-title-line-height: #{$offcanvas-title-line-height};
-  // scss-docs-end offcanvas-css-vars
-}
+// Mobile navigation menu (mobileNav) styles, adapted from Bootstrap's
+// _offcanvas.scss with class names renamed from `.offcanvas` to `.mobileNav`.
+// The component reuses Bootstrap's offcanvas CSS custom properties by
+// extending %offcanvas-css-vars (vendor/bootstrap/scss/_offcanvas.scss)
+// instead of redefining them.
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   $next: breakpoint-next($breakpoint, $grid-breakpoints);
