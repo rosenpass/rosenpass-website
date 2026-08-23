@@ -70,6 +70,7 @@
             runtimeInputs = [
               nodejs
               pkgs.coreutils
+              pkgs.git
               pkgs.groff
               pkgs.hugo
             ];
@@ -78,6 +79,12 @@
                 echo >&2 "error: server must be run from the repository root"
                 exit 1
               fi
+
+              # Make sure all Git submodules, including nested ones, are available in
+              # the working tree used by the development server.
+              git submodule sync --recursive
+              git submodule update --init --recursive
+
               # Use exactly the node dependencies pinned by package-lock.json.
               if [[ -e node_modules && ! -L node_modules ]]; then
                 echo >&2 "error: ./node_modules exists but is not managed by Nix"
