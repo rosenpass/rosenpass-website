@@ -51,7 +51,6 @@
                 themes/github.com/FortAwesome/Font-Awesome
 
               export HUGO_CACHEDIR="$TMPDIR/hugo-cache"
-              bash ./scripts/changelog-check.sh
               hugo
               runHook postBuild
             '';
@@ -95,7 +94,6 @@
 
               export HUGO_CACHEDIR="''${XDG_CACHE_HOME:-$HOME/.cache}/hugo/rosenpass-website"
               mkdir -p "$HUGO_CACHEDIR"
-              ${pkgs.bash}/bin/bash ./scripts/changelog-check.sh
               exec hugo server "$@"
             '';
           };
