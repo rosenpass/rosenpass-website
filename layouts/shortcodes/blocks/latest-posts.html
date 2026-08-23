@@ -1,18 +1,15 @@
 <div class="container">
     <div class=" row latest-posts">
-        {{ range ( first 2 ( where .Site.Pages "Type" "blog" ).ByDate ) }}
-
+        {{ range ( first 2 ( where .Site.RegularPages "Type" "blog" ).ByDate.Reverse ) }}
         <div class="col col-12 col-lg-6 col-xl-6">
             <a href="{{ .Permalink }}" class="p-3">
-                <div class="latest-post ">
+                <div class="latest-post">
                     <h4>{{ .Title }}</h4>
                     <p>{{ .Description }}</p>
                     <p>{{ .Date | time.Format ":date_medium" }} by {{ .Params.author }}</p>
                 </div>
-
             </a>
         </div>
-
         {{ end }}
     </div>
 </div>
