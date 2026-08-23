@@ -15,6 +15,13 @@ enableRobotsTXT = true
   hugoVersion.extended = true
   hugoVersion.min = "0.146.0" #see https://github.com/google/docsy/pull/2246
 
+  # The Docsy theme imports Bootstrap and Font Awesome as Hugo modules.
+  # Redirect those imports to the npm-installed packages (see package.json).
+  replacements = [
+    "github.com/twbs/bootstrap -> ../node_modules/bootstrap",
+    "github.com/FortAwesome/Font-Awesome -> ../node_modules/@fortawesome/fontawesome-free",
+  ]
+
   # Override Docsy's YAML
   [[module.mounts]]
     source = "assets"
