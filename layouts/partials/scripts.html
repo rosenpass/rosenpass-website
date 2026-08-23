@@ -65,7 +65,7 @@ window.markmap = {
 {{ $jsPlantuml := resources.Get "js/plantuml.js" | resources.ExecuteAsTemplate "js/plantuml.js" . -}}
 {{ $jsDrawio := resources.Get "js/drawio.js" | resources.ExecuteAsTemplate "js/drawio.js" . -}}
 {{ if .Site.Params.offlineSearch -}}
-  {{ $jsSearch = resources.Get "js/offline-search.js" -}}
+  {{ $jsSearch = resources.Get "js/offline-search.js" | js.Build -}}
 {{ end -}}
 
 {{ $jsArray := slice $jsBs $jsBase $jsSearch $jsPlantuml $jsMarkmap $jsDrawio -}}
