@@ -56,21 +56,19 @@ window.markmap = {
        {{ printf "onload='renderMathInElement(%s, %s);'" (( $.Page.Site.Params.katex.html_dom_element | default "document.body" ) | safeJS ) ( printf "%s" ( $.Page.Site.Params.katex.options | jsonify )) | safeHTMLAttr }}>
 </script>
 {{ end -}}
-{{ $jsQuery := resources.Get "js/jquery-3-7-1-min.js"}}
+{{ $jsQuery := resources.Get "vendor/jquery/jquery.min.js" -}}
 <script src="{{ $jsQuery.RelPermalink }}"></script>
-{{ $jsBs := resources.Get "/js/bootstrap.bundle.js" -}}
-<script src="{{ $jsBs.RelPermalink }}"></script>
-{{ $jsNav := resources.Get "/js/mobile-navbar.js" -}}
+{{ $jsBs := resources.Get "js/bootstrap.js" | js.Build -}}
 {{ $jsBase := resources.Get "js/base.js" -}}
 {{ $jsSearch := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" .Site.Home -}}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
 {{ $jsPlantuml := resources.Get "js/plantuml.js" | resources.ExecuteAsTemplate "js/plantuml.js" . -}}
 {{ $jsDrawio := resources.Get "js/drawio.js" | resources.ExecuteAsTemplate "js/drawio.js" . -}}
 {{ if .Site.Params.offlineSearch -}}
-  {{ $jsSearch = resources.Get "js/offline-search.js" -}}
+  {{ $jsSearch = resources.Get "js/offline-search.js" | js.Build -}}
 {{ end -}}
 
-{{ $jsArray := slice $jsBs $jsNav $jsBase $jsSearch $jsPlantuml $jsMarkmap $jsDrawio -}}
+{{ $jsArray := slice $jsBs $jsBase $jsSearch $jsPlantuml $jsMarkmap $jsDrawio -}}
 
 {{ if .Page.Store.Get "hasmermaid" -}}
 {{- partial "scripts/mermaid.html" . -}}

@@ -1,60 +1,17 @@
-// Requires these properties to be made available at the end of bootstrap.bundle.js' in the
-// index_umd object:
-// BaseComponent,
-// EventHandler,
-// SelectorEngine,
-// Backdrop,
-// FocusTrap,
-// ScrollBarHelper,
-// isVisible,
-// isDisabled,
-// enableDismissTrigger,
-// defineJQueryPlugin
+// Mobile navigation menu component, adapted from Bootstrap's offcanvas.js.
+//
+// Bootstrap's internal building blocks are imported directly from the
+// npm-installed bootstrap package (see package.json). This file is not
+// loaded by itself; it is bundled into js/bootstrap.js via js.Build.
 
-// Should look like this:
-// const index_umd = {
-//   Alert,
-//   Button,
-//   Carousel,
-//   Collapse,
-//   Dropdown,
-//   Modal,
-//   Offcanvas,
-//   Popover,
-//   ScrollSpy,
-//   Tab,
-//   Toast,
-//   Tooltip,
-//   BaseComponent,
-//   EventHandler,
-//   SelectorEngine,
-//   Backdrop,
-//   FocusTrap,
-//   ScrollBarHelper,
-//   isVisible,
-//   isDisabled,
-//   enableDismissTrigger,
-//   defineJQueryPlugin
-// };
-
-// return index_umd;
-
-
-// (() => {
-    'use strict';
-
-    const {
-      BaseComponent,
-      EventHandler,
-      SelectorEngine,
-      Backdrop,
-      FocusTrap,
-      ScrollBarHelper,
-      isVisible,
-      isDisabled,
-      enableDismissTrigger,
-      defineJQueryPlugin
-    } = bootstrap;
+import BaseComponent from 'bootstrap/js/src/base-component'
+import EventHandler from 'bootstrap/js/src/dom/event-handler'
+import SelectorEngine from 'bootstrap/js/src/dom/selector-engine'
+import Backdrop from 'bootstrap/js/src/util/backdrop'
+import FocusTrap from 'bootstrap/js/src/util/focustrap'
+import ScrollBarHelper from 'bootstrap/js/src/util/scrollbar'
+import { isVisible, isDisabled, defineJQueryPlugin } from 'bootstrap/js/src/util'
+import { enableDismissTrigger } from 'bootstrap/js/src/util/component-functions'
 
 
 
@@ -399,4 +356,3 @@
     });
     enableDismissTrigger(MobileNavMenu, 'hideAll');
     defineJQueryPlugin(MobileNavMenu);
-  // })();
