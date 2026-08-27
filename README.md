@@ -4,7 +4,8 @@ website for project [Rosenpass](https://rosenpass.eu/) (quantum-secure VPN key e
 ## 🛠️ Build and Run
 As prerequisites, you have to:
 1. [install Nix](https://nixos.org/download/)
-2. clone the [repository](https://github.com/rosenpass/rosenpass-website.git)
+2. use extra Nix features by running: `export NIX_CONFIG="experimental-features = nix-command flakes"` ([documentation](https://nixos.wiki/wiki/flakes#Enable_flakes_temporarily))
+3. clone the [repository](https://github.com/rosenpass/rosenpass-website.git)
 
 Now, you can:
 - **build** the website by running `nix build`
