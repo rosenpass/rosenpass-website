@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:4.0
+N:Schulz;Ilka;;;
+FN:Ilka Schulz
+EMAIL;PREF=1;TYPE=work:ilka@rosenpass.eu
+KEY:OPENPGP4FPR:3A1A57F684FED1CFB6A7F6D3311E70E3DE361911
+URL;TYPE=work:https://rosenpass.eu/
+TITLE:Lead Developer\, Engineering Scientist
+ORG:Rosenpass e.V.
+URL:https://rosenpass.eu/keys/ilka@rosenpass.eu.pub
+UID:7e282d17-baf2-49fb-90b4-3cb6ca09bdc6
+TZ:Europe/Berlin
+END:VCARD
