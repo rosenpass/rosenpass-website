@@ -1,0 +1,13 @@
+{{/*  browsers will pick the LAST icon which they understand – so this list is inverse priority   */}}
+
+{{/*  some png files in static/favicons/ */}}
+<link rel="icon" type="image/png" href="{{ relURL "/favicons/favicon-16x16.png" }}" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ relURL "/favicons/favicon-32x32.png" }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ relURL "/favicons/favicon-96x96.png" }}" sizes="96x96">
+<link rel="icon" type="image/png" href="{{ relURL "/favicons/favicon-256x256.png" }}" sizes="256x256"> 
+
+{{/*  the proper SVG logo in assets/icons/  */}}
+<link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/logo.svg").RelPermalink }}">
+
+{{/*  a special PNG icon for Apple Touch – https://stackoverflow.com/a/21144916 */}}
+<link rel="apple-touch-icon" href="{{ relURL "favicons/apple-touch-icon-180x180.png" }}"> 
