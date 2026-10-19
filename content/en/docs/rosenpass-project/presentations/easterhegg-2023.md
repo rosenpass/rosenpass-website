@@ -6,7 +6,7 @@ description: "A deeper dive into post-quantum cryptography, Rosenpass' approach 
 shortBlerb: "A deeper dive into post-quantum cryptography and Rosenpass' approach to the issue"
 talkLanguage: "DE"
 banner: "easterhegg2023.jpg"
-pdfFilename: "2023-04-08-easterhegg/slides.pdf"
+pdfFilename: "/presentations/slides/2023-04-08-easterhegg/slides.pdf"
 presentation: true
 video: true
 

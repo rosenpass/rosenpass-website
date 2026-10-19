@@ -6,7 +6,7 @@ description: "How to build post-quantum cryptographic protocols and why wall clo
 shortBlerb: "How to build post-quantum cryptographic protocols"
 talkLanguage: "EN"
 banner: "hackmas2024.png"
-pdfFilename: "2024-08-29-hackmas/slides.pdf"
+pdfFilename: "/presentations/slides/2024-08-29-hackmas/slides.pdf"
 presentation: true
 video: true
 

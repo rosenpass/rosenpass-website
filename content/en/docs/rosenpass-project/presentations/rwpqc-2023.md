@@ -6,7 +6,7 @@ description: "A presentation on Rosenpass' post-quantum WireGuard solutions, inc
 shortBlerb: "A presentation on Rosenpass' post-quantum WireGuard solutions, Noise, and Proverif"
 talkLanguage: "EN"
 banner: "rwpqc2023.jpg"
-pdfFilename: "2023-03-26-rwpqc/slides.pdf"
+pdfFilename: "/presentations/slides/2023-03-26-rwpqc/slides.pdf"
 presentation: true
 
 weight: 99
