@@ -6,7 +6,6 @@ description: "Was ist Postquantenkryptografie und warum brauchen wir sie? - Einf
 shortBlerb: "Was ist Postquantenkryptografie und warum brauchen wir sie? - Einfach erklärt!"
 talkLanguage: "DE"
 banner: "hannover-tech-meetup2025.png"
-pdfFilename: "/presentations/slides/2025-06-03-hannover-tech-meetup/slides.pdf"
 presentation: true
 
 weight: 91
@@ -16,4 +15,4 @@ toc:
   depth: 3
 ---
 
-{{< blocks/pdfembed >}}
+{{< blocks/pdfembed pdfFilename="/presentations/slides/2025-06-03-hannover-tech-meetup/slides.pdf" >}}

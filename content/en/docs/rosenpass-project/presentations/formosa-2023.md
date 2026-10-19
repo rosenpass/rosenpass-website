@@ -6,7 +6,6 @@ description: "A presentation on Rosenpass, cryptographic security, ongoing proje
 shortBlerb: "A presentation on Rosenpass and its relationship to Formosa projects"
 talkLanguage: "EN"
 banner: "formosa2023.jpg"
-pdfFilename: "/presentations/slides/2023-07-10-FormosaRetreat/slides.pdf"
 presentation: true
 
 weight: 96
@@ -16,4 +15,4 @@ toc:
   depth: 3
 ---
 
-{{< blocks/pdfembed >}}
+{{< blocks/pdfembed pdfFilename="/presentations/slides/2023-07-10-FormosaRetreat/slides.pdf" >}}

@@ -14,9 +14,8 @@ menu: false
 type: docs
 toc:
   depth: 3
-pdfFilename: "/presentations/slides/2023-09-03-MRMCD2023/slides.pdf"
 ---
 
 {{< blocks/video-embed title="Video: MRMCD 2023" subtitle="Rosenpass Update: Post Quantum Kryptographie in praktischer Anwendung." href="https://media.ccc.de/v/2023-265-rosenpass-update-post-quantum-kryptographie-in-praktischer-anwendung-/oembed" hostPg="https://media.ccc.de/v/2023-265-rosenpass-update-post-quantum-kryptographie-in-praktischer-anwendung-" host="Chaos Computer Club" privacy="https://media.ccc.de/about.html#privacy" license="CC BY 4.0" screenshot="img/conferences/mrmcd2023-screenshot.png">}}
 
-{{< blocks/pdfembed >}}
+{{< blocks/pdfembed pdfFilename="/presentations/slides/2023-09-03-MRMCD2023/slides.pdf" >}}

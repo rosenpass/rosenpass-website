@@ -1,10 +1,11 @@
-{{ $pdfFile := printf "%s" .Page.Params.pdfFilename }}
+{{/*  parameters  */}}
+{{ $pdfFile := .Get "pdfFilename" }}
+{{ $orientation := .Get "orientation" | default "landscape" }}
+{{ $col_id := .Get "color" | default "primary" }}
+{{ $height := .Get "height" | default "auto"  }} {{/* valid options: auto, min, med, max, full. */}}
+
 
 {{ $_hugo_config := `{ "version": 1 }` }}
-{{ $col_id := .Get "color" | default "primary" }}
-{{ $height := .Get "height" | default "auto"  }}
-{{ $orientation := .Get "orientation" | default "landscape" }}
-{{/* Height can be one of: auto, min, med, max, full. */}}
 <a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
 <section class="td-box td-box--{{ $col_id }} position-relative td-box--gradient td-box--height-{{ $height }} title-box title-box-presentation">
     <div class="container text-center td-arrow-down d-flex">
@@ -12,11 +13,13 @@
         <div class="h4 mb-0 col-6">
             {{ .Page.LinkTitle }} Slides
         </div>
-            <p class="presentation-download"><span class="pt-0 download-button btn-primary"><a href="{{ $pdfFile }}" target="_blank"><i class="fa-solid fa-download"></i></a></span></p>
+        <p class="presentation-download"><span class="pt-0 download-button btn-primary">
+            <a href="{{ $pdfFile }}" target="_blank"><i class="fa-solid fa-download"></i></a>
+        </span></p>
     </div>
 </section>
 
-<iframe src="{{ $pdfFile }}#view=Fit" width="100%" class="presentation-box mt-1 {{ $orientation }}">
+<iframe id="pdfembed-iframe-{{ crypto.SHA256 $pdfFile }}" width="100%" class="presentation-box mt-1 {{ $orientation }}" >
     <div class="pdf-load-fail">
         <div class="pdf-fail-text">
             <p><i class="fa-solid fa-file-pdf fa-2xl"></i></p>
@@ -26,3 +29,30 @@
         </div>
     </div>
 </iframe>
+
+<script>
+    (async () => {
+        // find the above iframe into which we want to load the PDF
+        let iframe = document.getElementById("pdfembed-iframe-{{ crypto.SHA256 $pdfFile }}");
+        try {
+            // fetch the PDF into a blob
+            const response = await fetch("{{ $pdfFile }}");
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            // change blob's content type
+            const pdf = new Blob([await response.blob()], {
+                type: "application/pdf"
+            });
+
+            // load the iframe from the blob
+            const blobUrlString = URL.createObjectURL(pdf);
+            const blobUrl = new URL(blobUrlString);
+            blobUrl.hash = "view=Fit";
+            iframe.src = blobUrl.toString();
+
+        } catch (error) {
+            // TODO: write a proper error message
+            // The legacy <div> (v.s.) does not work.
+        }
+    })();
+</script>
