@@ -3,6 +3,7 @@
 {{ $orientation := .Get "orientation" | default "landscape" }}
 {{ $col_id := .Get "color" | default "primary" }}
 {{ $height := .Get "height" | default "auto"  }} {{/* valid options: auto, min, med, max, full. */}}
+{{ $pdfTitle := .Get "pdfTitle" | default (printf "%s Slides" .Page.LinkTitle) }}
 
 
 {{ $_hugo_config := `{ "version": 1 }` }}
@@ -11,7 +12,7 @@
     <div class="container text-center td-arrow-down d-flex">
             <div class="col-3"></div>
         <div class="h4 mb-0 col-6">
-            {{ .Page.LinkTitle }} Slides
+            {{ $pdfTitle }}
         </div>
         <p class="presentation-download"><span class="pt-0 download-button btn-primary">
             <a href="{{ $pdfFile }}" target="_blank"><i class="fa-solid fa-download"></i></a>
