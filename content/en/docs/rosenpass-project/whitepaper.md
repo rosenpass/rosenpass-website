@@ -13,4 +13,4 @@ hideLead: true
 
 {{< blocks/pdfembed orientation="portrait" pdfTitle="Rosenpass Whitepaper" pdfFilename="/whitepaper.pdf" >}}
 
-{{< blocks/pdfembed orientation="portrait" pdfTitle="Rosenpass Whitepaper (Nighly Build)" pdfFilename="/whitepaper-nightly.pdf" >}}
+{{< blocks/pdfembed orientation="portrait" pdfTitle="Rosenpass Whitepaper (Nightly Build)" pdfFilename="/whitepaper-nightly.pdf" >}}
