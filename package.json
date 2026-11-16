@@ -18,12 +18,12 @@
   "homepage": "https://github.com/rosenpass/rosenpass-website/",
   "devDependencies": {
     "autoprefixer": "^10.5.4",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.32",
     "postcss-cli": "^11.0.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.7.2",
-    "bootstrap": "5.3.8",
+    "bootstrap": "5.3.9",
     "jquery": "^3.7.1",
     "lunr": "^2.3.9"
   }
